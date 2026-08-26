@@ -115,7 +115,7 @@ export const cases: OliCase[] = [
       "Site responsivo publicado",
     ],
     cover: {
-      src: "/portfolio/studio-e-cartao.jpg",
+      src: "/portfolio/studio-e-cartao.webp",
       alt: "Mockup realista do cartão premium desenvolvido para o Studio E",
       label: "Mockup do cartão",
     },
