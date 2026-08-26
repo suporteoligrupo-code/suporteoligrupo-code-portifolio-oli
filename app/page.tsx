@@ -6,8 +6,10 @@ import {
   Globe2,
   Heart,
 } from "lucide-react";
-
-const instagramUrl = "https://www.instagram.com/oli.marketing7/";
+import CaseCard from "../components/case-card";
+import SiteFooter from "../components/site-footer";
+import SiteHeader, { instagramUrl } from "../components/site-header";
+import { cases } from "./data/cases";
 
 const services = [
   {
@@ -37,34 +39,10 @@ const process = [
   ["04", "Entrega", "Refinamos e organizamos tudo para a marca publicar, apresentar e vender com segurança."],
 ];
 
-function ExternalLink({ href, label }: { href: string; label: string }) {
-  return (
-    <a href={href} target="_blank" rel="noreferrer" className="text-link">
-      <span>{label}</span>
-      <ArrowUpRight aria-hidden="true" size={18} strokeWidth={1.8} />
-    </a>
-  );
-}
-
 export default function Home() {
   return (
     <div className="site-page">
-      <header className="site-header">
-        <a className="brand" href="#inicio" aria-label="OLI — início">
-          <img src="/portfolio/oli-logo-oficial-claro.png" alt="OLI" width={6000} height={1842} />
-        </a>
-
-        <nav aria-label="Navegação principal">
-          <a href="#projetos">Projetos</a>
-          <a href="#servicos">Serviços</a>
-          <a href="#processo">Processo</a>
-        </nav>
-
-        <a className="header-cta" href={instagramUrl} target="_blank" rel="noreferrer">
-          Começar um projeto
-          <ArrowUpRight aria-hidden="true" size={15} />
-        </a>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="hero-shell" id="inicio">
@@ -77,7 +55,7 @@ export default function Home() {
                 <img src="/portfolio/studio-e-cartao.webp" alt="" />
               </figure>
               <figure className="hero-slide hero-rico">
-                <img src="/portfolio/rico-games-gta6-preview.jpg" alt="" />
+                <img src="/cases/manifesto/palco.webp" alt="" />
               </figure>
             </div>
 
@@ -89,16 +67,15 @@ export default function Home() {
             <div className="hero-content">
               <p className="hero-kicker">Estratégia · identidade · digital</p>
               <h1>
-                Marcas que não passam{" "}
-                <span>despercebidas.</span>
+                Marcas que não passam <span>despercebidas.</span>
               </h1>
               <p className="hero-lede">
                 Transformamos bons negócios em presenças que inspiram confiança,
                 despertam desejo e deixam mais fácil dizer “sim”.
               </p>
               <div className="hero-actions">
-                <a className="button button-light" href="#projetos">
-                  Explorar projetos
+                <a className="button button-light" href="#cases">
+                  Explorar cases
                   <ArrowDownRight aria-hidden="true" size={18} />
                 </a>
                 <a className="button button-outline" href={instagramUrl} target="_blank" rel="noreferrer">
@@ -111,29 +88,29 @@ export default function Home() {
             <div className="hero-footer">
               <div>
                 <span className="hero-footer-label">Em cena</span>
-                <strong className="hero-project-name" aria-label="GRU KPOP Anime, Studio E e Rico Games">
+                <strong className="hero-project-name" aria-label="GRU KPOP Anime, Studio E e Manifesto Bar">
                   <span>GRU KPOP Anime</span>
                   <span>Studio E</span>
-                  <span>Rico Games</span>
+                  <span>Manifesto Bar</span>
                 </strong>
               </div>
-              <div className="hero-count"><b>03</b> projetos selecionados</div>
+              <div className="hero-count"><b>{String(cases.length).padStart(2, "0")}</b> cases para explorar</div>
             </div>
           </div>
 
           <aside className="hero-proof" aria-label="Prova de experiência da OLI">
             <span>Projetos reais</span>
             <strong>Do conceito<br />à aplicação.</strong>
-            <p>Identidade, conteúdo e site construídos sob a mesma direção.</p>
+            <p>Clique em uma empresa e veja estratégia, direção e entregas reunidas.</p>
           </aside>
         </section>
 
-        <section className="project-rail" aria-label="Projetos apresentados">
-          <p>Direção OLI aplicada em</p>
+        <section className="project-rail" aria-label="Clientes apresentados">
+          <p>Cases OLI</p>
           <div>
-            <a href="#kpop">GRU KPOP <i>Anime</i></a>
-            <a href="#studio-e">Studio <i>E</i></a>
-            <a href="#rico-games">RICO <i>GAMES</i></a>
+            {cases.slice(0, 6).map((item) => (
+              <a key={item.slug} href={`/cases/${item.slug}`}>{item.shortName}</a>
+            ))}
           </div>
         </section>
 
@@ -158,135 +135,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="projects section-shell" id="projetos">
-          <header className="projects-heading reveal">
-            <div className="section-index">02 / Projetos selecionados</div>
-            <h2>Trabalho real.<br /><span>Prova visual.</span></h2>
+        <section className="cases-section" id="cases">
+          <header className="cases-heading section-shell reveal">
+            <div className="section-index">02 / Portfólio por empresa</div>
+            <div>
+              <p className="eyebrow">Clique. Entre. Explore.</p>
+              <h2>Cases<span>.</span></h2>
+            </div>
             <p>
-              Não mostramos peças soltas. Mostramos como uma direção forte ganha forma
-              em diferentes negócios, materiais e telas.
+              Cada negócio abre uma história completa: contexto, direção, entregas e o
+              trabalho ganhando forma em marca, conteúdo ou experiência digital.
             </p>
           </header>
 
-          <article className="featured-project reveal" id="kpop">
-            <a
-              className="featured-visual"
-              href="https://gru-kpop-anime.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Abrir o site da GRU KPOP Anime"
-            >
-              <img
-                src="/portfolio/gru-kpop-cartoes-mockup.webp"
-                alt="Cartões de visita criados para a GRU KPOP Anime"
-              />
-              <div className="visual-topline">
-                <span>Case 01</span>
-                <span>Marca completa</span>
-              </div>
-              <div className="visual-action">
-                Ver site publicado
-                <ArrowUpRight aria-hidden="true" size={21} />
-              </div>
-            </a>
-
-            <div className="featured-details">
-              <span className="project-number">01</span>
-              <div>
-                <p className="project-category">Varejo · cultura · Guarulhos/SP</p>
-                <h3>GRU KPOP<br />Anime</h3>
-              </div>
-              <div className="project-story">
-                <strong>De uma loja querida a uma marca que ocupa espaço.</strong>
-                <p>
-                  Organizamos K-pop, anime, moda e colecionáveis em uma linguagem jovem,
-                  comercial e reconhecível — do cartão ao site.
-                </p>
-                <div className="tag-list" aria-label="Entregas do projeto GRU KPOP Anime">
-                  <span>Identidade</span><span>Conteúdo</span><span>Site</span>
-                </div>
-                <ExternalLink href="https://gru-kpop-anime.vercel.app/" label="Explorar o projeto" />
-              </div>
-            </div>
-
-            <div className="kpop-gallery">
-              <figure>
-                <img
-                  src="/portfolio/gru-sistema-visual.webp"
-                  alt="Sistema visual desenvolvido para a GRU KPOP Anime"
-                  loading="lazy"
-                />
-                <figcaption><span>02</span>Sistema visual</figcaption>
-              </figure>
-              <figure>
-                <img
-                  src="/portfolio/gru-kpop-feed-aprovado.jpg"
-                  alt="Feed aprovado para a GRU KPOP Anime"
-                  loading="lazy"
-                />
-                <figcaption><span>03</span>Conteúdo para Instagram</figcaption>
-              </figure>
-              <aside>
-                <span>Uma marca inteira</span>
-                <strong>O mesmo conceito precisa funcionar no físico e no digital.</strong>
-                <p>É assim que repetição vira reconhecimento — e reconhecimento vira confiança.</p>
-              </aside>
-            </div>
-          </article>
-
-          <div className="selected-heading reveal">
-            <h3>Mais projetos.<br />Novos contextos.</h3>
-            <p>Uma identidade para cada negócio. O mesmo cuidado com percepção, clareza e acabamento.</p>
+          <div className="case-grid section-shell">
+            {cases.map((item) => <CaseCard item={item} key={item.slug} />)}
           </div>
 
-          <div className="project-grid">
-            <article className="project-card studio-card reveal" id="studio-e">
-              <div className="project-card-head">
-                <span>02 / Beleza & cuidado</span>
-                <h3>Studio E</h3>
-                <p>Sofisticação que começa antes do atendimento.</p>
-              </div>
-              <figure className="project-card-visual studio-visual">
-                <img
-                  src="/portfolio/studio-e-cartao.webp"
-                  alt="Cartão premium desenvolvido para o Studio E"
-                  loading="lazy"
-                />
-                <figcaption>Identidade aplicada · Material premium</figcaption>
-              </figure>
-              <div className="project-card-copy">
-                <p>
-                  O vinho marcante ganhou consistência no cartão e no site, transmitindo
-                  valor antes mesmo do agendamento.
-                </p>
-                <div className="tag-list"><span>Identidade</span><span>Cartão</span><span>Site</span></div>
-                <ExternalLink href="https://studio-e-two.vercel.app/" label="Ver site publicado" />
-              </div>
-            </article>
-
-            <article className="project-card rico-card reveal" id="rico-games">
-              <div className="project-card-head">
-                <span>03 / Tecnologia & games</span>
-                <h3>Rico Games</h3>
-                <p>Gamer sem cair no gamer genérico.</p>
-              </div>
-              <figure className="project-card-visual rico-visual">
-                <img
-                  src="/portfolio/rico-games-hyperpop.jpg"
-                  alt="Peça comercial criada para a Rico Games"
-                  loading="lazy"
-                />
-                <figcaption>Direção criativa · Conteúdo comercial</figcaption>
-              </figure>
-              <div className="project-card-copy">
-                <p>
-                  Uma direção tecnológica, madura e organizada para transformar um nome
-                  forte em presença comercial — sem depender do neon de sempre.
-                </p>
-                <div className="tag-list"><span>Direção</span><span>Sistema visual</span><span>Conteúdo</span></div>
-                <span className="project-status">Projeto em desenvolvimento</span>
-              </div>
-            </article>
+          <div className="cases-proof section-shell reveal">
+            <span>Sem números inventados.</span>
+            <p>
+              Autoridade vem de mostrar o raciocínio e o acabamento do trabalho real —
+              não de preencher a página com promessa vazia.
+            </p>
           </div>
         </section>
 
@@ -374,8 +245,7 @@ export default function Home() {
             <img className="contact-mark" src="/portfolio/oli-logo-oficial-escuro.png" alt="" aria-hidden="true" />
             <p className="eyebrow">Seu próximo movimento começa aqui</p>
             <h2>
-              O seu negócio já tem valor.{" "}
-              <span>Vamos fazer o mercado perceber?</span>
+              O seu negócio já tem valor. <span>Vamos fazer o mercado perceber?</span>
             </h2>
             <a className="button button-light contact-button" href={instagramUrl} target="_blank" rel="noreferrer">
               Quero uma marca nesse nível
@@ -389,11 +259,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer>
-        <img src="/portfolio/oli-logo-oficial-escuro.png" alt="OLI" width={6000} height={1842} />
-        <p>Estratégia · Conteúdo · Direção</p>
-        <p>© 2026 OLI Marketing Digital</p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
