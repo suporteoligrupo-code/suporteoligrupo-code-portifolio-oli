@@ -131,10 +131,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
   filter: saturate(0.84) contrast(1.04);
   transform: scale(1.025);
 }
-.hero-kpop { animation-delay: 0s; }
+.hero-oli { animation-delay: 0s; }
 .hero-studio { animation-delay: -12s; }
 .hero-rico { animation-delay: -6s; }
-.hero-kpop img { object-position: center; }
+.hero-oli img { object-position: center; }
 .hero-studio img { object-position: center 44%; }
 .hero-rico img { object-position: center; }
 @keyframes hero-cycle {
@@ -1071,6 +1071,7 @@ footer p:last-child { justify-self: end; }
       linear-gradient(0deg, rgba(8, 10, 9, 0.87), transparent 55%);
   }
   .hero-slide img { object-position: 62% center; }
+  .hero-oli img { object-position: 68% center; }
   .hero-studio img { object-position: center; }
   .hero-rico img { object-position: 55% center; }
   .hero-content { padding: 62px 0 42px; }

@@ -57,8 +57,8 @@ export default function Home() {
         <section className="hero-shell" id="inicio">
           <div className="hero-stage">
             <div className="hero-media" aria-hidden="true">
-              <figure className="hero-slide hero-kpop">
-                <img src="/portfolio/gru-kpop-cartoes-mockup.webp" alt="" fetchPriority="high" />
+              <figure className="hero-slide hero-oli">
+                <img src="/portfolio/oli-hero-brand-v1.webp" alt="" fetchPriority="high" />
               </figure>
               <figure className="hero-slide hero-studio">
                 <img src="/portfolio/studio-e-cartao.webp" alt="" />
@@ -97,8 +97,8 @@ export default function Home() {
             <div className="hero-footer">
               <div>
                 <span className="hero-footer-label">Em cena</span>
-                <strong className="hero-project-name" aria-label="GRU KPOP Anime, Studio E e Manifesto Bar">
-                  <span>GRU KPOP Anime</span>
+                <strong className="hero-project-name" aria-label="Identidade OLI, Studio E e Manifesto Bar">
+                  <span>Identidade OLI</span>
                   <span>Studio E</span>
                   <span>Manifesto Bar</span>
                 </strong>
