@@ -29,7 +29,6 @@ export default function CaseCard({ item }: { item: OliCase }) {
             loading={item.number === "01" ? "eager" : "lazy"}
             style={{ objectPosition: item.cover.position ?? "center" }}
           />
-          <span className="case-card__image-label">{item.cover.label}</span>
           <span className="case-card__open">
             Ver case <ArrowUpRight aria-hidden="true" size={18} />
           </span>
@@ -41,10 +40,9 @@ export default function CaseCard({ item }: { item: OliCase }) {
             <span>{item.sector}</span>
             <span>{item.year}</span>
           </div>
-          <h3>{item.client}</h3>
           <div className="case-card__bottom">
-            <p>{item.headline}</p>
-            <ArrowUpRight aria-hidden="true" size={28} strokeWidth={1.45} />
+            <h3>{item.client}</h3>
+            <ArrowUpRight aria-hidden="true" size={22} strokeWidth={1.45} />
           </div>
         </div>
       </Link>
