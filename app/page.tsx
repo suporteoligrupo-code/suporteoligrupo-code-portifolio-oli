@@ -89,7 +89,7 @@ export default function Home() {
             <div className="hero-content">
               <p className="hero-kicker">Estratégia · identidade · digital</p>
               <h1>
-                Marcas que não passam
+                Marcas que não passam{" "}
                 <span>despercebidas.</span>
               </h1>
               <p className="hero-lede">
@@ -374,7 +374,7 @@ export default function Home() {
             <img className="contact-mark" src="/portfolio/oli-logo-oficial-escuro.png" alt="" aria-hidden="true" />
             <p className="eyebrow">Seu próximo movimento começa aqui</p>
             <h2>
-              O seu negócio já tem valor.
+              O seu negócio já tem valor.{" "}
               <span>Vamos fazer o mercado perceber?</span>
             </h2>
             <a className="button button-light contact-button" href={instagramUrl} target="_blank" rel="noreferrer">
