@@ -40,12 +40,12 @@ const process = [
 ];
 
 const clientMarks = [
-  { slug: "gru-kpop-anime", name: "GRU KPOP Anime", src: "/brandmarks/gru-kpop.webp" },
-  { slug: "studio-e", name: "Studio E", src: "/brandmarks/studio-e.webp" },
-  { slug: "rico-games", name: "Rico Games", src: "/brandmarks/rico-games.webp" },
-  { slug: "josucas-eletronicos", name: "Josucas Eletrônicos", src: "/brandmarks/josucas.webp" },
-  { slug: "manifesto-bar", name: "Manifesto Bar", src: "/brandmarks/manifesto.webp" },
-  { slug: "metro-case", name: "Metro Case", src: "/brandmarks/metro-case.webp" },
+  { slug: "gru-kpop-anime", name: "GRU KPOP Anime", src: "/brandmarks/gru-kpop-light.png" },
+  { slug: "studio-e", name: "Studio E", src: "/brandmarks/studio-e-light.png" },
+  { slug: "rico-games", name: "Rico Games", src: "/brandmarks/rico-games-light.png" },
+  { slug: "josucas-eletronicos", name: "Josucas Eletrônicos", src: "/brandmarks/josucas-light.png" },
+  { slug: "manifesto-bar", name: "Manifesto Bar", src: "/brandmarks/manifesto-light.png" },
+  { slug: "metro-case", name: "Metro Case", src: "/brandmarks/metro-case-light.png" },
 ];
 
 export default function Home() {

@@ -312,26 +312,26 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .project-rail > div {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 8px;
+  gap: 12px;
 }
 .project-rail a {
   height: 48px;
-  display: block;
-  overflow: hidden;
-  border: 1px solid rgba(18, 20, 19, 0.09);
-  border-radius: 9px;
-  background: #efede7;
-  transition: border-color 180ms ease, transform 180ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  opacity: 0.78;
+  transition: opacity 180ms ease, transform 180ms ease;
 }
 .project-rail a:hover {
-  border-color: rgba(235, 83, 33, 0.56);
+  opacity: 1;
   transform: translateY(-2px);
 }
 .project-rail img {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* Value proposition */
@@ -1099,7 +1099,7 @@ footer p:last-child { justify-self: end; }
     padding: 16px 0;
   }
   .project-rail > div { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
-  .project-rail a { height: 44px; border-radius: 8px; }
+  .project-rail a { height: 42px; padding: 6px 8px; }
   .positioning,
   .projects-heading,
   .method-heading { grid-template-columns: 1fr; gap: 30px; }
