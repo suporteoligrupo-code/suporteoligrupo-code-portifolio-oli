@@ -27,7 +27,10 @@ export default function CaseCard({ item }: { item: OliCase }) {
             src={item.cover.src}
             alt={item.cover.alt}
             loading={item.number === "01" ? "eager" : "lazy"}
-            style={{ objectPosition: item.cover.position ?? "center" }}
+            style={{
+              objectPosition: item.cover.position ?? "center",
+              objectFit: item.cover.fit ?? "cover",
+            }}
           />
           <span className="case-card__open">
             Ver case <ArrowUpRight aria-hidden="true" size={18} />

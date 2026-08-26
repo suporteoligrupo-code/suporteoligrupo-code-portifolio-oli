@@ -39,6 +39,15 @@ const process = [
   ["04", "Entrega", "Refinamos e organizamos tudo para a marca publicar, apresentar e vender com segurança."],
 ];
 
+const clientMarks = [
+  { slug: "gru-kpop-anime", name: "GRU KPOP Anime", src: "/brandmarks/gru-kpop.webp" },
+  { slug: "studio-e", name: "Studio E", src: "/brandmarks/studio-e.webp" },
+  { slug: "rico-games", name: "Rico Games", src: "/brandmarks/rico-games.webp" },
+  { slug: "josucas-eletronicos", name: "Josucas Eletrônicos", src: "/brandmarks/josucas.webp" },
+  { slug: "manifesto-bar", name: "Manifesto Bar", src: "/brandmarks/manifesto.webp" },
+  { slug: "metro-case", name: "Metro Case", src: "/brandmarks/metro-case.webp" },
+];
+
 export default function Home() {
   return (
     <div className="site-page">
@@ -105,11 +114,13 @@ export default function Home() {
           </aside>
         </section>
 
-        <section className="project-rail" aria-label="Clientes apresentados">
+        <section className="project-rail" aria-label="Logomarcas dos clientes apresentados">
           <p>Cases OLI</p>
           <div>
-            {cases.slice(0, 6).map((item) => (
-              <a key={item.slug} href={`/cases/${item.slug}`}>{item.shortName}</a>
+            {clientMarks.map((item) => (
+              <a key={item.slug} href={`/cases/${item.slug}`} aria-label={`Abrir o case ${item.name}`}>
+                <img src={item.src} alt={`Logomarca ${item.name}`} loading="lazy" />
+              </a>
             ))}
           </div>
         </section>
@@ -230,10 +241,10 @@ export default function Home() {
           </div>
           <figure className="impact-photo">
             <img
-              src="https://images.unsplash.com/photo-1779191774094-2f2bbb701332?auto=format&fit=crop&w=1600&q=82"
-              alt="Gatinho ruivo descansando sob uma luz suave"
-              width={1600}
-              height={1100}
+              src="/impact/gatinho-ruivo.jpg"
+              alt="Gatinho ruivo em uma fotografia clara e natural"
+              width={700}
+              height={936}
               loading="lazy"
             />
             <figcaption>Uma marca que também cuida.</figcaption>

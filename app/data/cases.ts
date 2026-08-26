@@ -3,6 +3,7 @@ export type CaseImage = {
   alt: string;
   label: string;
   position?: string;
+  fit?: "cover" | "contain";
 };
 
 export type OliCase = {
@@ -61,9 +62,10 @@ export const cases: OliCase[] = [
       "Site responsivo publicado",
     ],
     cover: {
-      src: "/portfolio/gru-kpop-cartoes-mockup.webp",
-      alt: "Cartões de visita da GRU KPOP Anime",
-      label: "Identidade aplicada",
+      src: "/cases/gru-kpop-anime/site-home.jpg",
+      alt: "Página inicial do site publicado da GRU KPOP Anime",
+      label: "Site publicado",
+      position: "top center",
     },
     gallery: [
       {
@@ -113,9 +115,9 @@ export const cases: OliCase[] = [
       "Site responsivo publicado",
     ],
     cover: {
-      src: "/portfolio/studio-e-cartao.webp",
-      alt: "Cartão premium desenvolvido para o Studio E",
-      label: "Material de marca",
+      src: "/portfolio/studio-e-cartao.jpg",
+      alt: "Mockup realista do cartão premium desenvolvido para o Studio E",
+      label: "Mockup do cartão",
     },
     gallery: [
       {
@@ -166,8 +168,9 @@ export const cases: OliCase[] = [
     cover: {
       src: "/portfolio/rico-games-hyperpop.jpg",
       alt: "Sistema visual desenvolvido para a Rico Games",
-      label: "Direção de marca",
+      label: "Identidade visual",
       position: "top center",
+      fit: "contain",
     },
     gallery: [
       {
@@ -327,9 +330,10 @@ export const cases: OliCase[] = [
       "Landing page responsiva publicada",
     ],
     cover: {
-      src: "/cases/metro-case/hero.webp",
-      alt: "Direção visual da landing page Metro Case",
-      label: "Campanha digital",
+      src: "/cases/metro-case/site-home.jpg",
+      alt: "Página inicial da landing page publicada da Metro Case",
+      label: "Landing page publicada",
+      position: "top center",
     },
     gallery: [
       {
@@ -475,7 +479,8 @@ export const cases: OliCase[] = [
     cover: {
       src: "/cases/eletrotech-isa/sistema-visual.jpg",
       alt: "Sistema visual aprovado para a Eletrotech ISA",
-      label: "Sistema de identidade",
+      label: "Identidade visual",
+      fit: "contain",
     },
     gallery: [
       {
@@ -523,9 +528,10 @@ export const cases: OliCase[] = [
       "Experiência responsiva publicada",
     ],
     cover: {
-      src: "https://dona-girafa-vista-o-cuidado.vercel.app/assets/dona-girafa/scrub-girafa.webp",
-      alt: "Produto apresentado no e-commerce Dona Girafa",
-      label: "E-commerce",
+      src: "/cases/dona-girafa/site-home.jpg",
+      alt: "Página inicial do e-commerce publicado da Dona Girafa",
+      label: "E-commerce publicado",
+      position: "top center",
     },
     gallery: [
       {
