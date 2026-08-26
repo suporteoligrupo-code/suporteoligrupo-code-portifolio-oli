@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="329" height="101" viewBox="0 0 329 101" role="img" aria-labelledby="title desc">
+  <title id="title">oli — marca para fundos escuros</title>
+  <desc id="desc">Marca vetorial em marfim e coral.</desc>
+  <polygon points="0,23 23,0 78,0 101,23 101,78 78,101 23,101 0,78" fill="#F4F0E7"/>
+  <polygon points="24,39 39,24 62,24 77,39 77,62 62,77 39,77 24,62" fill="#151718"/>
+  <path d="M124 0H153V72H221V101H124Z" fill="#F4F0E7"/>
+  <rect x="245" y="0" width="29" height="101" fill="#F4F0E7"/>
+  <rect x="304" y="0" width="25" height="25" fill="#D45B43"/>
+</svg>
