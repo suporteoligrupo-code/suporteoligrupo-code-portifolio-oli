@@ -1,3 +1,6 @@
+"use client";
+
+import Link from "next/link";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -6,38 +9,13 @@ import {
   Globe2,
   Heart,
 } from "lucide-react";
+import { useEffect } from "react";
 import CaseCard from "../components/case-card";
+import { useLanguage } from "../components/language-provider";
 import SiteFooter from "../components/site-footer";
 import SiteHeader, { instagramUrl } from "../components/site-header";
 import { cases } from "./data/cases";
-
-const services = [
-  {
-    number: "01",
-    title: "Identidade visual",
-    text: "Estratégia, logo e um sistema visual que faz a empresa parecer tão profissional quanto o trabalho que entrega.",
-    tags: ["Posicionamento", "Logo", "Sistema de marca"],
-  },
-  {
-    number: "02",
-    title: "Sites & landing pages",
-    text: "Direção de arte, mensagem e experiência reunidas em páginas feitas para segurar atenção e gerar contato.",
-    tags: ["UX/UI", "Copy", "Desenvolvimento"],
-  },
-  {
-    number: "03",
-    title: "Presença de marca",
-    text: "Conteúdo e materiais comerciais que mantêm a mesma percepção de valor em cada ponto de contato.",
-    tags: ["Social", "Campanhas", "Materiais"],
-  },
-];
-
-const process = [
-  ["01", "Diagnóstico", "Entendemos o negócio, o público e o que a marca precisa fazer o cliente perceber."],
-  ["02", "Direção", "Definimos uma rota estratégica, verbal e visual antes de desenhar qualquer peça."],
-  ["03", "Criação", "Construímos identidade, conteúdo e experiência digital como partes do mesmo sistema."],
-  ["04", "Entrega", "Refinamos e organizamos tudo para a marca publicar, apresentar e vender com segurança."],
-];
+import { siteCopy, withLanguage } from "./data/i18n";
 
 const clientMarks = [
   { slug: "gru-kpop-anime", name: "GRU KPOP Anime", src: "/brandmarks/gru-kpop-light.png" },
@@ -49,6 +27,13 @@ const clientMarks = [
 ];
 
 export default function Home() {
+  const { language } = useLanguage();
+  const copy = siteCopy[language].home;
+
+  useEffect(() => {
+    document.title = copy.pageTitle;
+  }, [copy.pageTitle]);
+
   return (
     <div className="site-page">
       <SiteHeader />
@@ -69,26 +54,23 @@ export default function Home() {
             </div>
 
             <div className="hero-topline">
-              <span>Estúdio criativo</span>
-              <span>Brasil — Portugal</span>
+              <span>{copy.studio}</span>
+              <span>{copy.regions}</span>
             </div>
 
             <div className="hero-content">
-              <p className="hero-kicker">Estratégia · identidade · digital</p>
+              <p className="hero-kicker">{copy.kicker}</p>
               <h1>
-                Marcas que não passam <span>despercebidas.</span>
+                {copy.heroTitle} <span>{copy.heroAccent}</span>
               </h1>
-              <p className="hero-lede">
-                Transformamos bons negócios em presenças que inspiram confiança,
-                despertam desejo e deixam mais fácil dizer “sim”.
-              </p>
+              <p className="hero-lede">{copy.lede}</p>
               <div className="hero-actions">
                 <a className="button button-light" href="#cases">
-                  Explorar projetos
+                  {copy.explore}
                   <ArrowDownRight aria-hidden="true" size={18} />
                 </a>
                 <a className="button button-outline" href={instagramUrl} target="_blank" rel="noreferrer">
-                  Quero elevar minha marca
+                  {copy.elevate}
                   <ArrowUpRight aria-hidden="true" size={18} />
                 </a>
               </div>
@@ -96,51 +78,54 @@ export default function Home() {
 
             <div className="hero-footer">
               <div>
-                <span className="hero-footer-label">Em cena</span>
-                <strong className="hero-project-name" aria-label="Identidade OLI, Studio E e Manifesto Bar">
-                  <span>Identidade OLI</span>
+                <span className="hero-footer-label">{copy.onStage}</span>
+                <strong className="hero-project-name" aria-label={`${copy.identityOli}, Studio E, Manifesto Bar`}>
+                  <span>{copy.identityOli}</span>
                   <span>Studio E</span>
                   <span>Manifesto Bar</span>
                 </strong>
               </div>
-              <div className="hero-count"><b>{String(cases.length).padStart(2, "0")}</b> projetos para explorar</div>
+              <div className="hero-count">
+                <b>{String(cases.length).padStart(2, "0")}</b> {copy.projectsToExplore}
+              </div>
             </div>
           </div>
 
-          <aside className="hero-proof" aria-label="Prova de experiência da OLI">
-            <span>Projetos reais</span>
-            <strong>Do conceito<br />à aplicação.</strong>
-            <p>Clique em uma empresa e veja estratégia, direção e entregas reunidas.</p>
+          <aside className="hero-proof" aria-label={copy.proofAria}>
+            <span>{copy.proofLabel}</span>
+            <strong>{copy.proofTitle}</strong>
+            <p>{copy.proofText}</p>
           </aside>
         </section>
 
-        <section className="project-rail" aria-label="Logomarcas dos clientes apresentados">
-          <p>Projetos OLI</p>
+        <section className="project-rail" aria-label={copy.clientMarksAria}>
+          <p>{copy.projectsOli}</p>
           <div>
             {clientMarks.map((item) => (
-              <a key={item.slug} href={`/cases/${item.slug}`} aria-label={`Abrir o projeto ${item.name}`}>
-                <img src={item.src} alt={`Logomarca ${item.name}`} loading="lazy" />
-              </a>
+              <Link
+                key={item.slug}
+                href={withLanguage(`/cases/${item.slug}`, language)}
+                aria-label={`${copy.openProject} ${item.name}`}
+              >
+                <img src={item.src} alt={`${copy.brandmark} ${item.name}`} loading="lazy" />
+              </Link>
             ))}
           </div>
         </section>
 
         <section className="positioning section-shell">
-          <div className="section-index">01 / Por que a OLI</div>
+          <div className="section-index">{copy.whyIndex}</div>
           <div className="positioning-copy">
-            <p className="eyebrow">Percepção também vende</p>
+            <p className="eyebrow">{copy.perceptionEyebrow}</p>
             <h2>
-              Seu trabalho pode ser excelente. Se a marca não mostra isso,
-              <span> o cliente não adivinha.</span>
+              {copy.perceptionTitle}
+              <span> {copy.perceptionAccent}</span>
             </h2>
           </div>
           <div className="positioning-note">
-            <p>
-              A OLI reúne estratégia, direção visual e experiência digital para tornar
-              o valor do seu negócio evidente antes da primeira conversa.
-            </p>
+            <p>{copy.perceptionText}</p>
             <a href="#servicos">
-              Como fazemos isso
+              {copy.perceptionLink}
               <ArrowDownRight aria-hidden="true" size={18} />
             </a>
           </div>
@@ -148,15 +133,12 @@ export default function Home() {
 
         <section className="cases-section" id="cases">
           <header className="cases-heading section-shell reveal">
-            <div className="section-index">02 / Portfólio por empresa</div>
+            <div className="section-index">{copy.portfolioIndex}</div>
             <div>
-              <p className="eyebrow">Clique. Entre. Explore.</p>
-              <h2>Projetos<span>.</span></h2>
+              <p className="eyebrow">{copy.portfolioEyebrow}</p>
+              <h2>{copy.projectsTitle}<span>.</span></h2>
             </div>
-            <p>
-              Cada negócio abre uma história completa: contexto, direção, entregas e o
-              trabalho ganhando forma em marca, conteúdo ou experiência digital.
-            </p>
+            <p>{copy.portfolioText}</p>
           </header>
 
           <div className="case-grid section-shell">
@@ -164,38 +146,35 @@ export default function Home() {
           </div>
 
           <div className="cases-proof section-shell reveal">
-            <span>Sem números inventados.</span>
-            <p>
-              Autoridade vem de mostrar o raciocínio e o acabamento do trabalho real —
-              não de preencher a página com promessa vazia.
-            </p>
+            <span>{copy.proofNumbers}</span>
+            <p>{copy.proofNumbersText}</p>
           </div>
         </section>
 
         <div className="marquee" aria-hidden="true">
           <div>
-            <span>marca</span><i>✦</i><span>conteúdo</span><i>✦</i><span>digital</span><i>✦</i><span>presença</span><i>✦</i>
-            <span>marca</span><i>✦</i><span>conteúdo</span><i>✦</i><span>digital</span><i>✦</i><span>presença</span><i>✦</i>
+            {[...copy.marquee, ...copy.marquee].map((word, index) => (
+              <span className="marquee-item" key={`${word}-${index}`}>
+                <span>{word}</span><i>✦</i>
+              </span>
+            ))}
           </div>
         </div>
 
         <section className="capabilities section-shell" id="servicos">
           <div className="capabilities-intro reveal">
-            <div className="section-index">03 / O que construímos</div>
-            <p className="eyebrow">Serviços conectados</p>
-            <h2>Uma marca inteira.<br /><span>Não peças soltas.</span></h2>
-            <p>
-              Você pode começar por uma necessidade específica. A direção, porém, já nasce
-              preparada para sustentar os próximos passos.
-            </p>
+            <div className="section-index">{copy.servicesIndex}</div>
+            <p className="eyebrow">{copy.servicesEyebrow}</p>
+            <h2>{copy.servicesTitle}<br /><span>{copy.servicesAccent}</span></h2>
+            <p>{copy.servicesText}</p>
             <a className="button button-orange" href={instagramUrl} target="_blank" rel="noreferrer">
-              Falar sobre meu momento
+              {copy.servicesCta}
               <ArrowUpRight aria-hidden="true" size={18} />
             </a>
           </div>
 
           <div className="service-list reveal">
-            {services.map((service) => (
+            {copy.services.map((service) => (
               <article key={service.number}>
                 <div className="service-title">
                   <span>{service.number}</span>
@@ -211,12 +190,12 @@ export default function Home() {
 
         <section className="method section-shell" id="processo">
           <header className="method-heading reveal">
-            <div className="section-index">04 / Processo</div>
-            <h2>Clareza antes da estética.</h2>
-            <p>Sem fórmula pronta e sem decisões soltas. Cada etapa prepara a próxima.</p>
+            <div className="section-index">{copy.processIndex}</div>
+            <h2>{copy.processTitle}</h2>
+            <p>{copy.processText}</p>
           </header>
           <div className="method-grid reveal">
-            {process.map(([number, title, text]) => (
+            {copy.process.map(([number, title, text]) => (
               <article key={number}>
                 <span>{number}</span>
                 <h3>{title}</h3>
@@ -230,41 +209,38 @@ export default function Home() {
           <div className="impact-copy">
             <div className="impact-label">
               <Heart aria-hidden="true" size={19} strokeWidth={1.6} />
-              <span>Compromisso OLI</span>
+              <span>{copy.impactLabel}</span>
             </div>
             <strong>10%</strong>
-            <h2>da renda bruta é destinada à proteção animal.</h2>
-            <p>
-              Sua empresa evolui e, junto com ela, iniciativas que acolhem, cuidam e
-              protegem animais também recebem apoio.
-            </p>
+            <h2>{copy.impactTitle}</h2>
+            <p>{copy.impactText}</p>
           </div>
           <figure className="impact-photo">
             <img
               src="/impact/gatinho-ruivo.jpg"
-              alt="Gatinho ruivo em uma fotografia clara e natural"
+              alt={copy.catAlt}
               width={700}
               height={936}
               loading="lazy"
             />
-            <figcaption>Uma marca que também cuida.</figcaption>
+            <figcaption>{copy.catCaption}</figcaption>
           </figure>
         </section>
 
         <section className="contact-shell" id="contato">
           <div className="contact-stage">
             <img className="contact-mark" src="/portfolio/oli-logo-oficial-escuro.png" alt="" aria-hidden="true" />
-            <p className="eyebrow">Seu próximo movimento começa aqui</p>
+            <p className="eyebrow">{copy.contactEyebrow}</p>
             <h2>
-              O seu negócio já tem valor. <span>Vamos fazer o mercado perceber?</span>
+              {copy.contactTitle} <span>{copy.contactAccent}</span>
             </h2>
             <a className="button button-light contact-button" href={instagramUrl} target="_blank" rel="noreferrer">
-              Quero uma marca nesse nível
+              {copy.contactCta}
               <ArrowUpRight aria-hidden="true" size={19} />
             </a>
             <div className="contact-meta">
               <span><AtSign aria-hidden="true" size={16} /> oli.marketing7</span>
-              <span><Globe2 aria-hidden="true" size={16} /> Brasil — Portugal</span>
+              <span><Globe2 aria-hidden="true" size={16} /> {copy.regions}</span>
             </div>
           </div>
         </section>

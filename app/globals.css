@@ -73,8 +73,48 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 .site-header nav a { transition: opacity 180ms ease; }
 .site-header nav a:hover { opacity: 0.5; }
-.header-cta {
+.header-actions {
   justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid rgba(21, 24, 23, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+}
+.language-switcher button {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  opacity: 0.48;
+  filter: saturate(0.72);
+  transition: opacity 180ms ease, background 180ms ease, filter 180ms ease, transform 180ms ease;
+}
+.language-switcher button:hover { opacity: 0.8; transform: translateY(-1px); }
+.language-switcher button.is-active {
+  background: var(--ink);
+  opacity: 1;
+  filter: none;
+}
+.language-switcher button:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+.header-cta {
   min-height: 39px;
   display: inline-flex;
   align-items: center;
@@ -711,6 +751,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   gap: 22px;
   animation: marquee 24s linear infinite;
 }
+.marquee-item { display: inline-flex; align-items: center; gap: 22px; }
 .marquee span {
   font-size: clamp(32px, 4.2vw, 58px);
   font-weight: 450;
@@ -1029,6 +1070,12 @@ footer p:last-child { justify-self: end; }
 }
 
 @media (max-width: 1080px) {
+  .header-cta {
+    width: 39px;
+    padding: 0;
+    justify-content: center;
+  }
+  .header-cta-label { display: none; }
   .hero-content { width: min(100%, 880px); }
   .positioning,
   .projects-heading,
@@ -1059,7 +1106,10 @@ footer p:last-child { justify-self: end; }
   }
   .site-header nav { display: none; }
   .brand img { width: 70px; }
-  .header-cta { min-height: 36px; padding-inline: 14px; font-size: 9px; }
+  .header-actions { gap: 6px; }
+  .language-switcher { gap: 1px; padding: 2px; }
+  .language-switcher button { width: 28px; height: 28px; font-size: 14px; }
+  .header-cta { width: 34px; min-height: 34px; padding: 0; font-size: 9px; }
   .hero-shell { padding: 7px 7px 0; margin-bottom: 45px; }
   .hero-stage {
     min-height: 610px;
@@ -1140,6 +1190,7 @@ footer p:last-child { justify-self: end; }
   .project-card-copy { padding: 25px 26px 44px; }
   .marquee { padding: 14px 0 15px; }
   .marquee > div { gap: 16px; }
+  .marquee-item { gap: 16px; }
   .marquee span { font-size: 32px; }
   .capabilities { margin: 6px; padding: 58px 18px 64px; border-radius: 21px; }
   .capabilities .section-index { margin-bottom: 40px; }
@@ -1173,6 +1224,17 @@ footer p:last-child { justify-self: end; }
   }
   footer p:nth-child(2) { display: none; }
   footer p:last-child { justify-self: end; text-align: right; }
+}
+
+html[lang="ru"] .hero-content h1 { font-size: clamp(46px, 5.2vw, 82px); }
+html[lang="ru"] .hero-proof strong { font-size: clamp(27px, 2.5vw, 38px); }
+html[lang="ru"] .positioning-copy h2,
+html[lang="ru"] .capabilities-intro h2,
+html[lang="ru"] .method-heading h2 { letter-spacing: -0.055em; }
+
+@media (max-width: 760px) {
+  html[lang="ru"] .hero-content h1 { font-size: clamp(39px, 11.6vw, 53px); }
+  html[lang="ru"] .hero-proof strong { font-size: 21px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

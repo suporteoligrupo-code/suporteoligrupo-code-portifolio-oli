@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
 import type { OliCase } from "../app/data/cases";
+import { localizeCase, siteCopy, withLanguage } from "../app/data/i18n";
+import { useLanguage } from "./language-provider";
 
 type CaseStyle = CSSProperties & {
   "--case-accent": string;
@@ -10,6 +14,9 @@ type CaseStyle = CSSProperties & {
 };
 
 export default function CaseCard({ item }: { item: OliCase }) {
+  const { language } = useLanguage();
+  const localized = localizeCase(item, language);
+  const copy = siteCopy[language].card;
   const style: CaseStyle = {
     "--case-accent": item.accent,
     "--case-soft": item.accentSoft,
@@ -21,30 +28,33 @@ export default function CaseCard({ item }: { item: OliCase }) {
       className={`case-card case-card--${item.size} case-card--${item.cardTone} reveal`}
       style={style}
     >
-      <Link href={`/cases/${item.slug}`} aria-label={`Abrir o projeto ${item.client}`}>
+      <Link
+        href={withLanguage(`/cases/${item.slug}`, language)}
+        aria-label={`${copy.openProject} ${localized.client}`}
+      >
         <figure className="case-card__visual">
           <img
-            src={item.cover.src}
-            alt={item.cover.alt}
+            src={localized.cover.src}
+            alt={localized.cover.alt}
             loading={item.number === "01" ? "eager" : "lazy"}
             style={{
-              objectPosition: item.cover.position ?? "center",
-              objectFit: item.cover.fit ?? "cover",
+              objectPosition: localized.cover.position ?? "center",
+              objectFit: localized.cover.fit ?? "cover",
             }}
           />
           <span className="case-card__open">
-            Ver projeto <ArrowUpRight aria-hidden="true" size={18} />
+            {copy.viewProject} <ArrowUpRight aria-hidden="true" size={18} />
           </span>
         </figure>
 
         <div className="case-card__copy">
           <div className="case-card__meta">
             <span>{item.number}</span>
-            <span>{item.sector}</span>
+            <span>{localized.sector}</span>
             <span>{item.year}</span>
           </div>
           <div className="case-card__bottom">
-            <h3>{item.client}</h3>
+            <h3>{localized.client}</h3>
             <ArrowUpRight aria-hidden="true" size={22} strokeWidth={1.45} />
           </div>
         </div>
