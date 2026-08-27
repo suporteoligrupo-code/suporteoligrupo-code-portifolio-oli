@@ -5,7 +5,7 @@ import SiteHeader from "../../components/site-header";
 import { cases } from "../data/cases";
 
 export const metadata: Metadata = {
-  title: "Cases — OLI Marketing Digital",
+  title: "Projetos — OLI Marketing Digital",
   description: "Conheça os projetos de identidade visual, sites, landing pages e conteúdo desenvolvidos pela OLI.",
 };
 
@@ -16,7 +16,7 @@ export default function CasesPage() {
       <main>
         <header className="cases-index-hero section-shell">
           <span>Portfólio por empresa · {String(cases.length).padStart(2, "0")} projetos</span>
-          <h1>Cases<span>.</span></h1>
+          <h1>Projetos<span>.</span></h1>
           <p>
             Entre em cada empresa para conhecer o contexto, a direção e o conjunto de
             entregas — não apenas uma imagem bonita fora de contexto.

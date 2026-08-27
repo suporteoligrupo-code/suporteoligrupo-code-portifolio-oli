@@ -28,7 +28,7 @@ export async function generateMetadata({
   if (!item) return {};
 
   return {
-    title: `${item.client} — Case OLI`,
+    title: `${item.client} — Projeto OLI`,
     description: item.summary,
   };
 }
@@ -56,8 +56,8 @@ export default async function CasePage({
       <main>
         <section className="case-hero">
           <div className="case-hero__topline">
-            <Link href="/#cases"><ArrowLeft aria-hidden="true" size={16} /> Todos os cases</Link>
-            <span>Case {item.number} · {item.year}</span>
+            <Link href="/#cases"><ArrowLeft aria-hidden="true" size={16} /> Todos os projetos</Link>
+            <span>Projeto {item.number} · {item.year}</span>
           </div>
 
           <div className="case-hero__heading">
@@ -176,7 +176,7 @@ export default async function CasePage({
         </section>
 
         <section className="case-next">
-          <p>Próximo case</p>
+          <p>Próximo projeto</p>
           <Link href={`/cases/${next.slug}`}>
             <span>{next.client}</span>
             <ArrowUpRight aria-hidden="true" size={42} strokeWidth={1.25} />

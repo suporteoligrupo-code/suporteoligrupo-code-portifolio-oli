@@ -11,7 +11,7 @@ export default function SiteHeader({ inner = false }: { inner?: boolean }) {
       </Link>
 
       <nav aria-label="Navegação principal">
-        <Link href={inner ? "/#cases" : "#cases"}>Cases.</Link>
+        <Link href={inner ? "/#cases" : "#cases"}>Projetos.</Link>
         <Link href={inner ? "/#servicos" : "#servicos"}>Serviços</Link>
         <Link href={inner ? "/#processo" : "#processo"}>Processo</Link>
       </nav>

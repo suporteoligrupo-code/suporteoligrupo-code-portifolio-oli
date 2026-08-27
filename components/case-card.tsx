@@ -21,7 +21,7 @@ export default function CaseCard({ item }: { item: OliCase }) {
       className={`case-card case-card--${item.size} case-card--${item.cardTone} reveal`}
       style={style}
     >
-      <Link href={`/cases/${item.slug}`} aria-label={`Abrir o case ${item.client}`}>
+      <Link href={`/cases/${item.slug}`} aria-label={`Abrir o projeto ${item.client}`}>
         <figure className="case-card__visual">
           <img
             src={item.cover.src}
@@ -33,7 +33,7 @@ export default function CaseCard({ item }: { item: OliCase }) {
             }}
           />
           <span className="case-card__open">
-            Ver case <ArrowUpRight aria-hidden="true" size={18} />
+            Ver projeto <ArrowUpRight aria-hidden="true" size={18} />
           </span>
         </figure>
 

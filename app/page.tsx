@@ -84,7 +84,7 @@ export default function Home() {
               </p>
               <div className="hero-actions">
                 <a className="button button-light" href="#cases">
-                  Explorar cases
+                  Explorar projetos
                   <ArrowDownRight aria-hidden="true" size={18} />
                 </a>
                 <a className="button button-outline" href={instagramUrl} target="_blank" rel="noreferrer">
@@ -103,7 +103,7 @@ export default function Home() {
                   <span>Manifesto Bar</span>
                 </strong>
               </div>
-              <div className="hero-count"><b>{String(cases.length).padStart(2, "0")}</b> cases para explorar</div>
+              <div className="hero-count"><b>{String(cases.length).padStart(2, "0")}</b> projetos para explorar</div>
             </div>
           </div>
 
@@ -115,10 +115,10 @@ export default function Home() {
         </section>
 
         <section className="project-rail" aria-label="Logomarcas dos clientes apresentados">
-          <p>Cases OLI</p>
+          <p>Projetos OLI</p>
           <div>
             {clientMarks.map((item) => (
-              <a key={item.slug} href={`/cases/${item.slug}`} aria-label={`Abrir o case ${item.name}`}>
+              <a key={item.slug} href={`/cases/${item.slug}`} aria-label={`Abrir o projeto ${item.name}`}>
                 <img src={item.src} alt={`Logomarca ${item.name}`} loading="lazy" />
               </a>
             ))}
@@ -151,7 +151,7 @@ export default function Home() {
             <div className="section-index">02 / Portfólio por empresa</div>
             <div>
               <p className="eyebrow">Clique. Entre. Explore.</p>
-              <h2>Cases<span>.</span></h2>
+              <h2>Projetos<span>.</span></h2>
             </div>
             <p>
               Cada negócio abre uma história completa: contexto, direção, entregas e o
