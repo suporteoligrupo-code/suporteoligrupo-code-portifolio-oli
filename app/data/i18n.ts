@@ -4,13 +4,13 @@ export type Language = "pt" | "en" | "ru";
 
 export const languageOptions: Array<{
   code: Language;
-  flag: string;
+  flagSrc: string;
   label: string;
   htmlLang: string;
 }> = [
-  { code: "pt", flag: "🇧🇷", label: "Português", htmlLang: "pt-BR" },
-  { code: "en", flag: "🇬🇧", label: "English", htmlLang: "en" },
-  { code: "ru", flag: "🇷🇺", label: "Русский", htmlLang: "ru" },
+  { code: "pt", flagSrc: "/flags/br.svg", label: "Português", htmlLang: "pt-BR" },
+  { code: "en", flagSrc: "/flags/gb.svg", label: "English", htmlLang: "en" },
+  { code: "ru", flagSrc: "/flags/ru.svg", label: "Русский", htmlLang: "ru" },
 ];
 
 type ServiceCopy = {

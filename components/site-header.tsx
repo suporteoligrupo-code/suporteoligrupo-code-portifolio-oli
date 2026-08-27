@@ -35,7 +35,7 @@ export default function SiteHeader({ inner = false }: { inner?: boolean }) {
               aria-pressed={option.code === language}
               title={option.label}
             >
-              <span aria-hidden="true">{option.flag}</span>
+              <img src={option.flagSrc} alt="" width={24} height={16} aria-hidden="true" />
             </button>
           ))}
         </div>
