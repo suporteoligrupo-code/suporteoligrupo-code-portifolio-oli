@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import CaseStudyContent from "../../../components/case-study-content";
 import { cases, getCase, getNextCase } from "../../data/cases";
 
+const siteUrl = "https://portfolio-oli-taupe.vercel.app";
+
 export function generateStaticParams() {
   return cases.map((item) => ({ slug: item.slug }));
 }
@@ -17,9 +19,27 @@ export async function generateMetadata({
 
   if (!item) return {};
 
+  const title = `${item.client} — Projeto OLI`;
+  const url = `${siteUrl}/cases/${item.slug}/`;
+  const image = new URL(item.cover.src, siteUrl).toString();
+
   return {
-    title: `${item.client} — Projeto OLI`,
+    title,
     description: item.summary,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website",
+      url,
+      title,
+      description: item.summary,
+      images: [{ url: image, alt: item.cover.alt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: item.summary,
+      images: [image],
+    },
   };
 }
 

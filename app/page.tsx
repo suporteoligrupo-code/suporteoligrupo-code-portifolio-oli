@@ -26,6 +26,8 @@ const clientMarks = [
   { slug: "metro-case", name: "Metro Case", src: "/brandmarks/metro-case-light.png" },
 ];
 
+const heroProjects = cases.slice(0, 3);
+
 export default function Home() {
   const { language } = useLanguage();
   const copy = siteCopy[language].home;
@@ -54,8 +56,8 @@ export default function Home() {
             </div>
 
             <div className="hero-topline">
-              <span>{copy.studio}</span>
-              <span>{copy.regions}</span>
+              <span>OLI® / {copy.studio}</span>
+              <span>{copy.regions} / 2026</span>
             </div>
 
             <div className="hero-content">
@@ -77,25 +79,27 @@ export default function Home() {
             </div>
 
             <div className="hero-footer">
-              <div>
+              <div className="hero-now-playing">
                 <span className="hero-footer-label">{copy.onStage}</span>
-                <strong className="hero-project-name" aria-label={`${copy.identityOli}, Studio E, Manifesto Bar`}>
-                  <span>{copy.identityOli}</span>
-                  <span>Studio E</span>
-                  <span>Manifesto Bar</span>
+                <strong className="hero-project-name" aria-label={heroProjects.map((item) => item.client).join(", ")}>
+                  {heroProjects.map((item) => <span key={item.slug}>{item.client}</span>)}
                 </strong>
               </div>
               <div className="hero-count">
                 <b>{String(cases.length).padStart(2, "0")}</b> {copy.projectsToExplore}
               </div>
+              <a className="hero-scroll" href="#cases">
+                <span>{copy.explore}</span>
+                <ArrowDownRight aria-hidden="true" size={18} />
+              </a>
             </div>
-          </div>
 
-          <aside className="hero-proof" aria-label={copy.proofAria}>
-            <span>{copy.proofLabel}</span>
-            <strong>{copy.proofTitle}</strong>
-            <p>{copy.proofText}</p>
-          </aside>
+            <aside className="hero-proof" aria-label={copy.proofAria}>
+              <span>{copy.proofLabel}</span>
+              <strong>{copy.proofTitle}</strong>
+              <p>{copy.proofText}</p>
+            </aside>
+          </div>
         </section>
 
         <section className="project-rail" aria-label={copy.clientMarksAria}>
@@ -138,7 +142,13 @@ export default function Home() {
               <p className="eyebrow">{copy.portfolioEyebrow}</p>
               <h2>{copy.projectsTitle}<span>.</span></h2>
             </div>
-            <p>{copy.portfolioText}</p>
+            <div className="cases-heading__aside">
+              <p>{copy.portfolioText}</p>
+              <Link href={withLanguage("/cases", language)}>
+                {copy.explore}
+                <ArrowUpRight aria-hidden="true" size={18} />
+              </Link>
+            </div>
           </header>
 
           <div className="case-grid section-shell">

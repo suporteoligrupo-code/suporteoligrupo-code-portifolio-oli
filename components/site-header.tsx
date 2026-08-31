@@ -14,7 +14,7 @@ export default function SiteHeader({ inner = false }: { inner?: boolean }) {
   return (
     <header className={`site-header${inner ? " site-header--inner" : ""}`}>
       <Link className="brand" href={withLanguage("/", language)} aria-label={copy.homeLabel}>
-        <img src="/portfolio/oli-logo-oficial-claro.png" alt="OLI" width={6000} height={1842} />
+        <img src="/portfolio/oli-logo-oficial-escuro.png" alt="OLI" width={6000} height={1842} />
       </Link>
 
       <nav aria-label={copy.navLabel}>

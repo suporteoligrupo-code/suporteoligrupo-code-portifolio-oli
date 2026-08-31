@@ -127,7 +127,7 @@ export const cases: OliCase[] = [
         position: "top center",
       },
       {
-        src: "/portfolio/studio-e-cartao.jpg",
+        src: "/portfolio/studio-e-cartao.webp",
         alt: "Detalhes do cartão criado para o Studio E",
         label: "Aplicação da identidade",
       },

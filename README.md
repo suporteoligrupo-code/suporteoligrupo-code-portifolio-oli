@@ -1,15 +1,16 @@
 # Portfólio OLI
 
-Site comercial da OLI Marketing Digital, criado para apresentar trabalhos por empresa e transformar o portfólio em uma ferramenta de prospecção.
+Site comercial da OLI Marketing Digital, criado para apresentar trabalhos por empresa e transformar o portfólio em uma experiência editorial de prospecção.
 
 ## Estrutura
 
-- home comercial com posicionamento, serviços, processo, impacto social e CTA;
-- seção editorial `Cases.` com todos os projetos disponíveis;
+- home cinematográfica com posicionamento, serviços, processo, impacto social e CTA;
+- catálogo visual assimétrico com todos os projetos disponíveis;
 - página dedicada para cada cliente em `/cases/[slug]`;
 - dados centralizados em `app/data/cases.ts`;
 - galeria de materiais reais e links para projetos publicados;
-- layout responsivo e rotas estáticas compatíveis com Vercel e Sites.
+- layout responsivo em PT/EN/RU;
+- rotas exportadas estaticamente e compatíveis com Vercel e Sites.
 
 ## Cases publicados no portfólio
 
@@ -39,10 +40,7 @@ npm run dev
 ## Verificação
 
 ```bash
-npm run lint
 npm run build
-npm run build:sites
-node --test tests/*.test.mjs
 ```
 
 ## Deploy

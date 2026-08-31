@@ -69,7 +69,10 @@ export default function CaseStudyContent({ item, next }: { item: OliCase; next: 
               src={localized.cover.src}
               alt={localized.cover.alt}
               fetchPriority="high"
-              style={{ objectPosition: localized.cover.position ?? "center" }}
+              style={{
+                objectPosition: localized.cover.position ?? "center",
+                objectFit: localized.cover.fit ?? "cover",
+              }}
             />
             <figcaption>
               <span>{localized.cover.label}</span>

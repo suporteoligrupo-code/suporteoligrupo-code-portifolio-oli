@@ -3,6 +3,8 @@ import { cases } from "./data/cases";
 
 const baseUrl = "https://portfolio-oli-taupe.vercel.app";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {

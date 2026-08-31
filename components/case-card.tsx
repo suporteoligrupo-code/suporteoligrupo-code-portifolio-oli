@@ -54,8 +54,13 @@ export default function CaseCard({ item }: { item: OliCase }) {
             <span>{item.year}</span>
           </div>
           <div className="case-card__bottom">
-            <h3>{localized.client}</h3>
-            <ArrowUpRight aria-hidden="true" size={22} strokeWidth={1.45} />
+            <div>
+              <h3>{localized.client}</h3>
+              <p>{localized.headline}</p>
+            </div>
+            <span className="case-card__arrow" aria-hidden="true">
+              <ArrowUpRight size={22} strokeWidth={1.45} />
+            </span>
           </div>
         </div>
       </Link>
