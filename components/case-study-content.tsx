@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useEffect, type CSSProperties } from "react";
-import type { OliCase } from "../app/data/cases";
+import type { PortfolioCase } from "../app/data/cases";
 import { localizeCase, siteCopy, withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
 import SiteFooter from "./site-footer";
-import SiteHeader, { instagramUrl } from "./site-header";
+import SiteHeader, { linkedinUrl } from "./site-header";
 
 type CasePageStyle = CSSProperties & {
   "--study-accent": string;
@@ -15,7 +15,7 @@ type CasePageStyle = CSSProperties & {
   "--study-ink": string;
 };
 
-export default function CaseStudyContent({ item, next }: { item: OliCase; next: OliCase }) {
+export default function CaseStudyContent({ item, next }: { item: PortfolioCase; next: PortfolioCase }) {
   const { language } = useLanguage();
   const localized = localizeCase(item, language);
   const localizedNext = localizeCase(next, language);
@@ -57,7 +57,7 @@ export default function CaseStudyContent({ item, next }: { item: OliCase; next: 
                     {copy.viewPublished} <ArrowUpRight aria-hidden="true" size={17} />
                   </a>
                 )}
-                <a href={instagramUrl} target="_blank" rel="noreferrer">
+                <a href={linkedinUrl} target="_blank" rel="noreferrer">
                   {copy.wantSimilar} <ArrowUpRight aria-hidden="true" size={17} />
                 </a>
               </div>
@@ -124,14 +124,17 @@ export default function CaseStudyContent({ item, next }: { item: OliCase; next: 
                   src={image.src}
                   alt={image.alt}
                   loading="lazy"
-                  style={{ objectPosition: image.position ?? "center" }}
+                  style={{
+                    objectPosition: image.position ?? "center",
+                    objectFit: image.fit ?? "cover",
+                  }}
                 />
                 <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{image.label}</figcaption>
               </figure>
             ))}
 
             <aside className="case-gallery__statement">
-              <span>{copy.oliDirection}</span>
+              <span>{copy.myRole}</span>
               <strong>{localized.headline}</strong>
               <p>{localized.shortName} · {localized.year}</p>
             </aside>
@@ -170,7 +173,7 @@ export default function CaseStudyContent({ item, next }: { item: OliCase; next: 
         <section className="case-contact">
           <p>{copy.contactEyebrow}</p>
           <h2>{copy.contactTitle}</h2>
-          <a href={instagramUrl} target="_blank" rel="noreferrer">
+          <a href={linkedinUrl} target="_blank" rel="noreferrer">
             {copy.contactCta} <ArrowUpRight aria-hidden="true" size={19} />
           </a>
         </section>

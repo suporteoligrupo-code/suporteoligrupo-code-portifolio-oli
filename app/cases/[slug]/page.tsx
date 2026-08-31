@@ -19,7 +19,7 @@ export async function generateMetadata({
 
   if (!item) return {};
 
-  const title = `${item.client} — Projeto OLI`;
+  const title = `${item.client} — Projeto de Lucas de Oliveira Andrade`;
   const url = `${siteUrl}/cases/${item.slug}/`;
   const image = new URL(item.cover.src, siteUrl).toString();
 

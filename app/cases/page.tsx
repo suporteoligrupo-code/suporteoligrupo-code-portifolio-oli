@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import CasesIndexContent from "../../components/cases-index-content";
 
 export const metadata: Metadata = {
-  title: "Projetos — OLI Marketing Digital",
-  description: "Conheça os projetos de identidade visual, sites, landing pages e conteúdo desenvolvidos pela OLI.",
+  title: "Projetos — Lucas de Oliveira Andrade",
+  description: "Conheça projetos de estratégia, marketing, identidade visual, conteúdo e experiências digitais com atuação de Lucas de Oliveira Andrade.",
 };
 
 export default function CasesPage() {

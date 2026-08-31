@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { languageOptions, siteCopy, withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
 
-export const instagramUrl = "https://www.instagram.com/oli.marketing7/";
+export const linkedinUrl = "https://br.linkedin.com/in/lucas-oliveira-790508310";
 
 export default function SiteHeader({ inner = false }: { inner?: boolean }) {
   const { language, setLanguage } = useLanguage();
@@ -14,7 +14,8 @@ export default function SiteHeader({ inner = false }: { inner?: boolean }) {
   return (
     <header className={`site-header${inner ? " site-header--inner" : ""}`}>
       <Link className="brand" href={withLanguage("/", language)} aria-label={copy.homeLabel}>
-        <img src="/portfolio/oli-logo-oficial-escuro.png" alt="OLI" width={6000} height={1842} />
+        <span className="brand-monogram" aria-hidden="true">LOA</span>
+        <span className="brand-name">Lucas de Oliveira Andrade</span>
       </Link>
 
       <nav aria-label={copy.navLabel}>
@@ -39,7 +40,7 @@ export default function SiteHeader({ inner = false }: { inner?: boolean }) {
             </button>
           ))}
         </div>
-        <a className="header-cta" href={instagramUrl} target="_blank" rel="noreferrer">
+        <a className="header-cta" href={linkedinUrl} target="_blank" rel="noreferrer">
           <span className="header-cta-label">{copy.startProject}</span>
           <ArrowUpRight aria-hidden="true" size={15} />
         </a>

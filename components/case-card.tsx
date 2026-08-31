@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
-import type { OliCase } from "../app/data/cases";
+import type { PortfolioCase } from "../app/data/cases";
 import { localizeCase, siteCopy, withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
 
@@ -13,7 +13,7 @@ type CaseStyle = CSSProperties & {
   "--case-ink": string;
 };
 
-export default function CaseCard({ item }: { item: OliCase }) {
+export default function CaseCard({ item }: { item: PortfolioCase }) {
   const { language } = useLanguage();
   const localized = localizeCase(item, language);
   const copy = siteCopy[language].card;

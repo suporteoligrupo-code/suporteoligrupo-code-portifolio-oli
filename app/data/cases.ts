@@ -6,7 +6,7 @@ export type CaseImage = {
   fit?: "cover" | "contain";
 };
 
-export type OliCase = {
+export type PortfolioCase = {
   slug: string;
   number: string;
   client: string;
@@ -32,7 +32,7 @@ export type OliCase = {
   liveUrl?: string;
 };
 
-export const cases: OliCase[] = [
+export const cases: PortfolioCase[] = [
   {
     slug: "gru-kpop-anime",
     number: "01",
@@ -48,7 +48,7 @@ export const cases: OliCase[] = [
     challenge:
       "Organizar universos visuais muito diferentes sem deixar a loja genérica, infantilizada ou presa a uma única categoria de produto.",
     direction:
-      "Criamos o território Universo Pop: base clara, energia quente, grafismos editoriais e uma camada kawai controlada. A mesma lógica orienta marca, conteúdo, cartão e navegação do site.",
+      "Minha atuação conectou estratégia, direção criativa e execução no território Universo Pop: base clara, energia quente, grafismos editoriais e uma camada kawai controlada aplicada à marca, ao conteúdo, aos cartões e ao site.",
     result:
       "A GRU KPOP passou a se apresentar como uma marca inteira — com assinatura própria, sistema visual consistente e experiência digital preparada para vender e criar comunidade.",
     services: ["Estratégia", "Identidade visual", "Sistema de marca", "Conteúdo", "Site"],
@@ -103,7 +103,7 @@ export const cases: OliCase[] = [
     challenge:
       "Fazer a percepção de valor começar antes do agendamento e manter o mesmo refinamento no material físico e na experiência digital.",
     direction:
-      "Partimos de uma paleta vinho profunda, tipografia de assinatura e composições limpas para construir uma marca feminina sem clichês e premium sem distância.",
+      "Conduzi a direção de arte a partir de uma paleta vinho profunda, tipografia de assinatura e composições limpas para construir uma marca feminina sem clichês e premium sem distância.",
     result:
       "Cartão e site agora trabalham juntos para apresentar o Studio E com clareza, delicadeza e uma sensação consistente de cuidado.",
     services: ["Identidade visual", "Direção de arte", "Cartão", "Site"],
@@ -154,7 +154,7 @@ export const cases: OliCase[] = [
     challenge:
       "Criar energia gamer sem repetir o repertório óbvio de neon, excesso de efeitos e comunicação visual desorganizada.",
     direction:
-      "Construímos um sistema modular de alto contraste, com códigos de cor, tipografia condensada e peças que organizam informação e produto com ritmo.",
+      "Minha atuação reúne visão comercial, marketing e direção criativa em um sistema modular de alto contraste, com códigos de cor, tipografia condensada e peças que organizam informação e produto com ritmo.",
     result:
       "A rota criativa dá à Rico Games um território próprio, preparado para campanhas, lançamentos e uma futura experiência digital.",
     services: ["Direção criativa", "Identidade visual", "Conteúdo"],
@@ -205,7 +205,7 @@ export const cases: OliCase[] = [
     challenge:
       "Evoluir a comunicação sem romper o reconhecimento da marca já conhecida e equilibrar tecnologia premium com apelo comercial popular.",
     direction:
-      "A rota Tech Acessível em Movimento combina base grafite, vermelho luminoso, produto em primeiro plano e uma hierarquia direta para ofertas e serviços.",
+      "Na minha direção, a rota Tech Acessível em Movimento combina base grafite, vermelho luminoso, produto em primeiro plano e uma hierarquia direta para ofertas e serviços.",
     result:
       "O sistema mantém a identidade original, mas eleva o acabamento de site, conteúdo e materiais para apresentar uma operação mais organizada e confiável.",
     services: ["Estratégia", "Refinamento visual", "Conteúdo", "Site"],
@@ -262,7 +262,7 @@ export const cases: OliCase[] = [
     challenge:
       "Transformar décadas de memória e energia ao vivo em uma navegação contemporânea, sem perder a força crua do rock.",
     direction:
-      "Usamos palco, fumaça, dourado envelhecido, preto e movimento para criar uma experiência que começa como show e conduz para agenda, história e visita.",
+      "Minha direção digital usa palco, fumaça, dourado envelhecido, preto e movimento para criar uma experiência que começa como show e conduz para agenda, história e visita.",
     result:
       "O novo site apresenta o Manifesto como destino cultural, organiza sua programação e transforma arquivo, atmosfera e serviço em uma única narrativa.",
     services: ["Estratégia digital", "UX/UI", "Direção de arte", "Desenvolvimento"],
@@ -318,7 +318,7 @@ export const cases: OliCase[] = [
     challenge:
       "Explicar uma oferta sensível de crédito com clareza, destacar as lojas físicas e evitar que a campanha parecesse apenas mais uma promoção de celular.",
     direction:
-      "A estética usa o ritmo da Linha Azul, preto e amarelo como sinalização e uma jornada curta: entender, consultar e encontrar a unidade.",
+      "Desenvolvi uma rota visual com o ritmo da Linha Azul, preto e amarelo como sinalização e uma jornada curta: entender, consultar e encontrar a unidade.",
     result:
       "A página organiza argumento, condições e contato com responsabilidade, criando um caminho comercial direto para a equipe da Metro Case.",
     services: ["Landing page", "UX/UI", "Copy", "Desenvolvimento"],
@@ -369,7 +369,7 @@ export const cases: OliCase[] = [
     challenge:
       "Dar forma profissional a um serviço baseado em confiança, cuidado e resposta rápida, sem complicar a solicitação de orçamento.",
     direction:
-      "Construímos uma experiência objetiva, com fotografia de rota, tipografia robusta e chamadas que conduzem naturalmente ao contato.",
+      "Minha atuação organizou uma experiência objetiva, com fotografia de rota, tipografia robusta e chamadas que conduzem naturalmente ao contato.",
     result:
       "O site reúne serviços, processo, abrangência e dúvidas em uma narrativa comercial que reduz incerteza e aproxima a conversa.",
     services: ["Posicionamento", "UX/UI", "Copy", "Site"],
@@ -414,7 +414,7 @@ export const cases: OliCase[] = [
     challenge:
       "Apresentar formação econômico-financeira com profundidade e desejo, sem recorrer à estética genérica de cursos online.",
     direction:
-      "A experiência combina fotografia urbana, linguagem editorial, brasão e uma jornada organizada a partir dos problemas reais de gestão.",
+      "Estruturei uma experiência que combina fotografia urbana, linguagem editorial, brasão e uma jornada organizada a partir dos problemas reais de gestão.",
     result:
       "O conceito posiciona a Score como escola presencial de alto nível e transforma catálogo, metodologia e autoridade em decisão de matrícula.",
     services: ["Estratégia", "UX/UI", "Copy", "Conceito de site"],
@@ -463,7 +463,7 @@ export const cases: OliCase[] = [
     challenge:
       "Padronizar uma comunicação já existente e demonstrar especialização sem cair no visual agressivo ou no neon gamer de sempre.",
     direction:
-      "A rota Precisão de Alta Performance usa carbono, grafite, laranja ISA, microgrades e linguagem de diagnóstico para construir autoridade técnica.",
+      "Minha direção preserva a marca existente e organiza a rota Precisão de Alta Performance com carbono, grafite, laranja ISA, microgrades e linguagem de diagnóstico.",
     result:
       "Marca, cartão, conteúdo e site passaram a compartilhar a mesma lógica visual: ordem, controle, detalhe e confiança no reparo.",
     services: ["Identidade visual", "Sistema de marca", "Conteúdo", "Site"],
@@ -516,7 +516,7 @@ export const cases: OliCase[] = [
     challenge:
       "Organizar catálogo, personalização e compra sem perder a personalidade afetiva da marca ou deixar a navegação pesada.",
     direction:
-      "A experiência equilibra produto, histórias e utilidade com uma paleta quente, formas orgânicas e uma linguagem próxima de quem vive a profissão.",
+      "Minha atuação equilibra produto, histórias e utilidade com uma paleta quente, formas orgânicas e uma linguagem próxima de quem vive a profissão.",
     result:
       "O novo e-commerce transforma produto em expressão pessoal e cria uma jornada mais clara do primeiro olhar à escolha da peça.",
     services: ["Estratégia digital", "UX/UI", "Direção de arte", "E-commerce"],
@@ -567,7 +567,7 @@ export const cases: OliCase[] = [
     challenge:
       "Dar unidade a diferentes sabores e formatos de conteúdo mantendo o produto como protagonista.",
     direction:
-      "Criamos uma base clara com cores de fruta, tipografia grande e curvas orgânicas que organizam informação sem competir com o apetite visual.",
+      "Desenvolvi uma base clara com cores de fruta, tipografia grande e curvas orgânicas que organizam informação sem competir com o apetite visual.",
     result:
       "A identidade ganha uma linguagem flexível para embalagem, endereço, produto e campanha, mantendo reconhecimento entre peças diferentes.",
     services: ["Direção criativa", "Identidade visual", "Conteúdo"],
@@ -596,6 +596,58 @@ export const cases: OliCase[] = [
     ink: "#183a2c",
     cardTone: "light",
     size: "compact",
+  },
+  {
+    slug: "oli-marketing",
+    number: "12",
+    client: "OLI Marketing",
+    shortName: "OLI",
+    sector: "Projeto autoral · marketing",
+    location: "Guarulhos · SP",
+    year: "2026",
+    status: "Projeto em desenvolvimento",
+    headline: "Estratégia que vira presença.",
+    summary:
+      "Um projeto autoral criado para reunir estratégia, identidade visual, conteúdo e experiências digitais em uma operação de marketing prática e próxima do cliente.",
+    challenge:
+      "Construir uma marca capaz de organizar diferentes competências sem parecer uma agência genérica ou uma coleção de serviços desconectados.",
+    direction:
+      "Criei a OLI como uma estrutura de trabalho que aproxima visão comercial e direção criativa, transformando diagnóstico, mensagem, marca e execução digital em um sistema coerente.",
+    result:
+      "A OLI funciona como projeto autoral e laboratório de aplicação: uma forma de transformar minha experiência multidisciplinar em entregas claras para negócios de diferentes setores.",
+    services: ["Estratégia", "Direção criativa", "Identidade visual", "Conteúdo", "Sites"],
+    deliverables: [
+      "Posicionamento e proposta de valor",
+      "Identidade visual",
+      "Sistema de apresentação de projetos",
+      "Direção de conteúdo",
+      "Portfólio digital",
+    ],
+    cover: {
+      src: "/portfolio/oli-hero-brand-v1.webp",
+      alt: "Identidade visual da OLI Marketing",
+      label: "Projeto autoral",
+      position: "center",
+    },
+    gallery: [
+      {
+        src: "/portfolio/oli-logo-oficial-escuro.png",
+        alt: "Logotipo escuro da OLI Marketing",
+        label: "Assinatura visual",
+        fit: "contain",
+      },
+      {
+        src: "/portfolio/oli-logo-oficial-claro.png",
+        alt: "Logotipo claro da OLI Marketing",
+        label: "Variação da marca",
+        fit: "contain",
+      },
+    ],
+    accent: "#ef5b3f",
+    accentSoft: "#111210",
+    ink: "#fffef9",
+    cardTone: "dark",
+    size: "standard",
   },
 ];
 

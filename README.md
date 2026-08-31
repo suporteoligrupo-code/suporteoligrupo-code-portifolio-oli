@@ -1,10 +1,10 @@
-# Portfólio OLI
+# Portfólio pessoal — Lucas de Oliveira Andrade
 
-Site comercial da OLI Marketing Digital, criado para apresentar trabalhos por empresa e transformar o portfólio em uma experiência editorial de prospecção.
+Portfólio pessoal de Lucas de Oliveira Andrade, criado para apresentar sua trajetória multidisciplinar e organizar cada cliente ou trabalho como uma experiência editorial própria.
 
 ## Estrutura
 
-- home cinematográfica com posicionamento, serviços, processo, impacto social e CTA;
+- home cinematográfica com apresentação pessoal, competências, trajetória, impacto social e CTA;
 - catálogo visual assimétrico com todos os projetos disponíveis;
 - página dedicada para cada cliente em `/cases/[slug]`;
 - dados centralizados em `app/data/cases.ts`;
@@ -25,6 +25,7 @@ Site comercial da OLI Marketing Digital, criado para apresentar trabalhos por em
 9. Eletrotech ISA
 10. Dona Girafa
 11. Spolpas
+12. OLI Marketing — projeto autoral
 
 Projetos ainda em desenvolvimento são identificados dessa forma; o site não usa métricas ou resultados inventados.
 

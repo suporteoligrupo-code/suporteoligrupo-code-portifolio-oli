@@ -5,7 +5,6 @@ import {
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
-  AtSign,
   Globe2,
   Heart,
 } from "lucide-react";
@@ -13,7 +12,7 @@ import { useEffect } from "react";
 import CaseCard from "../components/case-card";
 import { useLanguage } from "../components/language-provider";
 import SiteFooter from "../components/site-footer";
-import SiteHeader, { instagramUrl } from "../components/site-header";
+import SiteHeader, { linkedinUrl } from "../components/site-header";
 import { cases } from "./data/cases";
 import { siteCopy, withLanguage } from "./data/i18n";
 
@@ -44,23 +43,30 @@ export default function Home() {
         <section className="hero-shell" id="inicio">
           <div className="hero-stage">
             <div className="hero-media" aria-hidden="true">
-              <figure className="hero-slide hero-oli">
-                <img src="/portfolio/oli-hero-brand-v1.webp" alt="" fetchPriority="high" />
+              <figure className="hero-slide hero-lucas">
+                <img src="/cases/manifesto/palco.webp" alt="" fetchPriority="high" />
               </figure>
               <figure className="hero-slide hero-studio">
-                <img src="/portfolio/studio-e-cartao.webp" alt="" />
+                <img src="/portfolio/rico-games-gta6-preview.jpg" alt="" />
               </figure>
               <figure className="hero-slide hero-rico">
-                <img src="/cases/manifesto/palco.webp" alt="" />
+                <img src="/cases/gru-kpop-anime/site-home.jpg" alt="" />
               </figure>
             </div>
 
             <div className="hero-topline">
-              <span>OLI® / {copy.studio}</span>
-              <span>{copy.regions} / 2026</span>
+              <span>Lucas de Oliveira Andrade / {copy.studio}</span>
+              <span>São Paulo · Brasil / 2026</span>
             </div>
 
             <div className="hero-content">
+              <div className="hero-person">
+                <img src="/lucas-linkedin.jpg" alt="Lucas de Oliveira Andrade" width={200} height={200} />
+                <span>
+                  <strong>Lucas de Oliveira Andrade</strong>
+                  <small>LinkedIn · São Paulo, Brasil</small>
+                </span>
+              </div>
               <p className="hero-kicker">{copy.kicker}</p>
               <h1>
                 {copy.heroTitle} <span>{copy.heroAccent}</span>
@@ -71,7 +77,7 @@ export default function Home() {
                   {copy.explore}
                   <ArrowDownRight aria-hidden="true" size={18} />
                 </a>
-                <a className="button button-outline" href={instagramUrl} target="_blank" rel="noreferrer">
+                <a className="button button-outline" href={linkedinUrl} target="_blank" rel="noreferrer">
                   {copy.elevate}
                   <ArrowUpRight aria-hidden="true" size={18} />
                 </a>
@@ -103,7 +109,7 @@ export default function Home() {
         </section>
 
         <section className="project-rail" aria-label={copy.clientMarksAria}>
-          <p>{copy.projectsOli}</p>
+          <p>{copy.featuredProjects}</p>
           <div>
             {clientMarks.map((item) => (
               <Link
@@ -128,7 +134,7 @@ export default function Home() {
           </div>
           <div className="positioning-note">
             <p>{copy.perceptionText}</p>
-            <a href="#servicos">
+            <a href="#processo">
               {copy.perceptionLink}
               <ArrowDownRight aria-hidden="true" size={18} />
             </a>
@@ -177,7 +183,7 @@ export default function Home() {
             <p className="eyebrow">{copy.servicesEyebrow}</p>
             <h2>{copy.servicesTitle}<br /><span>{copy.servicesAccent}</span></h2>
             <p>{copy.servicesText}</p>
-            <a className="button button-orange" href={instagramUrl} target="_blank" rel="noreferrer">
+            <a className="button button-orange" href={linkedinUrl} target="_blank" rel="noreferrer">
               {copy.servicesCta}
               <ArrowUpRight aria-hidden="true" size={18} />
             </a>
@@ -239,17 +245,17 @@ export default function Home() {
 
         <section className="contact-shell" id="contato">
           <div className="contact-stage">
-            <img className="contact-mark" src="/portfolio/oli-logo-oficial-escuro.png" alt="" aria-hidden="true" />
+            <span className="contact-mark" aria-hidden="true">LOA</span>
             <p className="eyebrow">{copy.contactEyebrow}</p>
             <h2>
               {copy.contactTitle} <span>{copy.contactAccent}</span>
             </h2>
-            <a className="button button-light contact-button" href={instagramUrl} target="_blank" rel="noreferrer">
+            <a className="button button-light contact-button" href={linkedinUrl} target="_blank" rel="noreferrer">
               {copy.contactCta}
               <ArrowUpRight aria-hidden="true" size={19} />
             </a>
             <div className="contact-meta">
-              <span><AtSign aria-hidden="true" size={16} /> oli.marketing7</span>
+              <span><Globe2 aria-hidden="true" size={16} /> LinkedIn · Lucas Oliveira</span>
               <span><Globe2 aria-hidden="true" size={16} /> {copy.regions}</span>
             </div>
           </div>

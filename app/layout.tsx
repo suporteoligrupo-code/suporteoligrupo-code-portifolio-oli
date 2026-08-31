@@ -6,16 +6,17 @@ const siteUrl = "https://portfolio-oli-taupe.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "OLI — Ideias que viram presença",
+  title: "Lucas de Oliveira Andrade — Estratégia, marketing e direção criativa",
   description:
-    "Portfólio da OLI Marketing Digital: estratégia, identidades visuais, campanhas, sites e experiências digitais com direção clara.",
+    "Portfólio pessoal de Lucas de Oliveira Andrade: estratégia, marketing, gestão, direção criativa, marcas, conteúdo e experiências digitais.",
   keywords: [
+    "Lucas de Oliveira Andrade",
+    "estratégia comercial",
+    "growth",
     "identidade visual",
     "criação de sites",
-    "landing page",
     "marketing digital",
-    "branding",
-    "OLI",
+    "direção criativa",
   ],
   icons: {
     icon: "/favicon.svg",
@@ -26,16 +27,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: siteUrl,
-    siteName: "OLI Marketing Digital",
-    title: "OLI — Ideias que viram presença",
-    description: "Estratégia, criação e execução reunidas em marcas, campanhas e experiências digitais.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "OLI — Ideias que viram presença" }],
+    siteName: "Lucas de Oliveira Andrade",
+    title: "Lucas de Oliveira Andrade — Portfólio pessoal",
+    description: "Estratégia, marketing, gestão e direção criativa reunidos em projetos reais.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Lucas de Oliveira Andrade — Portfólio pessoal" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "OLI — Ideias que viram presença",
-    description: "Estratégia, criação e execução reunidas em marcas, campanhas e experiências digitais.",
-    images: ["/og.png"],
+    title: "Lucas de Oliveira Andrade — Portfólio pessoal",
+    description: "Estratégia, marketing, gestão e direção criativa reunidos em projetos reais.",
+    images: ["/og.jpg"],
   },
   other: {
     "codex-preview": "development",

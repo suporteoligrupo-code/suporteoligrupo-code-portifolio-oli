@@ -24,16 +24,16 @@ function isLanguage(value: string | null): value is Language {
 
 function getLanguageSnapshot(): Language {
   const requested = new URL(window.location.href).searchParams.get("lang");
-  const stored = window.localStorage.getItem("oli-language");
+  const stored = window.localStorage.getItem("lucas-language");
   return isLanguage(requested) ? requested : isLanguage(stored) ? stored : "pt";
 }
 
 function subscribeToLanguage(callback: () => void) {
   window.addEventListener("popstate", callback);
-  window.addEventListener("oli-language-change", callback);
+  window.addEventListener("lucas-language-change", callback);
   return () => {
     window.removeEventListener("popstate", callback);
-    window.removeEventListener("oli-language-change", callback);
+    window.removeEventListener("lucas-language-change", callback);
   };
 }
 
@@ -54,9 +54,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const url = new URL(window.location.href);
     if (nextLanguage === "pt") url.searchParams.delete("lang");
     else url.searchParams.set("lang", nextLanguage);
-    window.localStorage.setItem("oli-language", nextLanguage);
+    window.localStorage.setItem("lucas-language", nextLanguage);
     window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
-    window.dispatchEvent(new Event("oli-language-change"));
+    window.dispatchEvent(new Event("lucas-language-change"));
   }, []);
 
   const value = useMemo(() => ({ language, setLanguage }), [language, setLanguage]);
