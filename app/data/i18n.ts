@@ -483,6 +483,7 @@ type CaseTranslation = Pick<
   | "deliverables"
 > & {
   cover: LocalizedImage;
+  hero?: LocalizedImage;
   gallery: LocalizedImage[];
 };
 
@@ -552,6 +553,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       services: ["Landing page", "UX/UI", "Copy", "Development"],
       deliverables: ["Campaign strategy", "Offer copy and hierarchy", "Metro-inspired visual direction", "Store location section", "Live responsive landing page"],
       cover: { alt: "Homepage of the live Metro Case landing page", label: "Live landing page" },
+      hero: { alt: "Cinematic Metro Case campaign visual", label: "Campaign direction" },
       gallery: [{ alt: "Metro Case brand", label: "Identity" }, { alt: "Metro Case accessories campaign asset", label: "Sales content" }],
     },
     "oliveira-transportes": {
@@ -596,7 +598,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       services: ["Digital strategy", "UX/UI", "Art direction", "E-commerce"],
       deliverables: ["Catalog architecture", "Visual direction", "Product journey", "Institutional content", "Live responsive experience"],
       cover: { alt: "Homepage of the live Dona Girafa e-commerce website", label: "Live e-commerce" },
-      gallery: [{ alt: "Dona Girafa storefront", label: "Physical presence" }, { alt: "Behind the scenes at Dona Girafa", label: "Brand story" }],
+      gallery: [{ alt: "Dona Girafa professional uniform with Saruê print", label: "Saruê product" }, { alt: "Dona Girafa professional uniform with macaw print", label: "Macaw product" }],
     },
     spolpas: {
       sector: "Food · retail", location: "São Paulo · Brazil", status: "Identity in development", headline: "From freezer to glass.",
@@ -686,6 +688,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       services: ["Лендинг", "UX/UI", "Копирайтинг", "Разработка"],
       deliverables: ["Стратегия кампании", "Тексты и иерархия предложения", "Визуальное направление в стиле метро", "Раздел с адресами магазинов", "Опубликованный адаптивный лендинг"],
       cover: { alt: "Главная страница опубликованного лендинга Metro Case", label: "Опубликованный лендинг" },
+      hero: { alt: "Кинематографичный образ кампании Metro Case", label: "Направление кампании" },
       gallery: [{ alt: "Бренд Metro Case", label: "Айдентика" }, { alt: "Материал кампании аксессуаров Metro Case", label: "Коммерческий контент" }],
     },
     "oliveira-transportes": {
@@ -730,7 +733,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       services: ["Цифровая стратегия", "UX/UI", "Арт-дирекшн", "E-commerce"],
       deliverables: ["Архитектура каталога", "Визуальное направление", "Путь выбора продукта", "Корпоративный контент", "Опубликованный адаптивный опыт"],
       cover: { alt: "Главная страница интернет-магазина Dona Girafa", label: "Опубликованный e-commerce" },
-      gallery: [{ alt: "Фасад магазина Dona Girafa", label: "Физическое присутствие" }, { alt: "Закулисье Dona Girafa", label: "История бренда" }],
+      gallery: [{ alt: "Профессиональная униформа Dona Girafa с принтом Saruê", label: "Модель Saruê" }, { alt: "Профессиональная униформа Dona Girafa с принтом ара", label: "Модель Araras" }],
     },
     spolpas: {
       sector: "Продукты · ритейл", location: "Сан-Паулу · Бразилия", status: "Айдентика в разработке", headline: "От морозильника до стакана.",
@@ -767,6 +770,7 @@ export function localizeCase(item: PortfolioCase, language: Language): Portfolio
     ...item,
     ...translation,
     cover: { ...item.cover, ...translation.cover },
+    hero: item.hero ? { ...item.hero, ...(translation.hero ?? {}) } : undefined,
     gallery: item.gallery.map((image, index) => ({
       ...image,
       ...(translation.gallery[index] ?? {}),

@@ -17,15 +17,57 @@ import { cases } from "./data/cases";
 import { siteCopy, withLanguage } from "./data/i18n";
 
 const clientMarks = [
-  { slug: "gru-kpop-anime", name: "GRU KPOP Anime", src: "/brandmarks/gru-kpop-light.png" },
-  { slug: "studio-e", name: "Studio E", src: "/brandmarks/studio-e-light.png" },
-  { slug: "rico-games", name: "Rico Games", src: "/brandmarks/rico-games-light.png" },
-  { slug: "josucas-eletronicos", name: "Josucas Eletrônicos", src: "/brandmarks/josucas-light.png" },
-  { slug: "manifesto-bar", name: "Manifesto Bar", src: "/brandmarks/manifesto-light.png" },
-  { slug: "metro-case", name: "Metro Case", src: "/brandmarks/metro-case-light.png" },
+  { slug: "gru-kpop-anime", name: "GRU KPOP Anime", src: "/brandmarks/gru-kpop-light.png", width: 720, height: 253 },
+  { slug: "studio-e", name: "Studio E", src: "/brandmarks/studio-e-light.png", width: 356, height: 280 },
+  { slug: "rico-games", name: "Rico Games", src: "/brandmarks/rico-games-light.png", width: 704, height: 280 },
+  { slug: "josucas-eletronicos", name: "Josucas Eletrônicos", src: "/brandmarks/josucas-light.png", width: 627, height: 280 },
+  { slug: "manifesto-bar", name: "Manifesto Bar", src: "/brandmarks/manifesto-light.png", width: 260, height: 280 },
+  { slug: "metro-case", name: "Metro Case", src: "/brandmarks/metro-case-light.png", width: 720, height: 157 },
 ];
 
-const heroProjects = cases.slice(0, 3);
+type HeroProject = {
+  item: (typeof cases)[number];
+  src: string;
+  srcSet: string;
+  mobileSrc?: string;
+  mobileSrcSet?: string;
+  width: number;
+  height: number;
+  mobileWidth?: number;
+  mobileHeight?: number;
+  className: string;
+};
+
+const heroProjects: HeroProject[] = [
+  {
+    item: cases.find((item) => item.slug === "manifesto-bar")!,
+    src: "/cases/manifesto/palco-large.webp",
+    srcSet: "/media-responsive/cases/manifesto/palco-large-480.webp 480w, /media-responsive/cases/manifesto/palco-large-800.webp 800w, /media-responsive/cases/manifesto/palco-large-1200.webp 1200w, /cases/manifesto/palco-large.webp 1672w",
+    width: 1672,
+    height: 941,
+    className: "hero-slide--1",
+  },
+  {
+    item: cases.find((item) => item.slug === "oliveira-transportes")!,
+    src: "/cases/oliveira-transportes/hero.webp",
+    srcSet: "/media-responsive/cases/oliveira-transportes/hero-480.webp 480w, /media-responsive/cases/oliveira-transportes/hero-800.webp 800w, /media-responsive/cases/oliveira-transportes/hero-1200.webp 1200w, /cases/oliveira-transportes/hero.webp 1774w",
+    width: 1774,
+    height: 887,
+    className: "hero-slide--2",
+  },
+  {
+    item: cases.find((item) => item.slug === "metro-case")!,
+    src: "/cases/metro-case/hero.webp",
+    srcSet: "/media-responsive/cases/metro-case/hero-480.webp 480w, /media-responsive/cases/metro-case/hero-800.webp 800w, /media-responsive/cases/metro-case/hero-1200.webp 1200w, /cases/metro-case/hero.webp 1840w",
+    mobileSrc: "/cases/metro-case/hero-mobile.webp",
+    mobileSrcSet: "/media-responsive/cases/metro-case/hero-mobile-480.webp 480w, /media-responsive/cases/metro-case/hero-mobile-800.webp 800w, /cases/metro-case/hero-mobile.webp 864w",
+    width: 1840,
+    height: 851,
+    mobileWidth: 864,
+    mobileHeight: 1821,
+    className: "hero-slide--3",
+  },
+];
 
 export default function Home() {
   const { language } = useLanguage();
@@ -43,15 +85,32 @@ export default function Home() {
         <section className="hero-shell" id="inicio">
           <div className="hero-stage">
             <div className="hero-media" aria-hidden="true">
-              <figure className="hero-slide hero-lucas">
-                <img src="/cases/manifesto/palco.webp" alt="" fetchPriority="high" />
-              </figure>
-              <figure className="hero-slide hero-studio">
-                <img src="/portfolio/rico-games-gta6-preview.jpg" alt="" />
-              </figure>
-              <figure className="hero-slide hero-rico">
-                <img src="/cases/gru-kpop-anime/site-home.jpg" alt="" />
-              </figure>
+              {heroProjects.map((project, index) => (
+                <figure className={`hero-slide ${project.className}`} key={project.item.slug}>
+                  <picture>
+                    {project.mobileSrc ? (
+                      <source
+                        media="(max-width: 760px)"
+                        srcSet={project.mobileSrcSet ?? project.mobileSrc}
+                        sizes="100vw"
+                        width={project.mobileWidth}
+                        height={project.mobileHeight}
+                      />
+                    ) : null}
+                    <img
+                      src={project.src}
+                      srcSet={project.srcSet}
+                      alt=""
+                      width={project.width}
+                      height={project.height}
+                      sizes="100vw"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      fetchPriority={index === 0 ? "high" : "auto"}
+                      decoding="async"
+                    />
+                  </picture>
+                </figure>
+              ))}
             </div>
 
             <div className="hero-topline">
@@ -87,8 +146,8 @@ export default function Home() {
             <div className="hero-footer">
               <div className="hero-now-playing">
                 <span className="hero-footer-label">{copy.onStage}</span>
-                <strong className="hero-project-name" aria-label={heroProjects.map((item) => item.client).join(", ")}>
-                  {heroProjects.map((item) => <span key={item.slug}>{item.client}</span>)}
+                <strong className="hero-project-name" aria-label={heroProjects.map(({ item }) => item.client).join(", ")}>
+                  {heroProjects.map(({ item }) => <span key={item.slug}>{item.client}</span>)}
                 </strong>
               </div>
               <div className="hero-count">
@@ -117,7 +176,16 @@ export default function Home() {
                 href={withLanguage(`/cases/${item.slug}`, language)}
                 aria-label={`${copy.openProject} ${item.name}`}
               >
-                <img src={item.src} alt={`${copy.brandmark} ${item.name}`} loading="lazy" />
+                <img
+                  src={item.src}
+                  srcSet={`/media-responsive${item.src.slice(0, item.src.lastIndexOf("."))}-240.webp 240w, ${item.src} ${item.width}w`}
+                  sizes="(max-width: 760px) 128px, 14vw"
+                  alt={`${copy.brandmark} ${item.name}`}
+                  width={item.width}
+                  height={item.height}
+                  loading="lazy"
+                  decoding="async"
+                />
               </Link>
             ))}
           </div>

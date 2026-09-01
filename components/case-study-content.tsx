@@ -6,6 +6,7 @@ import { useEffect, type CSSProperties } from "react";
 import type { PortfolioCase } from "../app/data/cases";
 import { localizeCase, siteCopy, withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
+import MediaFrame, { getGalleryLayout, getGallerySizes, getGalleryStyle } from "./media-frame";
 import SiteFooter from "./site-footer";
 import SiteHeader, { linkedinUrl } from "./site-header";
 
@@ -19,6 +20,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
   const { language } = useLanguage();
   const localized = localizeCase(item, language);
   const localizedNext = localizeCase(next, language);
+  const heroMedia = localized.hero ?? localized.cover;
   const copy = siteCopy[language].project;
   const style: CasePageStyle = {
     "--study-accent": item.accent,
@@ -31,7 +33,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
   }, [copy.titleSuffix, localized.client]);
 
   return (
-    <div className={`case-page case-page--${item.cardTone}`} style={style}>
+    <div className={`case-page case-page--${item.cardTone} case-page--${item.slug}`} style={style}>
       <SiteHeader inner />
 
       <main>
@@ -65,17 +67,9 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
           </div>
 
           <figure className="case-hero__visual">
-            <img
-              src={localized.cover.src}
-              alt={localized.cover.alt}
-              fetchPriority="high"
-              style={{
-                objectPosition: localized.cover.position ?? "center",
-                objectFit: localized.cover.fit ?? "cover",
-              }}
-            />
+            <MediaFrame image={heroMedia} context="hero" sizes="100vw" priority />
             <figcaption>
-              <span>{localized.cover.label}</span>
+              <span>{heroMedia.label}</span>
               <span>{localized.location}</span>
             </figcaption>
           </figure>
@@ -119,16 +113,18 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
 
           <div className={`case-gallery case-gallery--${localized.gallery.length}`}>
             {localized.gallery.map((image, index) => (
-              <figure key={`${image.src}-${index}`}>
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  loading="lazy"
-                  style={{
-                    objectPosition: image.position ?? "center",
-                    objectFit: image.fit ?? "cover",
-                  }}
-                />
+              <figure
+                className={`case-gallery__item case-gallery__item--${getGalleryLayout(image)}`}
+                key={`${image.src}-${index}`}
+                style={getGalleryStyle(image)}
+              >
+                <div className="case-gallery__canvas">
+                  <MediaFrame
+                    image={image}
+                    context="gallery"
+                    sizes={getGallerySizes(image)}
+                  />
+                </div>
                 <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{image.label}</figcaption>
               </figure>
             ))}

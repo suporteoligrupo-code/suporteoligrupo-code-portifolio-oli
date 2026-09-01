@@ -6,6 +6,7 @@ import type { CSSProperties } from "react";
 import type { PortfolioCase } from "../app/data/cases";
 import { localizeCase, siteCopy, withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
+import MediaFrame from "./media-frame";
 
 type CaseStyle = CSSProperties & {
   "--case-accent": string;
@@ -22,6 +23,9 @@ export default function CaseCard({ item }: { item: PortfolioCase }) {
     "--case-soft": item.accentSoft,
     "--case-ink": item.ink,
   };
+  const mediaSizes = item.size === "wide"
+    ? "(max-width: 960px) 100vw, 66vw"
+    : "(max-width: 760px) 100vw, (max-width: 960px) 50vw, 33vw";
 
   return (
     <article
@@ -33,15 +37,7 @@ export default function CaseCard({ item }: { item: PortfolioCase }) {
         aria-label={`${copy.openProject} ${localized.client}`}
       >
         <figure className="case-card__visual">
-          <img
-            src={localized.cover.src}
-            alt={localized.cover.alt}
-            loading={item.number === "01" ? "eager" : "lazy"}
-            style={{
-              objectPosition: localized.cover.position ?? "center",
-              objectFit: localized.cover.fit ?? "cover",
-            }}
-          />
+          <MediaFrame image={localized.cover} context="card" sizes={mediaSizes} />
           <span className="case-card__open">
             {copy.viewProject} <ArrowUpRight aria-hidden="true" size={18} />
           </span>
