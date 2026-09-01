@@ -531,7 +531,14 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       services: ["Strategy", "Visual refinement", "Content", "Website"],
       deliverables: ["Audit and creative direction", "Technical logo vectorization", "Visual system and tagline", "Business card", "Initial Instagram kit", "Identity presentation", "Live responsive website"],
       cover: { alt: "Product direction for the Josucas Eletrônicos website", label: "Local e-commerce" },
-      gallery: [{ alt: "Communication for Josucas repair services", label: "Service architecture" }, { alt: "Customer service image on the Josucas website", label: "Local presence" }, { alt: "Josucas Eletrônicos logo", label: "Preserved brand" }],
+      gallery: [
+        { alt: "Approved Josucas Eletrônicos visual system board", label: "Approved visual system" },
+        { alt: "Approved board with the six initial Instagram covers for Josucas", label: "Initial Instagram kit" },
+        { alt: "Approved board for the Josucas commercial carousel", label: "Carousel architecture" },
+        { alt: "Communication for Josucas repair services", label: "Service architecture" },
+        { alt: "Customer service image on the Josucas website", label: "Local presence" },
+        { alt: "Josucas Eletrônicos logo", label: "Vectorized brand" },
+      ],
     },
     "manifesto-bar": {
       sector: "Entertainment · rock", location: "São Paulo · Brazil", status: "Website live", headline: "Where rock lives in Brazil.",
@@ -565,7 +572,12 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       services: ["Positioning", "UX/UI", "Copy", "Website"],
       deliverables: ["Content architecture", "Commercial message", "Visual direction", "Quote journey", "Live responsive website"],
       cover: { alt: "Truck featured in Oliveira Transportes communication", label: "Corporate website" },
-      gallery: [{ alt: "Oliveira Transportes logo", label: "Original brand" }],
+      gallery: [
+        { alt: "Approved mockup of the initial Oliveira Transportes content sequence", label: "Content system" },
+        { alt: "Oliveira Transportes content asset about planning a move", label: "Planning content" },
+        { alt: "Oliveira Transportes content asset about care at every stage", label: "Trust-building language" },
+        { alt: "Oliveira Transportes logo", label: "Original brand" },
+      ],
     },
     "score-business-school": {
       sector: "Executive education", location: "Guarulhos · São Paulo", status: "Digital concept developed", headline: "Decide with numbers. Lead with clarity.",
@@ -666,7 +678,14 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       services: ["Стратегия", "Визуальная доработка", "Контент", "Сайт"],
       deliverables: ["Аудит и креативное направление", "Техническая векторизация логотипа", "Визуальная система и слоган", "Визитная карточка", "Стартовый набор Instagram", "Презентация айдентики", "Опубликованный адаптивный сайт"],
       cover: { alt: "Продуктовое направление для сайта Josucas Eletrônicos", label: "Локальный интернет-магазин" },
-      gallery: [{ alt: "Коммуникация ремонтных услуг Josucas", label: "Архитектура услуг" }, { alt: "Изображение сервиса на сайте Josucas", label: "Локальное присутствие" }, { alt: "Логотип Josucas Eletrônicos", label: "Сохранённый бренд" }],
+      gallery: [
+        { alt: "Утверждённая панель визуальной системы Josucas Eletrônicos", label: "Утверждённая визуальная система" },
+        { alt: "Утверждённая панель шести стартовых обложек Instagram для Josucas", label: "Стартовый набор Instagram" },
+        { alt: "Утверждённая панель коммерческой карусели Josucas", label: "Архитектура карусели" },
+        { alt: "Коммуникация ремонтных услуг Josucas", label: "Архитектура услуг" },
+        { alt: "Изображение сервиса на сайте Josucas", label: "Локальное присутствие" },
+        { alt: "Логотип Josucas Eletrônicos", label: "Векторная версия бренда" },
+      ],
     },
     "manifesto-bar": {
       sector: "Развлечения · рок", location: "Сан-Паулу · Бразилия", status: "Сайт опубликован", headline: "Место, где живёт рок Бразилии.",
@@ -700,7 +719,12 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       services: ["Позиционирование", "UX/UI", "Копирайтинг", "Сайт"],
       deliverables: ["Архитектура контента", "Коммерческое сообщение", "Визуальное направление", "Путь запроса расчёта", "Опубликованный адаптивный сайт"],
       cover: { alt: "Грузовик в коммуникации Oliveira Transportes", label: "Корпоративный сайт" },
-      gallery: [{ alt: "Логотип Oliveira Transportes", label: "Оригинальный бренд" }],
+      gallery: [
+        { alt: "Утверждённая симуляция стартовой серии контента Oliveira Transportes", label: "Система контента" },
+        { alt: "Материал Oliveira Transportes о планировании переезда", label: "Контент о планировании" },
+        { alt: "Материал Oliveira Transportes о заботе на каждом этапе", label: "Язык доверия" },
+        { alt: "Логотип Oliveira Transportes", label: "Оригинальный бренд" },
+      ],
     },
     "score-business-school": {
       sector: "Бизнес-образование", location: "Гуарульюс · Сан-Паулу", status: "Цифровая концепция разработана", headline: "Решайте с цифрами. Руководите ясно.",

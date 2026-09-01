@@ -142,7 +142,7 @@ export function getGallerySizes(image: CaseImage) {
   const gallery = image.placements?.gallery;
   const layout = gallery?.layout ?? "half";
   const span = gallery?.span ?? gallerySpanDefaults[layout];
-  const desktopWidth = span === 12 ? "100vw" : span === 8 ? "67vw" : span === 6 ? "50vw" : "33vw";
+  const desktopWidth = span === 12 ? "100vw" : `${Math.round((span / 12) * 100)}vw`;
 
   return `(max-width: 760px) 100vw, ${desktopWidth}`;
 }
