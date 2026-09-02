@@ -1,0 +1,85 @@
+.contextText {
+  max-width: 76ch;
+  margin: 0;
+  font-size: clamp(1rem, 1.45vw, 1.28rem);
+  line-height: 1.72;
+}
+
+.connectionGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line-light);
+  border-radius: 8px;
+  background: var(--line-light);
+}
+
+.connectionCard {
+  min-width: 0;
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(22px, 2.5vw, 36px);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.connectionIndex {
+  color: var(--orange-dark);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.connectionLabel {
+  min-height: 2.8em;
+  margin: auto 0 0;
+  font-family: var(--display);
+  font-size: clamp(1rem, 1.25vw, 1.22rem);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.connectionText {
+  margin: 0;
+  color: rgba(18, 20, 18, 0.72);
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.62;
+}
+
+@media (max-width: 1080px) {
+  .connectionGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .connectionCard {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contextText {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .connectionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .connectionCard {
+    min-height: 0;
+    gap: 14px;
+    padding: 22px 20px;
+  }
+
+  .connectionLabel {
+    min-height: 0;
+    margin-top: 8px;
+  }
+}
