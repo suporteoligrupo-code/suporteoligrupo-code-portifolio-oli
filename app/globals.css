@@ -1547,7 +1547,7 @@ footer p:last-child { justify-self: end; }
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(90deg, rgba(7, 8, 7, 0.97), rgba(7, 8, 7, 0.62) 55%, rgba(7, 8, 7, 0.16)), linear-gradient(0deg, rgba(7, 8, 7, 0.95), transparent 56%);
+  background: linear-gradient(90deg, rgba(7, 8, 7, 0.9), rgba(7, 8, 7, 0.5) 52%, rgba(7, 8, 7, 0.04)), linear-gradient(0deg, rgba(7, 8, 7, 0.88), transparent 58%);
 }
 .career-hero--text::before {
   content: "";
@@ -1559,6 +1559,7 @@ footer p:last-child { justify-self: end; }
   background-size: 58px 58px, 58px 58px, auto;
 }
 .career-hero__media { position: absolute; inset: 0; z-index: 0; margin: 0; }
+.career-hero__media .editorial-media::after { display: none; }
 .career-hero__media figcaption {
   position: absolute;
   z-index: 3;
