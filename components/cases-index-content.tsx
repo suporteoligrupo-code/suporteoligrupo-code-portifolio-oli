@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
-import { publicCases } from "../app/data/cases";
+import type { PortfolioCase } from "../app/data/cases";
 import { siteCopy } from "../app/data/i18n";
 import CaseCard from "./case-card";
 import { useLanguage } from "./language-provider";
 import SiteFooter from "./site-footer";
 import SiteHeader from "./site-header";
 
-export default function CasesIndexContent() {
+export default function CasesIndexContent({ items }: { items: PortfolioCase[] }) {
   const { language } = useLanguage();
   const copy = siteCopy[language].index;
 
@@ -22,13 +22,13 @@ export default function CasesIndexContent() {
       <main>
         <header className="cases-index-hero section-shell">
           <span>
-            {copy.eyebrow} · {String(publicCases.length).padStart(2, "0")} {copy.countSuffix}
+            {copy.eyebrow} · {String(items.length).padStart(2, "0")} {copy.countSuffix}
           </span>
           <h1>{copy.title}<span>.</span></h1>
           <p>{copy.text}</p>
         </header>
         <div className="case-grid section-shell cases-index-grid">
-          {publicCases.map((item) => <CaseCard item={item} key={item.slug} />)}
+          {items.map((item) => <CaseCard item={item} key={item.slug} />)}
         </div>
       </main>
       <SiteFooter />
