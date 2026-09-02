@@ -7,16 +7,17 @@ import {
   careerUiCopy,
   localizeCareerEntry,
 } from "../app/data/career";
+import { reviewCareerEntry } from "../app/data/career-editorial";
 import { withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
 import MediaFrame from "./media-frame";
 
 export default function CareerCard({ item }: { item: CareerEntry }) {
   const { language } = useLanguage();
-  const localized = localizeCareerEntry(item, language);
+  const localized = reviewCareerEntry(localizeCareerEntry(item, language), language);
   const copy = careerUiCopy[language].card;
   const cover = localized.cover ?? localized.media[0];
-  const period = localized.period ?? copy.periodUnspecified;
+  const period = localized.period;
   const relationship = localized.relationshipDetail ?? localized.relationship;
   const mediaSizes = item.slug === "rico-games"
     ? "100vw"
@@ -40,7 +41,7 @@ export default function CareerCard({ item }: { item: CareerEntry }) {
 
         <div className="career-card__content">
           <div className="career-card__meta">
-            <span>{period}</span>
+            {period ? <span>{period}</span> : null}
             <span>{relationship}</span>
           </div>
 
