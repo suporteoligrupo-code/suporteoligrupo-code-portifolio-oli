@@ -1,20 +1,20 @@
 "use client";
 
 import { useEffect } from "react";
-import {
-  careerUiCopy,
-  publishedCareerEntries,
-} from "../app/data/career";
+import type { CareerEntry } from "../app/data/career";
+import { careerUiCopy } from "../app/data/career";
+import { sortCareerEntries } from "../app/data/career-order";
 import CareerCard from "./career-card";
 import { useLanguage } from "./language-provider";
 import SiteFooter from "./site-footer";
 import SiteHeader from "./site-header";
 
-export default function CareerIndexContent() {
+export default function CareerIndexContent({ entries }: { entries: CareerEntry[] }) {
   const { language } = useLanguage();
   const copy = careerUiCopy[language].index;
-  const featuredEntries = publishedCareerEntries.filter((entry) => entry.featured);
-  const otherEntries = publishedCareerEntries.filter((entry) => !entry.featured);
+  const orderedEntries = sortCareerEntries(entries);
+  const featuredEntries = orderedEntries.filter((entry) => entry.featured);
+  const otherEntries = orderedEntries.filter((entry) => !entry.featured);
 
   useEffect(() => {
     document.title = copy.pageTitle;
