@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
+import { reviewPortfolioCase } from "../app/data/case-editorial";
 import {
   projectStatusLabels,
   type PortfolioCase,
@@ -19,24 +20,24 @@ type CaseStyle = CSSProperties & {
 
 export default function CaseCard({ item }: { item: PortfolioCase }) {
   const { language } = useLanguage();
-  const localized = localizeCase(item, language);
+  const localized = reviewPortfolioCase(localizeCase(item, language), language);
   const copy = siteCopy[language].card;
   const style: CaseStyle = {
-    "--case-accent": item.accent,
-    "--case-soft": item.accentSoft,
-    "--case-ink": item.ink,
+    "--case-accent": localized.accent,
+    "--case-soft": localized.accentSoft,
+    "--case-ink": localized.ink,
   };
-  const mediaSizes = item.size === "wide"
+  const mediaSizes = localized.size === "wide"
     ? "(max-width: 960px) 100vw, 66vw"
     : "(max-width: 760px) 100vw, (max-width: 960px) 50vw, 33vw";
 
   return (
     <article
-      className={`case-card case-card--${item.size} case-card--${item.cardTone} reveal`}
+      className={`case-card case-card--${localized.size} case-card--${localized.cardTone} reveal`}
       style={style}
     >
       <Link
-        href={withLanguage(`/cases/${item.slug}`, language)}
+        href={withLanguage(`/cases/${localized.slug}`, language)}
         aria-label={`${copy.openProject} ${localized.client}`}
       >
         <figure className="case-card__visual">
@@ -49,11 +50,11 @@ export default function CaseCard({ item }: { item: PortfolioCase }) {
 
         <div className="case-card__copy">
           <div className="case-card__meta">
-            <span>{item.number}</span>
+            <span>{localized.number}</span>
             <span className="case-card__status">
-              {projectStatusLabels[language][item.projectStatus]}
+              {projectStatusLabels[language][localized.projectStatus]}
             </span>
-            <span>{item.year}</span>
+            <span>{localized.year}</span>
           </div>
           <div className="case-card__bottom">
             <div>
