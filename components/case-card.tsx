@@ -42,7 +42,8 @@ export default function CaseCard({ item }: { item: PortfolioCase }) {
         <figure className="case-card__visual">
           <MediaFrame image={localized.cover} context="card" sizes={mediaSizes} />
           <span className="case-card__open">
-            {copy.viewProject} <ArrowUpRight aria-hidden="true" size={18} />
+            <span>{copy.viewProject}</span>
+            <ArrowUpRight aria-hidden="true" size={18} />
           </span>
         </figure>
 

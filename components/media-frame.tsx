@@ -199,7 +199,7 @@ export default function MediaFrame({
           <picture>
             {mobileSource ? (
               <source
-                media="(max-width: 760px)"
+                media="(max-width: 820px)"
                 srcSet={mobileSrcSet ?? mobileSource}
                 sizes={sizes}
                 width={mobileWidth}
