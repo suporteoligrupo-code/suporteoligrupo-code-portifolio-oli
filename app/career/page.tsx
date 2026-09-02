@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import CareerIndexContent from "../../components/career-index-content";
+import { publishedCareerEntries } from "../data/career";
+import { sanitizeCareerEntries } from "../data/career-sanitizer";
 
 export const metadata: Metadata = {
   title: "Trajetória — Lucas de Oliveira Andrade",
@@ -10,5 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function CareerPage() {
-  return <CareerIndexContent />;
+  return <CareerIndexContent entries={sanitizeCareerEntries(publishedCareerEntries)} />;
 }

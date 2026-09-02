@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CareerEntryContent from "../../../components/career-entry-content";
-import { publishedCareerEntries } from "../../data/career";
+import {
+  localizeCareerEntry,
+  publishedCareerEntries,
+} from "../../data/career";
+import { reviewCareerEntry } from "../../data/career-editorial";
+import { sortCareerEntries } from "../../data/career-order";
+import { sanitizeCareerEntry } from "../../data/career-sanitizer";
 
 const siteUrl = "https://portfolio-oli-taupe.vercel.app";
 
@@ -21,26 +27,28 @@ export async function generateMetadata({
 
   if (!item) return {};
 
-  const title = `${item.company} — Trajetória de Lucas de Oliveira Andrade`;
-  const url = `${siteUrl}/career/${item.slug}/`;
-  const cover = item.cover ?? item.hero ?? item.media[0];
+  const safeItem = sanitizeCareerEntry(item);
+  const localized = reviewCareerEntry(localizeCareerEntry(safeItem, "pt"), "pt");
+  const title = `${localized.company} — Trajetória de Lucas de Oliveira Andrade`;
+  const url = `${siteUrl}/career/${localized.slug}/`;
+  const cover = localized.cover ?? localized.hero ?? localized.media[0];
   const image = cover ? new URL(cover.src, siteUrl).toString() : undefined;
 
   return {
     title,
-    description: item.summary,
+    description: localized.summary,
     alternates: { canonical: url },
     openGraph: {
       type: "website",
       url,
       title,
-      description: item.summary,
-      images: image ? [{ url: image, alt: cover?.alt ?? item.company }] : undefined,
+      description: localized.summary,
+      images: image ? [{ url: image, alt: cover?.alt ?? localized.company }] : undefined,
     },
     twitter: {
       card: image ? "summary_large_image" : "summary",
       title,
-      description: item.summary,
+      description: localized.summary,
       images: image ? [image] : undefined,
     },
   };
@@ -52,8 +60,20 @@ export default async function CareerEntryPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const item = publishedCareerEntries.find((entry) => entry.slug === slug);
+  const orderedEntries = sortCareerEntries(publishedCareerEntries);
+  const currentIndex = orderedEntries.findIndex((entry) => entry.slug === slug);
+  const item = orderedEntries[currentIndex];
+
   if (!item) notFound();
 
-  return <CareerEntryContent item={item} />;
+  const nextEntry = orderedEntries.length > 1
+    ? orderedEntries[(currentIndex + 1) % orderedEntries.length]
+    : undefined;
+
+  return (
+    <CareerEntryContent
+      item={sanitizeCareerEntry(item)}
+      nextEntry={nextEntry ? sanitizeCareerEntry(nextEntry) : undefined}
+    />
+  );
 }
