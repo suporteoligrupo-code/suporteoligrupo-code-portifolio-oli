@@ -450,7 +450,7 @@ export const cases: PortfolioCase[] = [
     direction:
       "Minha atuação reúne visão comercial, marketing e direção criativa em um sistema modular de alto contraste, com códigos de cor, tipografia condensada e peças que organizam informação e produto com ritmo.",
     result:
-      "A rota criativa dá à Rico Games um território próprio, preparado para campanhas, lançamentos e uma futura experiência digital.",
+      "A rota criativa propõe um território visual próprio para a Rico Games, pensado para campanhas, lançamentos e uma futura experiência digital.",
     services: ["Direção criativa", "Identidade visual", "Conteúdo"],
     deliverables: [
       "Direção visual",
@@ -519,8 +519,8 @@ export const cases: PortfolioCase[] = [
         width: 1662,
         height: 679,
         kind: "campaign",
-        alt: "Peça de campanha criada para a Rico Games",
-        label: "Campanha de produto",
+        alt: "Estudo de peça de campanha para a Rico Games",
+        label: "Template de campanha em desenvolvimento",
         placements: {
           gallery: {
             fit: "contain",
@@ -606,7 +606,7 @@ export const cases: PortfolioCase[] = [
     direction:
       "Na minha direção, a rota Tech Acessível em Movimento combina base grafite, vermelho luminoso, produto em primeiro plano e uma hierarquia direta para ofertas e serviços.",
     result:
-      "O sistema mantém a identidade original, mas eleva o acabamento de site, conteúdo e materiais para apresentar uma operação mais organizada e confiável.",
+      "A identidade original foi preservada enquanto site, conteúdo e materiais foram organizados para transmitir mais clareza e confiança à operação.",
     services: ["Estratégia", "Refinamento visual", "Conteúdo", "Site"],
     deliverables: [
       "Auditoria e direção criativa",
@@ -1247,7 +1247,7 @@ export const cases: PortfolioCase[] = [
     direction:
       "Minha atuação organizou uma experiência objetiva, com fotografia de rota, tipografia robusta e chamadas que conduzem naturalmente ao contato.",
     result:
-      "O site reúne serviços, processo, abrangência e dúvidas em uma narrativa comercial que reduz incerteza e aproxima a conversa.",
+      "O site foi estruturado para reunir serviços, processo, abrangência e dúvidas em uma narrativa comercial capaz de reduzir incerteza e aproximar a conversa.",
     services: ["Posicionamento", "UX/UI", "Copy", "Site"],
     deliverables: [
       "Arquitetura de conteúdo",
@@ -1459,7 +1459,7 @@ export const cases: PortfolioCase[] = [
     direction:
       "Estruturei uma experiência que combina fotografia urbana, linguagem editorial, brasão e uma jornada organizada a partir dos problemas reais de gestão.",
     result:
-      "O conceito posiciona a Score como escola presencial de alto nível e transforma catálogo, metodologia e autoridade em decisão de matrícula.",
+      "O conceito foi estruturado para apresentar a Score como escola presencial de alto nível e orientar a decisão de matrícula por meio de catálogo, metodologia e autoridade.",
     services: ["Estratégia", "UX/UI", "Copy", "Conceito de site"],
     deliverables: [
       "Posicionamento digital",
@@ -1771,7 +1771,7 @@ export const cases: PortfolioCase[] = [
     direction:
       "Minha atuação equilibra produto, histórias e utilidade com uma paleta quente, formas orgânicas e uma linguagem próxima de quem vive a profissão.",
     result:
-      "O novo e-commerce transforma produto em expressão pessoal e cria uma jornada mais clara do primeiro olhar à escolha da peça.",
+      "A experiência do e-commerce foi organizada para tornar mais clara a jornada do primeiro olhar à escolha da peça, conectando produto e expressão pessoal.",
     services: ["Estratégia digital", "UX/UI", "Direção de arte", "E-commerce"],
     deliverables: [
       "Arquitetura do catálogo",
@@ -1919,7 +1919,7 @@ export const cases: PortfolioCase[] = [
     direction:
       "Desenvolvi uma base clara com cores de fruta, tipografia grande e curvas orgânicas que organizam informação sem competir com o apetite visual.",
     result:
-      "A identidade ganha uma linguagem flexível para embalagem, endereço, produto e campanha, mantendo reconhecimento entre peças diferentes.",
+      "A identidade em desenvolvimento estrutura uma linguagem flexível, pensada para futuras aplicações em embalagem, endereço, produto e campanha.",
     services: ["Direção criativa", "Identidade visual", "Conteúdo"],
     deliverables: [
       "Direção visual",
@@ -1982,8 +1982,8 @@ export const cases: PortfolioCase[] = [
         width: 1003,
         height: 1568,
         kind: "social",
-        alt: "Post de endereços criado para a Spolpas",
-        label: "Conteúdo de serviço",
+        alt: "Estudo de post de endereços para a Spolpas",
+        label: "Conteúdo em desenvolvimento",
         position: "top center",
         placements: {
           gallery: {

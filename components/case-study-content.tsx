@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useEffect, type CSSProperties } from "react";
 import {
+  ProjectStatus,
   projectStatusLabels,
   type PortfolioCase,
 } from "../app/data/cases";
@@ -17,6 +18,15 @@ type CasePageStyle = CSSProperties & {
   "--study-accent": string;
   "--study-soft": string;
   "--study-ink": string;
+};
+
+const projectStatusVariant: Record<ProjectStatus, string> = {
+  [ProjectStatus.Realized]: "realized",
+  [ProjectStatus.Professional]: "professional",
+  [ProjectStatus.Consulting]: "consulting",
+  [ProjectStatus.Concept]: "concept",
+  [ProjectStatus.Proposal]: "proposal",
+  [ProjectStatus.InDevelopment]: "in-development",
 };
 
 const personalCaseCopy = {
@@ -39,10 +49,7 @@ const personalCaseCopy = {
     galleryTitle: "Trabalhos e aplicações",
     galleryText:
       "Os registros mostram como minha atuação ganhou forma em identidade, conteúdo, campanha ou experiência digital.",
-    builtIndex: "03 / O que ganhou forma",
-    builtTitle: "Responsabilidades e execuções.",
     competencies: "Competências demonstradas",
-    projectColors: "Cores do trabalho",
     nextWork: "Próximo trabalho selecionado",
     contactEyebrow: "Contato profissional",
     contactTitle: "Conheça minha trajetória completa.",
@@ -67,10 +74,7 @@ const personalCaseCopy = {
     galleryTitle: "Work and applications",
     galleryText:
       "These records show how my contribution took shape through identity, content, campaigns or digital experiences.",
-    builtIndex: "03 / What took shape",
-    builtTitle: "Responsibilities and execution.",
     competencies: "Skills demonstrated",
-    projectColors: "Work colors",
     nextWork: "Next selected work",
     contactEyebrow: "Professional contact",
     contactTitle: "Explore my full professional journey.",
@@ -95,10 +99,7 @@ const personalCaseCopy = {
     galleryTitle: "Работы и применения",
     galleryText:
       "Эти материалы показывают, как мой вклад воплотился в айдентике, контенте, кампаниях и цифровом опыте.",
-    builtIndex: "03 / Что было создано",
-    builtTitle: "Ответственность и реализация.",
     competencies: "Продемонстрированные компетенции",
-    projectColors: "Цвета работы",
     nextWork: "Следующая избранная работа",
     contactEyebrow: "Профессиональный контакт",
     contactTitle: "Посмотрите мой полный профессиональный путь.",
@@ -111,8 +112,11 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
   const localized = localizeCase(item, language);
   const localizedNext = localizeCase(next, language);
   const heroMedia = localized.hero ?? localized.cover;
-  const titleSuffix = siteCopy[language].project.titleSuffix;
+  const projectCopy = siteCopy[language].project;
+  const titleSuffix = projectCopy.titleSuffix;
   const copy = personalCaseCopy[language];
+  const closing = projectCopy.statusClosing[item.projectStatus];
+  const closingTitleId = `case-closing-${item.slug}`;
   const style: CasePageStyle = {
     "--study-accent": item.accent,
     "--study-soft": item.accentSoft,
@@ -238,28 +242,41 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
           </div>
         </section>
 
-        <section className="case-system">
+        <section
+          className={`case-system case-system--${projectStatusVariant[item.projectStatus]}`}
+          aria-labelledby={closingTitleId}
+        >
           <div className="case-system__header">
-            <span>{copy.builtIndex}</span>
-            <h2>{copy.builtTitle}</h2>
+            <span>{closing.index}</span>
+            <h2 id={closingTitleId}>{closing.title}</h2>
           </div>
           <div className="case-system__body">
-            <div className="case-palette" aria-label={copy.projectColors}>
+            <div className="case-system__status">
+              <span>{copy.status}</span>
+              <div>
+                <strong>{projectStatusLabels[language][item.projectStatus]}</strong>
+                <small>{localized.status}</small>
+                <p>{closing.description}</p>
+              </div>
+            </div>
+            <div className="case-palette" aria-hidden="true">
               <i style={{ background: localized.accent }} />
               <i style={{ background: localized.accentSoft }} />
               <i style={{ background: localized.ink }} />
             </div>
             <div className="case-system__summary">
-              <span>{copy.builtIndex}</span>
+              <span>{projectCopy.whatTookShape}</span>
               <p>{localized.built}</p>
             </div>
-            <ul>
+            <ul className="case-system__deliverables" aria-label={copy.responsibilities}>
               {localized.deliverables.map((deliverable) => <li key={deliverable}>{deliverable}</li>)}
             </ul>
-            <div className="case-system__services" aria-label={copy.competencies}>
-              <strong>{copy.competencies}</strong>
-              {localized.services.map((service) => <span key={service}>{service}</span>)}
-            </div>
+            <section className="case-system__services" aria-labelledby={`case-skills-${item.slug}`}>
+              <h3 id={`case-skills-${item.slug}`}>{copy.competencies}</h3>
+              <ul className="case-system__service-list">
+                {localized.services.map((service) => <li key={service}>{service}</li>)}
+              </ul>
+            </section>
           </div>
         </section>
 

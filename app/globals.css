@@ -1227,7 +1227,7 @@ footer p:last-child { justify-self: end; }
   background: var(--study-soft);
   color: var(--study-ink);
 }
-.case-system__header > span { font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.58; }
+.case-system__header > span { font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.74; }
 .case-system__header h2 {
   margin: 40px 0 0;
   font-family: var(--display);
@@ -1237,12 +1237,50 @@ footer p:last-child { justify-self: end; }
   line-height: 0.84;
   text-transform: uppercase;
 }
+.case-system__status {
+  display: grid;
+  grid-template-columns: minmax(112px, 0.28fr) minmax(0, 1fr);
+  gap: 14px clamp(22px, 3vw, 42px);
+  max-width: 100%;
+  margin-bottom: 28px;
+  padding: 18px 0 22px 18px;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  border-left: 4px solid var(--study-accent);
+}
+.case-system--concept .case-system__status,
+.case-system--proposal .case-system__status,
+.case-system--in-development .case-system__status {
+  background: color-mix(in srgb, var(--study-accent) 9%, transparent);
+}
+.case-system__status > span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  opacity: 0.74;
+}
+.case-system__status > div { min-width: 0; }
+.case-system__status strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.case-system__status small { display: block; margin-top: 7px; font-size: 12px; line-height: 1.5; opacity: 0.74; }
+.case-system__status p { max-width: 680px; margin: 14px 0 0; font-size: 14px; line-height: 1.65; }
 .case-palette { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); height: 90px; overflow: hidden; border: 1px solid currentColor; border-radius: 5px; }
 .case-palette i { display: block; }
-.case-system__body ul { margin: 38px 0 0; padding: 0; list-style: none; border-top: 1px solid currentColor; }
-.case-system__body li { padding: 15px 0; border-bottom: 1px solid currentColor; font-size: 12px; line-height: 1.45; }
-.case-system__services { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 26px; }
-.case-system__services span { padding: 8px 10px; border: 1px solid currentColor; border-radius: 3px; font-size: 8px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.case-system__deliverables { margin: 38px 0 0; padding: 0; list-style: none; border-top: 1px solid currentColor; }
+.case-system__deliverables li { padding: 15px 0; border-bottom: 1px solid currentColor; font-size: 12px; line-height: 1.45; }
+.case-system__services { margin-top: 26px; }
+.case-system__services h3 { margin: 0 0 12px; font-size: 9px; font-weight: 800; letter-spacing: 0.12em; line-height: 1.45; text-transform: uppercase; opacity: 0.74; }
+.case-system__service-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; padding: 0; list-style: none; }
+.case-system__service-list li { padding: 8px 10px; border: 1px solid currentColor; border-radius: 3px; font-size: 9px; font-weight: 800; letter-spacing: 0.08em; line-height: 1.4; text-transform: uppercase; }
 .case-next { padding: clamp(85px, 10vw, 160px) clamp(20px, 4.6vw, 76px); border-top: 1px solid var(--line-dark); background: var(--black); }
 .case-next > p { margin: 0 0 28px; color: var(--study-accent); font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
 .case-next > a { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
@@ -1633,9 +1671,8 @@ footer p:last-child { justify-self: end; }
 .case-facts dd strong { display: block; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
 .case-facts dd small { display: block; margin-top: 6px; color: rgba(255,255,255,.58); font-size: 9px; line-height: 1.4; }
 .case-system__summary { margin-top: 34px; padding: 18px 0; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
-.case-system__summary span { display: block; margin-bottom: 9px; font-size: 8px; font-weight: 820; letter-spacing: .12em; text-transform: uppercase; opacity: .62; }
+.case-system__summary span { display: block; margin-bottom: 9px; font-size: 9px; font-weight: 820; letter-spacing: .12em; text-transform: uppercase; opacity: .74; }
 .case-system__summary p { margin: 0; font-size: 13px; line-height: 1.6; }
-.case-system__services strong { flex: 0 0 100%; margin-bottom: 6px; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
 
 .reveal { animation: reveal 700ms both cubic-bezier(0.2, 0.72, 0.2, 1); animation-timeline: view(); animation-range: entry 5% cover 27%; }
 @keyframes reveal { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -1918,6 +1955,7 @@ footer p:last-child { justify-self: end; }
   .case-gallery__statement strong { font-size: clamp(34px, 9.5vw, 54px); overflow-wrap: normal; }
   .case-system { grid-template-columns: 1fr; gap: 48px; padding: 88px 18px 96px; }
   .case-system__header h2 { font-size: clamp(44px, 14vw, 72px); }
+  .case-system__status { grid-template-columns: 1fr; gap: 10px; padding-left: 14px; }
   .case-next { padding: 85px 18px 95px; }
   .case-next > a span { font-size: clamp(46px, 14vw, 72px); }
   .case-contact { padding: 88px 18px 96px; }

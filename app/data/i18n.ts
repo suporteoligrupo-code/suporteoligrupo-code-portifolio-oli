@@ -1,4 +1,4 @@
-import type { CaseImage, PortfolioCase } from "./cases";
+import { ProjectStatus, type CaseImage, type PortfolioCase } from "./cases";
 
 export type Language = "pt" | "en" | "ru";
 
@@ -21,6 +21,12 @@ type ValueAxisCopy = {
 };
 
 type MethodStepCopy = [string, string, string];
+
+type ProjectStatusClosingCopy = {
+  index: string;
+  title: string;
+  description: string;
+};
 
 type SiteCopy = {
   header: {
@@ -130,6 +136,7 @@ type SiteCopy = {
     roleCallout: string;
     responsibilitiesIndex: string;
     responsibilitiesTitle: string;
+    statusClosing: Record<ProjectStatus, ProjectStatusClosingCopy>;
     evidenceTitle: string;
     projectColors: string;
     nextProject: string;
@@ -276,6 +283,38 @@ export const siteCopy: Record<Language, SiteCopy> = {
       roleCallout: "Minha atuação",
       responsibilitiesIndex: "03 / Responsabilidades",
       responsibilitiesTitle: "Responsabilidades e execuções.",
+      statusClosing: {
+        [ProjectStatus.Realized]: {
+          index: "03 / Resultado construído",
+          title: "O que ganhou forma.",
+          description: "O trabalho foi executado e chegou ao estágio registrado nesta página.",
+        },
+        [ProjectStatus.Professional]: {
+          index: "03 / Atuação profissional",
+          title: "Participação, execução e evidências.",
+          description: "Esta página documenta minha participação profissional, o papel descrito e o trabalho realizado nesse contexto.",
+        },
+        [ProjectStatus.Consulting]: {
+          index: "03 / Consultoria em prática",
+          title: "Atuação, direção e execução.",
+          description: "Esta página documenta minha atuação em consultoria e as execuções descritas neste trabalho.",
+        },
+        [ProjectStatus.Concept]: {
+          index: "03 / Escopo conceitual",
+          title: "O que foi explorado e desenvolvido.",
+          description: "Esta página apresenta uma exploração conceitual; não a trata como contratação ou entrega comercial concluída.",
+        },
+        [ProjectStatus.Proposal]: {
+          index: "03 / Escopo da proposta",
+          title: "O que foi proposto.",
+          description: "Esta página apresenta uma proposta desenvolvida; não a trata como projeto contratado ou concluído.",
+        },
+        [ProjectStatus.InDevelopment]: {
+          index: "03 / Em desenvolvimento",
+          title: "O que já ganhou forma.",
+          description: "Este trabalho segue em desenvolvimento; a página registra o estágio atual e o que já ganhou forma.",
+        },
+      },
       evidenceTitle: "Resultados e evidências",
       projectColors: "Cores do trabalho",
       nextProject: "Próximo trabalho",
@@ -420,6 +459,38 @@ export const siteCopy: Record<Language, SiteCopy> = {
       roleCallout: "My role",
       responsibilitiesIndex: "03 / Responsibilities",
       responsibilitiesTitle: "Responsibilities and execution.",
+      statusClosing: {
+        [ProjectStatus.Realized]: {
+          index: "03 / Built result",
+          title: "What took shape.",
+          description: "The work was carried out and reached the stage recorded on this page.",
+        },
+        [ProjectStatus.Professional]: {
+          index: "03 / Professional role",
+          title: "Contribution, execution and evidence.",
+          description: "This page documents my professional contribution, the role described and the work carried out in that context.",
+        },
+        [ProjectStatus.Consulting]: {
+          index: "03 / Consulting in practice",
+          title: "Role, direction and execution.",
+          description: "This page documents my consulting role and the work described here.",
+        },
+        [ProjectStatus.Concept]: {
+          index: "03 / Concept scope",
+          title: "What was explored and developed.",
+          description: "This page presents a conceptual exploration; it is not presented as a contracted or completed commercial engagement.",
+        },
+        [ProjectStatus.Proposal]: {
+          index: "03 / Proposal scope",
+          title: "What was proposed.",
+          description: "This page presents a developed proposal; it is not presented as a contracted or completed project.",
+        },
+        [ProjectStatus.InDevelopment]: {
+          index: "03 / In development",
+          title: "What has taken shape so far.",
+          description: "This work is still in development; the page records its current stage and what has already taken shape.",
+        },
+      },
       evidenceTitle: "Results and evidence",
       projectColors: "Project colors",
       nextProject: "Next project",
@@ -564,6 +635,38 @@ export const siteCopy: Record<Language, SiteCopy> = {
       roleCallout: "Моя роль",
       responsibilitiesIndex: "03 / Ответственность",
       responsibilitiesTitle: "Ответственность и реализация.",
+      statusClosing: {
+        [ProjectStatus.Realized]: {
+          index: "03 / Созданный результат",
+          title: "Что получило форму.",
+          description: "Работа была выполнена и достигла этапа, указанного на этой странице.",
+        },
+        [ProjectStatus.Professional]: {
+          index: "03 / Профессиональная роль",
+          title: "Участие, реализация и подтверждения.",
+          description: "На странице представлены мой профессиональный вклад, указанная роль и выполненная в этом контексте работа.",
+        },
+        [ProjectStatus.Consulting]: {
+          index: "03 / Консалтинг на практике",
+          title: "Роль, направление и реализация.",
+          description: "На странице представлены моя консультационная роль и выполненная в её рамках работа.",
+        },
+        [ProjectStatus.Concept]: {
+          index: "03 / Концептуальный объём",
+          title: "Что было исследовано и разработано.",
+          description: "На странице представлена концептуальная разработка; она не позиционируется как заказанная или завершённая коммерческая работа.",
+        },
+        [ProjectStatus.Proposal]: {
+          index: "03 / Объём предложения",
+          title: "Что было предложено.",
+          description: "На странице представлено разработанное предложение; оно не позиционируется как заказанный или завершённый проект.",
+        },
+        [ProjectStatus.InDevelopment]: {
+          index: "03 / В разработке",
+          title: "Что уже получило форму.",
+          description: "Работа находится в разработке; страница отражает её текущий этап и уже созданные элементы.",
+        },
+      },
       evidenceTitle: "Результаты и подтверждения",
       projectColors: "Цвета проекта",
       nextProject: "Следующая работа",
@@ -649,11 +752,11 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Visual direction, signature, color system, campaign templates and commercial content in development.",
       challenge: "Create gaming energy without repeating the usual neon language, excessive effects and disorganized visual communication.",
       direction: "My role brings commercial thinking, marketing and creative direction together in a high-contrast modular system with color codes, condensed typography and rhythmic layouts.",
-      result: "The creative direction gives Rico Games its own territory, ready for campaigns, launches and a future digital experience.",
+      result: "The creative direction proposes a distinctive visual territory for Rico Games, designed for campaigns, launches and a future digital experience.",
       services: ["Creative direction", "Visual identity", "Content"],
       deliverables: ["Visual direction", "Logo and signature", "Color system", "Campaign templates", "Sales content"],
       cover: { alt: "Visual system created for Rico Games", label: "Visual identity" },
-      gallery: [{ alt: "Campaign asset created for Rico Games", label: "Product campaign" }, { alt: "Rico Games logo", label: "Visual signature" }],
+      gallery: [{ alt: "Campaign asset study for Rico Games", label: "Campaign template in development" }, { alt: "Rico Games logo", label: "Visual signature" }],
     },
     "josucas-eletronicos": {
       sector: "Technology · retail", location: "Guarulhos · São Paulo", status: "Identity and website live", headline: "Technology connected to real life.",
@@ -662,7 +765,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Visual system, vectorized logo, commercial materials, Instagram content and a published responsive website.",
       challenge: "Evolve the communication without losing recognition of the established brand, balancing premium technology with broad commercial appeal.",
       direction: "In my direction, the Accessible Tech in Motion route combines a graphite base, bright red, products in the foreground and direct hierarchy for offers and services.",
-      result: "The system preserves the original identity while elevating the finish of the website, content and materials to present a more organized and trustworthy operation.",
+      result: "The original identity was preserved while the website, content and materials were organized to communicate greater clarity and confidence in the operation.",
       services: ["Strategy", "Visual refinement", "Content", "Website"],
       deliverables: ["Audit and creative direction", "Technical logo vectorization", "Visual system and tagline", "Business card", "Initial Instagram kit", "Identity presentation", "Live responsive website"],
       cover: { alt: "Product direction for the Josucas Eletrônicos website", label: "Local e-commerce" },
@@ -709,7 +812,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Brand concept, identity, content architecture, commercial message, quote journey and a published website.",
       challenge: "Give professional form to a service built on trust, care and quick response without complicating the quote request.",
       direction: "My role organized a straightforward experience with route photography, robust typography and calls to action that naturally lead to contact.",
-      result: "The website brings services, process, coverage and questions into a commercial narrative that reduces uncertainty and starts the conversation.",
+      result: "The website was structured to bring services, process, coverage and questions into a commercial narrative designed to reduce uncertainty and start the conversation.",
       services: ["Positioning", "UX/UI", "Copy", "Website"],
       deliverables: ["Content architecture", "Commercial message", "Visual direction", "Quote journey", "Live responsive website"],
       cover: { alt: "Truck featured in Oliveira Transportes communication", label: "Corporate website" },
@@ -727,7 +830,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Digital positioning, challenge-led architecture, visual direction, course pages and a responsive prototype.",
       challenge: "Present economic and financial education with depth and aspiration without relying on the generic look of online courses.",
       direction: "I structured an experience that combines urban photography, editorial language, a crest and a journey organized around real management challenges.",
-      result: "The concept positions Score as a high-level in-person school and turns its curriculum, method and authority into an enrollment decision.",
+      result: "The concept was structured to present Score as a high-level in-person school and guide the enrollment decision through its curriculum, method and authority.",
       services: ["Strategy", "UX/UI", "Copy", "Website concept"],
       deliverables: ["Digital positioning", "Architecture by business challenge", "Editorial visual direction", "Program pages", "Navigable responsive prototype"],
       cover: { alt: "Visual direction for the Score Business School digital concept", label: "Authority concept" },
@@ -753,7 +856,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Catalog architecture, visual direction, product journey, institutional content and a published e-commerce experience.",
       challenge: "Organize catalog, customization and purchase without losing the brand's affectionate personality or making navigation heavy.",
       direction: "My role balances product, stories and utility through a warm palette, organic shapes and language close to the people who live the profession.",
-      result: "The new e-commerce experience turns product into personal expression and creates a clearer journey from first look to final choice.",
+      result: "The e-commerce experience was organized to make the journey from first look to final choice clearer, connecting product and personal expression.",
       services: ["Digital strategy", "UX/UI", "Art direction", "E-commerce"],
       deliverables: ["Catalog architecture", "Visual direction", "Product journey", "Institutional content", "Live responsive experience"],
       cover: { alt: "Homepage of the live Dona Girafa e-commerce website", label: "Live e-commerce" },
@@ -766,11 +869,11 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Color system, product layouts, Instagram assets and brand applications in development.",
       challenge: "Unify different flavors and content formats while keeping the product as the protagonist.",
       direction: "I developed a light base with fruit colors, large typography and organic curves that organize information without competing with visual appetite.",
-      result: "The identity gains a flexible language for packaging, location, products and campaigns, preserving recognition across different pieces.",
+      result: "The identity in development establishes a flexible language designed for future applications across packaging, locations, products and campaigns.",
       services: ["Creative direction", "Visual identity", "Content"],
       deliverables: ["Visual direction", "Color system", "Product layouts", "Instagram assets", "Brand applications"],
       cover: { alt: "Visual direction created for Spolpas", label: "Visual identity" },
-      gallery: [{ alt: "Store-location post created for Spolpas", label: "Service content" }],
+      gallery: [{ alt: "Store-location post study for Spolpas", label: "Content in development" }],
     },
   },
   ru: {
@@ -803,15 +906,15 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "rico-games": {
       sector: "Игры · технологии", location: "Бразилия", status: "Айдентика в разработке", headline: "Геймерский стиль без шаблонов.",
       summary: "Технологичное и коммерческое направление, превращающее сильное имя в заметное присутствие бренда.",
-      personalRole: "Я объединил коммерческое мышление, маркетинг и креативное направление при создании этого визуального маршрута.",
+      personalRole: "Я работал на пересечении коммерческого видения, маркетинга и креативного направления при разработке этого визуального маршрута.",
       built: "Визуальное направление, подпись, цветовая система, шаблоны кампаний и коммерческий контент в разработке.",
       challenge: "Создать геймерскую энергию без привычного неона, избытка эффектов и хаотичной визуальной коммуникации.",
       direction: "Моя роль объединила коммерческий взгляд, маркетинг и креативное направление в модульной контрастной системе с цветовыми кодами и выразительной типографикой.",
-      result: "Креативное направление формирует для Rico Games собственную территорию, готовую к кампаниям, запускам и будущему цифровому опыту.",
+      result: "Креативное направление предлагает Rico Games собственную визуальную территорию, рассчитанную на кампании, запуски и будущий цифровой опыт.",
       services: ["Креативное направление", "Визуальная айдентика", "Контент"],
       deliverables: ["Визуальное направление", "Логотип и подпись", "Цветовая система", "Шаблоны кампаний", "Коммерческий контент"],
       cover: { alt: "Визуальная система Rico Games", label: "Визуальная айдентика" },
-      gallery: [{ alt: "Рекламный материал Rico Games", label: "Продуктовая кампания" }, { alt: "Логотип Rico Games", label: "Визуальная подпись" }],
+      gallery: [{ alt: "Исследование рекламного материала Rico Games", label: "Шаблон кампании в разработке" }, { alt: "Логотип Rico Games", label: "Визуальная подпись" }],
     },
     "josucas-eletronicos": {
       sector: "Технологии · ритейл", location: "Гуарульюс · Сан-Паулу", status: "Айдентика и сайт опубликованы", headline: "Технологии для реальной жизни.",
@@ -820,7 +923,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Визуальная система, векторный логотип, коммерческие материалы, контент Instagram и опубликованный адаптивный сайт.",
       challenge: "Развить коммуникацию, сохранив узнаваемость известного бренда и баланс между премиальными технологиями и массовой коммерческой привлекательностью.",
       direction: "В моём направлении маршрут «Доступные технологии в движении» объединяет графитовую базу, яркий красный, продукт на первом плане и прямую иерархию предложений и услуг.",
-      result: "Система сохраняет оригинальную айдентику, но повышает качество сайта, контента и материалов, представляя бизнес более организованным и надёжным.",
+      result: "Оригинальная айдентика была сохранена, а сайт, контент и материалы организованы так, чтобы яснее и убедительнее представить работу компании.",
       services: ["Стратегия", "Визуальная доработка", "Контент", "Сайт"],
       deliverables: ["Аудит и креативное направление", "Техническая векторизация логотипа", "Визуальная система и слоган", "Визитная карточка", "Стартовый набор Instagram", "Презентация айдентики", "Опубликованный адаптивный сайт"],
       cover: { alt: "Продуктовое направление для сайта Josucas Eletrônicos", label: "Локальный интернет-магазин" },
@@ -867,7 +970,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Концепция бренда, айдентика, архитектура контента, коммерческое сообщение, путь запроса расчёта и опубликованный сайт.",
       challenge: "Профессионально оформить сервис, основанный на доверии, заботе и быстром ответе, не усложняя запрос расчёта.",
       direction: "Моя роль организовала прямой опыт с фотографиями маршрутов, выразительной типографикой и призывами, естественно ведущими к контакту.",
-      result: "Сайт объединяет услуги, процесс, географию и вопросы в коммерческом повествовании, которое снижает неопределённость и начинает диалог.",
+      result: "Сайт был структурирован так, чтобы объединить услуги, процесс, географию работы и вопросы в коммерческое повествование, способное снизить неопределённость и начать диалог.",
       services: ["Позиционирование", "UX/UI", "Копирайтинг", "Сайт"],
       deliverables: ["Архитектура контента", "Коммерческое сообщение", "Визуальное направление", "Путь запроса расчёта", "Опубликованный адаптивный сайт"],
       cover: { alt: "Грузовик в коммуникации Oliveira Transportes", label: "Корпоративный сайт" },
@@ -885,7 +988,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Цифровое позиционирование, архитектура по задачам, визуальное направление, страницы программ и адаптивный прототип.",
       challenge: "Представить экономическое и финансовое образование глубоко и привлекательно, не используя шаблонную эстетику онлайн-курсов.",
       direction: "Я структурировал цельный опыт через городскую фотографию, редакционный язык, герб и путь, выстроенный вокруг реальных задач управления.",
-      result: "Концепция позиционирует Score как очную школу высокого уровня и превращает программу, методику и авторитет в решение об обучении.",
+      result: "Концепция была структурирована так, чтобы представить Score как очную школу высокого уровня и помочь принять решение об обучении через программу, методику и авторитет.",
       services: ["Стратегия", "UX/UI", "Копирайтинг", "Концепция сайта"],
       deliverables: ["Цифровое позиционирование", "Архитектура по бизнес-задачам", "Редакционное визуальное направление", "Страницы программ", "Интерактивный адаптивный прототип"],
       cover: { alt: "Визуальное направление цифровой концепции Score Business School", label: "Концепция авторитета" },
@@ -911,7 +1014,7 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Архитектура каталога, визуальное направление, путь выбора продукта, корпоративный контент и опубликованный интернет-магазин.",
       challenge: "Организовать каталог, персонализацию и покупку, не теряя душевный характер бренда и не перегружая навигацию.",
       direction: "Моя роль создаёт баланс между продуктом, историями и пользой через тёплую палитру, органичные формы и близкий профессионалам язык.",
-      result: "Новый интернет-магазин превращает продукт в личное выражение и создаёт более ясный путь от первого взгляда до выбора вещи.",
+      result: "Опыт интернет-магазина был организован так, чтобы сделать путь от первого взгляда до выбора вещи яснее, связывая продукт с личным самовыражением.",
       services: ["Цифровая стратегия", "UX/UI", "Арт-дирекшн", "E-commerce"],
       deliverables: ["Архитектура каталога", "Визуальное направление", "Путь выбора продукта", "Корпоративный контент", "Опубликованный адаптивный опыт"],
       cover: { alt: "Главная страница интернет-магазина Dona Girafa", label: "Опубликованный e-commerce" },
@@ -924,11 +1027,11 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       built: "Цветовая система, продуктовые макеты, материалы Instagram и применения бренда в разработке.",
       challenge: "Объединить разные вкусы и форматы контента, сохраняя продукт главным героем.",
       direction: "Я разработал светлую базу, фруктовые цвета, крупную типографику и органичные линии, которые организуют информацию и не конкурируют с продуктом.",
-      result: "Айдентика получает гибкий язык для упаковки, адресов, продуктов и кампаний, сохраняя узнаваемость разных материалов.",
+      result: "Разрабатываемая айдентика формирует гибкий язык, рассчитанный на будущие применения в упаковке, адресных материалах, продуктовой коммуникации и кампаниях.",
       services: ["Креативное направление", "Визуальная айдентика", "Контент"],
       deliverables: ["Визуальное направление", "Цветовая система", "Продуктовые макеты", "Материалы для Instagram", "Применения бренда"],
       cover: { alt: "Визуальное направление Spolpas", label: "Визуальная айдентика" },
-      gallery: [{ alt: "Пост с адресами магазинов Spolpas", label: "Сервисный контент" }],
+      gallery: [{ alt: "Исследование поста с адресами Spolpas", label: "Контент в разработке" }],
     },
   },
 };
