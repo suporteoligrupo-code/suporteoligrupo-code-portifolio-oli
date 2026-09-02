@@ -6,6 +6,8 @@ import {
   publishedCareerEntries,
 } from "../../data/career";
 import { reviewCareerEntry } from "../../data/career-editorial";
+import { sortCareerEntries } from "../../data/career-order";
+import { sanitizeCareerEntry } from "../../data/career-sanitizer";
 
 const siteUrl = "https://portfolio-oli-taupe.vercel.app";
 
@@ -25,7 +27,8 @@ export async function generateMetadata({
 
   if (!item) return {};
 
-  const localized = reviewCareerEntry(localizeCareerEntry(item, "pt"), "pt");
+  const safeItem = sanitizeCareerEntry(item);
+  const localized = reviewCareerEntry(localizeCareerEntry(safeItem, "pt"), "pt");
   const title = `${localized.company} — Trajetória de Lucas de Oliveira Andrade`;
   const url = `${siteUrl}/career/${localized.slug}/`;
   const cover = localized.cover ?? localized.hero ?? localized.media[0];
@@ -57,8 +60,20 @@ export default async function CareerEntryPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const item = publishedCareerEntries.find((entry) => entry.slug === slug);
+  const orderedEntries = sortCareerEntries(publishedCareerEntries);
+  const currentIndex = orderedEntries.findIndex((entry) => entry.slug === slug);
+  const item = orderedEntries[currentIndex];
+
   if (!item) notFound();
 
-  return <CareerEntryContent item={item} />;
+  const nextEntry = orderedEntries.length > 1
+    ? orderedEntries[(currentIndex + 1) % orderedEntries.length]
+    : undefined;
+
+  return (
+    <CareerEntryContent
+      item={sanitizeCareerEntry(item)}
+      nextEntry={nextEntry ? sanitizeCareerEntry(nextEntry) : undefined}
+    />
+  );
 }
