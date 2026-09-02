@@ -8,7 +8,7 @@ import {
   Globe2,
   Heart,
 } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, type CSSProperties } from "react";
 import CareerCard from "../components/career-card";
 import CaseCard from "../components/case-card";
 import { useLanguage } from "../components/language-provider";
@@ -28,7 +28,14 @@ type HeroProject = {
   height: number;
   mobileWidth?: number;
   mobileHeight?: number;
+  position: string;
+  mobilePosition: string;
   className: string;
+};
+
+type HeroProjectStyle = CSSProperties & {
+  "--hero-position": string;
+  "--hero-position-mobile": string;
 };
 
 const heroProjects: HeroProject[] = [
@@ -36,16 +43,28 @@ const heroProjects: HeroProject[] = [
     slug: "manifesto-bar",
     src: "/cases/manifesto/palco-large.webp",
     srcSet: "/media-responsive/cases/manifesto/palco-large-480.webp 480w, /media-responsive/cases/manifesto/palco-large-800.webp 800w, /media-responsive/cases/manifesto/palco-large-1200.webp 1200w, /cases/manifesto/palco-large.webp 1672w",
+    mobileSrc: "/cases/manifesto/palco-mobile.webp",
+    mobileSrcSet: "/media-responsive/cases/manifesto/palco-mobile-480.webp 480w, /cases/manifesto/palco-mobile.webp 820w",
     width: 1672,
     height: 941,
+    mobileWidth: 820,
+    mobileHeight: 941,
+    position: "54% 48%",
+    mobilePosition: "center",
     className: "hero-slide--1",
   },
   {
     slug: "oliveira-transportes",
     src: "/cases/oliveira-transportes/hero.webp",
     srcSet: "/media-responsive/cases/oliveira-transportes/hero-480.webp 480w, /media-responsive/cases/oliveira-transportes/hero-800.webp 800w, /media-responsive/cases/oliveira-transportes/hero-1200.webp 1200w, /cases/oliveira-transportes/hero.webp 1774w",
+    mobileSrc: "/cases/oliveira-transportes/hero-mobile.webp",
+    mobileSrcSet: "/media-responsive/cases/oliveira-transportes/hero-mobile-480.webp 480w, /cases/oliveira-transportes/hero-mobile.webp 820w",
     width: 1774,
     height: 887,
+    mobileWidth: 820,
+    mobileHeight: 887,
+    position: "72% 52%",
+    mobilePosition: "center",
     className: "hero-slide--2",
   },
   {
@@ -58,6 +77,8 @@ const heroProjects: HeroProject[] = [
     height: 851,
     mobileWidth: 864,
     mobileHeight: 1821,
+    position: "58% center",
+    mobilePosition: "50% 42%",
     className: "hero-slide--3",
   },
 ];
@@ -94,11 +115,18 @@ export default function Home() {
           <div className="hero-stage">
             <div className="hero-media" aria-hidden="true">
               {heroProjects.map((project, index) => (
-                <figure className={`hero-slide ${project.className}`} key={project.slug}>
+                <figure
+                  className={`hero-slide ${project.className}`}
+                  key={project.slug}
+                  style={{
+                    "--hero-position": project.position,
+                    "--hero-position-mobile": project.mobilePosition,
+                  } as HeroProjectStyle}
+                >
                   <picture>
                     {project.mobileSrc ? (
                       <source
-                        media="(max-width: 760px)"
+                        media="(max-width: 820px)"
                         srcSet={project.mobileSrcSet ?? project.mobileSrc}
                         sizes="100vw"
                         width={project.mobileWidth}
