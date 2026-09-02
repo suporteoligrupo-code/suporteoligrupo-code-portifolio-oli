@@ -9,9 +9,15 @@ import {
   localizeCareerEntry,
   publishedCareerEntries,
 } from "../app/data/career";
+import {
+  careerNarrativeLabels,
+  getCareerEditorial,
+  reviewCareerEntry,
+} from "../app/data/career-editorial";
 import { projectStatusLabels, publicCases } from "../app/data/cases";
 import { withLanguage } from "../app/data/i18n";
 import CaseCard from "./case-card";
+import styles from "./career-editorial.module.css";
 import { useLanguage } from "./language-provider";
 import MediaFrame, {
   getGalleryLayout,
@@ -43,19 +49,25 @@ function DetailSection({
 
 export default function CareerEntryContent({ item }: { item: CareerEntry }) {
   const { language } = useLanguage();
-  const localized = localizeCareerEntry(item, language);
+  const localized = reviewCareerEntry(localizeCareerEntry(item, language), language);
+  const editorial = getCareerEditorial(item.slug, language);
+  const narrativeLabels = careerNarrativeLabels[language];
   const copy = careerUiCopy[language].page;
   const heroMedia = localized.hero ?? localized.cover ?? localized.media[0];
-  const period = localized.period ?? careerUiCopy[language].card.periodUnspecified;
+  const period = localized.period;
   const relationship = localized.relationshipDetail ?? localized.relationship;
   const currentIndex = publishedCareerEntries.findIndex((entry) => entry.slug === item.slug);
   const nextEntry = currentIndex === -1
     ? undefined
     : publishedCareerEntries[(currentIndex + 1) % publishedCareerEntries.length];
-  const localizedNext = nextEntry ? localizeCareerEntry(nextEntry, language) : undefined;
+  const localizedNext = nextEntry
+    ? reviewCareerEntry(localizeCareerEntry(nextEntry, language), language)
+    : undefined;
   const relatedSlugs = item.relatedProjectSlugs ?? [];
   const relatedProjects = publicCases.filter((project) => relatedSlugs.includes(project.slug));
   const visualProject = relatedProjects[0];
+  let sectionNumber = 0;
+  const nextSectionIndex = () => String(++sectionNumber).padStart(2, "0");
 
   useEffect(() => {
     document.title = `${localized.company} — ${copy.titleSuffix}`;
@@ -82,7 +94,7 @@ export default function CareerEntryContent({ item }: { item: CareerEntry }) {
             <Link href={withLanguage("/career", language)}>
               <ArrowLeft aria-hidden="true" size={16} /> {copy.allEntries}
             </Link>
-            <span>{period}</span>
+            {period ? <span>{period}</span> : null}
           </div>
 
           <div className="career-hero__content">
@@ -93,7 +105,7 @@ export default function CareerEntryContent({ item }: { item: CareerEntry }) {
           </div>
 
           <dl className="career-facts">
-            <div><dt>{copy.period}</dt><dd>{period}</dd></div>
+            {period ? <div><dt>{copy.period}</dt><dd>{period}</dd></div> : null}
             <div><dt>{copy.relationship}</dt><dd>{relationship}</dd></div>
             <div><dt>{copy.role}</dt><dd>{localized.roles.join(" · ")}</dd></div>
             {localized.status ? <div><dt>{copy.status}</dt><dd>{localized.status}</dd></div> : null}
@@ -101,8 +113,8 @@ export default function CareerEntryContent({ item }: { item: CareerEntry }) {
         </section>
 
         <div className="career-detail section-shell">
-          <DetailSection index="01" title={copy.relationship}>
-            <p>{localized.summary}</p>
+          <DetailSection index={nextSectionIndex()} title={copy.relationship}>
+            <p>{editorial?.relationshipNote ?? localized.summary}</p>
             {localized.relatedCompany ? (
               <p className="career-detail__related-company">
                 <strong>{copy.relatedCompany}</strong> {localized.relatedCompany}
@@ -110,82 +122,109 @@ export default function CareerEntryContent({ item }: { item: CareerEntry }) {
             ) : null}
           </DetailSection>
 
-          <DetailSection index="02" title={copy.role}>
+          <DetailSection index={nextSectionIndex()} title={copy.role}>
             <ul className="career-detail__tags">
               {localized.roles.map((role) => <li key={role}>{role}</li>)}
             </ul>
           </DetailSection>
 
-          <DetailSection index="03" title={copy.directActions}>
+          {editorial ? (
+            <DetailSection index={nextSectionIndex()} title={narrativeLabels.context}>
+              <p className={styles.contextText}>{editorial.context}</p>
+            </DetailSection>
+          ) : null}
+
+          {editorial ? (
+            <DetailSection index={nextSectionIndex()} title={narrativeLabels.connection}>
+              <div className={styles.connectionGrid}>
+                <article className={styles.connectionCard}>
+                  <span className={styles.connectionIndex}>01</span>
+                  <h3 className={styles.connectionLabel}>{narrativeLabels.disconnected}</h3>
+                  <p className={styles.connectionText}>{editorial.disconnected}</p>
+                </article>
+                <article className={styles.connectionCard}>
+                  <span className={styles.connectionIndex}>02</span>
+                  <h3 className={styles.connectionLabel}>{narrativeLabels.relation}</h3>
+                  <p className={styles.connectionText}>{editorial.relation}</p>
+                </article>
+                <article className={styles.connectionCard}>
+                  <span className={styles.connectionIndex}>03</span>
+                  <h3 className={styles.connectionLabel}>{narrativeLabels.solution}</h3>
+                  <p className={styles.connectionText}>{editorial.solution}</p>
+                </article>
+                <article className={styles.connectionCard}>
+                  <span className={styles.connectionIndex}>04</span>
+                  <h3 className={styles.connectionLabel}>{narrativeLabels.value}</h3>
+                  <p className={styles.connectionText}>{editorial.value}</p>
+                </article>
+              </div>
+            </DetailSection>
+          ) : null}
+
+          <DetailSection index={nextSectionIndex()} title={copy.directActions}>
             <ul className="career-detail__list">
               {localized.directActions.map((action) => <li key={action}>{action}</li>)}
             </ul>
           </DetailSection>
 
-          <DetailSection index="04" title={copy.initiatives}>
-            {localized.initiatives && localized.initiatives.length > 0 ? (
+          {localized.initiatives && localized.initiatives.length > 0 ? (
+            <DetailSection index={nextSectionIndex()} title={copy.initiatives}>
               <ul className="career-detail__list">
                 {localized.initiatives.map((initiative) => <li key={initiative}>{initiative}</li>)}
               </ul>
-            ) : (
-              <p className="career-detail__empty">{copy.noInitiatives}</p>
-            )}
-          </DetailSection>
+            </DetailSection>
+          ) : null}
         </div>
 
-        <section className={`career-media-section${localized.media.length > 0 ? "" : " career-media-section--empty"}`} aria-labelledby="career-media-title">
+        {localized.media.length > 0 ? (
+          <section className="career-media-section" aria-labelledby="career-media-title">
             <header className="career-media-section__heading section-shell">
-              <span>05</span>
+              <span>{nextSectionIndex()}</span>
               <h2 id="career-media-title">{copy.workAndRecords}</h2>
             </header>
-            {localized.media.length > 0 ? (
-              <div className="career-media-gallery section-shell">
-                {localized.media.map((media, index) => (
-                  <figure
-                    className={`career-media-gallery__item career-media-gallery__item--${getGalleryLayout(media)}`}
-                    key={`${media.src}-${index}`}
-                    style={getGalleryStyle(media)}
-                  >
-                    <div className="career-media-gallery__canvas">
-                      <MediaFrame image={media} context="gallery" sizes={getGallerySizes(media)} />
-                    </div>
-                    <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{media.label}</figcaption>
-                  </figure>
-                ))}
-              </div>
-            ) : (
-              <div className="career-media-empty section-shell">
-                <p>{copy.noMedia}</p>
-              </div>
-            )}
-        </section>
+            <div className="career-media-gallery section-shell">
+              {localized.media.map((media, index) => (
+                <figure
+                  className={`career-media-gallery__item career-media-gallery__item--${getGalleryLayout(media)}`}
+                  key={`${media.src}-${index}`}
+                  style={getGalleryStyle(media)}
+                >
+                  <div className="career-media-gallery__canvas">
+                    <MediaFrame image={media} context="gallery" sizes={getGallerySizes(media)} />
+                  </div>
+                  <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{media.label}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <div className="career-detail career-detail--closing section-shell">
-          <DetailSection index="06" title={copy.competencies}>
+          <DetailSection index={nextSectionIndex()} title={copy.competencies}>
             <ul className="career-detail__tags">
               {localized.competencies.map((competency) => <li key={competency}>{competency}</li>)}
             </ul>
           </DetailSection>
 
-          <DetailSection index="07" title={copy.evidence}>
-            {localized.highlights && localized.highlights.length > 0 ? (
+          {localized.highlights && localized.highlights.length > 0 ? (
+            <DetailSection index={nextSectionIndex()} title={copy.evidence}>
               <ul className="career-detail__list career-detail__list--evidence">
                 {localized.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
               </ul>
-            ) : (
-              <p className="career-detail__empty">{copy.noEvidence}</p>
-            )}
-          </DetailSection>
+            </DetailSection>
+          ) : null}
 
-          <DetailSection index="08" title={copy.relatedProjects} className="career-detail-section--projects">
-            {relatedProjects.length > 0 ? (
+          {relatedProjects.length > 0 ? (
+            <DetailSection
+              index={nextSectionIndex()}
+              title={copy.relatedProjects}
+              className="career-detail-section--projects"
+            >
               <div className="case-grid career-related-projects">
                 {relatedProjects.map((project) => <CaseCard item={project} key={project.slug} />)}
               </div>
-            ) : (
-              <p className="career-detail__empty">{copy.noRelatedProjects}</p>
-            )}
-          </DetailSection>
+            </DetailSection>
+          ) : null}
         </div>
 
         {localizedNext ? (
