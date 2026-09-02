@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
-import type { PortfolioCase } from "../app/data/cases";
+import {
+  projectStatusLabels,
+  type PortfolioCase,
+} from "../app/data/cases";
 import { localizeCase, siteCopy, withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
 import MediaFrame from "./media-frame";
@@ -46,13 +49,17 @@ export default function CaseCard({ item }: { item: PortfolioCase }) {
         <div className="case-card__copy">
           <div className="case-card__meta">
             <span>{item.number}</span>
-            <span>{localized.sector}</span>
+            <span className="case-card__status">
+              {projectStatusLabels[language][item.projectStatus]}
+            </span>
             <span>{item.year}</span>
           </div>
           <div className="case-card__bottom">
             <div>
               <h3>{localized.client}</h3>
-              <p>{localized.headline}</p>
+              <span className="case-card__sector">{localized.sector}</span>
+              <p className="case-card__role">{localized.personalRole}</p>
+              <small className="case-card__built">{localized.built}</small>
             </div>
             <span className="case-card__arrow" aria-hidden="true">
               <ArrowUpRight size={22} strokeWidth={1.45} />

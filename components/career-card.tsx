@@ -1,0 +1,66 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import type { CareerEntry } from "../app/data/career";
+import {
+  careerUiCopy,
+  localizeCareerEntry,
+} from "../app/data/career";
+import { withLanguage } from "../app/data/i18n";
+import { useLanguage } from "./language-provider";
+import MediaFrame from "./media-frame";
+
+export default function CareerCard({ item }: { item: CareerEntry }) {
+  const { language } = useLanguage();
+  const localized = localizeCareerEntry(item, language);
+  const copy = careerUiCopy[language].card;
+  const cover = localized.cover ?? localized.media[0];
+  const period = localized.period ?? copy.periodUnspecified;
+  const relationship = localized.relationshipDetail ?? localized.relationship;
+  const mediaSizes = item.slug === "rico-games"
+    ? "100vw"
+    : item.featured
+      ? "(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 58vw"
+      : "(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 34vw";
+
+  return (
+    <article
+      className={`career-card career-card--${item.slug}${item.featured ? " career-card--featured" : ""}${cover ? " career-card--media" : " career-card--text"}`}
+    >
+      <Link
+        href={withLanguage(`/career/${item.slug}`, language)}
+        aria-label={`${copy.openEntry} ${localized.company}`}
+      >
+        {cover ? (
+          <figure className="career-card__media">
+            <MediaFrame image={cover} context="card" sizes={mediaSizes} />
+          </figure>
+        ) : null}
+
+        <div className="career-card__content">
+          <div className="career-card__meta">
+            <span>{period}</span>
+            <span>{relationship}</span>
+          </div>
+
+          <div className="career-card__body">
+            <h3>{localized.company}</h3>
+            <p className="career-card__roles">{localized.roles.join(" · ")}</p>
+            <p className="career-card__summary">{localized.summary}</p>
+            <ul className="career-card__competencies" aria-label={copy.competenciesLabel}>
+              {localized.competencies.slice(0, 3).map((competency) => (
+                <li key={competency}>{competency}</li>
+              ))}
+            </ul>
+          </div>
+
+          <span className="career-card__cta">
+            {copy.openEntry}
+            <ArrowUpRight aria-hidden="true" size={18} />
+          </span>
+        </div>
+      </Link>
+    </article>
+  );
+}

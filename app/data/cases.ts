@@ -52,6 +52,45 @@ export type CaseImage = {
   };
 };
 
+export enum ProjectStatus {
+  Realized = "PROJETO REALIZADO",
+  Professional = "ATUAÇÃO PROFISSIONAL",
+  Consulting = "CONSULTORIA",
+  Concept = "PROJETO CONCEITUAL",
+  Proposal = "PROPOSTA",
+  InDevelopment = "EM DESENVOLVIMENTO",
+}
+
+export const projectStatusLabels: Record<
+  "pt" | "en" | "ru",
+  Record<ProjectStatus, string>
+> = {
+  pt: {
+    [ProjectStatus.Realized]: "PROJETO REALIZADO",
+    [ProjectStatus.Professional]: "ATUAÇÃO PROFISSIONAL",
+    [ProjectStatus.Consulting]: "CONSULTORIA",
+    [ProjectStatus.Concept]: "PROJETO CONCEITUAL",
+    [ProjectStatus.Proposal]: "PROPOSTA",
+    [ProjectStatus.InDevelopment]: "EM DESENVOLVIMENTO",
+  },
+  en: {
+    [ProjectStatus.Realized]: "COMPLETED PROJECT",
+    [ProjectStatus.Professional]: "PROFESSIONAL ROLE",
+    [ProjectStatus.Consulting]: "CONSULTING",
+    [ProjectStatus.Concept]: "CONCEPT PROJECT",
+    [ProjectStatus.Proposal]: "PROPOSAL",
+    [ProjectStatus.InDevelopment]: "IN DEVELOPMENT",
+  },
+  ru: {
+    [ProjectStatus.Realized]: "РЕАЛИЗОВАННЫЙ ПРОЕКТ",
+    [ProjectStatus.Professional]: "ПРОФЕССИОНАЛЬНАЯ РОЛЬ",
+    [ProjectStatus.Consulting]: "КОНСАЛТИНГ",
+    [ProjectStatus.Concept]: "КОНЦЕПТУАЛЬНЫЙ ПРОЕКТ",
+    [ProjectStatus.Proposal]: "ПРЕДЛОЖЕНИЕ",
+    [ProjectStatus.InDevelopment]: "В РАЗРАБОТКЕ",
+  },
+};
+
 export type PortfolioCase = {
   slug: string;
   number: string;
@@ -61,6 +100,10 @@ export type PortfolioCase = {
   location: string;
   year: string;
   status: string;
+  projectStatus: ProjectStatus;
+  personalRole: string;
+  built: string;
+  visible: boolean;
   headline: string;
   summary: string;
   challenge: string;
@@ -89,6 +132,12 @@ export const cases: PortfolioCase[] = [
     location: "Guarulhos · SP",
     year: "2026",
     status: "Marca e site publicados",
+    projectStatus: ProjectStatus.Realized,
+    personalRole:
+      "Conectei estratégia, direção criativa e execução para organizar marca, conteúdo e presença digital.",
+    built:
+      "Sistema visual, logotipo e variações, cartões, kit de Instagram e site responsivo publicado.",
+    visible: true,
     headline: "Fandom que vira estilo.",
     summary:
       "Uma marca completa para reunir K-pop, anime, moda, cosplay e colecionáveis em uma experiência jovem, comercial e reconhecível.",
@@ -237,6 +286,12 @@ export const cases: PortfolioCase[] = [
     location: "Guarulhos · SP",
     year: "2026",
     status: "Marca e site publicados",
+    projectStatus: ProjectStatus.Realized,
+    personalRole:
+      "Conduzi a direção de arte e conectei identidade, material físico e experiência digital.",
+    built:
+      "Sistema visual, cartões, direção de acabamento, apresentação comercial e site responsivo publicado.",
+    visible: true,
     headline: "Sofisticação antes do atendimento.",
     summary:
       "Uma presença elegante e acolhedora para traduzir a qualidade do atendimento em cada ponto de contato.",
@@ -381,6 +436,12 @@ export const cases: PortfolioCase[] = [
     location: "Brasil",
     year: "2026",
     status: "Identidade em desenvolvimento",
+    projectStatus: ProjectStatus.InDevelopment,
+    personalRole:
+      "Atuei entre visão comercial, marketing e direção criativa na construção desta rota visual.",
+    built:
+      "Direção visual, assinatura, sistema cromático, templates de campanha e conteúdo comercial em desenvolvimento.",
+    visible: true,
     headline: "Gamer sem cair no gamer genérico.",
     summary:
       "Uma direção tecnológica e comercial para transformar um nome forte em presença de marca.",
@@ -531,6 +592,12 @@ export const cases: PortfolioCase[] = [
     location: "Guarulhos · SP",
     year: "2026",
     status: "Identidade e site publicados",
+    projectStatus: ProjectStatus.Consulting,
+    personalRole:
+      "Atuei em consultoria de processos e estrutura, marketing e direção criativa para atualizar a presença da operação.",
+    built:
+      "Sistema visual, logo vetorizado, materiais comerciais, conteúdo para Instagram e site responsivo publicado.",
+    visible: true,
     headline: "Tecnologia ligada à vida real.",
     summary:
       "Uma atualização de presença para uma loja local que reúne produtos, assistência e condições acessíveis de compra.",
@@ -797,6 +864,12 @@ export const cases: PortfolioCase[] = [
     location: "São Paulo · SP",
     year: "2026",
     status: "Site publicado",
+    projectStatus: ProjectStatus.Consulting,
+    personalRole:
+      "Atuo em consultoria de comunicação e marketing, tráfego, audiovisual e análise de programação.",
+    built:
+      "Arquitetura de informação, direção visual cinematográfica, página inicial, agenda, arquivo de artistas e site publicado.",
+    visible: true,
     headline: "Onde o rock vive no Brasil.",
     summary:
       "Uma experiência digital cinematográfica para um palco com história, agenda intensa e identidade própria.",
@@ -979,6 +1052,12 @@ export const cases: PortfolioCase[] = [
     location: "São Paulo · SP",
     year: "2026",
     status: "Landing page publicada",
+    projectStatus: ProjectStatus.Realized,
+    personalRole:
+      "Criei e estruturei a marca e sua presença digital, conectando conceito, oferta, comunicação e experiência.",
+    built:
+      "Identidade, estratégia e copy da campanha, direção visual, localização das lojas e landing page publicada.",
+    visible: true,
     headline: "Da estação para a compra.",
     summary:
       "Uma landing page de varejo construída para transformar localização, condição de pagamento e produto em ação imediata.",
@@ -1154,6 +1233,12 @@ export const cases: PortfolioCase[] = [
     location: "Grande São Paulo",
     year: "2026",
     status: "Site publicado",
+    projectStatus: ProjectStatus.Consulting,
+    personalRole:
+      "Atuei na criação de marca e em consultoria de processos, comunicação e marketing.",
+    built:
+      "Conceito de marca, identidade, arquitetura de conteúdo, mensagem comercial, jornada de orçamento e site publicado.",
+    visible: true,
     headline: "Movemos o que importa.",
     summary:
       "Uma presença simples, firme e próxima para apresentar fretes, mudanças, coletas e entregas com clareza.",
@@ -1360,6 +1445,12 @@ export const cases: PortfolioCase[] = [
     location: "Guarulhos · SP",
     year: "2026",
     status: "Conceito digital desenvolvido",
+    projectStatus: ProjectStatus.Concept,
+    personalRole:
+      "Estruturei o conceito digital, a arquitetura da experiência, a linguagem editorial e a jornada de decisão.",
+    built:
+      "Posicionamento digital, arquitetura por desafios, direção visual, páginas de formações e protótipo responsivo.",
+    visible: true,
     headline: "Decida com números. Conduza com clareza.",
     summary:
       "Um conceito digital de autoridade para uma escola de negócios voltada a quem responde pelo resultado.",
@@ -1514,6 +1605,12 @@ export const cases: PortfolioCase[] = [
     location: "Guarulhos · SP",
     year: "2026",
     status: "Marca e site publicados",
+    projectStatus: ProjectStatus.Realized,
+    personalRole:
+      "Preservei a marca existente e conduzi a direção criativa para organizar uma linguagem técnica e consistente.",
+    built:
+      "Logo vetorizado, sistema visual, cartão, conteúdo para Instagram, apresentação e site responsivo publicado.",
+    visible: true,
     headline: "Precisão que protege o desempenho.",
     summary:
       "Uma identidade técnica e premium para manutenção de consoles, controles e acessórios.",
@@ -1660,6 +1757,12 @@ export const cases: PortfolioCase[] = [
     location: "Guarulhos · SP",
     year: "2026",
     status: "E-commerce publicado",
+    projectStatus: ProjectStatus.Realized,
+    personalRole:
+      "Atuei na estratégia digital, direção de arte e organização da experiência de compra.",
+    built:
+      "Arquitetura do catálogo, direção visual, jornada de produto, conteúdo institucional e e-commerce publicado.",
+    visible: true,
     headline: "Vista o cuidado.",
     summary:
       "Uma experiência de compra acolhedora e expressiva para uniformes que acompanham a rotina de quem cuida.",
@@ -1802,6 +1905,12 @@ export const cases: PortfolioCase[] = [
     location: "São Paulo · SP",
     year: "2026",
     status: "Identidade em desenvolvimento",
+    projectStatus: ProjectStatus.InDevelopment,
+    personalRole:
+      "Desenvolvi a direção visual e o sistema de conteúdo para organizar produto, sabor e informação.",
+    built:
+      "Sistema de cores, layouts de produto, peças para Instagram e aplicações de marca em desenvolvimento.",
+    visible: true,
     headline: "Do congelador ao copo.",
     summary:
       "Uma direção fresca e comercial para tornar sabor, praticidade e variedade imediatamente visíveis.",
@@ -1908,162 +2017,17 @@ export const cases: PortfolioCase[] = [
     cardTone: "light",
     size: "compact",
   },
-  {
-    slug: "oli-marketing",
-    number: "12",
-    client: "OLI Marketing",
-    shortName: "OLI",
-    sector: "Projeto autoral · marketing",
-    location: "Guarulhos · SP",
-    year: "2026",
-    status: "Projeto em desenvolvimento",
-    headline: "Estratégia que vira presença.",
-    summary:
-      "Um projeto autoral criado para reunir estratégia, identidade visual, conteúdo e experiências digitais em uma operação de marketing prática e próxima do cliente.",
-    challenge:
-      "Construir uma marca capaz de organizar diferentes competências sem parecer uma agência genérica ou uma coleção de serviços desconectados.",
-    direction:
-      "Criei a OLI como uma estrutura de trabalho que aproxima visão comercial e direção criativa, transformando diagnóstico, mensagem, marca e execução digital em um sistema coerente.",
-    result:
-      "A OLI funciona como projeto autoral e laboratório de aplicação: uma forma de transformar minha experiência multidisciplinar em entregas claras para negócios de diferentes setores.",
-    services: ["Estratégia", "Direção criativa", "Identidade visual", "Conteúdo", "Sites"],
-    deliverables: [
-      "Posicionamento e proposta de valor",
-      "Identidade visual",
-      "Sistema de apresentação de projetos",
-      "Direção de conteúdo",
-      "Portfólio digital",
-    ],
-    cover: {
-      src: "/portfolio/oli-hero-brand-v1.webp",
-      width: 1672,
-      height: 941,
-      kind: "identity",
-      alt: "Identidade visual da OLI Marketing",
-      label: "Projeto autoral",
-      position: "center",
-      placements: {
-        card: {
-          fit: "contain",
-          position: "50% 48%",
-          scale: 1,
-          background: "#111210",
-          inset: "clamp(14px, 1.8vw, 28px)",
-          frame: "stage",
-          overlay: "soft",
-          motion: "none",
-          aspectRatio: "4 / 3",
-          layout: "feature",
-          mobile: {
-            fit: "contain",
-            position: "50% 40%",
-            scale: 1,
-            inset: "10px 10px 112px",
-            aspectRatio: "4 / 5",
-          },
-        },
-        hero: {
-          fit: "contain",
-          position: "55% 48%",
-          scale: 1,
-          background: "#111210",
-          inset: "clamp(24px, 4vw, 68px)",
-          frame: "stage",
-          overlay: "soft",
-          motion: "none",
-          aspectRatio: "16 / 9",
-          layout: "feature",
-          mobile: {
-            fit: "contain",
-            position: "50% 38%",
-            scale: 1,
-            inset: "14px 10px 156px",
-            aspectRatio: "9 / 16",
-          },
-        },
-      },
-    },
-    gallery: [
-      {
-        src: "/portfolio/oli-logo-claro.svg",
-        width: 329,
-        height: 101,
-        kind: "logo",
-        alt: "Logotipo escuro da OLI Marketing",
-        label: "Assinatura visual",
-        fit: "contain",
-        placements: {
-          gallery: {
-            fit: "contain",
-            position: "50% 50%",
-            scale: 1,
-            background: "#f4f0e7",
-            inset: "clamp(24px, 3vw, 44px) clamp(30px, 5vw, 76px)",
-            maxWidth: "980px",
-            frame: "logo-stage",
-            overlay: "none",
-            motion: "none",
-            aspectRatio: "16 / 5",
-            layout: "logo",
-            span: 6,
-            mobile: {
-              fit: "contain",
-              position: "50% 50%",
-              scale: 1,
-              inset: "34px 20px",
-              maxWidth: "100%",
-              aspectRatio: "16 / 7",
-            },
-          },
-        },
-      },
-      {
-        src: "/portfolio/oli-logo-escuro.svg",
-        width: 329,
-        height: 101,
-        kind: "logo",
-        alt: "Logotipo claro da OLI Marketing",
-        label: "Variação da marca",
-        fit: "contain",
-        placements: {
-          gallery: {
-            fit: "contain",
-            position: "50% 50%",
-            scale: 1,
-            background: "#151718",
-            inset: "clamp(24px, 3vw, 44px) clamp(30px, 5vw, 76px)",
-            maxWidth: "980px",
-            frame: "logo-stage",
-            overlay: "none",
-            motion: "none",
-            aspectRatio: "16 / 5",
-            layout: "logo",
-            span: 6,
-            mobile: {
-              fit: "contain",
-              position: "50% 50%",
-              scale: 1,
-              inset: "34px 20px",
-              maxWidth: "100%",
-              aspectRatio: "16 / 7",
-            },
-          },
-        },
-      },
-    ],
-    accent: "#ef5b3f",
-    accentSoft: "#111210",
-    ink: "#fffef9",
-    cardTone: "dark",
-    size: "wide",
-  },
 ];
 
 export function getCase(slug: string) {
   return cases.find((item) => item.slug === slug);
 }
 
+export const publicCases = cases.filter((item) => item.visible);
+
 export function getNextCase(slug: string) {
-  const index = cases.findIndex((item) => item.slug === slug);
-  return cases[(index + 1) % cases.length];
+  const index = publicCases.findIndex((item) => item.slug === slug);
+  return index >= 0
+    ? publicCases[(index + 1) % publicCases.length]
+    : publicCases[0];
 }

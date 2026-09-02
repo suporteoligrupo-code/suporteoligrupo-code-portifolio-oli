@@ -1,33 +1,23 @@
 # Portfólio pessoal — Lucas de Oliveira Andrade
 
-Portfólio pessoal de Lucas de Oliveira Andrade, criado para apresentar sua trajetória multidisciplinar e organizar cada cliente ou trabalho como uma experiência editorial própria.
+Portfólio pessoal de carreira de Lucas de Oliveira Andrade. O site apresenta uma trajetória iniciada em 2010 dentro da operação real de empresas, conectando vendas, gestão, marketing, consultoria, direção criativa, conteúdo e experiências digitais.
 
 ## Estrutura
 
-- home cinematográfica com apresentação pessoal, competências, trajetória, impacto social e CTA;
-- catálogo visual assimétrico com todos os projetos disponíveis;
-- página dedicada para cada cliente em `/cases/[slug]`;
-- dados centralizados em `app/data/cases.ts`;
+- home cinematográfica com apresentação pessoal, trajetória, experiências, parcerias, competências e impacto social;
+- cards de carreira com dados centralizados em `app/data/career.ts`;
+- página dedicada para cada experiência em `/career/[slug]`;
+- galeria separada de trabalhos visuais em `/cases` e `/cases/[slug]`;
+- dados visuais centralizados em `app/data/cases.ts`;
 - galeria de materiais reais e links para projetos publicados;
 - layout responsivo em PT/EN/RU;
 - rotas exportadas estaticamente e compatíveis com Vercel e Sites.
 
-## Cases publicados no portfólio
+## Experiências e trabalhos
 
-1. GRU KPOP Anime
-2. Studio E
-3. Rico Games
-4. Josucas Eletrônicos
-5. Manifesto Bar
-6. Metro Case
-7. Oliveira Transportes
-8. Score Business School
-9. Eletrotech ISA
-10. Dona Girafa
-11. Spolpas
-12. OLI Marketing — projeto autoral
+As experiências profissionais, consultorias, projetos e marcas autorais usam um modelo próprio. Os trabalhos visuais continuam preservados como arquivo editorial separado, com selos explícitos para projetos realizados, consultorias, conceitos e trabalhos em desenvolvimento.
 
-Projetos ainda em desenvolvimento são identificados dessa forma; o site não usa métricas ou resultados inventados.
+Períodos, resultados, cargos, parcerias ou métricas não confirmados não são publicados.
 
 ## Desenvolvimento
 
@@ -46,7 +36,6 @@ npm run build
 
 ## Deploy
 
-- Vercel: deploy automático a partir da branch `main`.
-- Sites: publicação pelo ciclo de checkpoint e deploy configurado em `.openai/hosting.json`.
+- Vercel: deploy automático do projeto existente a partir da branch `main`.
 
 Nenhuma chave ou segredo é armazenado no repositório.

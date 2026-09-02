@@ -196,8 +196,8 @@ img { display: block; max-width: 100%; }
 .site-header nav {
   display: flex;
   align-items: center;
-  gap: clamp(20px, 2.3vw, 34px);
-  font-size: 11px;
+  gap: clamp(14px, 1.7vw, 26px);
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.03em;
 }
@@ -255,6 +255,14 @@ img { display: block; max-width: 100%; }
   outline: 2px solid var(--orange);
   outline-offset: 3px;
 }
+.career-card > a:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 3px var(--orange);
+}
+.case-card a:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 3px var(--orange);
+}
 .header-cta {
   min-height: 42px;
   display: inline-flex;
@@ -273,6 +281,18 @@ img { display: block; max-width: 100%; }
   transition: background 180ms ease, border-color 180ms ease;
 }
 .header-cta:hover { border-color: var(--white); background: var(--white); color: var(--ink); }
+.menu-toggle {
+  width: 42px;
+  height: 42px;
+  display: none;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line-dark);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+  cursor: pointer;
+}
 
 /* Cinematic home hero */
 .hero-shell { position: relative; min-height: calc(100svh - 76px); scroll-margin-top: 76px; }
@@ -346,7 +366,7 @@ img { display: block; max-width: 100%; }
 .hero-content {
   width: min(100%, 1180px);
   margin: auto 0;
-  padding: clamp(64px, 9vh, 118px) 0 clamp(70px, 9vh, 118px);
+  padding: clamp(44px, 6vh, 78px) 0 clamp(52px, 7vh, 88px);
 }
 .hero-person {
   display: inline-flex;
@@ -369,7 +389,7 @@ img { display: block; max-width: 100%; }
   margin: 0;
   color: var(--white);
   font-family: var(--display);
-  font-size: clamp(54px, 7.1vw, 116px);
+  font-size: clamp(52px, 6.5vw, 104px);
   font-weight: 900;
   letter-spacing: -0.085em;
   line-height: 0.78;
@@ -377,11 +397,33 @@ img { display: block; max-width: 100%; }
   text-wrap: balance;
 }
 .hero-content h1 span { display: block; color: var(--orange); }
+.hero-role-title {
+  max-width: 890px;
+  margin: clamp(18px, 2vw, 28px) 0 0;
+  color: var(--orange);
+  font-family: var(--display);
+  font-size: clamp(22px, 2.6vw, 42px);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
 .hero-lede {
   max-width: 650px;
   margin: clamp(22px, 2.8vw, 36px) 0 0;
   color: rgba(255, 255, 255, 0.72);
   font-size: clamp(15px, 1.2vw, 19px);
+  line-height: 1.55;
+}
+.hero-positioning {
+  max-width: 680px;
+  margin: 16px 0 0;
+  padding-left: 15px;
+  border-left: 2px solid var(--orange);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 13px;
+  font-weight: 650;
   line-height: 1.55;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
@@ -414,11 +456,32 @@ img { display: block; max-width: 100%; }
 .button-orange:hover { background: var(--white); color: var(--ink); }
 .hero-footer {
   display: grid;
-  grid-template-columns: minmax(220px, 1fr) auto auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: end;
   gap: clamp(24px, 4vw, 72px);
   padding-top: 17px;
   border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+.hero-proof-item {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 11px;
+  align-items: baseline;
+}
+.hero-proof-item > span {
+  color: var(--orange);
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+}
+.hero-proof-item > strong {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(9px, 0.85vw, 12px);
+  font-weight: 760;
+  letter-spacing: 0.07em;
+  line-height: 1.35;
+  text-transform: uppercase;
 }
 .hero-footer-label {
   display: block;
@@ -520,6 +583,13 @@ img { display: block; max-width: 100%; }
   background: var(--paper);
   color: var(--ink);
 }
+.positioning,
+.career-home,
+.partnerships,
+.capabilities,
+.method,
+.impact,
+.contact-shell { scroll-margin-top: 76px; }
 .positioning-copy .eyebrow { margin-bottom: 24px; }
 .positioning-copy h2 {
   max-width: 1020px;
@@ -674,6 +744,29 @@ img { display: block; max-width: 100%; }
 .case-card--standard .case-card__bottom h3,
 .case-card--compact .case-card__bottom h3 { font-size: clamp(32px, 3.4vw, 54px); }
 .case-card__bottom p { max-width: 520px; margin: 13px 0 0; color: rgba(255, 255, 255, 0.68); font-size: 12px; line-height: 1.45; }
+.case-card__sector {
+  display: block;
+  margin-top: 13px;
+  color: var(--case-accent);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.case-card__bottom .case-card__role {
+  max-width: 620px;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 700;
+}
+.case-card__built {
+  display: block;
+  max-width: 620px;
+  margin-top: 7px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 10px;
+  line-height: 1.45;
+}
 .case-card__arrow {
   flex: 0 0 auto;
   width: 46px;
@@ -824,7 +917,7 @@ img { display: block; max-width: 100%; }
 }
 .impact-copy > p { max-width: 610px; margin: 24px 0 0; color: rgba(255, 255, 255, 0.76); font-size: 14px; line-height: 1.65; }
 .impact-photo { position: relative; min-height: 680px; overflow: hidden; margin: 0; background: #c64731; }
-.impact-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.82) contrast(1.04); }
+.impact-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 38%; filter: saturate(0.82) contrast(1.04); }
 .impact-photo figcaption {
   position: absolute;
   right: 18px;
@@ -1205,13 +1298,372 @@ footer p:last-child { justify-self: end; }
   text-transform: uppercase;
 }
 
+/* Career experience catalogue */
+.career-home {
+  padding-top: clamp(90px, 9vw, 148px);
+  padding-bottom: clamp(100px, 10vw, 170px);
+  background: var(--paper);
+  color: var(--ink);
+}
+.career-home .cases-heading__aside > p { color: #5d615b; }
+.career-home .cases-heading__aside > a { border-color: var(--line-light); }
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(12px, 1.4vw, 22px);
+}
+.career-card {
+  position: relative;
+  min-width: 0;
+  grid-column: span 6;
+  min-height: clamp(520px, 48vw, 700px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 7px;
+  background: #141614;
+  color: var(--white);
+  isolation: isolate;
+}
+.career-card--rico-games { grid-column: span 12; min-height: clamp(620px, 54vw, 790px); }
+.career-card--toy-show,
+.career-card--urly-marketing,
+.career-card--metro-case,
+.career-card--reserva-ibirapitanga-revista-saua { grid-column: span 5; }
+.career-card--manifesto-bar,
+.career-card--divertida-geek,
+.career-card--josucas-eletronicos,
+.career-card--oliveira-transportes { grid-column: span 7; }
+.career-card--bsb-abrasivos { grid-column: span 12; }
+.career-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(8, 9, 8, 0.16), rgba(8, 9, 8, 0.92) 76%);
+}
+.career-card--text::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+    radial-gradient(circle at 82% 14%, rgba(239, 91, 63, 0.75), transparent 30%);
+  background-size: 46px 46px, 46px 46px, auto;
+}
+.career-card > a {
+  position: relative;
+  z-index: 2;
+  min-height: inherit;
+  display: block;
+}
+.career-card__media { position: absolute; inset: 0; z-index: 0; margin: 0; }
+.career-card__content {
+  position: relative;
+  z-index: 3;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: clamp(24px, 3vw, 44px);
+}
+.career-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 8px;
+  font-weight: 820;
+  letter-spacing: 0.13em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.career-card__meta span:first-child { color: var(--orange); }
+.career-card__body { max-width: 780px; margin-top: auto; }
+.career-card__body h3 {
+  max-width: 920px;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(40px, 5.3vw, 84px);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.82;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.career-card:not(.career-card--rico-games) .career-card__body h3 { font-size: clamp(34px, 3.8vw, 58px); }
+.career-card__roles {
+  margin: 18px 0 0;
+  color: var(--orange);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+.career-card__summary {
+  max-width: 720px;
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  line-height: 1.62;
+}
+.career-card__competencies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.career-card__competencies li {
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 8px;
+  font-weight: 760;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.career-card__cta {
+  align-self: flex-start;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 13px;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 4px;
+  background: rgba(9, 10, 9, 0.38);
+  font-size: 8px;
+  font-weight: 830;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(9px);
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+.career-card:hover .career-card__cta { background: var(--white); color: var(--ink); transform: translateY(-2px); }
+
+/* Partnerships are context, not clients */
+.partnerships {
+  padding-top: clamp(95px, 10vw, 160px);
+  padding-bottom: clamp(100px, 11vw, 180px);
+  background: var(--paper);
+  color: var(--ink);
+}
+.partnerships__heading {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.16fr) minmax(0, 1fr) minmax(280px, 0.31fr);
+  gap: clamp(28px, 5vw, 78px);
+  align-items: end;
+  margin-bottom: clamp(48px, 6vw, 88px);
+}
+.partnerships__heading .eyebrow { margin-bottom: 20px; }
+.partnerships__heading h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.86;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.partnerships__heading > p { margin: 0; color: #5d615b; font-size: 14px; line-height: 1.68; }
+.partnerships__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line-light);
+  border-left: 1px solid var(--line-light);
+}
+.partnerships__grid article {
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(20px, 2.5vw, 36px);
+  border-right: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+}
+.partnerships__grid span { color: var(--orange); font-size: 8px; font-weight: 850; letter-spacing: 0.14em; }
+.partnerships__grid strong {
+  font-family: var(--display);
+  font-size: clamp(25px, 2.7vw, 42px);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+.contact-text { max-width: 680px; margin: 24px 0 0; color: rgba(255, 255, 255, 0.67); font-size: 14px; line-height: 1.65; }
+
+/* Career archive and experience pages */
+.career-index-page,
+.career-page { background: var(--black); }
+.career-index-hero {
+  min-height: 64svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.34fr);
+  gap: 30px 70px;
+  align-items: end;
+  padding-top: clamp(110px, 13vw, 210px);
+  padding-bottom: clamp(70px, 8vw, 120px);
+}
+.career-index-hero > p:first-child { grid-column: 1 / -1; margin: 0; color: var(--orange); font-size: 9px; font-weight: 850; letter-spacing: 0.15em; text-transform: uppercase; }
+.career-index-hero h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(54px, 7.2vw, 116px);
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+  text-transform: uppercase;
+}
+.career-index-hero h1 span { color: var(--orange); }
+.career-index-hero > p:last-child { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.68; }
+.career-index-section { padding-bottom: clamp(100px, 11vw, 180px); }
+.career-index-section__heading { display: grid; grid-template-columns: minmax(180px, 0.25fr) 1fr; gap: 30px; align-items: end; margin-bottom: 42px; padding-top: 24px; border-top: 1px solid var(--line-dark); }
+.career-index-section__heading p { margin: 0; color: var(--orange); font-size: 9px; font-weight: 850; letter-spacing: 0.14em; text-transform: uppercase; }
+.career-index-section__heading h2 { margin: 0; font-family: var(--display); font-size: clamp(38px, 4vw, 68px); font-weight: 900; letter-spacing: -0.065em; line-height: 0.9; text-transform: uppercase; }
+
+.career-hero {
+  position: relative;
+  min-height: 820px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(25px, 3vw, 48px) clamp(20px, 4.6vw, 76px) 0;
+  background: #111311;
+  isolation: isolate;
+}
+.career-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(7, 8, 7, 0.97), rgba(7, 8, 7, 0.62) 55%, rgba(7, 8, 7, 0.16)), linear-gradient(0deg, rgba(7, 8, 7, 0.95), transparent 56%);
+}
+.career-hero--text::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.24;
+  background-image: linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px), radial-gradient(circle at 82% 23%, var(--orange), transparent 32%);
+  background-size: 58px 58px, 58px 58px, auto;
+}
+.career-hero__media { position: absolute; inset: 0; z-index: 0; margin: 0; }
+.career-hero__media figcaption {
+  position: absolute;
+  z-index: 3;
+  top: clamp(72px, 8vw, 112px);
+  right: clamp(18px, 4.6vw, 76px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,.72);
+  font-size: 7px;
+  font-weight: 820;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.career-hero__media figcaption strong { padding: 7px 9px; border: 1px solid rgba(255,255,255,.28); border-radius: 3px; color: var(--white); background: rgba(8,9,8,.58); backdrop-filter: blur(8px); }
+.career-hero__topline,
+.career-hero__content,
+.career-facts { position: relative; z-index: 2; }
+.career-hero__topline { display: flex; justify-content: space-between; gap: 24px; color: rgba(255,255,255,.7); font-size: 9px; font-weight: 820; letter-spacing: .14em; text-transform: uppercase; }
+.career-hero__topline a { display: inline-flex; align-items: center; gap: 8px; }
+.career-hero__content { max-width: 1040px; margin-top: auto; padding: 110px 0 62px; }
+.career-hero__content > p:first-child { margin: 0 0 18px; color: var(--orange); font-size: 9px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+.career-hero__content h1 { margin: 0; font-family: var(--display); font-size: clamp(58px, 8.5vw, 138px); font-weight: 900; letter-spacing: -.085em; line-height: .77; text-transform: uppercase; text-wrap: balance; }
+.career-hero__roles { margin: 27px 0 0; color: var(--orange); font-size: 10px; font-weight: 850; letter-spacing: .12em; line-height: 1.5; text-transform: uppercase; }
+.career-hero__summary { max-width: 760px; margin: 16px 0 0; color: rgba(255,255,255,.75); font-size: 14px; line-height: 1.68; }
+.career-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 0 clamp(-76px, -4.6vw, -20px); padding: 0 clamp(20px, 4.6vw, 76px); border-top: 1px solid rgba(255,255,255,.18); background: rgba(8,9,8,.55); backdrop-filter: blur(12px); }
+.career-facts > div { min-width: 0; padding: 20px 24px 23px 0; }
+.career-facts > div + div { padding-left: 24px; border-left: 1px solid rgba(255,255,255,.18); }
+.career-facts dt { margin-bottom: 9px; color: rgba(255,255,255,.45); font-size: 7px; font-weight: 820; letter-spacing: .13em; text-transform: uppercase; }
+.career-facts dd { margin: 0; color: var(--white); font-size: 11px; font-weight: 680; line-height: 1.5; }
+.career-detail { background: var(--paper); color: var(--ink); padding-top: clamp(80px, 9vw, 140px); padding-bottom: clamp(80px, 9vw, 140px); }
+.career-detail-section { display: grid; grid-template-columns: minmax(70px, .12fr) minmax(260px, .45fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 70px); padding: 34px 0 42px; border-top: 1px solid var(--line-light); }
+.career-detail-section__index { color: var(--orange); font-size: 9px; font-weight: 850; letter-spacing: .14em; }
+.career-detail-section h2 { margin: 0; font-family: var(--display); font-size: clamp(31px, 3.4vw, 54px); font-weight: 900; letter-spacing: -.06em; line-height: .92; text-transform: uppercase; text-wrap: balance; }
+.career-detail-section__body > p { max-width: 780px; margin: 0; color: #555a54; font-size: 14px; line-height: 1.72; }
+.career-detail__empty { padding-left: 18px; border-left: 2px solid var(--orange); }
+.career-detail__related-company { margin-top: 18px !important; padding-top: 16px; border-top: 1px solid var(--line-light); }
+.career-detail__related-company strong { color: var(--orange); }
+.career-detail__tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.career-detail__tags li { padding: 9px 11px; border: 1px solid var(--line-light); border-radius: 3px; font-size: 9px; font-weight: 780; letter-spacing: .07em; text-transform: uppercase; }
+.career-detail__list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line-light); }
+.career-detail__list li { position: relative; padding: 15px 0 15px 24px; border-bottom: 1px solid var(--line-light); color: #4e534d; font-size: 13px; line-height: 1.58; }
+.career-detail__list li::before { content: "↗"; position: absolute; left: 0; color: var(--orange); }
+.career-media-section { padding: clamp(90px, 10vw, 160px) 0; background: var(--black); }
+.career-media-section__heading { display: grid; grid-template-columns: minmax(70px, .12fr) 1fr; gap: 28px; align-items: end; margin-bottom: 52px; }
+.career-media-section__heading > span { color: var(--orange); font-size: 9px; font-weight: 850; letter-spacing: .14em; }
+.career-media-section__heading h2 { margin: 0; font-family: var(--display); font-size: clamp(45px, 6vw, 94px); font-weight: 900; letter-spacing: -.075em; line-height: .84; text-transform: uppercase; }
+.career-media-gallery { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-flow: dense; gap: clamp(12px, 1.4vw, 22px); }
+.career-media-gallery__item { min-width: 0; grid-column: span var(--gallery-span, 6); margin: 0; }
+.career-media-gallery__canvas { position: relative; overflow: hidden; aspect-ratio: var(--gallery-aspect, 4 / 3); border-radius: 6px; background: #111311; }
+.career-media-gallery__item figcaption { display: flex; gap: 12px; margin-top: 11px; color: var(--muted); font-size: 8px; font-weight: 760; letter-spacing: .1em; line-height: 1.45; text-transform: uppercase; }
+.career-media-gallery__item figcaption span { color: var(--orange); }
+.career-media-empty { display: grid; grid-template-columns: minmax(70px, .12fr) minmax(0, 1fr); gap: 28px; }
+.career-media-empty p { grid-column: 2; max-width: 760px; margin: 0; padding: 28px 0; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); color: var(--muted); font-size: 14px; line-height: 1.7; }
+.career-detail--closing { padding-top: clamp(80px, 9vw, 140px); }
+.career-detail-section--projects { grid-template-columns: minmax(70px, .12fr) minmax(220px, .3fr) minmax(0, 1fr); }
+.career-related-projects .case-card { grid-column: 1 / -1; }
+.career-related-projects .case-card > a { min-height: 620px; }
+.career-next { padding: clamp(85px, 10vw, 160px) clamp(20px, 4.6vw, 76px); border-top: 1px solid var(--line-dark); background: var(--black); }
+.career-next > p { margin: 0 0 28px; color: var(--orange); font-size: 9px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+.career-next > a { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.career-next > a span { min-width: 0; max-width: 1200px; overflow-wrap: anywhere; font-family: var(--display); font-size: clamp(52px, 7.2vw, 116px); font-weight: 900; letter-spacing: -.08em; line-height: .82; text-transform: uppercase; }
+.career-next > a svg { flex: 0 0 auto; color: var(--orange); }
+.career-next small { display: block; margin-top: 24px; color: var(--muted); font-size: 11px; }
+.career-contact { padding: clamp(90px, 10vw, 160px) clamp(20px, 4.6vw, 76px); background: var(--orange); color: var(--white); }
+.career-contact > p { margin: 0 0 24px; font-size: 9px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+.career-contact h2 { max-width: 1000px; margin: 0; font-family: var(--display); font-size: clamp(48px, 6.2vw, 100px); font-weight: 900; letter-spacing: -.075em; line-height: .85; text-transform: uppercase; }
+.career-contact a { min-height: 48px; display: inline-flex; align-items: center; gap: 11px; margin-top: 32px; padding: 0 17px; border-radius: 4px; background: var(--white); color: var(--ink); font-size: 9px; font-weight: 820; letter-spacing: .09em; text-transform: uppercase; }
+.not-found-stage { min-height: calc(100svh - 150px); display: flex; flex-direction: column; justify-content: center; padding-top: 120px; padding-bottom: 120px; background: var(--black); color: var(--white); }
+.not-found-stage > p { margin: 0 0 24px; color: var(--orange); font-size: 9px; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+.not-found-stage h1 { max-width: 980px; margin: 0; font-family: var(--display); font-size: clamp(58px, 9vw, 138px); font-weight: 900; letter-spacing: -.085em; line-height: .78; text-transform: uppercase; }
+.not-found-stage > span { max-width: 620px; margin-top: 28px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.not-found-stage > a { min-height: 48px; display: inline-flex; align-items: center; align-self: flex-start; gap: 10px; margin-top: 34px; padding: 0 16px; border-radius: 4px; background: var(--orange); color: var(--white); font-size: 9px; font-weight: 820; letter-spacing: .1em; text-transform: uppercase; }
+.case-facts dd strong { display: block; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+.case-facts dd small { display: block; margin-top: 6px; color: rgba(255,255,255,.58); font-size: 9px; line-height: 1.4; }
+.case-system__summary { margin-top: 34px; padding: 18px 0; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
+.case-system__summary span { display: block; margin-bottom: 9px; font-size: 8px; font-weight: 820; letter-spacing: .12em; text-transform: uppercase; opacity: .62; }
+.case-system__summary p { margin: 0; font-size: 13px; line-height: 1.6; }
+.case-system__services strong { flex: 0 0 100%; margin-bottom: 6px; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
+
 .reveal { animation: reveal 700ms both cubic-bezier(0.2, 0.72, 0.2, 1); animation-timeline: view(); animation-range: entry 5% cover 27%; }
 @keyframes reveal { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 1100px) {
   .site-header { grid-template-columns: auto 1fr; }
-  .site-header nav { display: none; }
+  .site-header nav.site-header__nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 12px;
+    left: 12px;
+    display: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    padding: 8px;
+    border: 1px solid var(--line-dark);
+    border-radius: 5px;
+    background: rgba(9, 10, 9, 0.98);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(18px);
+  }
+  .site-header nav.site-header__nav.is-open { display: grid; }
+  .site-header nav.site-header__nav a { padding: 14px 12px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .site-header nav.site-header__nav a::after { display: none; }
   .header-actions { grid-column: 2; }
+  .menu-toggle { display: grid; }
   .hero-proof { display: none; }
   .positioning,
   .cases-heading,
@@ -1223,6 +1675,18 @@ footer p:last-child { justify-self: end; }
   .method-heading > p,
   .case-story__chapters,
   .case-work__heading > p { grid-column: 2; }
+  .partnerships__heading { grid-template-columns: 88px minmax(0, 1fr); }
+  .partnerships__heading > p { grid-column: 2; }
+  .career-card,
+  .career-card--toy-show,
+  .career-card--urly-marketing,
+  .career-card--metro-case,
+  .career-card--reserva-ibirapitanga-revista-saua,
+  .career-card--manifesto-bar,
+  .career-card--divertida-geek,
+  .career-card--josucas-eletronicos,
+  .career-card--oliveira-transportes { grid-column: span 6; }
+  .career-card--rico-games { grid-column: span 12; }
   .case-card--wide { grid-column: span 8; }
   .case-card--standard,
   .case-card--compact { grid-column: span 4; }
@@ -1242,6 +1706,9 @@ footer p:last-child { justify-self: end; }
   .case-card--wide > a { min-height: 620px; }
   .case-card--standard > a,
   .case-card--compact > a { min-height: 560px; }
+  .career-grid { gap: 14px; }
+  .career-card { min-height: 620px; }
+  .career-card--rico-games { min-height: 690px; }
 }
 
 @media (max-width: 760px) {
@@ -1260,6 +1727,8 @@ footer p:last-child { justify-self: end; }
   .editorial-media__browser i { width: 5px; height: 5px; }
   .section-shell { padding-inline: 18px; }
   .site-header { min-height: 66px; padding: 0 14px; gap: 10px; }
+  .site-header nav.site-header__nav { top: calc(100% + 1px); right: 7px; left: 7px; grid-template-columns: 1fr 1fr; }
+  .site-header nav.site-header__nav a { font-size: 9px; }
   .brand { gap: 8px; }
   .brand-monogram { width: 36px; height: 36px; }
   .brand-name { display: none; }
@@ -1267,21 +1736,25 @@ footer p:last-child { justify-self: end; }
   .language-switcher { gap: 3px; }
   .language-switcher button { width: 30px; height: 28px; padding: 6px; }
   .header-cta { width: 40px; min-height: 40px; padding: 0; }
+  .menu-toggle { width: 40px; height: 40px; }
   .header-cta-label { display: none; }
   .hero-shell,
   .hero-stage { min-height: calc(100svh - 66px); }
   .hero-stage { padding: 21px 18px 18px; }
   .hero-topline { font-size: 7px; }
   .hero-content { padding: 76px 0 74px; }
-  .hero-content h1 { font-size: clamp(44px, 11vw, 72px); line-height: 0.81; }
+  .hero-content h1 { font-size: clamp(43px, 12.4vw, 70px); line-height: 0.8; }
+  .hero-role-title { max-width: 96%; font-size: clamp(21px, 6.5vw, 32px); }
   .hero-person { margin-bottom: 15px; }
   .hero-person img { width: 58px; height: 58px; }
   .hero-person strong { font-size: 8px; }
   .hero-person small { font-size: 7px; }
   .hero-lede { max-width: 95%; font-size: 14px; }
+  .hero-positioning { max-width: 94%; font-size: 12px; }
   .hero-actions { align-items: stretch; }
   .hero-actions .button { min-width: min(100%, 260px); }
-  .hero-footer { grid-template-columns: 1fr auto; gap: 18px; }
+  .hero-footer { grid-template-columns: 1fr; gap: 11px; }
+  .hero-proof-item { padding-top: 8px; border-top: 1px solid rgba(255,255,255,.1); }
   .hero-scroll { grid-column: 1 / -1; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.18); padding-top: 10px; }
   .hero-count { text-align: right; }
   .hero-media::before { background: linear-gradient(90deg, rgba(5, 6, 5, 0.93), rgba(5, 6, 5, 0.3)), linear-gradient(0deg, rgba(5, 6, 5, 0.92), transparent 58%); }
@@ -1295,13 +1768,15 @@ footer p:last-child { justify-self: end; }
   .cases-heading,
   .method-heading,
   .case-story,
-  .case-work__heading { grid-template-columns: 1fr; gap: 25px; }
+  .case-work__heading,
+  .partnerships__heading { grid-template-columns: 1fr; gap: 25px; }
   .positioning { padding-top: 88px; padding-bottom: 96px; }
   .positioning-note,
   .cases-heading__aside,
   .method-heading > p,
   .case-story__chapters,
-  .case-work__heading > p { grid-column: auto; }
+  .case-work__heading > p,
+  .partnerships__heading > p { grid-column: auto; }
   .positioning-copy h2 { font-size: clamp(42px, 13vw, 66px); }
   .cases-section { padding-top: 84px; padding-bottom: 100px; }
   .cases-heading { margin-bottom: 40px; }
@@ -1325,6 +1800,27 @@ footer p:last-child { justify-self: end; }
   .case-card__arrow { width: 42px; height: 42px; }
   .cases-proof { display: block; }
   .cases-proof p { margin-top: 10px; text-align: left; }
+  .career-home { padding-top: 86px; padding-bottom: 100px; }
+  .career-grid { grid-template-columns: 1fr; gap: 12px; }
+  .career-card,
+  .career-card--rico-games,
+  .career-card--toy-show,
+  .career-card--urly-marketing,
+  .career-card--metro-case,
+  .career-card--reserva-ibirapitanga-revista-saua,
+  .career-card--manifesto-bar,
+  .career-card--divertida-geek,
+  .career-card--josucas-eletronicos,
+  .career-card--oliveira-transportes { grid-column: auto; min-height: 580px; }
+  .career-card--text { min-height: 520px; }
+  .career-card__content { padding: 22px; }
+  .career-card__body h3,
+  .career-card:not(.career-card--rico-games) .career-card__body h3 { font-size: clamp(38px, 12vw, 62px); }
+  .career-card__summary { font-size: 12px; }
+  .partnerships { padding-top: 88px; padding-bottom: 100px; }
+  .partnerships__heading h2 { font-size: clamp(42px, 13vw, 66px); }
+  .partnerships__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .partnerships__grid article { min-height: 150px; }
   .capabilities { padding-top: 90px; padding-bottom: 100px; gap: 70px; }
   .capabilities .section-index { margin-bottom: 42px; }
   .capabilities-intro h2 { font-size: clamp(42px, 13vw, 64px); }
@@ -1343,6 +1839,7 @@ footer p:last-child { justify-self: end; }
   .contact-shell { padding: 7px; }
   .contact-stage { min-height: 680px; padding: 48px 20px; }
   .contact-stage h2 { font-size: clamp(48px, 14.5vw, 76px); }
+  .contact-text { font-size: 13px; }
   .contact-mark { right: -17%; font-size: 66vw; }
   footer { grid-template-columns: 1fr; gap: 15px; padding: 28px 18px; }
   footer p:nth-child(2) { text-align: left; }
@@ -1350,6 +1847,36 @@ footer p:last-child { justify-self: end; }
   .cases-index-hero { min-height: 52svh; grid-template-columns: 1fr; padding: 90px 18px 58px; }
   .cases-index-hero > span { grid-column: auto; }
   .cases-index-grid { padding-bottom: 100px; }
+  .career-index-hero { min-height: 60svh; grid-template-columns: 1fr; padding: 90px 18px 58px; }
+  .career-index-hero > p:first-child { grid-column: auto; }
+  .career-index-hero h1 { font-size: clamp(48px, 14vw, 74px); }
+  .career-index-section { padding-bottom: 100px; }
+  .career-index-section__heading { grid-template-columns: 1fr; }
+  .career-hero { min-height: 790px; padding: 21px 18px 0; }
+  .career-hero__topline { font-size: 7px; }
+  .career-hero__content { padding: 118px 0 48px; }
+  .career-hero__content h1 { font-size: clamp(48px, 15vw, 78px); }
+  .career-hero__roles { font-size: 8px; }
+  .career-hero__summary { font-size: 13px; }
+  .career-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0 -18px; padding: 0 18px; }
+  .career-facts > div { padding: 15px 12px 17px 0; border-bottom: 1px solid rgba(255,255,255,.16); }
+  .career-facts > div + div { padding-left: 12px; }
+  .career-facts > div:nth-child(3) { border-left: 0; }
+  .career-detail { padding-top: 80px; padding-bottom: 88px; }
+  .career-detail-section,
+  .career-detail-section--projects { grid-template-columns: 1fr; gap: 20px; padding: 28px 0 36px; }
+  .career-detail-section h2 { font-size: clamp(34px, 10vw, 52px); }
+  .career-media-section { padding: 84px 0 92px; }
+  .career-media-section__heading { grid-template-columns: 1fr; }
+  .career-media-section__heading h2 { font-size: clamp(43px, 13vw, 68px); }
+  .career-media-gallery { grid-template-columns: 1fr; }
+  .career-media-gallery__item { grid-column: auto; }
+  .career-media-gallery__canvas { aspect-ratio: var(--gallery-aspect-mobile, var(--gallery-aspect, 4 / 3)); }
+  .career-related-projects .case-card > a { min-height: 540px; }
+  .career-next { padding: 84px 18px 94px; }
+  .career-next > a span { font-size: clamp(43px, 13vw, 68px); }
+  .career-contact { padding: 86px 18px 94px; }
+  .career-contact h2 { font-size: clamp(42px, 13vw, 66px); }
   .case-hero { min-height: 850px; padding: 21px 18px 0; }
   .case-hero__topline { font-size: 7px; }
   .case-hero__heading { grid-template-columns: minmax(0, 1fr); gap: 30px; padding: 120px 0 42px; }

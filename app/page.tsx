@@ -9,24 +9,17 @@ import {
   Heart,
 } from "lucide-react";
 import { useEffect } from "react";
+import CareerCard from "../components/career-card";
 import CaseCard from "../components/case-card";
 import { useLanguage } from "../components/language-provider";
 import SiteFooter from "../components/site-footer";
 import SiteHeader, { linkedinUrl } from "../components/site-header";
-import { cases } from "./data/cases";
+import { featuredCareerEntries } from "./data/career";
+import { publicCases } from "./data/cases";
 import { siteCopy, withLanguage } from "./data/i18n";
 
-const clientMarks = [
-  { slug: "gru-kpop-anime", name: "GRU KPOP Anime", src: "/brandmarks/gru-kpop-light.png", width: 720, height: 253 },
-  { slug: "studio-e", name: "Studio E", src: "/brandmarks/studio-e-light.png", width: 356, height: 280 },
-  { slug: "rico-games", name: "Rico Games", src: "/brandmarks/rico-games-light.png", width: 704, height: 280 },
-  { slug: "josucas-eletronicos", name: "Josucas Eletrônicos", src: "/brandmarks/josucas-light.png", width: 627, height: 280 },
-  { slug: "manifesto-bar", name: "Manifesto Bar", src: "/brandmarks/manifesto-light.png", width: 260, height: 280 },
-  { slug: "metro-case", name: "Metro Case", src: "/brandmarks/metro-case-light.png", width: 720, height: 157 },
-];
-
 type HeroProject = {
-  item: (typeof cases)[number];
+  slug: string;
   src: string;
   srcSet: string;
   mobileSrc?: string;
@@ -40,7 +33,7 @@ type HeroProject = {
 
 const heroProjects: HeroProject[] = [
   {
-    item: cases.find((item) => item.slug === "manifesto-bar")!,
+    slug: "manifesto-bar",
     src: "/cases/manifesto/palco-large.webp",
     srcSet: "/media-responsive/cases/manifesto/palco-large-480.webp 480w, /media-responsive/cases/manifesto/palco-large-800.webp 800w, /media-responsive/cases/manifesto/palco-large-1200.webp 1200w, /cases/manifesto/palco-large.webp 1672w",
     width: 1672,
@@ -48,7 +41,7 @@ const heroProjects: HeroProject[] = [
     className: "hero-slide--1",
   },
   {
-    item: cases.find((item) => item.slug === "oliveira-transportes")!,
+    slug: "oliveira-transportes",
     src: "/cases/oliveira-transportes/hero.webp",
     srcSet: "/media-responsive/cases/oliveira-transportes/hero-480.webp 480w, /media-responsive/cases/oliveira-transportes/hero-800.webp 800w, /media-responsive/cases/oliveira-transportes/hero-1200.webp 1200w, /cases/oliveira-transportes/hero.webp 1774w",
     width: 1774,
@@ -56,7 +49,7 @@ const heroProjects: HeroProject[] = [
     className: "hero-slide--2",
   },
   {
-    item: cases.find((item) => item.slug === "metro-case")!,
+    slug: "metro-case",
     src: "/cases/metro-case/hero.webp",
     srcSet: "/media-responsive/cases/metro-case/hero-480.webp 480w, /media-responsive/cases/metro-case/hero-800.webp 800w, /media-responsive/cases/metro-case/hero-1200.webp 1200w, /cases/metro-case/hero.webp 1840w",
     mobileSrc: "/cases/metro-case/hero-mobile.webp",
@@ -68,6 +61,21 @@ const heroProjects: HeroProject[] = [
     className: "hero-slide--3",
   },
 ];
+
+const selectedProjectSlugs = [
+  "gru-kpop-anime",
+  "studio-e",
+  "rico-games",
+  "eletrotech-isa",
+  "manifesto-bar",
+  "metro-case",
+  "josucas-eletronicos",
+  "oliveira-transportes",
+];
+
+const selectedProjects = selectedProjectSlugs
+  .map((slug) => publicCases.find((item) => item.slug === slug))
+  .filter((item): item is (typeof publicCases)[number] => Boolean(item));
 
 export default function Home() {
   const { language } = useLanguage();
@@ -86,7 +94,7 @@ export default function Home() {
           <div className="hero-stage">
             <div className="hero-media" aria-hidden="true">
               {heroProjects.map((project, index) => (
-                <figure className={`hero-slide ${project.className}`} key={project.item.slug}>
+                <figure className={`hero-slide ${project.className}`} key={project.slug}>
                   <picture>
                     {project.mobileSrc ? (
                       <source
@@ -114,8 +122,8 @@ export default function Home() {
             </div>
 
             <div className="hero-topline">
-              <span>Lucas de Oliveira Andrade / {copy.studio}</span>
-              <span>São Paulo · Brasil / 2026</span>
+              <span>Lucas de Oliveira Andrade / {copy.heroEyebrow}</span>
+              <span>{copy.regions} / 2026</span>
             </div>
 
             <div className="hero-content">
@@ -123,163 +131,147 @@ export default function Home() {
                 <img src="/lucas-linkedin.jpg" alt="Lucas de Oliveira Andrade" width={200} height={200} />
                 <span>
                   <strong>Lucas de Oliveira Andrade</strong>
-                  <small>LinkedIn · São Paulo, Brasil</small>
+                  <small>{copy.regions}</small>
                 </span>
               </div>
-              <p className="hero-kicker">{copy.kicker}</p>
-              <h1>
-                {copy.heroTitle} <span>{copy.heroAccent}</span>
-              </h1>
-              <p className="hero-lede">{copy.lede}</p>
+              <p className="hero-kicker">{copy.heroEyebrow}</p>
+              <h1>{copy.heroName}</h1>
+              <h2 className="hero-role-title">{copy.heroTitle}</h2>
+              <p className="hero-lede">{copy.heroText}</p>
+              <p className="hero-positioning">“{copy.positioning}”</p>
               <div className="hero-actions">
-                <a className="button button-light" href="#cases">
-                  {copy.explore}
+                <a className="button button-light" href="#trajetoria">
+                  {copy.journeyCta}
                   <ArrowDownRight aria-hidden="true" size={18} />
                 </a>
-                <a className="button button-outline" href={linkedinUrl} target="_blank" rel="noreferrer">
-                  {copy.elevate}
-                  <ArrowUpRight aria-hidden="true" size={18} />
+                <a className="button button-outline" href="#projetos">
+                  {copy.workCta}
+                  <ArrowDownRight aria-hidden="true" size={18} />
                 </a>
               </div>
             </div>
 
-            <div className="hero-footer">
-              <div className="hero-now-playing">
-                <span className="hero-footer-label">{copy.onStage}</span>
-                <strong className="hero-project-name" aria-label={heroProjects.map(({ item }) => item.client).join(", ")}>
-                  {heroProjects.map(({ item }) => <span key={item.slug}>{item.client}</span>)}
-                </strong>
-              </div>
-              <div className="hero-count">
-                <b>{String(cases.length).padStart(2, "0")}</b> {copy.projectsToExplore}
-              </div>
-              <a className="hero-scroll" href="#cases">
-                <span>{copy.explore}</span>
-                <ArrowDownRight aria-hidden="true" size={18} />
-              </a>
+            <div className="hero-footer" aria-label={copy.proofAria}>
+              {copy.proofs.map((proof, index) => (
+                <div className="hero-proof-item" key={proof}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{proof}</strong>
+                </div>
+              ))}
             </div>
-
-            <aside className="hero-proof" aria-label={copy.proofAria}>
-              <span>{copy.proofLabel}</span>
-              <strong>{copy.proofTitle}</strong>
-              <p>{copy.proofText}</p>
-            </aside>
           </div>
         </section>
 
-        <section className="project-rail" aria-label={copy.clientMarksAria}>
-          <p>{copy.featuredProjects}</p>
-          <div>
-            {clientMarks.map((item) => (
-              <Link
-                key={item.slug}
-                href={withLanguage(`/cases/${item.slug}`, language)}
-                aria-label={`${copy.openProject} ${item.name}`}
-              >
-                <img
-                  src={item.src}
-                  srcSet={`/media-responsive${item.src.slice(0, item.src.lastIndexOf("."))}-240.webp 240w, ${item.src} ${item.width}w`}
-                  sizes="(max-width: 760px) 128px, 14vw"
-                  alt={`${copy.brandmark} ${item.name}`}
-                  width={item.width}
-                  height={item.height}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </Link>
-            ))}
+        <section className="positioning section-shell" id="trajetoria">
+          <div className="section-index">{copy.summaryIndex}</div>
+          <div className="positioning-copy reveal">
+            <p className="eyebrow">{copy.summaryEyebrow}</p>
+            <h2>{copy.summaryTitle}</h2>
+          </div>
+          <div className="positioning-note reveal">
+            <p>{copy.summaryText}</p>
+            <Link href={withLanguage("/career", language)}>
+              {copy.summaryCta}
+              <ArrowUpRight aria-hidden="true" size={18} />
+            </Link>
           </div>
         </section>
 
-        <section className="positioning section-shell">
-          <div className="section-index">{copy.whyIndex}</div>
-          <div className="positioning-copy">
-            <p className="eyebrow">{copy.perceptionEyebrow}</p>
-            <h2>
-              {copy.perceptionTitle}
-              <span> {copy.perceptionAccent}</span>
-            </h2>
-          </div>
-          <div className="positioning-note">
-            <p>{copy.perceptionText}</p>
-            <a href="#processo">
-              {copy.perceptionLink}
-              <ArrowDownRight aria-hidden="true" size={18} />
-            </a>
-          </div>
-        </section>
-
-        <section className="cases-section" id="cases">
+        <section className="career-home" id="empresas">
           <header className="cases-heading section-shell reveal">
-            <div className="section-index">{copy.portfolioIndex}</div>
+            <div className="section-index">{copy.companiesIndex}</div>
             <div>
-              <p className="eyebrow">{copy.portfolioEyebrow}</p>
-              <h2>{copy.projectsTitle}<span>.</span></h2>
+              <p className="eyebrow">{copy.companiesEyebrow}</p>
+              <h2>{copy.companiesTitle}<span>.</span></h2>
             </div>
             <div className="cases-heading__aside">
-              <p>{copy.portfolioText}</p>
+              <p>{copy.companiesText}</p>
+              <Link href={withLanguage("/career", language)}>
+                {copy.companiesCta}
+                <ArrowUpRight aria-hidden="true" size={18} />
+              </Link>
+            </div>
+          </header>
+
+          <div className="career-grid section-shell">
+            {featuredCareerEntries.map((entry) => <CareerCard item={entry} key={entry.slug} />)}
+          </div>
+        </section>
+
+        <section className="cases-section" id="projetos">
+          <header className="cases-heading section-shell reveal">
+            <div className="section-index">{copy.worksIndex}</div>
+            <div>
+              <p className="eyebrow">{copy.worksEyebrow}</p>
+              <h2>{copy.worksTitle}<span>.</span></h2>
+            </div>
+            <div className="cases-heading__aside">
+              <p>{copy.worksText}</p>
               <Link href={withLanguage("/cases", language)}>
-                {copy.explore}
+                {copy.worksCta}
                 <ArrowUpRight aria-hidden="true" size={18} />
               </Link>
             </div>
           </header>
 
           <div className="case-grid section-shell">
-            {cases.map((item) => <CaseCard item={item} key={item.slug} />)}
-          </div>
-
-          <div className="cases-proof section-shell reveal">
-            <span>{copy.proofNumbers}</span>
-            <p>{copy.proofNumbersText}</p>
+            {selectedProjects.map((item) => <CaseCard item={item} key={item.slug} />)}
           </div>
         </section>
 
-        <div className="marquee" aria-hidden="true">
-          <div>
-            {[...copy.marquee, ...copy.marquee].map((word, index) => (
-              <span className="marquee-item" key={`${word}-${index}`}>
-                <span>{word}</span><i>✦</i>
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <section className="capabilities section-shell" id="servicos">
-          <div className="capabilities-intro reveal">
-            <div className="section-index">{copy.servicesIndex}</div>
-            <p className="eyebrow">{copy.servicesEyebrow}</p>
-            <h2>{copy.servicesTitle}<br /><span>{copy.servicesAccent}</span></h2>
-            <p>{copy.servicesText}</p>
-            <a className="button button-orange" href={linkedinUrl} target="_blank" rel="noreferrer">
-              {copy.servicesCta}
-              <ArrowUpRight aria-hidden="true" size={18} />
-            </a>
-          </div>
-
-          <div className="service-list reveal">
-            {copy.services.map((service) => (
-              <article key={service.number}>
-                <div className="service-title">
-                  <span>{service.number}</span>
-                  <h3>{service.title}</h3>
-                  <ArrowRight aria-hidden="true" size={24} strokeWidth={1.5} />
-                </div>
-                <p>{service.text}</p>
-                <div>{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+        <section className="partnerships section-shell" id="parcerias">
+          <header className="partnerships__heading reveal">
+            <div className="section-index">{copy.partnershipsIndex}</div>
+            <div>
+              <p className="eyebrow">{copy.partnershipsEyebrow}</p>
+              <h2>{copy.partnershipsTitle}</h2>
+            </div>
+            <p>{copy.partnershipsText}</p>
+          </header>
+          <div className="partnerships__grid reveal" aria-label={copy.partnershipsEyebrow}>
+            {copy.partnershipNames.map((name, index) => (
+              <article key={name}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{name}</strong>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="method section-shell" id="processo">
+        <section className="capabilities section-shell" id="valor">
+          <div className="capabilities-intro reveal">
+            <div className="section-index">{copy.valueIndex}</div>
+            <p className="eyebrow">{copy.valueEyebrow}</p>
+            <h2>{copy.valueTitle}</h2>
+            <p>{copy.valueText}</p>
+          </div>
+
+          <div className="service-list reveal">
+            {copy.valueAxes.map((axis) => (
+              <article key={axis.number}>
+                <div className="service-title">
+                  <span>{axis.number}</span>
+                  <h3>{axis.title}</h3>
+                  <ArrowRight aria-hidden="true" size={24} strokeWidth={1.5} />
+                </div>
+                <p>{axis.text}</p>
+                <div>{axis.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="method section-shell" id="como-trabalho">
           <header className="method-heading reveal">
-            <div className="section-index">{copy.processIndex}</div>
-            <h2>{copy.processTitle}</h2>
-            <p>{copy.processText}</p>
+            <div className="section-index">{copy.methodIndex}</div>
+            <div>
+              <p className="eyebrow">{copy.methodEyebrow}</p>
+              <h2>{copy.methodTitle}</h2>
+            </div>
+            <p>{copy.methodText}</p>
           </header>
           <div className="method-grid reveal">
-            {copy.process.map(([number, title, text]) => (
+            {copy.method.map(([number, title, text]) => (
               <article key={number}>
                 <span>{number}</span>
                 <h3>{title}</h3>
@@ -289,19 +281,21 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="impact section-shell reveal">
+        <section className="impact section-shell reveal" id="marca-autoral">
           <div className="impact-copy">
             <div className="impact-label">
               <Heart aria-hidden="true" size={19} strokeWidth={1.6} />
-              <span>{copy.impactLabel}</span>
+              <span>{copy.impactIndex} · {copy.impactLabel}</span>
             </div>
-            <strong>10%</strong>
+            <strong>{copy.impactMetric}</strong>
             <h2>{copy.impactTitle}</h2>
             <p>{copy.impactText}</p>
           </div>
           <figure className="impact-photo">
             <img
               src="/impact/gatinho-ruivo.jpg"
+              srcSet="/media-responsive/impact/gatinho-ruivo-480.webp 480w, /impact/gatinho-ruivo.jpg 700w"
+              sizes="(max-width: 760px) 100vw, 50vw"
               alt={copy.catAlt}
               width={700}
               height={936}
@@ -315,15 +309,14 @@ export default function Home() {
           <div className="contact-stage">
             <span className="contact-mark" aria-hidden="true">LOA</span>
             <p className="eyebrow">{copy.contactEyebrow}</p>
-            <h2>
-              {copy.contactTitle} <span>{copy.contactAccent}</span>
-            </h2>
+            <h2>{copy.contactTitle}</h2>
+            <p className="contact-text">{copy.contactText}</p>
             <a className="button button-light contact-button" href={linkedinUrl} target="_blank" rel="noreferrer">
               {copy.contactCta}
               <ArrowUpRight aria-hidden="true" size={19} />
             </a>
             <div className="contact-meta">
-              <span><Globe2 aria-hidden="true" size={16} /> LinkedIn · Lucas Oliveira</span>
+              <span><Globe2 aria-hidden="true" size={16} /> {copy.profileLabel}</span>
               <span><Globe2 aria-hidden="true" size={16} /> {copy.regions}</span>
             </div>
           </div>

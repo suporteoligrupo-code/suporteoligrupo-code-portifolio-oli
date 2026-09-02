@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { cases } from "../app/data/cases";
+import { publicCases } from "../app/data/cases";
 import { siteCopy } from "../app/data/i18n";
 import CaseCard from "./case-card";
 import { useLanguage } from "./language-provider";
@@ -22,13 +22,13 @@ export default function CasesIndexContent() {
       <main>
         <header className="cases-index-hero section-shell">
           <span>
-            {copy.eyebrowBefore} {String(cases.length).padStart(2, "0")} {copy.eyebrowAfter}
+            {copy.eyebrow} · {String(publicCases.length).padStart(2, "0")} {copy.countSuffix}
           </span>
           <h1>{copy.title}<span>.</span></h1>
           <p>{copy.text}</p>
         </header>
         <div className="case-grid section-shell cases-index-grid">
-          {cases.map((item) => <CaseCard item={item} key={item.slug} />)}
+          {publicCases.map((item) => <CaseCard item={item} key={item.slug} />)}
         </div>
       </main>
       <SiteFooter />

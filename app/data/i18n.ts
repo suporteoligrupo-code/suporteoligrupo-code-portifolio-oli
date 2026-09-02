@@ -13,116 +13,147 @@ export const languageOptions: Array<{
   { code: "ru", flagSrc: "/flags/ru.svg", label: "Русский", htmlLang: "ru" },
 ];
 
-type ServiceCopy = {
+type ValueAxisCopy = {
   number: string;
   title: string;
   text: string;
   tags: string[];
 };
 
-type ProcessCopy = [string, string, string];
+type MethodStepCopy = [string, string, string];
 
 type SiteCopy = {
   header: {
     homeLabel: string;
     navLabel: string;
+    home: string;
+    journey: string;
+    companies: string;
     projects: string;
-    services: string;
-    process: string;
-    startProject: string;
+    partnerships: string;
+    contact: string;
+    profileCta: string;
     chooseLanguage: string;
+    openMenu: string;
+    closeMenu: string;
   };
   footer: string;
   home: {
     pageTitle: string;
-    studio: string;
     regions: string;
-    kicker: string;
+    heroEyebrow: string;
+    heroName: string;
     heroTitle: string;
-    heroAccent: string;
-    lede: string;
-    explore: string;
-    elevate: string;
-    onStage: string;
-    identityLucas: string;
-    projectsToExplore: string;
-    proofLabel: string;
-    proofTitle: string;
-    proofText: string;
+    heroText: string;
+    positioning: string;
+    journeyCta: string;
+    workCta: string;
     proofAria: string;
-    clientMarksAria: string;
-    featuredProjects: string;
-    openProject: string;
-    brandmark: string;
-    whyIndex: string;
-    perceptionEyebrow: string;
-    perceptionTitle: string;
-    perceptionAccent: string;
-    perceptionText: string;
-    perceptionLink: string;
-    portfolioIndex: string;
-    portfolioEyebrow: string;
-    projectsTitle: string;
-    portfolioText: string;
-    proofNumbers: string;
-    proofNumbersText: string;
-    marquee: string[];
-    servicesIndex: string;
-    servicesEyebrow: string;
-    servicesTitle: string;
-    servicesAccent: string;
-    servicesText: string;
-    servicesCta: string;
-    services: ServiceCopy[];
-    processIndex: string;
-    processTitle: string;
-    processText: string;
-    process: ProcessCopy[];
+    proofs: string[];
+    summaryIndex: string;
+    summaryEyebrow: string;
+    summaryTitle: string;
+    summaryText: string;
+    summaryCta: string;
+    companiesIndex: string;
+    companiesEyebrow: string;
+    companiesTitle: string;
+    companiesText: string;
+    companiesCta: string;
+    careerCardCta: string;
+    worksIndex: string;
+    worksEyebrow: string;
+    worksTitle: string;
+    worksText: string;
+    worksCta: string;
+    projectCardCta: string;
+    partnershipsIndex: string;
+    partnershipsEyebrow: string;
+    partnershipsTitle: string;
+    partnershipsText: string;
+    partnershipNames: string[];
+    valueIndex: string;
+    valueEyebrow: string;
+    valueTitle: string;
+    valueText: string;
+    valueAxes: ValueAxisCopy[];
+    methodIndex: string;
+    methodEyebrow: string;
+    methodTitle: string;
+    methodText: string;
+    method: MethodStepCopy[];
+    impactIndex: string;
     impactLabel: string;
+    impactMetric: string;
     impactTitle: string;
     impactText: string;
     catAlt: string;
     catCaption: string;
     contactEyebrow: string;
     contactTitle: string;
-    contactAccent: string;
+    contactText: string;
     contactCta: string;
+    profileLabel: string;
   };
   index: {
     pageTitle: string;
-    eyebrowBefore: string;
-    eyebrowAfter: string;
+    eyebrow: string;
+    countSuffix: string;
     title: string;
     text: string;
   };
   card: {
     openProject: string;
     viewProject: string;
+    roleLabel: string;
+    statusLabel: string;
   };
   project: {
     titleSuffix: string;
     allProjects: string;
     projectLabel: string;
     viewPublished: string;
-    wantSimilar: string;
-    client: string;
-    sector: string;
-    scope: string;
+    viewCareer: string;
+    company: string;
+    field: string;
+    role: string;
     status: string;
-    workIndex: string;
-    appearanceEyebrow: string;
-    appearanceTitle: string;
-    challenge: string;
-    direction: string;
-    outcome: string;
-    portfolioIndex: string;
-    portfolioTitle: string;
-    portfolioText: string;
+    contextIndex: string;
+    contextEyebrow: string;
+    contextTitle: string;
+    context: string;
     myRole: string;
-    systemIndex: string;
-    systemTitle: string;
+    whatTookShape: string;
+    workIndex: string;
+    workTitle: string;
+    workText: string;
+    roleCallout: string;
+    responsibilitiesIndex: string;
+    responsibilitiesTitle: string;
+    evidenceTitle: string;
     projectColors: string;
     nextProject: string;
+    contactEyebrow: string;
+    contactTitle: string;
+    contactCta: string;
+  };
+  career: {
+    titleSuffix: string;
+    allExperiences: string;
+    experienceLabel: string;
+    period: string;
+    relationship: string;
+    roles: string;
+    viewRole: string;
+    relationshipTitle: string;
+    roleTitle: string;
+    directActionsTitle: string;
+    initiativesTitle: string;
+    mediaTitle: string;
+    competenciesTitle: string;
+    evidenceTitle: string;
+    relatedProjectsTitle: string;
+    nextExperience: string;
     contactEyebrow: string;
     contactTitle: string;
     contactCta: string;
@@ -134,223 +165,287 @@ export const siteCopy: Record<Language, SiteCopy> = {
     header: {
       homeLabel: "Lucas de Oliveira Andrade — início",
       navLabel: "Navegação principal",
-      projects: "Projetos.",
-      services: "Competências",
-      process: "Trajetória",
-      startProject: "Ver meu LinkedIn",
+      home: "Início",
+      journey: "Trajetória",
+      companies: "Empresas",
+      projects: "Projetos",
+      partnerships: "Parcerias",
+      contact: "Contato",
+      profileCta: "Ver meu LinkedIn",
       chooseLanguage: "Selecionar idioma",
+      openMenu: "Abrir menu",
+      closeMenu: "Fechar menu",
     },
-    footer: "Estratégia · Marketing · Direção criativa",
+    footer: "Estratégia · Marketing · Gestão · Direção criativa",
     home: {
-      pageTitle: "Lucas de Oliveira Andrade — Portfólio pessoal",
-      studio: "Estratégia · marketing · direção criativa",
+      pageTitle: "Lucas de Oliveira Andrade — Portfólio pessoal de carreira",
       regions: "São Paulo · Brasil",
-      kicker: "Estratégia · marketing · gestão · criação",
-      heroTitle: "Lucas",
-      heroAccent: "de Oliveira Andrade.",
-      lede: "Desde 2010, atuo na interseção entre vendas, gestão, marketing e criação — conectando pontos soltos e transformando problemas reais em marcas, campanhas e experiências que fazem sentido.",
-      explore: "Explorar projetos",
-      elevate: "Ver meu LinkedIn",
-      onStage: "Em destaque",
-      identityLucas: "Perfil pessoal",
-      projectsToExplore: "projetos para explorar",
-      proofLabel: "Projetos reais",
-      proofTitle: "Trajetória multidisciplinar.",
-      proofText: "Vendas, gestão, marketing e criação reunidos em projetos reais desde 2010.",
-      proofAria: "Resumo da experiência de Lucas de Oliveira Andrade",
-      clientMarksAria: "Logomarcas dos clientes apresentados",
-      featuredProjects: "Projetos em destaque",
-      openProject: "Abrir o projeto",
-      brandmark: "Logomarca",
-      whyIndex: "01 / Sobre mim",
-      perceptionEyebrow: "Meu jeito de trabalhar",
-      perceptionTitle: "Conecto pontos que parecem soltos e transformo",
-      perceptionAccent: "em direção clara.",
-      perceptionText: "Minha carreira começou no contato direto com o cliente. Essa base em vendas e gestão ainda guia meu trabalho: primeiro entendo o problema real; depois uno estratégia, comunicação e execução.",
-      perceptionLink: "Conheça minha trajetória",
-      portfolioIndex: "02 / Arquivo de projetos",
-      portfolioEyebrow: "Clique. Entre. Explore.",
-      projectsTitle: "Projetos",
-      portfolioText: "Cada card abre um universo próprio: cliente, contexto, desafio, direção e o trabalho ganhando forma em marca, conteúdo ou experiência digital.",
-      proofNumbers: "Sem números inventados.",
-      proofNumbersText: "Autoridade vem de mostrar o raciocínio e o acabamento do trabalho real — não de preencher a página com promessa vazia.",
-      marquee: ["marca", "conteúdo", "digital", "presença"],
-      servicesIndex: "03 / Competências",
-      servicesEyebrow: "Visão ampla, execução prática",
-      servicesTitle: "Estratégia e criação.",
-      servicesAccent: "Do problema à entrega.",
-      servicesText: "Atuo entre o comercial e o criativo para construir soluções coerentes com o negócio, o público e o momento de cada projeto.",
-      servicesCta: "Conversar pelo LinkedIn",
-      services: [
-        { number: "01", title: "Estratégia & crescimento", text: "Diagnóstico, posicionamento e visão comercial para transformar percepção em decisão e oportunidades em movimento.", tags: ["Growth", "Vendas", "Posicionamento"] },
-        { number: "02", title: "Marca & direção criativa", text: "Conceito, identidade e linguagem visual conectados à história, ao público e ao objetivo de cada negócio.", tags: ["Branding", "Campanhas", "Audiovisual"] },
-        { number: "03", title: "Digital & experiência", text: "Sites, conteúdo e jornadas digitais pensados para organizar informação, prender atenção e gerar contato.", tags: ["UX/UI", "Copy", "Desenvolvimento"] },
+      heroEyebrow: "Portfólio pessoal de carreira",
+      heroName: "Lucas de Oliveira Andrade",
+      heroTitle: "Estratégia, marketing, gestão e direção criativa.",
+      heroText: "Desde 2010, atuo dentro de negócios — da venda e do atendimento à gestão, à criação de marcas, campanhas, produtos, parcerias, conteúdos e experiências.",
+      positioning: "Conecto pontos que parecem não ter relação e transformo em uma direção que funciona.",
+      journeyCta: "Conheça minha trajetória",
+      workCta: "Ver trabalhos selecionados",
+      proofAria: "Provas rápidas da trajetória de Lucas de Oliveira Andrade",
+      proofs: ["Desde 2010", "Gestão + marketing + execução", "Varejo, entretenimento, serviços e B2B"],
+      summaryIndex: "01 / Trajetória",
+      summaryEyebrow: "Negócios por dentro",
+      summaryTitle: "Uma carreira construída na operação e ampliada pela criação.",
+      summaryText: "Comecei em vendas e atendimento em 2010. Ao longo da carreira, ampliei minha atuação para gestão, marketing, consultoria, marcas, conteúdo, audiovisual, produtos, parcerias e experiências digitais — sempre conectado ao que precisa funcionar na prática.",
+      summaryCta: "Percorrer minha trajetória",
+      companiesIndex: "02 / Empresas",
+      companiesEyebrow: "Experiências em destaque",
+      companiesTitle: "Onde atuei e o que executei",
+      companiesText: "Cada experiência mostra minha relação com a empresa, as funções que assumi, o que executei diretamente e as competências que desenvolvi no processo.",
+      companiesCta: "Ver todas as experiências",
+      careerCardCta: "Ver minha atuação",
+      worksIndex: "03 / Projetos",
+      worksEyebrow: "Trabalhos visuais selecionados",
+      worksTitle: "Ideias que ganharam forma",
+      worksText: "Uma seleção de marcas, campanhas, conteúdos, sites e experiências em que atuei. Cada trabalho identifica minha participação e o estágio real do projeto.",
+      worksCta: "Explorar todos os trabalhos",
+      projectCardCta: "Ver trabalho",
+      partnershipsIndex: "04 / Parcerias",
+      partnershipsEyebrow: "Ações e ativações",
+      partnershipsTitle: "Conexões construídas em contexto.",
+      partnershipsText: "Marcas, canais, artistas e eventos com os quais participei de ações, lançamentos, campanhas ou colaborações no contexto dos projetos em que atuei.",
+      partnershipNames: ["PlayStation", "Flow", "Flow Games", "4 Amigos", "Afonso Padilha", "David Jones", "Canal Peewee", "BGS"],
+      valueIndex: "05 / Como gero valor",
+      valueEyebrow: "Experiência integrada",
+      valueTitle: "Como minha experiência gera valor.",
+      valueText: "Uno leitura comercial, organização, comunicação e execução criativa para transformar situações dispersas em decisões mais claras.",
+      valueAxes: [
+        { number: "01", title: "Estratégia e visão comercial", text: "Leio contexto, público e oportunidade com o olhar de quem começou em vendas e conhece a operação.", tags: ["Negócios", "Vendas", "Posicionamento"] },
+        { number: "02", title: "Gestão e estrutura", text: "Organizo prioridades, rotinas e pontos de decisão para dar forma ao trabalho e sustentar a execução.", tags: ["Gestão", "Processos", "Operação"] },
+        { number: "03", title: "Marketing e comunicação", text: "Transformo objetivos de negócio em mensagens, campanhas e ações coerentes com cada público e momento.", tags: ["Marketing", "Campanhas", "Relacionamento"] },
+        { number: "04", title: "Marca e direção criativa", text: "Crio conceitos, identidades e sistemas visuais que tornam posicionamento e personalidade reconhecíveis.", tags: ["Marca", "Identidade", "Direção de arte"] },
+        { number: "05", title: "Conteúdo e audiovisual", text: "Desenvolvo narrativas, vídeos, lives e peças que aproximam projetos de pessoas sem perder intenção comercial.", tags: ["Conteúdo", "Vídeo", "Lançamentos"] },
+        { number: "06", title: "Digital e e-commerce", text: "Estruturo sites, jornadas e experiências digitais para tornar informação, oferta e contato mais claros.", tags: ["Sites", "UX/UI", "E-commerce"] },
       ],
-      processIndex: "04 / Trajetória",
-      processTitle: "Uma carreira construída em movimento.",
-      processText: "Do contato com o cliente à estratégia, da gestão ao palco, cada fase ampliou o modo como enxergo negócios e comunicação.",
-      process: [
-        ["2010", "Rico Games", "Comecei em vendas e atendimento, evoluindo para marketing, gestão, campanhas, conteúdo, parcerias e decisões comerciais."],
-        ["02", "Varejo & gestão", "A experiência direta com clientes e equipes formou meu olhar para conversão, operação e posicionamento."],
-        ["03", "Música & entretenimento", "Na Through to the Wolves e em lançamentos musicais, atuei também em conceito, vídeo, divulgação e direção visual."],
-        ["04", "Estratégia & digital", "Hoje conecto marketing, criação, sites, marcas e consultoria em projetos de diferentes setores."],
+      methodIndex: "06 / Como trabalho",
+      methodEyebrow: "Direção pessoal",
+      methodTitle: "Do ponto solto à execução que funciona.",
+      methodText: "Meu método nasce da operação: entender o que está acontecendo, conectar os elementos relevantes, organizar uma direção e participar da execução.",
+      method: [
+        ["01", "Entender", "Escuto, observo a operação e identifico a necessidade real antes de definir uma resposta."],
+        ["02", "Conectar", "Aproximo negócio, público, comunicação e repertório para encontrar relações que ainda não estavam visíveis."],
+        ["03", "Estruturar", "Transformo essas conexões em prioridades, conceito, mensagem, sistema e próximos passos."],
+        ["04", "Executar", "Participo da construção, acompanho decisões e ajusto o trabalho até ele funcionar no contexto real."],
       ],
-      impactLabel: "Projeto autoral · Urly Marketing",
-      impactTitle: "da renda bruta é destinada à proteção animal.",
-      impactText: "Em um dos meus projetos autorais, parte da receita ajuda iniciativas que acolhem, cuidam e protegem animais.",
+      impactIndex: "07 / Marca autoral e impacto",
+      impactLabel: "Urly Marketing",
+      impactMetric: "10%",
+      impactTitle: "da renda bruta é destinada a iniciativas de proteção animal.",
+      impactText: "Criei a Urly Marketing para atuar em estratégia e comunicação. A marca também assume um compromisso direto: destinar 10% da renda bruta a iniciativas de proteção animal.",
       catAlt: "Gatinho ruivo em uma fotografia clara e natural",
       catCaption: "Criar valor também pode gerar impacto.",
-      contactEyebrow: "Vamos conectar os próximos pontos",
-      contactTitle: "Tem um desafio, uma ideia ou uma oportunidade?",
-      contactAccent: "Vamos conversar.",
+      contactEyebrow: "Contato profissional",
+      contactTitle: "Vamos conversar sobre experiência, negócios e novas oportunidades.",
+      contactText: "Se minha trajetória fizer sentido para uma empresa, um projeto ou uma colaboração, estou disponível para conversar diretamente.",
       contactCta: "Falar com Lucas no LinkedIn",
+      profileLabel: "LinkedIn · Lucas de Oliveira Andrade",
     },
     index: {
-      pageTitle: "Projetos — Lucas de Oliveira Andrade",
-      eyebrowBefore: "Portfólio por empresa ·",
-      eyebrowAfter: "projetos",
+      pageTitle: "Trabalhos selecionados — Lucas de Oliveira Andrade",
+      eyebrow: "Arquivo de projetos",
+      countSuffix: "trabalhos selecionados",
       title: "Projetos",
-      text: "Entre em cada empresa para conhecer o contexto, a direção e o conjunto de entregas — não apenas uma imagem bonita fora de contexto.",
+      text: "Marcas, campanhas, conteúdos, sites e experiências apresentados com minha atuação e o estágio real de cada trabalho.",
     },
-    card: { openProject: "Abrir o projeto", viewProject: "Ver projeto" },
+    card: { openProject: "Abrir o trabalho", viewProject: "Ver trabalho", roleLabel: "Minha atuação", statusLabel: "Status" },
     project: {
-      titleSuffix: "Projeto de Lucas de Oliveira Andrade",
-      allProjects: "Todos os projetos",
+      titleSuffix: "Trabalho de Lucas de Oliveira Andrade",
+      allProjects: "Todos os trabalhos",
       projectLabel: "Projeto",
-      viewPublished: "Ver projeto publicado",
-      wantSimilar: "Conversar sobre este trabalho",
-      client: "Cliente",
-      sector: "Setor",
-      scope: "Escopo",
+      viewPublished: "Ver trabalho publicado",
+      viewCareer: "Ver experiência relacionada",
+      company: "Empresa ou marca",
+      field: "Área",
+      role: "Minha atuação",
       status: "Status",
-      workIndex: "01 / O trabalho",
-      appearanceEyebrow: "Não é só aparência.",
-      appearanceTitle: "Uma direção criada para resolver um problema real de percepção.",
-      challenge: "O desafio",
-      direction: "Minha atuação",
-      outcome: "O que ganhou forma",
-      portfolioIndex: "02 / Portfólio do cliente",
-      portfolioTitle: "Do sistema à aplicação",
-      portfolioText: "A direção aparece em escalas diferentes, mas preserva a mesma personalidade e a mesma intenção comercial.",
+      contextIndex: "01 / Contexto e atuação",
+      contextEyebrow: "O trabalho em contexto",
+      contextTitle: "O que encontrei, como participei e o que ganhou forma.",
+      context: "O contexto",
       myRole: "Minha atuação",
-      systemIndex: "03 / Sistema",
-      systemTitle: "Entregas do projeto.",
-      projectColors: "Cores do projeto",
-      nextProject: "Próximo projeto",
-      contactEyebrow: "Seu negócio já tem uma história.",
-      contactTitle: "Vamos dar a ela uma presença à altura?",
-      contactCta: "Conversar com Lucas",
+      whatTookShape: "O que ganhou forma",
+      workIndex: "02 / Trabalhos e registros",
+      workTitle: "Da direção à aplicação",
+      workText: "Os registros mostram o trabalho em diferentes formatos, preservando o contexto e a participação que tive em cada construção.",
+      roleCallout: "Minha atuação",
+      responsibilitiesIndex: "03 / Responsabilidades",
+      responsibilitiesTitle: "Responsabilidades e execuções.",
+      evidenceTitle: "Resultados e evidências",
+      projectColors: "Cores do trabalho",
+      nextProject: "Próximo trabalho",
+      contactEyebrow: "Contato profissional",
+      contactTitle: "Quer conhecer melhor minha trajetória?",
+      contactCta: "Falar com Lucas",
+    },
+    career: {
+      titleSuffix: "Experiência de Lucas de Oliveira Andrade",
+      allExperiences: "Todas as experiências",
+      experienceLabel: "Experiência",
+      period: "Período",
+      relationship: "Relação",
+      roles: "Funções",
+      viewRole: "Ver minha atuação",
+      relationshipTitle: "Minha relação com a empresa",
+      roleTitle: "Meu papel",
+      directActionsTitle: "O que executei diretamente",
+      initiativesTitle: "Iniciativas e decisões",
+      mediaTitle: "Trabalhos e registros visuais",
+      competenciesTitle: "Competências demonstradas",
+      evidenceTitle: "Resultados e evidências",
+      relatedProjectsTitle: "Projetos relacionados",
+      nextExperience: "Próxima experiência",
+      contactEyebrow: "Contato profissional",
+      contactTitle: "Minha trajetória pode contribuir com o próximo desafio.",
+      contactCta: "Falar com Lucas",
     },
   },
   en: {
     header: {
       homeLabel: "Lucas de Oliveira Andrade — home",
       navLabel: "Main navigation",
-      projects: "Projects.",
-      services: "Capabilities",
-      process: "Journey",
-      startProject: "View my LinkedIn",
+      home: "Home",
+      journey: "Journey",
+      companies: "Companies",
+      projects: "Projects",
+      partnerships: "Partnerships",
+      contact: "Contact",
+      profileCta: "View my LinkedIn",
       chooseLanguage: "Select language",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
     },
-    footer: "Strategy · Marketing · Creative direction",
+    footer: "Strategy · Marketing · Management · Creative direction",
     home: {
-      pageTitle: "Lucas de Oliveira Andrade — Personal portfolio",
-      studio: "Strategy · marketing · creative direction",
+      pageTitle: "Lucas de Oliveira Andrade — Personal career portfolio",
       regions: "São Paulo · Brazil",
-      kicker: "Strategy · marketing · management · creation",
-      heroTitle: "Lucas",
-      heroAccent: "de Oliveira Andrade.",
-      lede: "Since 2010, I have worked where sales, management, marketing and creation meet — connecting loose points and turning real business problems into brands, campaigns and experiences that make sense.",
-      explore: "Explore projects",
-      elevate: "View my LinkedIn",
-      onStage: "Featured",
-      identityLucas: "Personal profile",
-      projectsToExplore: "projects to explore",
-      proofLabel: "Real projects",
-      proofTitle: "A multidisciplinary journey.",
-      proofText: "Sales, management, marketing and creation across real projects since 2010.",
-      proofAria: "Summary of Lucas de Oliveira Andrade's experience",
-      clientMarksAria: "Logos of featured clients",
-      featuredProjects: "Featured projects",
-      openProject: "Open project",
-      brandmark: "Logo",
-      whyIndex: "01 / About me",
-      perceptionEyebrow: "How I work",
-      perceptionTitle: "I connect points that seem unrelated and turn them",
-      perceptionAccent: "into a clear direction.",
-      perceptionText: "My career began in direct contact with customers. That foundation in sales and management still guides my work: I first understand the real problem, then connect strategy, communication and execution.",
-      perceptionLink: "Explore my journey",
-      portfolioIndex: "02 / Project archive",
-      portfolioEyebrow: "Click. Enter. Explore.",
-      projectsTitle: "Projects",
-      portfolioText: "Each card opens its own universe: client, context, challenge, direction and the work taking shape as a brand, content or digital experience.",
-      proofNumbers: "No invented numbers.",
-      proofNumbersText: "Authority comes from showing the thinking and finish behind real work — not from filling a page with empty promises.",
-      marquee: ["brand", "content", "digital", "presence"],
-      servicesIndex: "03 / Capabilities",
-      servicesEyebrow: "Broad vision, practical execution",
-      servicesTitle: "Strategy and creation.",
-      servicesAccent: "From problem to delivery.",
-      servicesText: "I work between commercial and creative thinking to build solutions that fit each business, audience and moment.",
-      servicesCta: "Connect on LinkedIn",
-      services: [
-        { number: "01", title: "Strategy & growth", text: "Diagnosis, positioning and commercial thinking to turn perception into decisions and opportunities into movement.", tags: ["Growth", "Sales", "Positioning"] },
-        { number: "02", title: "Brand & creative direction", text: "Concept, identity and visual language connected to each business's story, audience and goal.", tags: ["Branding", "Campaigns", "Audiovisual"] },
-        { number: "03", title: "Digital & experience", text: "Websites, content and digital journeys designed to organize information, hold attention and generate contact.", tags: ["UX/UI", "Copy", "Development"] },
+      heroEyebrow: "Personal career portfolio",
+      heroName: "Lucas de Oliveira Andrade",
+      heroTitle: "Strategy, marketing, management and creative direction.",
+      heroText: "Since 2010, I have worked inside businesses — from sales and customer service to management, brand creation, campaigns, products, partnerships, content and experiences.",
+      positioning: "I connect points that seem unrelated and turn them into a direction that works.",
+      journeyCta: "Explore my journey",
+      workCta: "View selected work",
+      proofAria: "Quick evidence of Lucas de Oliveira Andrade's career",
+      proofs: ["Since 2010", "Management + marketing + execution", "Retail, entertainment, services and B2B"],
+      summaryIndex: "01 / Journey",
+      summaryEyebrow: "Business from the inside",
+      summaryTitle: "A career built in operations and expanded through creation.",
+      summaryText: "I began in sales and customer service in 2010. Over the years, I expanded into management, marketing, consulting, brands, content, audiovisual work, products, partnerships and digital experiences — always connected to what needs to work in practice.",
+      summaryCta: "Explore my journey",
+      companiesIndex: "02 / Companies",
+      companiesEyebrow: "Featured experiences",
+      companiesTitle: "Where I worked and what I executed",
+      companiesText: "Each experience shows my relationship with the company, the roles I held, what I executed directly and the capabilities I developed along the way.",
+      companiesCta: "View all experiences",
+      careerCardCta: "View my role",
+      worksIndex: "03 / Projects",
+      worksEyebrow: "Selected visual work",
+      worksTitle: "Ideas that took shape",
+      worksText: "A selection of brands, campaigns, content, websites and experiences I worked on. Each project identifies my contribution and its actual stage.",
+      worksCta: "Explore all work",
+      projectCardCta: "View work",
+      partnershipsIndex: "04 / Partnerships",
+      partnershipsEyebrow: "Actions and activations",
+      partnershipsTitle: "Connections built in context.",
+      partnershipsText: "Brands, channels, artists and events with which I took part in actions, launches, campaigns or collaborations within the projects I worked on.",
+      partnershipNames: ["PlayStation", "Flow", "Flow Games", "4 Amigos", "Afonso Padilha", "David Jones", "Canal Peewee", "BGS"],
+      valueIndex: "05 / How I create value",
+      valueEyebrow: "Integrated experience",
+      valueTitle: "How my experience creates value.",
+      valueText: "I combine commercial thinking, organization, communication and creative execution to turn scattered situations into clearer decisions.",
+      valueAxes: [
+        { number: "01", title: "Strategy and commercial vision", text: "I read context, audience and opportunity through the perspective of someone who began in sales and understands operations.", tags: ["Business", "Sales", "Positioning"] },
+        { number: "02", title: "Management and structure", text: "I organize priorities, routines and decision points to give work shape and support execution.", tags: ["Management", "Processes", "Operations"] },
+        { number: "03", title: "Marketing and communication", text: "I turn business goals into messages, campaigns and actions suited to each audience and moment.", tags: ["Marketing", "Campaigns", "Relationships"] },
+        { number: "04", title: "Brand and creative direction", text: "I create concepts, identities and visual systems that make positioning and personality recognizable.", tags: ["Brand", "Identity", "Art direction"] },
+        { number: "05", title: "Content and audiovisual", text: "I develop narratives, videos, live streams and assets that bring projects closer to people without losing commercial intent.", tags: ["Content", "Video", "Launches"] },
+        { number: "06", title: "Digital and e-commerce", text: "I structure websites, journeys and digital experiences to make information, offers and contact clearer.", tags: ["Websites", "UX/UI", "E-commerce"] },
       ],
-      processIndex: "04 / Journey",
-      processTitle: "A career built in motion.",
-      processText: "From customer contact to strategy, and from management to the stage, each phase expanded how I see business and communication.",
-      process: [
-        ["2010", "Rico Games", "I began in sales and customer service, moving into marketing, management, campaigns, content, partnerships and commercial decisions."],
-        ["02", "Retail & management", "Working directly with customers and teams shaped my view of conversion, operations and positioning."],
-        ["03", "Music & entertainment", "With Through to the Wolves and music releases, I also worked on concepts, video, promotion and visual direction."],
-        ["04", "Strategy & digital", "Today I connect marketing, creation, websites, brands and consulting across different industries."],
+      methodIndex: "06 / How I work",
+      methodEyebrow: "Personal direction",
+      methodTitle: "From scattered points to execution that works.",
+      methodText: "My method comes from operations: understand what is happening, connect the relevant elements, organize a direction and take part in the execution.",
+      method: [
+        ["01", "Understand", "I listen, observe the operation and identify the real need before defining a response."],
+        ["02", "Connect", "I bring business, audience, communication and repertoire together to uncover relationships that were not yet visible."],
+        ["03", "Structure", "I turn those connections into priorities, concept, message, system and next steps."],
+        ["04", "Execute", "I take part in the build, follow decisions and refine the work until it functions in its real context."],
       ],
-      impactLabel: "Personal project · Urly Marketing",
-      impactTitle: "of gross revenue is donated to animal protection.",
-      impactText: "In one of my personal projects, part of the revenue supports initiatives that shelter, care for and protect animals.",
+      impactIndex: "07 / Personal brand and impact",
+      impactLabel: "Urly Marketing",
+      impactMetric: "10%",
+      impactTitle: "of gross revenue is allocated to animal protection initiatives.",
+      impactText: "I created Urly Marketing to work in strategy and communication. The brand also makes a direct commitment: allocating 10% of gross revenue to animal protection initiatives.",
       catAlt: "Ginger cat in a bright, natural photograph",
       catCaption: "Creating value can create impact too.",
-      contactEyebrow: "Let's connect the next points",
-      contactTitle: "Have a challenge, an idea or an opportunity?",
-      contactAccent: "Let's talk.",
+      contactEyebrow: "Professional contact",
+      contactTitle: "Let's talk about experience, business and new opportunities.",
+      contactText: "If my background could contribute to a company, project or collaboration, I am available for a direct conversation.",
       contactCta: "Talk to Lucas on LinkedIn",
+      profileLabel: "LinkedIn · Lucas de Oliveira Andrade",
     },
     index: {
-      pageTitle: "Projects — Lucas de Oliveira Andrade",
-      eyebrowBefore: "Portfolio by company ·",
-      eyebrowAfter: "projects",
+      pageTitle: "Selected work — Lucas de Oliveira Andrade",
+      eyebrow: "Project archive",
+      countSuffix: "selected projects",
       title: "Projects",
-      text: "Step inside each company to discover its context, direction and complete set of deliverables — not just a beautiful image without context.",
+      text: "Brands, campaigns, content, websites and experiences presented with my role and the actual stage of each project.",
     },
-    card: { openProject: "Open project", viewProject: "View project" },
+    card: { openProject: "Open work", viewProject: "View work", roleLabel: "My role", statusLabel: "Status" },
     project: {
-      titleSuffix: "Project by Lucas de Oliveira Andrade",
-      allProjects: "All projects",
+      titleSuffix: "Work by Lucas de Oliveira Andrade",
+      allProjects: "All work",
       projectLabel: "Project",
-      viewPublished: "View live project",
-      wantSimilar: "Discuss this work",
-      client: "Client",
-      sector: "Industry",
-      scope: "Scope",
+      viewPublished: "View published work",
+      viewCareer: "View related experience",
+      company: "Company or brand",
+      field: "Field",
+      role: "My role",
       status: "Status",
-      workIndex: "01 / The work",
-      appearanceEyebrow: "More than appearance.",
-      appearanceTitle: "A direction designed to solve a real perception challenge.",
-      challenge: "The challenge",
-      direction: "My role",
-      outcome: "What took shape",
-      portfolioIndex: "02 / Client portfolio",
-      portfolioTitle: "From system to application",
-      portfolioText: "The direction appears at different scales while preserving the same personality and commercial intent.",
+      contextIndex: "01 / Context and role",
+      contextEyebrow: "The work in context",
+      contextTitle: "What I found, how I took part and what took shape.",
+      context: "The context",
       myRole: "My role",
-      systemIndex: "03 / System",
-      systemTitle: "Project deliverables.",
+      whatTookShape: "What took shape",
+      workIndex: "02 / Work and records",
+      workTitle: "From direction to application",
+      workText: "These records show the work across different formats while preserving its context and the role I played in each build.",
+      roleCallout: "My role",
+      responsibilitiesIndex: "03 / Responsibilities",
+      responsibilitiesTitle: "Responsibilities and execution.",
+      evidenceTitle: "Results and evidence",
       projectColors: "Project colors",
       nextProject: "Next project",
-      contactEyebrow: "Your business already has a story.",
-      contactTitle: "Shall we give it a presence that matches?",
+      contactEyebrow: "Professional contact",
+      contactTitle: "Would you like to learn more about my journey?",
+      contactCta: "Talk to Lucas",
+    },
+    career: {
+      titleSuffix: "Experience of Lucas de Oliveira Andrade",
+      allExperiences: "All experiences",
+      experienceLabel: "Experience",
+      period: "Period",
+      relationship: "Relationship",
+      roles: "Roles",
+      viewRole: "View my role",
+      relationshipTitle: "My relationship with the company",
+      roleTitle: "My role",
+      directActionsTitle: "What I executed directly",
+      initiativesTitle: "Initiatives and decisions",
+      mediaTitle: "Work and visual records",
+      competenciesTitle: "Capabilities demonstrated",
+      evidenceTitle: "Results and evidence",
+      relatedProjectsTitle: "Related projects",
+      nextExperience: "Next experience",
+      contactEyebrow: "Professional contact",
+      contactTitle: "My experience can contribute to the next challenge.",
       contactCta: "Talk to Lucas",
     },
   },
@@ -358,111 +453,143 @@ export const siteCopy: Record<Language, SiteCopy> = {
     header: {
       homeLabel: "Lucas de Oliveira Andrade — главная",
       navLabel: "Основная навигация",
-      projects: "Проекты.",
-      services: "Компетенции",
-      process: "Путь",
-      startProject: "Открыть LinkedIn",
+      home: "Главная",
+      journey: "Карьера",
+      companies: "Компании",
+      projects: "Проекты",
+      partnerships: "Партнёрства",
+      contact: "Контакты",
+      profileCta: "Открыть LinkedIn",
       chooseLanguage: "Выбрать язык",
+      openMenu: "Открыть меню",
+      closeMenu: "Закрыть меню",
     },
-    footer: "Стратегия · Маркетинг · Креативное направление",
+    footer: "Стратегия · Маркетинг · Управление · Креативное направление",
     home: {
-      pageTitle: "Lucas de Oliveira Andrade — Личное портфолио",
-      studio: "Стратегия · маркетинг · креативное направление",
+      pageTitle: "Lucas de Oliveira Andrade — Личное карьерное портфолио",
       regions: "Сан-Паулу · Бразилия",
-      kicker: "Стратегия · маркетинг · управление · создание",
-      heroTitle: "Lucas",
-      heroAccent: "de Oliveira Andrade.",
-      lede: "С 2010 года я работаю на пересечении продаж, управления, маркетинга и креатива — соединяю разрозненные точки и превращаю реальные задачи бизнеса в бренды, кампании и понятный опыт.",
-      explore: "Смотреть проекты",
-      elevate: "Открыть мой LinkedIn",
-      onStage: "Избранное",
-      identityLucas: "Личный профиль",
-      projectsToExplore: "проектов для просмотра",
-      proofLabel: "Реальные проекты",
-      proofTitle: "Мультидисциплинарный путь.",
-      proofText: "Продажи, управление, маркетинг и креатив в реальных проектах с 2010 года.",
-      proofAria: "Краткое описание опыта Lucas de Oliveira Andrade",
-      clientMarksAria: "Логотипы представленных клиентов",
-      featuredProjects: "Избранные проекты",
-      openProject: "Открыть проект",
-      brandmark: "Логотип",
-      whyIndex: "01 / Обо мне",
-      perceptionEyebrow: "Как я работаю",
-      perceptionTitle: "Я соединяю точки, которые кажутся разрозненными, и превращаю их",
-      perceptionAccent: "в ясное направление.",
-      perceptionText: "Моя карьера началась с прямого общения с клиентами. Опыт в продажах и управлении до сих пор ведёт мою работу: сначала я понимаю реальную задачу, затем соединяю стратегию, коммуникацию и реализацию.",
-      perceptionLink: "Узнать о моём пути",
-      portfolioIndex: "02 / Архив проектов",
-      portfolioEyebrow: "Нажмите. Войдите. Изучите.",
-      projectsTitle: "Проекты",
-      portfolioText: "Каждая карточка открывает свой мир: клиент, контекст, задача, направление и воплощение работы в бренде, контенте или digital-опыте.",
-      proofNumbers: "Без выдуманных цифр.",
-      proofNumbersText: "Авторитет создают логика и качество реальной работы, а не пустые обещания на странице.",
-      marquee: ["бренд", "контент", "digital", "присутствие"],
-      servicesIndex: "03 / Компетенции",
-      servicesEyebrow: "Широкий взгляд, практичная реализация",
-      servicesTitle: "Стратегия и креатив.",
-      servicesAccent: "От задачи к результату.",
-      servicesText: "Я соединяю коммерческое и креативное мышление, чтобы создавать решения для конкретного бизнеса, аудитории и момента.",
-      servicesCta: "Связаться в LinkedIn",
-      services: [
-        { number: "01", title: "Стратегия и рост", text: "Диагностика, позиционирование и коммерческий взгляд, которые превращают восприятие в решение, а возможность — в движение.", tags: ["Growth", "Продажи", "Позиционирование"] },
-        { number: "02", title: "Бренд и креативное направление", text: "Концепция, айдентика и визуальный язык, связанные с историей, аудиторией и целью бизнеса.", tags: ["Брендинг", "Кампании", "Видео"] },
-        { number: "03", title: "Digital и опыт", text: "Сайты, контент и цифровые пути, которые структурируют информацию, удерживают внимание и приводят к контакту.", tags: ["UX/UI", "Копирайтинг", "Разработка"] },
+      heroEyebrow: "Личное карьерное портфолио",
+      heroName: "Lucas de Oliveira Andrade",
+      heroTitle: "Стратегия, маркетинг, управление и креативное направление.",
+      heroText: "С 2010 года я работаю внутри бизнеса — от продаж и клиентского сервиса до управления, создания брендов, кампаний, продуктов, партнёрств, контента и опыта.",
+      positioning: "Я соединяю точки, которые кажутся несвязанными, и превращаю их в работающий курс.",
+      journeyCta: "Узнать о моей карьере",
+      workCta: "Смотреть избранные работы",
+      proofAria: "Краткие подтверждения опыта Lucas de Oliveira Andrade",
+      proofs: ["С 2010 года", "Управление + маркетинг + реализация", "Ритейл, развлечения, услуги и B2B"],
+      summaryIndex: "01 / Карьера",
+      summaryEyebrow: "Бизнес изнутри",
+      summaryTitle: "Карьера, построенная в операционной работе и расширенная креативом.",
+      summaryText: "Я начал с продаж и клиентского сервиса в 2010 году. Со временем моя работа охватила управление, маркетинг, консалтинг, бренды, контент, видео, продукты, партнёрства и цифровой опыт — с постоянным вниманием к тому, что должно работать на практике.",
+      summaryCta: "Проследить мой путь",
+      companiesIndex: "02 / Компании",
+      companiesEyebrow: "Ключевой опыт",
+      companiesTitle: "Где я работал и что выполнял",
+      companiesText: "Каждый опыт показывает мои отношения с компанией, выполняемые функции, мою непосредственную работу и компетенции, которые я развивал в процессе.",
+      companiesCta: "Смотреть весь опыт",
+      careerCardCta: "Смотреть мою роль",
+      worksIndex: "03 / Проекты",
+      worksEyebrow: "Избранные визуальные работы",
+      worksTitle: "Идеи, получившие форму",
+      worksText: "Подборка брендов, кампаний, контента, сайтов и цифрового опыта, над которыми я работал. Для каждого проекта указаны моя роль и его фактический этап.",
+      worksCta: "Смотреть все работы",
+      projectCardCta: "Открыть работу",
+      partnershipsIndex: "04 / Партнёрства",
+      partnershipsEyebrow: "Акции и интеграции",
+      partnershipsTitle: "Связи, созданные в контексте.",
+      partnershipsText: "Бренды, каналы, артисты и события, с которыми я участвовал в акциях, запусках, кампаниях или коллаборациях в рамках проектов, над которыми работал.",
+      partnershipNames: ["PlayStation", "Flow", "Flow Games", "4 Amigos", "Afonso Padilha", "David Jones", "Canal Peewee", "BGS"],
+      valueIndex: "05 / Как я создаю ценность",
+      valueEyebrow: "Комплексный опыт",
+      valueTitle: "Как мой опыт создаёт ценность.",
+      valueText: "Я соединяю коммерческое мышление, организацию, коммуникацию и креативную реализацию, чтобы превращать разрозненные ситуации в более ясные решения.",
+      valueAxes: [
+        { number: "01", title: "Стратегия и коммерческое видение", text: "Я анализирую контекст, аудиторию и возможности с позиции человека, который начинал в продажах и знает операционную работу.", tags: ["Бизнес", "Продажи", "Позиционирование"] },
+        { number: "02", title: "Управление и структура", text: "Я организую приоритеты, процессы и точки принятия решений, чтобы работа получила форму и устойчивую реализацию.", tags: ["Управление", "Процессы", "Операции"] },
+        { number: "03", title: "Маркетинг и коммуникация", text: "Я превращаю бизнес-цели в сообщения, кампании и действия, соответствующие аудитории и моменту.", tags: ["Маркетинг", "Кампании", "Отношения"] },
+        { number: "04", title: "Бренд и креативное направление", text: "Я создаю концепции, айдентику и визуальные системы, делающие позиционирование и характер узнаваемыми.", tags: ["Бренд", "Айдентика", "Арт-дирекшн"] },
+        { number: "05", title: "Контент и видео", text: "Я разрабатываю истории, видео, прямые эфиры и материалы, которые сближают проекты с людьми, сохраняя коммерческую цель.", tags: ["Контент", "Видео", "Запуски"] },
+        { number: "06", title: "Digital и e-commerce", text: "Я структурирую сайты, пользовательские пути и цифровой опыт, чтобы информация, предложение и контакт стали понятнее.", tags: ["Сайты", "UX/UI", "E-commerce"] },
       ],
-      processIndex: "04 / Путь",
-      processTitle: "Карьера, построенная в движении.",
-      processText: "От контакта с клиентом к стратегии, от управления к сцене — каждый этап расширял мой взгляд на бизнес и коммуникацию.",
-      process: [
-        ["2010", "Rico Games", "Я начал с продаж и работы с клиентами, затем перешёл к маркетингу, управлению, кампаниям, контенту, партнёрствам и коммерческим решениям."],
-        ["02", "Ритейл и управление", "Работа напрямую с клиентами и командами сформировала мой взгляд на конверсию, процессы и позиционирование."],
-        ["03", "Музыка и развлечения", "В Through to the Wolves и музыкальных релизах я также отвечал за концепции, видео, продвижение и визуальное направление."],
-        ["04", "Стратегия и digital", "Сегодня я соединяю маркетинг, креатив, сайты, бренды и консалтинг в проектах разных отраслей."],
+      methodIndex: "06 / Как я работаю",
+      methodEyebrow: "Личный подход",
+      methodTitle: "От разрозненных точек к работающей реализации.",
+      methodText: "Мой метод вырос из операционной работы: понять происходящее, соединить важные элементы, выстроить направление и участвовать в реализации.",
+      method: [
+        ["01", "Понять", "Я слушаю, наблюдаю за процессом и определяю реальную потребность до выбора ответа."],
+        ["02", "Соединить", "Я сближаю бизнес, аудиторию, коммуникацию и опыт, чтобы увидеть ещё неочевидные связи."],
+        ["03", "Структурировать", "Я превращаю эти связи в приоритеты, концепцию, сообщение, систему и следующие шаги."],
+        ["04", "Реализовать", "Я участвую в создании, сопровождаю решения и корректирую работу, пока она не начнёт действовать в реальном контексте."],
       ],
-      impactLabel: "Авторский проект · Urly Marketing",
-      impactTitle: "валового дохода направляется на защиту животных.",
-      impactText: "В одном из моих авторских проектов часть выручки поддерживает инициативы, которые спасают, лечат и защищают животных.",
+      impactIndex: "07 / Авторский бренд и влияние",
+      impactLabel: "Urly Marketing",
+      impactMetric: "10%",
+      impactTitle: "валового дохода направляется инициативам по защите животных.",
+      impactText: "Я создал Urly Marketing для работы в стратегии и коммуникации. Бренд также взял на себя прямое обязательство: направлять 10% валового дохода инициативам по защите животных.",
       catAlt: "Рыжий кот на светлой естественной фотографии",
       catCaption: "Создание ценности может создавать и добро.",
-      contactEyebrow: "Соединим следующие точки",
-      contactTitle: "Есть задача, идея или возможность?",
-      contactAccent: "Давайте поговорим.",
+      contactEyebrow: "Профессиональный контакт",
+      contactTitle: "Поговорим об опыте, бизнесе и новых возможностях.",
+      contactText: "Если мой опыт может быть полезен компании, проекту или коллаборации, я открыт для прямого разговора.",
       contactCta: "Написать Lucas в LinkedIn",
+      profileLabel: "LinkedIn · Lucas de Oliveira Andrade",
     },
     index: {
-      pageTitle: "Проекты — Lucas de Oliveira Andrade",
-      eyebrowBefore: "Портфолио по компаниям ·",
-      eyebrowAfter: "проектов",
+      pageTitle: "Избранные работы — Lucas de Oliveira Andrade",
+      eyebrow: "Архив проектов",
+      countSuffix: "избранных работ",
       title: "Проекты",
-      text: "Откройте каждую компанию, чтобы увидеть контекст, направление и полный набор результатов — не просто красивую картинку без объяснения.",
+      text: "Бренды, кампании, контент, сайты и цифровой опыт с указанием моей роли и фактического этапа каждого проекта.",
     },
-    card: { openProject: "Открыть проект", viewProject: "Смотреть проект" },
+    card: { openProject: "Открыть работу", viewProject: "Смотреть работу", roleLabel: "Моя роль", statusLabel: "Статус" },
     project: {
-      titleSuffix: "Проект Lucas de Oliveira Andrade",
-      allProjects: "Все проекты",
+      titleSuffix: "Работа Lucas de Oliveira Andrade",
+      allProjects: "Все работы",
       projectLabel: "Проект",
-      viewPublished: "Открыть опубликованный проект",
-      wantSimilar: "Обсудить эту работу",
-      client: "Клиент",
-      sector: "Сфера",
-      scope: "Объём работ",
+      viewPublished: "Открыть опубликованную работу",
+      viewCareer: "Смотреть связанный опыт",
+      company: "Компания или бренд",
+      field: "Сфера",
+      role: "Моя роль",
       status: "Статус",
-      workIndex: "01 / Работа",
-      appearanceEyebrow: "Не только внешний вид.",
-      appearanceTitle: "Направление, созданное для решения реальной задачи восприятия.",
-      challenge: "Задача",
-      direction: "Моя роль",
-      outcome: "Что было создано",
-      portfolioIndex: "02 / Портфолио клиента",
-      portfolioTitle: "От системы к воплощению",
-      portfolioText: "Направление работает в разных масштабах, сохраняя единый характер и коммерческую цель.",
+      contextIndex: "01 / Контекст и роль",
+      contextEyebrow: "Работа в контексте",
+      contextTitle: "Что я увидел, как участвовал и что получило форму.",
+      context: "Контекст",
       myRole: "Моя роль",
-      systemIndex: "03 / Система",
-      systemTitle: "Результаты проекта.",
+      whatTookShape: "Что получило форму",
+      workIndex: "02 / Работы и материалы",
+      workTitle: "От направления к применению",
+      workText: "Материалы показывают работу в разных форматах, сохраняя её контекст и моё участие в каждом этапе.",
+      roleCallout: "Моя роль",
+      responsibilitiesIndex: "03 / Ответственность",
+      responsibilitiesTitle: "Ответственность и реализация.",
+      evidenceTitle: "Результаты и подтверждения",
       projectColors: "Цвета проекта",
-      nextProject: "Следующий проект",
-      contactEyebrow: "У вашего бизнеса уже есть история.",
-      contactTitle: "Создадим для неё достойное присутствие?",
+      nextProject: "Следующая работа",
+      contactEyebrow: "Профессиональный контакт",
+      contactTitle: "Хотите узнать больше о моей карьере?",
+      contactCta: "Связаться с Lucas",
+    },
+    career: {
+      titleSuffix: "Опыт Lucas de Oliveira Andrade",
+      allExperiences: "Весь опыт",
+      experienceLabel: "Опыт",
+      period: "Период",
+      relationship: "Формат работы",
+      roles: "Функции",
+      viewRole: "Смотреть мою роль",
+      relationshipTitle: "Мои отношения с компанией",
+      roleTitle: "Моя роль",
+      directActionsTitle: "Что я выполнял непосредственно",
+      initiativesTitle: "Инициативы и решения",
+      mediaTitle: "Работы и визуальные материалы",
+      competenciesTitle: "Продемонстрированные компетенции",
+      evidenceTitle: "Результаты и подтверждения",
+      relatedProjectsTitle: "Связанные проекты",
+      nextExperience: "Следующий опыт",
+      contactEyebrow: "Профессиональный контакт",
+      contactTitle: "Мой опыт может быть полезен в следующей задаче.",
       contactCta: "Связаться с Lucas",
     },
   },
@@ -481,7 +608,7 @@ type CaseTranslation = Pick<
   | "result"
   | "services"
   | "deliverables"
-> & {
+> & Partial<Pick<PortfolioCase, "personalRole" | "built">> & {
   cover: LocalizedImage;
   hero?: LocalizedImage;
   gallery: LocalizedImage[];
@@ -492,6 +619,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "gru-kpop-anime": {
       sector: "Retail · pop culture", location: "Guarulhos · São Paulo", status: "Brand and website live", headline: "Fandom turned into style.",
       summary: "A complete brand bringing K-pop, anime, fashion, cosplay and collectibles together in a youthful, commercial and recognizable experience.",
+      personalRole: "I connected strategy, creative direction and execution to organize the brand, content and digital presence.",
+      built: "Visual system, logo and variations, cards, an Instagram starter kit and a published responsive website.",
       challenge: "Organize very different visual worlds without making the store generic, childish or tied to a single product category.",
       direction: "My role connected strategy, creative direction and execution in the Pop Universe territory: a light base, warm energy, editorial graphics and a controlled kawaii layer applied across the brand, content, cards and website.",
       result: "GRU KPOP now presents itself as a complete brand — with its own signature, a consistent visual system and a digital experience ready to sell and build community.",
@@ -503,6 +632,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "studio-e": {
       sector: "Beauty · self-care", location: "Guarulhos · São Paulo", status: "Brand and website live", headline: "Sophistication before the appointment.",
       summary: "An elegant, welcoming presence that translates the quality of the service at every touchpoint.",
+      personalRole: "I led the art direction and connected identity, physical materials and digital experience.",
+      built: "Visual system, cards, finishing direction, commercial presentation and a published responsive website.",
       challenge: "Make the perception of value begin before booking while preserving the same refinement in physical materials and the digital experience.",
       direction: "I led the art direction through a deep wine palette, signature typography and clean compositions to build a feminine brand without clichés and a premium feel without distance.",
       result: "The business card and website now work together to present Studio E with clarity, delicacy and a consistent sense of care.",
@@ -514,6 +645,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "rico-games": {
       sector: "Gaming · technology", location: "Brazil", status: "Identity in development", headline: "Gaming energy without the generic look.",
       summary: "A technological, commercial direction that turns a strong name into a distinctive brand presence.",
+      personalRole: "I worked across commercial thinking, marketing and creative direction to build this visual route.",
+      built: "Visual direction, signature, color system, campaign templates and commercial content in development.",
       challenge: "Create gaming energy without repeating the usual neon language, excessive effects and disorganized visual communication.",
       direction: "My role brings commercial thinking, marketing and creative direction together in a high-contrast modular system with color codes, condensed typography and rhythmic layouts.",
       result: "The creative direction gives Rico Games its own territory, ready for campaigns, launches and a future digital experience.",
@@ -525,6 +658,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "josucas-eletronicos": {
       sector: "Technology · retail", location: "Guarulhos · São Paulo", status: "Identity and website live", headline: "Technology connected to real life.",
       summary: "A refreshed presence for a local store combining products, repair services and accessible payment options.",
+      personalRole: "I worked on process and structure consulting, marketing and creative direction to update the operation's presence.",
+      built: "Visual system, vectorized logo, commercial materials, Instagram content and a published responsive website.",
       challenge: "Evolve the communication without losing recognition of the established brand, balancing premium technology with broad commercial appeal.",
       direction: "In my direction, the Accessible Tech in Motion route combines a graphite base, bright red, products in the foreground and direct hierarchy for offers and services.",
       result: "The system preserves the original identity while elevating the finish of the website, content and materials to present a more organized and trustworthy operation.",
@@ -543,6 +678,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "manifesto-bar": {
       sector: "Entertainment · rock", location: "São Paulo · Brazil", status: "Website live", headline: "Where rock lives in Brazil.",
       summary: "A cinematic digital experience for a historic stage with an intense calendar and a personality of its own.",
+      personalRole: "I work in communication and marketing consulting, paid media, audiovisual production and programming analysis.",
+      built: "Information architecture, cinematic visual direction, homepage, calendar, artist archive and a published website.",
       challenge: "Turn decades of memory and live energy into a contemporary experience without losing the raw power of rock.",
       direction: "My digital direction uses stage imagery, smoke, aged gold, black and motion to create an experience that opens like a show and leads visitors to the calendar, history and venue.",
       result: "The new website presents Manifesto as a cultural destination, organizes its schedule and brings archive, atmosphere and service into one narrative.",
@@ -554,6 +691,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "metro-case": {
       sector: "Mobile phones · accessories", location: "São Paulo · Brazil", status: "Landing page live", headline: "From the station to the purchase.",
       summary: "A retail landing page designed to turn location, payment terms and product into immediate action.",
+      personalRole: "I created and structured the brand and its digital presence, connecting concept, offer, communication and experience.",
+      built: "Identity, campaign strategy and copy, visual direction, store locations and a published landing page.",
       challenge: "Explain a sensitive credit offer clearly, highlight the physical stores and keep the campaign from looking like just another phone promotion.",
       direction: "I developed a visual route based on the Blue Line rhythm, with black and yellow as signage and a short journey: understand, check eligibility and find a store.",
       result: "The page organizes the message, terms and contact responsibly, creating a direct commercial path for the Metro Case team.",
@@ -566,6 +705,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "oliveira-transportes": {
       sector: "Logistics · transport", location: "Greater São Paulo", status: "Website live", headline: "We move what matters.",
       summary: "A simple, confident and approachable presence for presenting freight, moving, pickup and delivery services clearly.",
+      personalRole: "I worked on brand creation and on process, communication and marketing consulting.",
+      built: "Brand concept, identity, content architecture, commercial message, quote journey and a published website.",
       challenge: "Give professional form to a service built on trust, care and quick response without complicating the quote request.",
       direction: "My role organized a straightforward experience with route photography, robust typography and calls to action that naturally lead to contact.",
       result: "The website brings services, process, coverage and questions into a commercial narrative that reduces uncertainty and starts the conversation.",
@@ -582,6 +723,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "score-business-school": {
       sector: "Executive education", location: "Guarulhos · São Paulo", status: "Digital concept developed", headline: "Decide with numbers. Lead with clarity.",
       summary: "An authoritative digital concept for a business school designed for people accountable for results.",
+      personalRole: "I structured the digital concept, experience architecture, editorial language and decision journey.",
+      built: "Digital positioning, challenge-led architecture, visual direction, course pages and a responsive prototype.",
       challenge: "Present economic and financial education with depth and aspiration without relying on the generic look of online courses.",
       direction: "I structured an experience that combines urban photography, editorial language, a crest and a journey organized around real management challenges.",
       result: "The concept positions Score as a high-level in-person school and turns its curriculum, method and authority into an enrollment decision.",
@@ -593,6 +736,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "eletrotech-isa": {
       sector: "Technical repair · gaming", location: "Guarulhos · São Paulo", status: "Brand and website live", headline: "Precision that protects performance.",
       summary: "A technical, premium identity for console, controller and accessory maintenance.",
+      personalRole: "I preserved the existing brand and led the creative direction to organize a consistent technical language.",
+      built: "Vectorized logo, visual system, card, Instagram content, presentation and a published responsive website.",
       challenge: "Standardize an existing communication system and demonstrate expertise without the usual aggressive visuals or gaming neon.",
       direction: "My direction preserves the existing brand while organizing the High-Performance Precision route through carbon, graphite, ISA orange, micro-grids and diagnostic language.",
       result: "Brand, card, content and website now share one visual logic: order, control, detail and confidence in the repair.",
@@ -604,6 +749,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "dona-girafa": {
       sector: "Professional apparel · e-commerce", location: "Guarulhos · São Paulo", status: "E-commerce live", headline: "Wear the care.",
       summary: "A warm, expressive shopping experience for uniforms that follow the routine of people who care for others.",
+      personalRole: "I worked on digital strategy, art direction and the organization of the shopping experience.",
+      built: "Catalog architecture, visual direction, product journey, institutional content and a published e-commerce experience.",
       challenge: "Organize catalog, customization and purchase without losing the brand's affectionate personality or making navigation heavy.",
       direction: "My role balances product, stories and utility through a warm palette, organic shapes and language close to the people who live the profession.",
       result: "The new e-commerce experience turns product into personal expression and creates a clearer journey from first look to final choice.",
@@ -615,6 +762,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     spolpas: {
       sector: "Food · retail", location: "São Paulo · Brazil", status: "Identity in development", headline: "From freezer to glass.",
       summary: "A fresh, commercial direction that makes flavor, convenience and variety immediately visible.",
+      personalRole: "I developed the visual direction and content system to organize product, flavor and information.",
+      built: "Color system, product layouts, Instagram assets and brand applications in development.",
       challenge: "Unify different flavors and content formats while keeping the product as the protagonist.",
       direction: "I developed a light base with fruit colors, large typography and organic curves that organize information without competing with visual appetite.",
       result: "The identity gains a flexible language for packaging, location, products and campaigns, preserving recognition across different pieces.",
@@ -623,22 +772,13 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       cover: { alt: "Visual direction created for Spolpas", label: "Visual identity" },
       gallery: [{ alt: "Store-location post created for Spolpas", label: "Service content" }],
     },
-    "oli-marketing": {
-      sector: "Personal project · marketing", location: "Guarulhos · São Paulo", status: "Project in development", headline: "Strategy turned into presence.",
-      summary: "A personal project created to bring strategy, visual identity, content and digital experiences together in a practical marketing operation close to each client.",
-      challenge: "Build a brand capable of organizing different capabilities without looking like a generic agency or a disconnected menu of services.",
-      direction: "I created OLI as a working structure that brings commercial thinking and creative direction together, turning diagnosis, message, brand and digital execution into one coherent system.",
-      result: "OLI works as a personal project and application lab: a way to turn my multidisciplinary experience into clear deliverables for businesses across industries.",
-      services: ["Strategy", "Creative direction", "Visual identity", "Content", "Websites"],
-      deliverables: ["Positioning and value proposition", "Visual identity", "Project presentation system", "Content direction", "Digital portfolio"],
-      cover: { alt: "OLI Marketing visual identity", label: "Personal project" },
-      gallery: [{ alt: "Dark OLI Marketing logo", label: "Visual signature" }, { alt: "Light OLI Marketing logo", label: "Brand variation" }],
-    },
   },
   ru: {
     "gru-kpop-anime": {
       sector: "Ритейл · поп-культура", location: "Гуарульюс · Сан-Паулу", status: "Бренд и сайт опубликованы", headline: "Фандом, ставший стилем.",
       summary: "Цельный бренд, объединяющий K-pop, аниме, моду, косплей и коллекционные товары в молодом, коммерческом и узнаваемом опыте.",
+      personalRole: "Я соединил стратегию, креативное направление и реализацию, чтобы организовать бренд, контент и цифровое присутствие.",
+      built: "Визуальная система, логотип и вариации, карточки, стартовый набор Instagram и опубликованный адаптивный сайт.",
       challenge: "Объединить очень разные визуальные миры, не превращая магазин в безликий, детский или привязанный к одной категории бренд.",
       direction: "Моя роль объединила стратегию, креативное направление и реализацию в территории «Вселенная поп-культуры»: светлая база, тёплая энергия, редакционная графика и сдержанный kawaii-слой во всех материалах.",
       result: "GRU KPOP теперь выглядит как цельный бренд — с собственной подписью, последовательной визуальной системой и цифровым опытом для продаж и развития сообщества.",
@@ -650,6 +790,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "studio-e": {
       sector: "Красота · уход за собой", location: "Гуарульюс · Сан-Паулу", status: "Бренд и сайт опубликованы", headline: "Изысканность ещё до визита.",
       summary: "Элегантное и тёплое присутствие, передающее качество сервиса в каждой точке контакта.",
+      personalRole: "Я руководил арт-дирекшном и соединил айдентику, физические материалы и цифровой опыт.",
+      built: "Визуальная система, карточки, направление отделки, коммерческая презентация и опубликованный адаптивный сайт.",
       challenge: "Создать ощущение ценности ещё до записи и сохранить одинаковую изысканность в печатных материалах и цифровом опыте.",
       direction: "Я выстроил арт-дирекшн через глубокую винную палитру, авторскую типографику и чистые композиции, создав женственный бренд без клише и премиальность без дистанции.",
       result: "Визитная карточка и сайт теперь вместе представляют Studio E ясно, деликатно и с единым ощущением заботы.",
@@ -661,6 +803,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "rico-games": {
       sector: "Игры · технологии", location: "Бразилия", status: "Айдентика в разработке", headline: "Геймерский стиль без шаблонов.",
       summary: "Технологичное и коммерческое направление, превращающее сильное имя в заметное присутствие бренда.",
+      personalRole: "Я объединил коммерческое мышление, маркетинг и креативное направление при создании этого визуального маршрута.",
+      built: "Визуальное направление, подпись, цветовая система, шаблоны кампаний и коммерческий контент в разработке.",
       challenge: "Создать геймерскую энергию без привычного неона, избытка эффектов и хаотичной визуальной коммуникации.",
       direction: "Моя роль объединила коммерческий взгляд, маркетинг и креативное направление в модульной контрастной системе с цветовыми кодами и выразительной типографикой.",
       result: "Креативное направление формирует для Rico Games собственную территорию, готовую к кампаниям, запускам и будущему цифровому опыту.",
@@ -672,6 +816,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "josucas-eletronicos": {
       sector: "Технологии · ритейл", location: "Гуарульюс · Сан-Паулу", status: "Айдентика и сайт опубликованы", headline: "Технологии для реальной жизни.",
       summary: "Обновлённое присутствие локального магазина, объединяющего товары, ремонт и доступные условия покупки.",
+      personalRole: "Я консультировал по процессам и структуре, маркетингу и креативному направлению, обновляя присутствие бизнеса.",
+      built: "Визуальная система, векторный логотип, коммерческие материалы, контент Instagram и опубликованный адаптивный сайт.",
       challenge: "Развить коммуникацию, сохранив узнаваемость известного бренда и баланс между премиальными технологиями и массовой коммерческой привлекательностью.",
       direction: "В моём направлении маршрут «Доступные технологии в движении» объединяет графитовую базу, яркий красный, продукт на первом плане и прямую иерархию предложений и услуг.",
       result: "Система сохраняет оригинальную айдентику, но повышает качество сайта, контента и материалов, представляя бизнес более организованным и надёжным.",
@@ -690,6 +836,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "manifesto-bar": {
       sector: "Развлечения · рок", location: "Сан-Паулу · Бразилия", status: "Сайт опубликован", headline: "Место, где живёт рок Бразилии.",
       summary: "Кинематографичный цифровой опыт для исторической сцены с насыщенной афишей и собственным характером.",
+      personalRole: "Я работаю в консалтинге по коммуникации и маркетингу, платном продвижении, видео и анализе программы.",
+      built: "Информационная архитектура, кинематографичное визуальное направление, главная страница, афиша, архив артистов и опубликованный сайт.",
       challenge: "Перенести десятилетия истории и энергию живых выступлений в современную навигацию, сохранив сырую силу рока.",
       direction: "Моё цифровое направление использует сцену, дым, состаренное золото, чёрный цвет и движение, создавая опыт, который начинается как шоу и ведёт к афише, истории и посещению клуба.",
       result: "Новый сайт представляет Manifesto как культурное место, организует программу и объединяет архив, атмосферу и сервис в едином повествовании.",
@@ -701,6 +849,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "metro-case": {
       sector: "Смартфоны · аксессуары", location: "Сан-Паулу · Бразилия", status: "Лендинг опубликован", headline: "От станции к покупке.",
       summary: "Розничный лендинг, превращающий местоположение, условия оплаты и продукт в немедленное действие.",
+      personalRole: "Я создал и структурировал бренд и его цифровое присутствие, соединив концепцию, предложение, коммуникацию и опыт.",
+      built: "Айдентика, стратегия и тексты кампании, визуальное направление, адреса магазинов и опубликованный лендинг.",
       challenge: "Ясно объяснить чувствительное кредитное предложение, выделить физические магазины и не превратить кампанию в очередную рекламу смартфона.",
       direction: "Я разработал визуальный маршрут на ритме Синей линии метро: чёрный и жёлтый работают как навигация, а путь ведёт от понимания предложения к поиску магазина.",
       result: "Страница ответственно организует аргументы, условия и контакты, создавая прямой коммерческий путь для команды Metro Case.",
@@ -713,6 +863,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "oliveira-transportes": {
       sector: "Логистика · перевозки", location: "Большой Сан-Паулу", status: "Сайт опубликован", headline: "Мы перевозим то, что важно.",
       summary: "Простое, уверенное и близкое присутствие для ясной подачи грузоперевозок, переездов, забора и доставки.",
+      personalRole: "Я участвовал в создании бренда и консультировал по процессам, коммуникации и маркетингу.",
+      built: "Концепция бренда, айдентика, архитектура контента, коммерческое сообщение, путь запроса расчёта и опубликованный сайт.",
       challenge: "Профессионально оформить сервис, основанный на доверии, заботе и быстром ответе, не усложняя запрос расчёта.",
       direction: "Моя роль организовала прямой опыт с фотографиями маршрутов, выразительной типографикой и призывами, естественно ведущими к контакту.",
       result: "Сайт объединяет услуги, процесс, географию и вопросы в коммерческом повествовании, которое снижает неопределённость и начинает диалог.",
@@ -729,6 +881,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "score-business-school": {
       sector: "Бизнес-образование", location: "Гуарульюс · Сан-Паулу", status: "Цифровая концепция разработана", headline: "Решайте с цифрами. Руководите ясно.",
       summary: "Авторитетная цифровая концепция бизнес-школы для тех, кто отвечает за результат.",
+      personalRole: "Я структурировал цифровую концепцию, архитектуру опыта, редакционный язык и путь принятия решения.",
+      built: "Цифровое позиционирование, архитектура по задачам, визуальное направление, страницы программ и адаптивный прототип.",
       challenge: "Представить экономическое и финансовое образование глубоко и привлекательно, не используя шаблонную эстетику онлайн-курсов.",
       direction: "Я структурировал цельный опыт через городскую фотографию, редакционный язык, герб и путь, выстроенный вокруг реальных задач управления.",
       result: "Концепция позиционирует Score как очную школу высокого уровня и превращает программу, методику и авторитет в решение об обучении.",
@@ -740,6 +894,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "eletrotech-isa": {
       sector: "Технический ремонт · игры", location: "Гуарульюс · Сан-Паулу", status: "Бренд и сайт опубликованы", headline: "Точность, сохраняющая производительность.",
       summary: "Техническая премиальная айдентика для обслуживания консолей, контроллеров и аксессуаров.",
+      personalRole: "Я сохранил существующий бренд и руководил креативным направлением, выстроив последовательный технический язык.",
+      built: "Векторный логотип, визуальная система, карточка, контент Instagram, презентация и опубликованный адаптивный сайт.",
       challenge: "Стандартизировать существующую коммуникацию и показать экспертизу без агрессивного визуала и привычного геймерского неона.",
       direction: "Моё направление сохраняет существующий бренд и организует маршрут «Высокопроизводительная точность» через карбон, графит, оранжевый ISA, микросетки и язык диагностики.",
       result: "Бренд, карточка, контент и сайт теперь следуют одной визуальной логике: порядок, контроль, детали и доверие к ремонту.",
@@ -751,6 +907,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     "dona-girafa": {
       sector: "Профессиональная одежда · e-commerce", location: "Гуарульюс · Сан-Паулу", status: "Интернет-магазин опубликован", headline: "Носите заботу.",
       summary: "Тёплый и выразительный опыт покупки униформы для повседневной работы тех, кто заботится о других.",
+      personalRole: "Я работал над цифровой стратегией, арт-дирекшном и организацией опыта покупки.",
+      built: "Архитектура каталога, визуальное направление, путь выбора продукта, корпоративный контент и опубликованный интернет-магазин.",
       challenge: "Организовать каталог, персонализацию и покупку, не теряя душевный характер бренда и не перегружая навигацию.",
       direction: "Моя роль создаёт баланс между продуктом, историями и пользой через тёплую палитру, органичные формы и близкий профессионалам язык.",
       result: "Новый интернет-магазин превращает продукт в личное выражение и создаёт более ясный путь от первого взгляда до выбора вещи.",
@@ -762,6 +920,8 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
     spolpas: {
       sector: "Продукты · ритейл", location: "Сан-Паулу · Бразилия", status: "Айдентика в разработке", headline: "От морозильника до стакана.",
       summary: "Свежее коммерческое направление, мгновенно показывающее вкус, удобство и разнообразие.",
+      personalRole: "Я разработал визуальное направление и систему контента, организовав продукт, вкус и информацию.",
+      built: "Цветовая система, продуктовые макеты, материалы Instagram и применения бренда в разработке.",
       challenge: "Объединить разные вкусы и форматы контента, сохраняя продукт главным героем.",
       direction: "Я разработал светлую базу, фруктовые цвета, крупную типографику и органичные линии, которые организуют информацию и не конкурируют с продуктом.",
       result: "Айдентика получает гибкий язык для упаковки, адресов, продуктов и кампаний, сохраняя узнаваемость разных материалов.",
@@ -769,17 +929,6 @@ const caseTranslations: Record<"en" | "ru", Record<string, CaseTranslation>> = {
       deliverables: ["Визуальное направление", "Цветовая система", "Продуктовые макеты", "Материалы для Instagram", "Применения бренда"],
       cover: { alt: "Визуальное направление Spolpas", label: "Визуальная айдентика" },
       gallery: [{ alt: "Пост с адресами магазинов Spolpas", label: "Сервисный контент" }],
-    },
-    "oli-marketing": {
-      sector: "Авторский проект · маркетинг", location: "Гуарульюс · Сан-Паулу", status: "Проект развивается", headline: "Стратегия, которая становится присутствием.",
-      summary: "Авторский проект, объединяющий стратегию, визуальную айдентику, контент и цифровой опыт в практичной маркетинговой работе рядом с клиентом.",
-      challenge: "Создать бренд, способный объединить разные компетенции и не выглядеть как типовое агентство или набор несвязанных услуг.",
-      direction: "Я создал OLI как рабочую структуру, которая сближает коммерческий взгляд и креативное направление, превращая диагностику, сообщение, бренд и digital-реализацию в единую систему.",
-      result: "OLI работает как авторский проект и лаборатория применения: способ превращать мой мультидисциплинарный опыт в понятные результаты для бизнеса разных отраслей.",
-      services: ["Стратегия", "Креативное направление", "Визуальная айдентика", "Контент", "Сайты"],
-      deliverables: ["Позиционирование и ценностное предложение", "Визуальная айдентика", "Система презентации проектов", "Направление контента", "Цифровое портфолио"],
-      cover: { alt: "Визуальная айдентика OLI Marketing", label: "Авторский проект" },
-      gallery: [{ alt: "Тёмная версия логотипа OLI Marketing", label: "Визуальная подпись" }, { alt: "Светлая версия логотипа OLI Marketing", label: "Вариант бренда" }],
     },
   },
 };
