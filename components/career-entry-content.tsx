@@ -7,7 +7,6 @@ import type { CareerEntry } from "../app/data/career";
 import {
   careerUiCopy,
   localizeCareerEntry,
-  publishedCareerEntries,
 } from "../app/data/career";
 import {
   careerNarrativeLabels,
@@ -47,7 +46,13 @@ function DetailSection({
   );
 }
 
-export default function CareerEntryContent({ item }: { item: CareerEntry }) {
+export default function CareerEntryContent({
+  item,
+  nextEntry,
+}: {
+  item: CareerEntry;
+  nextEntry?: CareerEntry;
+}) {
   const { language } = useLanguage();
   const localized = reviewCareerEntry(localizeCareerEntry(item, language), language);
   const editorial = getCareerEditorial(item.slug, language);
@@ -56,10 +61,6 @@ export default function CareerEntryContent({ item }: { item: CareerEntry }) {
   const heroMedia = localized.hero ?? localized.cover ?? localized.media[0];
   const period = localized.period;
   const relationship = localized.relationshipDetail ?? localized.relationship;
-  const currentIndex = publishedCareerEntries.findIndex((entry) => entry.slug === item.slug);
-  const nextEntry = currentIndex === -1
-    ? undefined
-    : publishedCareerEntries[(currentIndex + 1) % publishedCareerEntries.length];
   const localizedNext = nextEntry
     ? reviewCareerEntry(localizeCareerEntry(nextEntry, language), language)
     : undefined;
