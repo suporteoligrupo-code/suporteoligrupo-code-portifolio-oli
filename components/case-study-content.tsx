@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { useEffect, type CSSProperties } from "react";
+import { reviewPortfolioCase } from "../app/data/case-editorial";
 import {
   ProjectStatus,
   projectStatusLabels,
@@ -34,6 +35,7 @@ const personalCaseCopy = {
     allWorks: "Trabalhos selecionados",
     workLabel: "Trabalho",
     viewPublished: "Ver trabalho publicado",
+    viewConcept: "Ver conceito navegável",
     viewProfile: "Ver trajetória no LinkedIn",
     company: "Empresa",
     area: "Contexto de atuação",
@@ -59,6 +61,7 @@ const personalCaseCopy = {
     allWorks: "Selected work",
     workLabel: "Work",
     viewPublished: "View published work",
+    viewConcept: "View navigable concept",
     viewProfile: "View my journey on LinkedIn",
     company: "Company",
     area: "Field of work",
@@ -84,6 +87,7 @@ const personalCaseCopy = {
     allWorks: "Избранные работы",
     workLabel: "Работа",
     viewPublished: "Открыть опубликованную работу",
+    viewConcept: "Открыть навигационный концепт",
     viewProfile: "Мой профессиональный путь в LinkedIn",
     company: "Компания",
     area: "Контекст работы",
@@ -109,18 +113,21 @@ const personalCaseCopy = {
 
 export default function CaseStudyContent({ item, next }: { item: PortfolioCase; next: PortfolioCase }) {
   const { language } = useLanguage();
-  const localized = localizeCase(item, language);
-  const localizedNext = localizeCase(next, language);
+  const localized = reviewPortfolioCase(localizeCase(item, language), language);
+  const localizedNext = reviewPortfolioCase(localizeCase(next, language), language);
   const heroMedia = localized.hero ?? localized.cover;
   const projectCopy = siteCopy[language].project;
   const titleSuffix = projectCopy.titleSuffix;
   const copy = personalCaseCopy[language];
-  const closing = projectCopy.statusClosing[item.projectStatus];
-  const closingTitleId = `case-closing-${item.slug}`;
+  const closing = projectCopy.statusClosing[localized.projectStatus];
+  const closingTitleId = `case-closing-${localized.slug}`;
+  const workLinkLabel = localized.projectStatus === ProjectStatus.Concept
+    ? copy.viewConcept
+    : copy.viewPublished;
   const style: CasePageStyle = {
-    "--study-accent": item.accent,
-    "--study-soft": item.accentSoft,
-    "--study-ink": item.ink,
+    "--study-accent": localized.accent,
+    "--study-soft": localized.accentSoft,
+    "--study-ink": localized.ink,
   };
 
   useEffect(() => {
@@ -128,7 +135,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
   }, [localized.client, titleSuffix]);
 
   return (
-    <div className={`case-page case-page--${item.cardTone} case-page--${item.slug}`} style={style}>
+    <div className={`case-page case-page--${localized.cardTone} case-page--${localized.slug}`} style={style}>
       <SiteHeader inner />
 
       <main>
@@ -151,7 +158,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
               <div className="case-hero__actions">
                 {localized.liveUrl && (
                   <a href={localized.liveUrl} target="_blank" rel="noreferrer">
-                    {copy.viewPublished} <ArrowUpRight aria-hidden="true" size={17} />
+                    {workLinkLabel} <ArrowUpRight aria-hidden="true" size={17} />
                   </a>
                 )}
                 <a href={linkedinUrl} target="_blank" rel="noreferrer">
@@ -176,7 +183,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
             <div>
               <dt>{copy.status}</dt>
               <dd>
-                <strong>{projectStatusLabels[language][item.projectStatus]}</strong>
+                <strong>{projectStatusLabels[language][localized.projectStatus]}</strong>
                 <small>{localized.status}</small>
               </dd>
             </div>
@@ -243,7 +250,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
         </section>
 
         <section
-          className={`case-system case-system--${projectStatusVariant[item.projectStatus]}`}
+          className={`case-system case-system--${projectStatusVariant[localized.projectStatus]}`}
           aria-labelledby={closingTitleId}
         >
           <div className="case-system__header">
@@ -254,7 +261,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
             <div className="case-system__status">
               <span>{copy.status}</span>
               <div>
-                <strong>{projectStatusLabels[language][item.projectStatus]}</strong>
+                <strong>{projectStatusLabels[language][localized.projectStatus]}</strong>
                 <small>{localized.status}</small>
                 <p>{closing.description}</p>
               </div>
@@ -271,8 +278,8 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
             <ul className="case-system__deliverables" aria-label={copy.responsibilities}>
               {localized.deliverables.map((deliverable) => <li key={deliverable}>{deliverable}</li>)}
             </ul>
-            <section className="case-system__services" aria-labelledby={`case-skills-${item.slug}`}>
-              <h3 id={`case-skills-${item.slug}`}>{copy.competencies}</h3>
+            <section className="case-system__services" aria-labelledby={`case-skills-${localized.slug}`}>
+              <h3 id={`case-skills-${localized.slug}`}>{copy.competencies}</h3>
               <ul className="case-system__service-list">
                 {localized.services.map((service) => <li key={service}>{service}</li>)}
               </ul>
