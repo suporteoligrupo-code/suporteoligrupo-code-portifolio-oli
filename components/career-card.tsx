@@ -8,6 +8,7 @@ import {
   localizeCareerEntry,
 } from "../app/data/career";
 import { reviewCareerEntry } from "../app/data/career-editorial";
+import { getCareerPriority } from "../app/data/career-order";
 import { withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
 import MediaFrame from "./media-frame";
@@ -28,6 +29,7 @@ export default function CareerCard({ item }: { item: CareerEntry }) {
   return (
     <article
       className={`career-card career-card--${item.slug}${item.featured ? " career-card--featured" : ""}${cover ? " career-card--media" : " career-card--text"}`}
+      style={{ order: getCareerPriority(item.slug) }}
     >
       <Link
         href={withLanguage(`/career/${item.slug}`, language)}
