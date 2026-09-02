@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CaseStudyContent from "../../../components/case-study-content";
+import { reviewPortfolioCase } from "../../data/case-editorial";
 import { getCase, getNextCase, publicCases } from "../../data/cases";
 
 const siteUrl = "https://portfolio-oli-taupe.vercel.app";
@@ -17,12 +18,11 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const item = getCase(slug);
+  const sourceItem = getCase(slug);
 
-  if (!item) return {};
+  if (!sourceItem?.visible) return {};
 
-  if (!item.visible) return {};
-
+  const item = reviewPortfolioCase(sourceItem, "pt");
   const title = `${item.client} — Trabalho de Lucas de Oliveira Andrade`;
   const url = `${siteUrl}/cases/${item.slug}/`;
   const image = new URL(item.cover.src, siteUrl).toString();
@@ -53,9 +53,15 @@ export default async function CasePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const item = getCase(slug);
-  if (!item?.visible) notFound();
+  const sourceItem = getCase(slug);
+  if (!sourceItem?.visible) notFound();
 
-  const next = getNextCase(item.slug);
-  return <CaseStudyContent item={item} next={next} />;
+  const sourceNext = getNextCase(sourceItem.slug);
+
+  return (
+    <CaseStudyContent
+      item={reviewPortfolioCase(sourceItem, "pt")}
+      next={reviewPortfolioCase(sourceNext, "pt")}
+    />
+  );
 }
