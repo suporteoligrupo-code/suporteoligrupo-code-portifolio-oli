@@ -85,7 +85,7 @@ export default function CareerEntryContent({
           {heroMedia ? (
             <figure className="career-hero__media">
               <div className="career-hero__media-canvas">
-                <MediaFrame image={heroMedia} context="hero" sizes="(max-width: 760px) 100vw, 42vw" priority />
+                <MediaFrame image={heroMedia} context="hero" sizes="(max-width: 960px) 100vw, 42vw" priority />
               </div>
               <figcaption>
                 <span>{heroMedia.label}</span>

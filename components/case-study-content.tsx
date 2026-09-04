@@ -173,7 +173,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
 
             <figure className="case-hero__visual">
               <div className="case-hero__visual-canvas">
-                <MediaFrame image={heroMedia} context="hero" sizes="(max-width: 760px) 100vw, 46vw" priority />
+                <MediaFrame image={heroMedia} context="hero" sizes="(max-width: 960px) 100vw, 46vw" priority />
               </div>
               <figcaption>
                 <span>{heroMedia.label}</span>

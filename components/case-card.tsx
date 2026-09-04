@@ -27,9 +27,7 @@ export default function CaseCard({ item }: { item: PortfolioCase }) {
     "--case-soft": localized.accentSoft,
     "--case-ink": localized.ink,
   };
-  const mediaSizes = localized.size === "wide"
-    ? "(max-width: 960px) 100vw, 66vw"
-    : "(max-width: 760px) 100vw, (max-width: 960px) 50vw, 33vw";
+  const mediaSizes = "(max-width: 760px) 100vw, 50vw";
 
   return (
     <article
