@@ -13,6 +13,7 @@ import {
   getCareerEditorial,
   reviewCareerEntry,
 } from "../app/data/career-editorial";
+import { reviewPortfolioCase } from "../app/data/case-editorial";
 import { projectStatusLabels, publicCases } from "../app/data/cases";
 import { withLanguage } from "../app/data/i18n";
 import CaseCard from "./case-card";
@@ -66,7 +67,9 @@ export default function CareerEntryContent({
     : undefined;
   const relatedSlugs = item.relatedProjectSlugs ?? [];
   const relatedProjects = publicCases.filter((project) => relatedSlugs.includes(project.slug));
-  const visualProject = relatedProjects[0];
+  const visualProject = relatedProjects[0]
+    ? reviewPortfolioCase(relatedProjects[0], language)
+    : undefined;
   let sectionNumber = 0;
   const nextSectionIndex = () => String(++sectionNumber).padStart(2, "0");
 
@@ -81,7 +84,9 @@ export default function CareerEntryContent({
         <section className={`career-hero${heroMedia ? "" : " career-hero--text"}`}>
           {heroMedia ? (
             <figure className="career-hero__media">
-              <MediaFrame image={heroMedia} context="hero" sizes="100vw" priority />
+              <div className="career-hero__media-canvas">
+                <MediaFrame image={heroMedia} context="hero" sizes="(max-width: 760px) 100vw, 42vw" priority />
+              </div>
               <figcaption>
                 <span>{heroMedia.label}</span>
                 {visualProject ? (

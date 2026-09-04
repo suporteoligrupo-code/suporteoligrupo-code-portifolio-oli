@@ -36,6 +36,7 @@ const personalCaseCopy = {
     workLabel: "Trabalho",
     viewPublished: "Ver trabalho publicado",
     viewConcept: "Ver conceito navegável",
+    viewPreview: "Ver prévia navegável",
     viewProfile: "Ver trajetória no LinkedIn",
     company: "Empresa",
     area: "Contexto de atuação",
@@ -46,7 +47,7 @@ const personalCaseCopy = {
     storyTitle: "O que fiz, por que fiz e o que ganhou forma.",
     context: "O contexto",
     responsibilities: "Responsabilidades e execuções",
-    evidence: "Resultados e evidências",
+    evidence: "Escopo e registros",
     galleryIndex: "02 / Registros visuais",
     galleryTitle: "Trabalhos e aplicações",
     galleryText:
@@ -62,6 +63,7 @@ const personalCaseCopy = {
     workLabel: "Work",
     viewPublished: "View published work",
     viewConcept: "View navigable concept",
+    viewPreview: "View navigable preview",
     viewProfile: "View my journey on LinkedIn",
     company: "Company",
     area: "Field of work",
@@ -88,6 +90,7 @@ const personalCaseCopy = {
     workLabel: "Работа",
     viewPublished: "Открыть опубликованную работу",
     viewConcept: "Открыть навигационный концепт",
+    viewPreview: "Открыть навигационную версию",
     viewProfile: "Мой профессиональный путь в LinkedIn",
     company: "Компания",
     area: "Контекст работы",
@@ -123,7 +126,9 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
   const closingTitleId = `case-closing-${localized.slug}`;
   const workLinkLabel = localized.projectStatus === ProjectStatus.Concept
     ? copy.viewConcept
-    : copy.viewPublished;
+    : localized.projectStatus === ProjectStatus.InDevelopment
+      ? copy.viewPreview
+      : copy.viewPublished;
   const style: CasePageStyle = {
     "--study-accent": localized.accent,
     "--study-soft": localized.accentSoft,
@@ -144,37 +149,38 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
             <Link href={withLanguage("/#projetos", language)}>
               <ArrowLeft aria-hidden="true" size={16} /> {copy.allWorks}
             </Link>
-            <span>{copy.workLabel} {localized.number} · {localized.year}</span>
+            <span>{copy.workLabel} {localized.number}{localized.year ? ` · ${localized.year}` : ""}</span>
           </div>
 
-          <div className="case-hero__heading">
-            <div>
-              <p>{localized.sector}</p>
-              <h1>{localized.client}</h1>
-            </div>
-            <div className="case-hero__intro">
-              <strong>{localized.headline}</strong>
-              <p>{localized.summary}</p>
-              <div className="case-hero__actions">
-                {localized.liveUrl && (
-                  <a href={localized.liveUrl} target="_blank" rel="noreferrer">
-                    {workLinkLabel} <ArrowUpRight aria-hidden="true" size={17} />
-                  </a>
-                )}
-                <a href={linkedinUrl} target="_blank" rel="noreferrer">
-                  {copy.viewProfile} <ArrowUpRight aria-hidden="true" size={17} />
-                </a>
+          <div className="case-hero__layout">
+            <div className="case-hero__heading">
+              <div>
+                <p>{localized.sector}</p>
+                <h1>{localized.client}</h1>
+              </div>
+              <div className="case-hero__intro">
+                <strong>{localized.headline}</strong>
+                <p>{localized.summary}</p>
+                {localized.liveUrl ? (
+                  <div className="case-hero__actions">
+                    <a href={localized.liveUrl} target="_blank" rel="noreferrer">
+                      {workLinkLabel} <ArrowUpRight aria-hidden="true" size={17} />
+                    </a>
+                  </div>
+                ) : null}
               </div>
             </div>
-          </div>
 
-          <figure className="case-hero__visual">
-            <MediaFrame image={heroMedia} context="hero" sizes="100vw" priority />
-            <figcaption>
-              <span>{heroMedia.label}</span>
-              <span>{localized.location}</span>
-            </figcaption>
-          </figure>
+            <figure className="case-hero__visual">
+              <div className="case-hero__visual-canvas">
+                <MediaFrame image={heroMedia} context="hero" sizes="(max-width: 760px) 100vw, 46vw" priority />
+              </div>
+              <figcaption>
+                <span>{heroMedia.label}</span>
+                <span>{localized.location}</span>
+              </figcaption>
+            </figure>
+          </div>
 
           <dl className="case-facts">
             <div><dt>{copy.company}</dt><dd>{localized.client}</dd></div>
@@ -241,11 +247,6 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
               </figure>
             ))}
 
-            <aside className="case-gallery__statement">
-              <span>{copy.role}</span>
-              <strong>{localized.personalRole}</strong>
-              <p>{localized.shortName} · {localized.year}</p>
-            </aside>
           </div>
         </section>
 

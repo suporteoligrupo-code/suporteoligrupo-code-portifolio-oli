@@ -98,7 +98,7 @@ export type PortfolioCase = {
   shortName: string;
   sector: string;
   location: string;
-  year: string;
+  year?: string;
   status: string;
   projectStatus: ProjectStatus;
   personalRole: string;
@@ -130,7 +130,6 @@ export const cases: PortfolioCase[] = [
     shortName: "GRU KPOP",
     sector: "Varejo · cultura pop",
     location: "Guarulhos · SP",
-    year: "2026",
     status: "Marca e site publicados",
     projectStatus: ProjectStatus.Realized,
     personalRole:
@@ -284,7 +283,6 @@ export const cases: PortfolioCase[] = [
     shortName: "Studio E",
     sector: "Beleza · autocuidado",
     location: "Guarulhos · SP",
-    year: "2026",
     status: "Marca e site publicados",
     projectStatus: ProjectStatus.Realized,
     personalRole:
@@ -404,13 +402,12 @@ export const cases: PortfolioCase[] = [
     shortName: "Rico Games",
     sector: "Games · tecnologia",
     location: "Brasil",
-    year: "2026",
     status: "Identidade em desenvolvimento",
     projectStatus: ProjectStatus.InDevelopment,
     personalRole:
       "Atuei entre visão comercial, marketing e direção criativa na construção desta rota visual.",
     built:
-      "Direção visual, assinatura, sistema cromático, templates de campanha e conteúdo comercial em desenvolvimento.",
+      "Direção visual, sistema cromático, templates de campanha e conteúdo comercial em desenvolvimento.",
     visible: true,
     headline: "Gamer sem cair no gamer genérico.",
     summary:
@@ -424,7 +421,7 @@ export const cases: PortfolioCase[] = [
     services: ["Direção criativa", "Identidade visual", "Conteúdo"],
     deliverables: [
       "Direção visual",
-      "Logotipo e assinatura",
+      "Direção de aplicações de marca",
       "Sistema cromático",
       "Templates de campanha",
       "Conteúdo comercial",
@@ -528,7 +525,6 @@ export const cases: PortfolioCase[] = [
     shortName: "Josucas",
     sector: "Tecnologia · varejo",
     location: "Guarulhos · SP",
-    year: "2026",
     status: "Identidade e site publicados",
     projectStatus: ProjectStatus.Consulting,
     personalRole:
@@ -800,7 +796,6 @@ export const cases: PortfolioCase[] = [
     shortName: "Manifesto",
     sector: "Entretenimento · rock",
     location: "São Paulo · SP",
-    year: "2026",
     status: "Conceito digital navegável",
     projectStatus: ProjectStatus.Concept,
     personalRole:
@@ -991,7 +986,6 @@ export const cases: PortfolioCase[] = [
     shortName: "Metro Case",
     sector: "Celulares · acessórios",
     location: "São Paulo · SP",
-    year: "2026",
     status: "Landing page publicada",
     projectStatus: ProjectStatus.Realized,
     personalRole:
@@ -1172,7 +1166,6 @@ export const cases: PortfolioCase[] = [
     shortName: "Oliveira",
     sector: "Logística · transportes",
     location: "Grande São Paulo",
-    year: "2026",
     status: "Site publicado",
     projectStatus: ProjectStatus.Consulting,
     personalRole:
@@ -1327,7 +1320,6 @@ export const cases: PortfolioCase[] = [
     shortName: "Score",
     sector: "Educação executiva",
     location: "Guarulhos · SP",
-    year: "2026",
     status: "Conceito digital desenvolvido",
     projectStatus: ProjectStatus.Concept,
     personalRole:
@@ -1487,7 +1479,6 @@ export const cases: PortfolioCase[] = [
     shortName: "Eletrotech",
     sector: "Assistência técnica · games",
     location: "Guarulhos · SP",
-    year: "2026",
     status: "Direção visual em desenvolvimento",
     projectStatus: ProjectStatus.InDevelopment,
     personalRole:
@@ -1610,7 +1601,6 @@ export const cases: PortfolioCase[] = [
     shortName: "Dona Girafa",
     sector: "Moda profissional · e-commerce",
     location: "Guarulhos · SP",
-    year: "2026",
     status: "Demonstração comercial conceitual",
     projectStatus: ProjectStatus.Concept,
     personalRole:
@@ -1758,7 +1748,6 @@ export const cases: PortfolioCase[] = [
     shortName: "Spolpas",
     sector: "Alimentos · varejo",
     location: "São Paulo · SP",
-    year: "2026",
     status: "Identidade em desenvolvimento",
     projectStatus: ProjectStatus.InDevelopment,
     personalRole:

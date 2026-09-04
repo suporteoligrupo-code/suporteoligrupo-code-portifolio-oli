@@ -40,19 +40,21 @@ export default function HomeContent({ featuredCareerEntries }: { featuredCareerE
               </div>
             </div>
             <aside className="hero-portrait" aria-label="Lucas de Oliveira Andrade">
-              <img src="/lucas-linkedin.jpg" alt="Lucas de Oliveira Andrade" width={600} height={600} />
+              <img src="/lucas-linkedin.jpg" alt="Lucas de Oliveira Andrade" width={200} height={200} />
               <span>Desde 2010 · estratégia, operação e execução</span>
             </aside>
-            <div className="hero-footer" aria-label={copy.proofAria}>
-              {copy.proofs.map((proof) => <strong key={proof}>{proof}</strong>)}
-            </div>
           </div>
         </section>
 
         <section className="positioning section-shell" id="trajetoria">
           <div className="section-index">{copy.summaryIndex}</div>
           <div className="positioning-copy reveal"><p className="eyebrow">{copy.summaryEyebrow}</p><h2>{copy.summaryTitle}</h2></div>
-          <div className="positioning-note reveal"><p>{copy.summaryText}</p><Link href={withLanguage("/career", language)}>{copy.summaryCta}<ArrowUpRight aria-hidden="true" size={18} /></Link></div>
+          <div className="positioning-note"><p>{copy.summaryText}</p><Link href={withLanguage("/career", language)}>{copy.summaryCta}<ArrowUpRight aria-hidden="true" size={18} /></Link></div>
+          <ol className="journey-stages" aria-label="Evolução profissional desde 2010">
+            <li><span>2010</span><strong>Rico Games</strong><p>Vendas e atendimento: a base para compreender público, objeções e operação.</p></li>
+            <li><span>Evolução</span><strong>Comercial, marketing e gestão</strong><p>A experiência da linha de frente passou a orientar ofertas, campanhas, conteúdo e decisões do negócio.</p></li>
+            <li><span>Hoje</span><strong>Consultoria e direção criativa</strong><p>Conecto estratégia, estrutura, comunicação e execução em diferentes contextos empresariais.</p></li>
+          </ol>
         </section>
 
         <section className="career-home" id="empresas">
@@ -75,12 +77,12 @@ export default function HomeContent({ featuredCareerEntries }: { featuredCareerE
 
         <section className="partnerships section-shell" id="parcerias">
           <header className="partnerships__heading reveal"><div className="section-index">{copy.partnershipsIndex}</div><div><p className="eyebrow">{copy.partnershipsEyebrow}</p><h2>{copy.partnershipsTitle}</h2></div><p>{copy.partnershipsText}</p></header>
-          <div className="partnerships__grid reveal" aria-label={copy.partnershipsEyebrow}>{copy.partnershipNames.slice(0, 8).map((name) => <article key={name}><strong>{name}</strong></article>)}</div>
+          <div className="partnerships__grid" aria-label={copy.partnershipsEyebrow}>{copy.partnershipNames.slice(0, 8).map((name) => <article key={name}><strong>{name}</strong></article>)}</div>
         </section>
 
         <section className="capabilities section-shell" id="valor">
           <div className="capabilities-intro reveal"><div className="section-index">{copy.valueIndex}</div><p className="eyebrow">{copy.valueEyebrow}</p><h2>{copy.valueTitle}</h2><p>{copy.valueText}</p></div>
-          <div className="service-list reveal">{copy.valueAxes.slice(0, 4).map((axis) => <article key={axis.number}><div className="service-title"><span>{axis.number}</span><h3>{axis.title}</h3><ArrowRight aria-hidden="true" size={22} strokeWidth={1.4} /></div><p>{axis.text}</p></article>)}</div>
+          <div className="service-list">{copy.valueAxes.slice(0, 4).map((axis) => <article key={axis.number}><div className="service-title"><span>{axis.number}</span><h3>{axis.title}</h3><ArrowRight aria-hidden="true" size={22} strokeWidth={1.4} /></div><p>{axis.text}</p></article>)}</div>
         </section>
 
         <section className="impact section-shell reveal" id="marca-autoral">

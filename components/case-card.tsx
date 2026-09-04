@@ -33,7 +33,7 @@ export default function CaseCard({ item }: { item: PortfolioCase }) {
 
   return (
     <article
-      className={`case-card case-card--${localized.size} case-card--${localized.cardTone} reveal`}
+      className={`case-card case-card--${localized.size} case-card--${localized.cardTone}`}
       style={style}
     >
       <Link
@@ -54,7 +54,7 @@ export default function CaseCard({ item }: { item: PortfolioCase }) {
             <span className="case-card__status">
               {projectStatusLabels[language][localized.projectStatus]}
             </span>
-            <span>{localized.year}</span>
+            {localized.year ? <span>{localized.year}</span> : null}
           </div>
           <div className="case-card__bottom">
             <div>
