@@ -64,7 +64,12 @@ const treatmentDefaults: Record<MediaContext, MediaTreatment> = {
 
 function resolveTreatment(image: CaseImage, context: MediaContext) {
   const placement = image.placements?.[context] ?? {};
-  const treatment = { ...treatmentDefaults[context], ...placement };
+  const treatment = {
+    ...treatmentDefaults[context],
+    ...(image.fit ? { fit: image.fit } : {}),
+    ...(image.position ? { position: image.position } : {}),
+    ...placement,
+  };
   const mobile = { ...treatment, ...(placement.mobile ?? {}) };
 
   return { treatment, mobile };
@@ -156,7 +161,9 @@ function getVariantPath(src: string, width: number) {
 function getResponsiveSrcSet(src: string, width: number) {
   if (!src.startsWith("/") || src.toLowerCase().endsWith(".svg")) return undefined;
 
-  const generatedWidths = [480, 800, 1200].filter((candidate) => candidate < width);
+  const generatedWidths = [480, 800, 1200].filter(
+    (candidate) => candidate <= width * 0.9,
+  );
   const sources = generatedWidths.map((candidate) => `${getVariantPath(src, candidate)} ${candidate}w`);
   sources.push(`${src} ${width}w`);
   return sources.join(", ");

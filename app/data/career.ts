@@ -1,5 +1,4 @@
-import { cases, type CaseImage } from "./cases";
-import { localizeCase } from "./i18n";
+import type { CaseImage } from "./cases";
 
 export type CareerLanguage = "pt" | "en" | "ru";
 
@@ -61,25 +60,13 @@ export type LocalizedCareerEntry = Omit<CareerEntry, "relationship" | "translati
   relationship: string;
 };
 
-const projectMedia = (slug: string): Pick<CareerEntry, "cover" | "hero" | "media"> => {
-  const project = cases.find((item) => item.slug === slug);
-
-  if (!project) return { media: [] };
-
-  return {
-    cover: project.cover,
-    hero: project.hero ?? project.cover,
-    media: project.gallery,
-  };
-};
-
 export const careerEntries: CareerEntry[] = [
   {
     slug: "rico-games",
     company: "Rico Games",
     period: "2010–atual",
     relationship: "Experiência profissional",
-    roles: ["Comercial", "Marketing", "Gerência"],
+    roles: ["Vendas e atendimento", "Comercial", "Marketing e gerência"],
     summary:
       "Minha principal escola de negócios. Comecei no atendimento e nas vendas e ampliei minha atuação para marketing, gestão, produtos, conteúdo, parcerias e experiência de loja.",
     directActions: [
@@ -89,16 +76,16 @@ export const careerEntries: CareerEntry[] = [
       "Avaliei e participei do desenvolvimento de produtos.",
       "Atuei na criação de sites.",
       "Produzi vídeos e lives.",
-      "Participei de ações de lançamento.",
-      "Desenvolvi parcerias.",
-      "Participei da viabilização da distribuição oficial de produtos PlayStation.",
+      "Participei de lançamentos, sorteios, ações e ativações.",
+      "Desenvolvi parcerias no contexto da Rico Games.",
+      "Atuei na gerência e em decisões comerciais.",
       "Participei da reforma e da evolução da experiência de loja.",
-      "Atuei na estruturação de um espaço para conteúdo e podcast.",
+      "Atuei na estruturação de ambiente e estúdio para produção de conteúdo.",
     ],
     initiatives: [
       "Desenvolvimento de produtos e parcerias.",
       "Evolução da experiência de loja.",
-      "Estrutura para conteúdo e podcast.",
+      "Ambiente e estúdio para produção de conteúdo.",
     ],
     competencies: [
       "Atendimento e vendas",
@@ -113,10 +100,10 @@ export const careerEntries: CareerEntry[] = [
     ],
     highlights: [
       "Trajetória contínua desde 2010.",
-      "Participação na viabilização da distribuição oficial de produtos PlayStation.",
-      "Reforma da loja e estruturação de espaço para conteúdo e podcast.",
+      "Ampliação da atuação para marketing, gerência e decisões comerciais.",
+      "Participação na reforma da loja e na estruturação de ambiente para conteúdo.",
     ],
-    ...projectMedia("rico-games"),
+    media: [],
     featured: true,
     status: "Atual",
     relatedProjectSlugs: ["rico-games"],
@@ -125,7 +112,7 @@ export const careerEntries: CareerEntry[] = [
       en: {
         period: "2010–present",
         relationship: "Professional experience",
-        roles: ["Sales", "Marketing", "Management"],
+        roles: ["Sales and customer service", "Commercial work", "Marketing and management"],
         summary:
           "My main school of business. I started in customer service and sales, then expanded my work into marketing, management, products, content, partnerships and the in-store experience.",
         directActions: [
@@ -135,16 +122,16 @@ export const careerEntries: CareerEntry[] = [
           "Evaluated and contributed to product development.",
           "Worked on websites.",
           "Produced videos and live streams.",
-          "Took part in launches.",
-          "Developed partnerships.",
-          "Contributed to enabling the official distribution of PlayStation products.",
+          "Took part in launches, giveaways, actions and activations.",
+          "Developed partnerships in the context of Rico Games.",
+          "Worked in management and commercial decisions.",
           "Contributed to the store renovation and in-store experience.",
-          "Helped structure a content and podcast space.",
+          "Helped structure an environment and studio for content production.",
         ],
         initiatives: [
           "Product and partnership development.",
           "Evolution of the in-store experience.",
-          "A dedicated space for content and podcasts.",
+          "An environment and studio for content production.",
         ],
         competencies: [
           "Customer service and sales",
@@ -159,15 +146,15 @@ export const careerEntries: CareerEntry[] = [
         ],
         highlights: [
           "A continuous career path since 2010.",
-          "Contribution to enabling the official distribution of PlayStation products.",
-          "Store renovation and creation of a content and podcast space.",
+          "Expansion into marketing, management and commercial decisions.",
+          "Store renovation and an environment for content production.",
         ],
         status: "Current",
       },
       ru: {
         period: "2010–н. в.",
         relationship: "Профессиональный опыт",
-        roles: ["Продажи", "Маркетинг", "Управление"],
+        roles: ["Продажи и обслуживание", "Коммерческая работа", "Маркетинг и управление"],
         summary:
           "Моя главная школа бизнеса. Я начал с обслуживания клиентов и продаж, а затем расширил свою работу на маркетинг, управление, продукты, контент, партнёрства и клиентский опыт в магазине.",
         directActions: [
@@ -177,16 +164,16 @@ export const careerEntries: CareerEntry[] = [
           "Оценивал продукты и участвовал в их разработке.",
           "Работал над сайтами.",
           "Создавал видео и прямые эфиры.",
-          "Участвовал в запусках.",
-          "Развивал партнёрства.",
-          "Участвовал в обеспечении официальной дистрибуции продуктов PlayStation.",
+          "Участвовал в запусках, розыгрышах, акциях и активациях.",
+          "Развивал партнёрства в рамках Rico Games.",
+          "Участвовал в управлении и коммерческих решениях.",
           "Участвовал в обновлении магазина и клиентского опыта.",
-          "Помогал создавать пространство для контента и подкастов.",
+          "Помогал создавать среду и студию для производства контента.",
         ],
         initiatives: [
           "Разработка продуктов и партнёрств.",
           "Развитие клиентского опыта в магазине.",
-          "Пространство для контента и подкастов.",
+          "Среда и студия для производства контента.",
         ],
         competencies: [
           "Клиентский сервис и продажи",
@@ -201,8 +188,8 @@ export const careerEntries: CareerEntry[] = [
         ],
         highlights: [
           "Непрерывный профессиональный путь с 2010 года.",
-          "Участие в обеспечении официальной дистрибуции продуктов PlayStation.",
-          "Обновление магазина и создание пространства для контента и подкастов.",
+          "Расширение роли до маркетинга, управления и коммерческих решений.",
+          "Обновление магазина и создание среды для производства контента.",
         ],
         status: "Сейчас",
       },
@@ -214,7 +201,7 @@ export const careerEntries: CareerEntry[] = [
     period: "Aproximadamente dois anos",
     relationship: "Experiência profissional",
     relationshipDetail: "Experiência profissional e prestação de serviço",
-    roles: ["Gerência", "Operação", "Marketing", "Conteúdo", "Comunicação comercial"],
+    roles: ["Gerência e operação", "Marketing e conteúdo", "Comunicação comercial"],
     summary:
       "Atuei por aproximadamente dois anos entre a gerência presencial e o marketing, acompanhando a operação e produzindo comunicação comercial, conteúdo e vídeos.",
     directActions: [
@@ -235,7 +222,7 @@ export const careerEntries: CareerEntry[] = [
         period: "Approximately two years",
         relationship: "Professional experience",
         relationshipDetail: "Professional experience and service delivery",
-        roles: ["Management", "Operations", "Marketing", "Content", "Commercial communication"],
+        roles: ["Management and operations", "Marketing and content", "Commercial communication"],
         summary:
           "For approximately two years, I worked across on-site management and marketing, following the operation and producing commercial communication, content and videos.",
         directActions: [
@@ -253,7 +240,7 @@ export const careerEntries: CareerEntry[] = [
         period: "Около двух лет",
         relationship: "Профессиональный опыт",
         relationshipDetail: "Профессиональный опыт и оказание услуг",
-        roles: ["Управление", "Операционная работа", "Маркетинг", "Контент", "Коммерческие коммуникации"],
+        roles: ["Управление и операционная работа", "Маркетинг и контент", "Коммерческие коммуникации"],
         summary:
           "Около двух лет я совмещал управление на месте и маркетинг, сопровождал операционную работу и создавал коммерческие коммуникации, контент и видео.",
         directActions: [
@@ -274,16 +261,18 @@ export const careerEntries: CareerEntry[] = [
     company: "Manifesto Bar",
     period: "Atual",
     relationship: "Consultoria",
-    roles: ["Comunicação", "Marketing", "Tráfego pago", "Audiovisual", "Análise de programação"],
+    relationshipDetail: "Consultoria e prestação de serviço",
+    roles: ["Comunicação e marketing", "Mídia paga e audiovisual", "Programação e eventos"],
     summary:
       "Atuo atualmente na consultoria de comunicação e marketing do Manifesto Bar, conectando divulgação, mídia, conteúdo audiovisual e análise da programação da casa.",
     directActions: [
       "Presto consultoria de comunicação e marketing.",
       "Atuo em tráfego pago.",
       "Crio artes.",
-      "Produzo vídeos.",
+      "Gravo e produzo vídeos.",
       "Avalio bandas.",
       "Analiso eventos e formatos para a casa.",
+      "Desenvolvo ideias para programação e movimentação da casa.",
     ],
     initiatives: [
       "Avaliação de bandas.",
@@ -301,7 +290,7 @@ export const careerEntries: CareerEntry[] = [
     highlights: [
       "Consultoria atual com atuação em comunicação e também na avaliação de conteúdos e formatos da casa.",
     ],
-    ...projectMedia("manifesto-bar"),
+    media: [],
     featured: true,
     status: "Atual",
     relatedProjectSlugs: ["manifesto-bar"],
@@ -310,16 +299,18 @@ export const careerEntries: CareerEntry[] = [
       en: {
         period: "Current",
         relationship: "Consulting",
-        roles: ["Communication", "Marketing", "Paid media", "Audiovisual", "Programming analysis"],
+        relationshipDetail: "Consulting and service delivery",
+        roles: ["Communication and marketing", "Paid media and audiovisual", "Programming and events"],
         summary:
           "I currently advise Manifesto Bar on communication and marketing, connecting promotion, media, audiovisual content and venue-programming analysis.",
         directActions: [
           "Provide communication and marketing consulting.",
           "Work with paid media.",
           "Create artwork.",
-          "Produce videos.",
+          "Record and produce videos.",
           "Evaluate bands.",
           "Analyze events and formats for the venue.",
+          "Develop ideas for programming and venue activity.",
         ],
         initiatives: ["Band evaluation.", "Event and format analysis.", "Integration of communication, media and programming."],
         competencies: ["Communication strategy", "Marketing", "Paid media", "Creative direction", "Audiovisual", "Programming analysis"],
@@ -329,16 +320,18 @@ export const careerEntries: CareerEntry[] = [
       ru: {
         period: "Сейчас",
         relationship: "Консалтинг",
-        roles: ["Коммуникации", "Маркетинг", "Платное продвижение", "Аудиовизуальный контент", "Анализ программы"],
+        relationshipDetail: "Консалтинг и оказание услуг",
+        roles: ["Коммуникации и маркетинг", "Платное продвижение и видео", "Программа и события"],
         summary:
           "Сейчас я консультирую Manifesto Bar по коммуникациям и маркетингу, связывая продвижение, медиа, аудиовизуальный контент и анализ программы площадки.",
         directActions: [
           "Консультирую по коммуникациям и маркетингу.",
           "Работаю с платным продвижением.",
           "Создаю графические материалы.",
-          "Создаю видео.",
+          "Снимаю и создаю видео.",
           "Оцениваю музыкальные группы.",
           "Анализирую события и форматы для площадки.",
+          "Разрабатываю идеи для программы и активности площадки.",
         ],
         initiatives: ["Оценка музыкальных групп.", "Анализ событий и форматов.", "Интеграция коммуникаций, медиа и программы площадки."],
         competencies: ["Коммуникационная стратегия", "Маркетинг", "Платное продвижение", "Креативное руководство", "Аудиовизуальный контент", "Анализ программы"],
@@ -351,20 +344,20 @@ export const careerEntries: CareerEntry[] = [
     slug: "urly-marketing",
     company: "Urly Marketing",
     relationship: "Marca autoral",
-    roles: ["Criação de marca", "Estratégia", "Comunicação"],
+    roles: ["Marca e conceito", "Marketing e consultoria", "Projetos para empresas"],
     summary:
       "Criei a Urly Marketing como uma marca autoral de estratégia e comunicação, com 10% da renda bruta destinados a iniciativas de proteção animal.",
     directActions: [
       "Criei a marca.",
+      "Criei o conceito da Urly Marketing.",
       "Estruturei seu posicionamento.",
-      "Desenvolvi sua atuação em estratégia e comunicação.",
+      "Desenvolvi marketing, consultoria e projetos para empresas.",
       "Defini a destinação de 10% da renda bruta para iniciativas de proteção animal.",
     ],
     initiatives: ["Integração entre trabalho de comunicação e apoio à causa animal."],
     competencies: ["Criação de marca", "Posicionamento", "Estratégia", "Comunicação", "Construção de impacto"],
     highlights: ["Compromisso de destinar 10% da renda bruta a iniciativas de proteção animal."],
-    media: [
-      {
+    hero: {
         src: "/impact/gatinho-ruivo.jpg",
         width: 700,
         height: 936,
@@ -429,52 +422,50 @@ export const careerEntries: CareerEntry[] = [
             },
           },
         },
-      },
-    ],
+    },
+    media: [],
     featured: true,
     published: true,
     translations: {
       en: {
         relationship: "Own brand",
-        roles: ["Brand creation", "Strategy", "Communication"],
+        roles: ["Brand and concept", "Marketing and consulting", "Projects for companies"],
         summary:
           "I created Urly Marketing as my own strategy and communication brand, with 10% of gross revenue allocated to animal-protection initiatives.",
         directActions: [
           "Created the brand.",
+          "Created the Urly Marketing concept.",
           "Structured its positioning.",
-          "Developed its strategy and communication work.",
+          "Developed marketing, consulting and projects for companies.",
           "Defined the allocation of 10% of gross revenue to animal-protection initiatives.",
         ],
         initiatives: ["Connection between communication work and support for animal protection."],
         competencies: ["Brand creation", "Positioning", "Strategy", "Communication", "Impact building"],
         highlights: ["Commitment to allocate 10% of gross revenue to animal-protection initiatives."],
-        media: [
-          {
-            alt: "An orange cat in an editorial image connected to Urly Marketing's commitment to animal protection",
-            label: "Impact and animal protection",
-          },
-        ],
+        hero: {
+          alt: "An orange cat in an editorial image connected to Urly Marketing's commitment to animal protection",
+          label: "Impact and animal protection",
+        },
       },
       ru: {
         relationship: "Авторский бренд",
-        roles: ["Создание бренда", "Стратегия", "Коммуникации"],
+        roles: ["Бренд и концепция", "Маркетинг и консалтинг", "Проекты для компаний"],
         summary:
           "Я создал Urly Marketing как собственный бренд в сфере стратегии и коммуникаций, направляющий 10% валового дохода на инициативы по защите животных.",
         directActions: [
           "Создал бренд.",
+          "Создал концепцию Urly Marketing.",
           "Сформировал его позиционирование.",
-          "Развивал стратегию и коммуникации.",
+          "Развивал маркетинг, консалтинг и проекты для компаний.",
           "Определил направление 10% валового дохода на инициативы по защите животных.",
         ],
         initiatives: ["Связь коммуникационной работы с поддержкой защиты животных."],
         competencies: ["Создание бренда", "Позиционирование", "Стратегия", "Коммуникации", "Создание общественной ценности"],
         highlights: ["Обязательство направлять 10% валового дохода на инициативы по защите животных."],
-        media: [
-          {
-            alt: "Рыжий кот в редакционном изображении, связанном с поддержкой защиты животных со стороны Urly Marketing",
-            label: "Общественная ценность и защита животных",
-          },
-        ],
+        hero: {
+          alt: "Рыжий кот в редакционном изображении, связанном с поддержкой защиты животных со стороны Urly Marketing",
+          label: "Общественная ценность и защита животных",
+        },
       },
     },
   },
@@ -488,7 +479,7 @@ export const careerEntries: CareerEntry[] = [
     competencies: ["Criação de marca", "Identidade visual", "Direção criativa", "Audiovisual"],
     highlights: ["Sistema visual e conteúdos em vídeo desenvolvidos para a marca."],
     media: [],
-    featured: true,
+    featured: false,
     published: true,
     translations: {
       en: {
@@ -513,21 +504,22 @@ export const careerEntries: CareerEntry[] = [
     slug: "josucas-eletronicos",
     company: "Josucas Eletrônicos",
     relationship: "Consultoria",
-    relationshipDetail: "Consultoria e projeto",
-    roles: ["Processos", "Estrutura", "Marketing", "Comunicação comercial"],
+    relationshipDetail: "Consultoria e prestação de serviço",
+    roles: ["Processos e estrutura", "Marketing", "Comunicação comercial"],
     summary:
-      "Atuei em consultoria de processos, estrutura e marketing, desenvolvi materiais comerciais e conectei uma oportunidade de venda de celulares no boleto para pessoas com restrição de crédito à solução PayJoy.",
+      "Atuei em consultoria de processos, estrutura e marketing, desenvolvi materiais comerciais e criei um conceito de venda de celulares no boleto para pessoas com restrição de crédito, relacionando a oportunidade à PayJoy para avaliação.",
     directActions: [
       "Prestei consultoria de processos.",
       "Prestei consultoria de estrutura.",
       "Atuei no marketing.",
       "Criei cartões, folhetos e materiais comerciais.",
+      "Desenvolvi campanhas e comunicação para presença digital.",
       "Desenvolvi o conceito de venda de celulares no boleto para pessoas com restrição de crédito.",
-      "Conectei a oportunidade à solução PayJoy.",
+      "Relacionei a oportunidade à PayJoy para avaliação.",
     ],
     initiatives: [
       "Conceito comercial voltado a pessoas com restrição de crédito.",
-      "Conexão da oportunidade com a solução PayJoy.",
+      "PayJoy identificada como referência de solução a ser avaliada.",
     ],
     competencies: [
       "Consultoria de processos",
@@ -540,48 +532,50 @@ export const careerEntries: CareerEntry[] = [
     highlights: [
       "Materiais comerciais e sistema visual.",
       "Conceito comercial desenvolvido.",
-      "Conexão da oportunidade à PayJoy.",
+      "Conceito comercial relacionado à PayJoy apenas para avaliação.",
     ],
-    ...projectMedia("josucas-eletronicos"),
+    media: [],
     featured: true,
     relatedProjectSlugs: ["josucas-eletronicos"],
     published: true,
     translations: {
       en: {
         relationship: "Consulting",
-        relationshipDetail: "Consulting and project",
-        roles: ["Processes", "Structure", "Marketing", "Commercial communication"],
+        relationshipDetail: "Consulting and service delivery",
+        roles: ["Processes and structure", "Marketing", "Commercial communication"],
         summary:
-          "I advised on processes, structure and marketing, developed commercial materials and connected an installment-payment mobile-phone opportunity for customers with credit restrictions to the PayJoy solution.",
+          "I advised on processes, structure and marketing, developed commercial materials and created a mobile-phone payment concept for customers with credit restrictions, relating the opportunity to PayJoy for assessment.",
         directActions: [
           "Advised on processes.",
           "Advised on structure.",
           "Worked in marketing.",
           "Created cards, leaflets and commercial materials.",
+          "Developed campaigns and communication for the digital presence.",
           "Developed the mobile-phone payment concept for customers with credit restrictions.",
-          "Connected the opportunity to PayJoy.",
+          "Related the opportunity to PayJoy for assessment.",
         ],
-        initiatives: ["A commercial concept for people with credit restrictions.", "Connection of the opportunity to the PayJoy solution."],
+        initiatives: ["A commercial concept for people with credit restrictions.", "PayJoy identified as a reference solution to assess."],
         competencies: ["Process consulting", "Business structure", "Marketing", "Commercial communication", "Opportunity development", "Connecting problems and solutions"],
-        highlights: ["Commercial materials and visual system.", "A developed commercial concept.", "Connection of the opportunity to PayJoy."],
+        highlights: ["Commercial materials and visual system.", "A developed commercial concept.", "The opportunity related to PayJoy only for assessment."],
       },
       ru: {
         relationship: "Консалтинг",
-        relationshipDetail: "Консалтинг и проект",
-        roles: ["Процессы", "Структура", "Маркетинг", "Коммерческие коммуникации"],
+        relationshipDetail: "Консалтинг и оказание услуг",
+        roles: ["Процессы и структура", "Маркетинг", "Коммерческие коммуникации"],
         summary:
-          "Я консультировал по процессам, структуре и маркетингу, создавал коммерческие материалы и связал идею продажи телефонов в рассрочку клиентам с ограничениями по кредитной истории с решением PayJoy.",
+          "Я консультировал по процессам, структуре и маркетингу, создавал коммерческие материалы и разработал концепцию оплаты телефона для людей с ограничениями по кредитной истории, связав возможность с PayJoy только для оценки.",
         directActions: [
           "Консультировал по процессам.",
           "Консультировал по структуре.",
           "Работал над маркетингом.",
           "Создавал карточки, листовки и коммерческие материалы.",
+          "Разрабатывал кампании и коммуникации для цифрового присутствия.",
           "Разработал концепцию оплаты телефонов для клиентов с ограничениями по кредитной истории.",
-          "Связал возможность с решением PayJoy.",
+          "Связал возможность с PayJoy для оценки.",
         ],
-        initiatives: ["Коммерческая концепция для людей с ограничениями по кредитной истории.", "Связь возможности с решением PayJoy."],
+        initiatives: ["Коммерческая концепция для людей с ограничениями по кредитной истории.", "PayJoy указана как ориентир для оценки."],
         competencies: ["Консалтинг по процессам", "Структура бизнеса", "Маркетинг", "Коммерческие коммуникации", "Развитие возможностей", "Связь проблем и решений"],
-        highlights: ["Коммерческие материалы и визуальная система.", "Разработанная коммерческая концепция.", "Связь возможности с PayJoy."],
+        highlights: ["Коммерческие материалы и визуальная система.", "Разработанная коммерческая концепция.", "Связь с PayJoy указана только для оценки."],
       },
     },
   },
@@ -605,7 +599,7 @@ export const careerEntries: CareerEntry[] = [
       "Sistema de marca, comunicação e projeto digital.",
       "Relação com a Josucas registrada de forma contextual.",
     ],
-    ...projectMedia("metro-case"),
+    media: [],
     featured: true,
     relatedCompany: "Josucas Eletrônicos",
     relatedProjectSlugs: ["metro-case"],
@@ -652,14 +646,14 @@ export const careerEntries: CareerEntry[] = [
     company: "Reserva Ibirapitanga / Revista Sauá",
     relationship: "Consultoria",
     relationshipDetail: "Consultoria e produção editorial",
-    roles: ["Comunicação", "Marketing", "Produção editorial", "Organização de conteúdo"],
+    roles: ["Comunicação e marketing", "Produção editorial", "Diagramação e conteúdo"],
     summary:
-      "Atuei na consultoria de comunicação e marketing da Reserva Ibirapitanga e na produção editorial de edições da Revista Sauá.",
+      "Atuei na consultoria de comunicação e marketing da Reserva Ibirapitanga e participei da produção editorial e da diagramação da Revista Sauá.",
     directActions: [
       "Prestei consultoria de comunicação.",
       "Prestei consultoria de marketing.",
-      "Produzi edições da Revista Sauá.",
-      "Organizei e apresentei editorialmente o conteúdo.",
+      "Participei da produção editorial e da diagramação da Revista Sauá.",
+      "Organizei conteúdos e trabalhei sua apresentação visual.",
     ],
     competencies: [
       "Estratégia de comunicação",
@@ -667,8 +661,9 @@ export const careerEntries: CareerEntry[] = [
       "Produção editorial",
       "Organização de informação",
       "Apresentação visual",
+      "Diagramação",
     ],
-    highlights: ["Edições da Revista Sauá e respectivos registros editoriais."],
+    highlights: ["Participação na produção editorial, organização de conteúdo e diagramação da Revista Sauá."],
     media: [],
     featured: true,
     published: true,
@@ -676,32 +671,32 @@ export const careerEntries: CareerEntry[] = [
       en: {
         relationship: "Consulting",
         relationshipDetail: "Consulting and editorial production",
-        roles: ["Communication", "Marketing", "Editorial production", "Content organization"],
+        roles: ["Communication and marketing", "Editorial production", "Layout and content"],
         summary:
-          "I advised Reserva Ibirapitanga on communication and marketing and worked on the editorial production of Revista Sauá editions.",
+          "I advised Reserva Ibirapitanga on communication and marketing and contributed to the editorial production and layout of Revista Sauá.",
         directActions: [
           "Provided communication consulting.",
           "Provided marketing consulting.",
-          "Produced Revista Sauá editions.",
-          "Organized and presented the content editorially.",
+          "Contributed to Revista Sauá's editorial production and layout.",
+          "Organized content and worked on its visual presentation.",
         ],
-        competencies: ["Communication strategy", "Marketing", "Editorial production", "Information organization", "Visual presentation"],
-        highlights: ["Revista Sauá editions and their editorial records."],
+        competencies: ["Communication strategy", "Marketing", "Editorial production", "Information organization", "Visual presentation", "Layout"],
+        highlights: ["Participation in Revista Sauá's editorial production, content organization and layout."],
       },
       ru: {
         relationship: "Консалтинг",
         relationshipDetail: "Консалтинг и редакционное производство",
-        roles: ["Коммуникации", "Маркетинг", "Редакционное производство", "Организация контента"],
+        roles: ["Коммуникации и маркетинг", "Редакционное производство", "Вёрстка и контент"],
         summary:
-          "Я консультировал Reserva Ibirapitanga по коммуникациям и маркетингу и участвовал в редакционном производстве выпусков Revista Sauá.",
+          "Я консультировал Reserva Ibirapitanga по коммуникациям и маркетингу и участвовал в редакционном производстве и вёрстке Revista Sauá.",
         directActions: [
           "Консультировал по коммуникациям.",
           "Консультировал по маркетингу.",
-          "Создавал выпуски Revista Sauá.",
-          "Организовывал и оформлял содержание издания.",
+          "Участвовал в редакционном производстве и вёрстке Revista Sauá.",
+          "Организовывал контент и работал над его визуальной подачей.",
         ],
-        competencies: ["Коммуникационная стратегия", "Маркетинг", "Редакционное производство", "Организация информации", "Визуальная презентация"],
-        highlights: ["Выпуски Revista Sauá и соответствующие редакционные материалы."],
+        competencies: ["Коммуникационная стратегия", "Маркетинг", "Редакционное производство", "Организация информации", "Визуальная презентация", "Вёрстка"],
+        highlights: ["Участие в редакционном производстве, организации контента и вёрстке Revista Sauá."],
       },
     },
   },
@@ -718,12 +713,13 @@ export const careerEntries: CareerEntry[] = [
       "Desenvolvi a identidade.",
       "Estruturei a comunicação.",
       "Prestei consultoria de processos.",
+      "Trabalhei na estrutura do negócio.",
       "Prestei consultoria de marketing.",
     ],
     competencies: ["Estratégia de marca", "Identidade visual", "Comunicação", "Consultoria de processos", "Marketing"],
     highlights: ["Sistema de identidade e aplicações de comunicação."],
-    ...projectMedia("oliveira-transportes"),
-    featured: true,
+    media: [],
+    featured: false,
     relatedProjectSlugs: ["oliveira-transportes"],
     published: true,
     translations: {
@@ -738,6 +734,7 @@ export const careerEntries: CareerEntry[] = [
           "Developed the identity.",
           "Structured communication.",
           "Advised on processes.",
+          "Worked on the business structure.",
           "Advised on marketing.",
         ],
         competencies: ["Brand strategy", "Visual identity", "Communication", "Process consulting", "Marketing"],
@@ -754,6 +751,7 @@ export const careerEntries: CareerEntry[] = [
           "Разработал айдентику.",
           "Структурировал коммуникации.",
           "Консультировал по процессам.",
+          "Работал над структурой бизнеса.",
           "Консультировал по маркетингу.",
         ],
         competencies: ["Бренд-стратегия", "Визуальная айдентика", "Коммуникации", "Консалтинг по процессам", "Маркетинг"],
@@ -768,18 +766,18 @@ export const careerEntries: CareerEntry[] = [
     relationshipDetail: "Consultoria e projeto digital",
     roles: ["Criação visual", "Conceito", "Marketing", "Consultoria", "E-commerce"],
     summary:
-      "Atuei na criação visual, no conceito e no apoio de marketing da BSB Abrasivos, além de prestar consultoria e participar da montagem do e-commerce.",
+      "Atuei na criação visual, no conceito, no marketing e na consultoria pontual da BSB Abrasivos, incluindo o projeto de e-commerce e a organização comercial da comunicação.",
     directActions: [
       "Criei artes.",
       "Desenvolvi o conceito.",
       "Apoiei o marketing.",
       "Prestei consultoria.",
-      "Participei da montagem do e-commerce.",
+      "Atuei no projeto de e-commerce e na organização comercial da comunicação.",
     ],
     competencies: ["Direção criativa", "Comunicação visual", "Marketing", "Consultoria", "Digital", "E-commerce"],
-    highlights: ["Artes, conceito e estrutura de e-commerce."],
+    highlights: ["Artes, conceito e atuação no projeto de e-commerce."],
     media: [],
-    featured: true,
+    featured: false,
     published: true,
     translations: {
       en: {
@@ -787,32 +785,32 @@ export const careerEntries: CareerEntry[] = [
         relationshipDetail: "Consulting and digital project",
         roles: ["Visual creation", "Concept", "Marketing", "Consulting", "E-commerce"],
         summary:
-          "I worked on visual creation, concept and marketing support for BSB Abrasivos, while also providing consulting and contributing to the e-commerce build.",
+          "I worked on visual creation, concept, marketing and focused consulting for BSB Abrasivos, including its e-commerce project and the commercial organization of communication.",
         directActions: [
           "Created artwork.",
           "Developed the concept.",
           "Supported marketing.",
           "Provided consulting.",
-          "Contributed to the e-commerce build.",
+          "Worked on the e-commerce project and the commercial organization of communication.",
         ],
         competencies: ["Creative direction", "Visual communication", "Marketing", "Consulting", "Digital", "E-commerce"],
-        highlights: ["Artwork, concept and e-commerce structure."],
+        highlights: ["Artwork, concept and work on the e-commerce project."],
       },
       ru: {
         relationship: "Консалтинг",
         relationshipDetail: "Консалтинг и digital-проект",
         roles: ["Визуальные материалы", "Концепция", "Маркетинг", "Консалтинг", "Электронная коммерция"],
         summary:
-          "Я работал над визуальными материалами, концепцией и маркетинговой поддержкой BSB Abrasivos, а также консультировал и участвовал в создании интернет-магазина.",
+          "Я работал над визуальными материалами, концепцией, маркетингом и точечным консалтингом BSB Abrasivos, включая проект интернет-магазина и коммерческую организацию коммуникаций.",
         directActions: [
           "Создавал графические материалы.",
           "Разработал концепцию.",
           "Поддерживал маркетинг.",
           "Консультировал.",
-          "Участвовал в создании интернет-магазина.",
+          "Работал над проектом интернет-магазина и коммерческой организацией коммуникаций.",
         ],
         competencies: ["Креативное руководство", "Визуальные коммуникации", "Маркетинг", "Консалтинг", "Digital", "Электронная коммерция"],
-        highlights: ["Графические материалы, концепция и структура интернет-магазина."],
+        highlights: ["Графические материалы, концепция и работа над проектом интернет-магазина."],
       },
     },
   },
@@ -827,13 +825,6 @@ export function localizeCareerEntry(
   if (language === "pt") return base;
 
   const translation = translations[language];
-  const relatedProject = item.relatedProjectSlugs?.length === 1
-    ? cases.find((project) => project.slug === item.relatedProjectSlugs?.[0])
-    : undefined;
-  const localizedProject = relatedProject
-    ? localizeCase(relatedProject, language)
-    : undefined;
-
   return {
     ...base,
     company: translation.company ?? base.company,
@@ -851,20 +842,17 @@ export function localizeCareerEntry(
     cover: base.cover
       ? {
           ...base.cover,
-          ...(localizedProject?.cover ?? {}),
           ...(translation.cover ?? {}),
         }
       : undefined,
     hero: base.hero
       ? {
           ...base.hero,
-          ...(localizedProject?.hero ?? localizedProject?.cover ?? {}),
           ...(translation.hero ?? {}),
         }
       : undefined,
     media: base.media.map((media, index) => ({
       ...media,
-      ...(localizedProject?.gallery[index] ?? {}),
       ...(translation.media?.[index] ?? {}),
     })),
   };
@@ -955,7 +943,7 @@ export const careerUiCopy: Record<CareerLanguage, CareerUiCopy> = {
       initiatives: "Iniciativas e decisões",
       workAndRecords: "Trabalhos e registros visuais",
       competencies: "Competências demonstradas",
-      evidence: "Resultados e evidências",
+      evidence: "Escopo e registros confirmados",
       relatedProjects: "Projetos relacionados",
       relatedCompany: "Empresa relacionada",
       status: "Status",

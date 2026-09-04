@@ -8,7 +8,6 @@ const homeCareerSlugs = [
   "toy-show",
   "manifesto-bar",
   "urly-marketing",
-  "through-to-the-wolves",
   "josucas-eletronicos",
   "metro-case",
   "reserva-ibirapitanga-revista-saua",

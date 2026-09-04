@@ -38,7 +38,7 @@ export const careerNarrativeLabels: Record<
     disconnected: "O que estava desconectado",
     relation: "Qual relação identifiquei",
     solution: "Como virou solução",
-    value: "Qual valor isso gerou",
+    value: "Valor buscado para o negócio",
   },
   en: {
     context: "The context",
@@ -46,7 +46,7 @@ export const careerNarrativeLabels: Record<
     disconnected: "What was disconnected",
     relation: "The relationship I identified",
     solution: "How it became a solution",
-    value: "The value it created",
+    value: "Value intended for the business",
   },
   ru: {
     context: "Контекст",
@@ -54,7 +54,7 @@ export const careerNarrativeLabels: Record<
     disconnected: "Что было разрознено",
     relation: "Какую взаимосвязь я увидел",
     solution: "Как это стало решением",
-    value: "Какую ценность это создало",
+    value: "Ценность, заложенная для бизнеса",
   },
 };
 
@@ -62,8 +62,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
   "rico-games": {
     verification: "partial",
     withheldClaims: [
-      "A participação exata na viabilização da distribuição oficial de produtos PlayStation permanece fora da publicação até haver material comprobatório proporcional.",
-      "A natureza de aparições ou ações ligadas a podcasts permanece fora da publicação até ser confirmada.",
+      "Relações externas ainda sem evidência proporcional permanecem fora da publicação.",
     ],
     copy: {
       pt: {
@@ -78,7 +77,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Transformei essa leitura em participação na criação de campanhas e promoções, avaliação e desenvolvimento de produtos e ofertas, sites, vídeos, lives, lançamentos, ativações, melhorias na loja e estrutura para produção de conteúdo.",
         value:
-          "A operação comercial, o marketing e a execução passaram a conversar entre si, preservando uma visão contínua da jornada do cliente e das necessidades do negócio.",
+          "A atuação foi estruturada para aproximar operação comercial, marketing e execução em torno da jornada do cliente e das necessidades do negócio.",
         summary:
           "Minha principal escola de negócios. Comecei no atendimento e nas vendas e ampliei minha atuação para marketing, gestão, produtos, conteúdo, parcerias e experiência de loja.",
         directActions: [
@@ -116,7 +115,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "I turned that reading into hands-on participation in campaigns and promotions, product and offer development, websites, videos, live streams, launches, activations, store improvements and a dedicated content-production environment.",
         value:
-          "Commercial operations, marketing and execution became more connected, supporting a continuous view of both the customer journey and the needs of the business.",
+          "The work was structured to connect commercial operations, marketing and execution around the customer journey and business needs.",
         summary:
           "My main school of business. I started in customer service and sales, then expanded into marketing, management, products, content, partnerships and the in-store experience.",
         directActions: [
@@ -154,7 +153,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Эта логика воплотилась в моём участии в кампаниях и промоакциях, разработке продуктов и предложений, сайтах, видео, прямых эфирах, запусках, активациях, обновлении магазина и создании пространства для производства контента.",
         value:
-          "Коммерческая работа, маркетинг и исполнение стали лучше связаны между собой, сохраняя целостный взгляд на путь клиента и задачи бизнеса.",
+          "Работа была выстроена так, чтобы связать коммерческую деятельность, маркетинг и исполнение вокруг пути клиента и задач бизнеса.",
         summary:
           "Моя главная школа бизнеса. Я начал с обслуживания клиентов и продаж, а затем расширил работу на маркетинг, управление, продукты, контент, партнёрства и опыт в магазине.",
         directActions: [
@@ -197,7 +196,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Combinei gerência presencial, acompanhamento da operação, marketing, comunicação comercial, produção de conteúdo e apresentação de vídeos.",
         value:
-          "A comunicação passou a nascer de uma leitura direta do funcionamento da loja, aproximando gestão e execução de marketing.",
+          "O trabalho conectou a leitura direta da operação às decisões de comunicação, aproximando gestão e execução de marketing.",
       },
       en: {
         relationshipNote:
@@ -211,7 +210,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "I combined on-site management, operational follow-up, marketing, commercial communication, content production and video presentation.",
         value:
-          "Communication came from a direct reading of how the store worked, bringing management and marketing execution closer together.",
+          "The work connected direct operational insight to communication decisions, bringing management and marketing execution closer together.",
       },
       ru: {
         relationshipNote:
@@ -225,7 +224,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Я объединил управление на месте, сопровождение операционной работы, маркетинг, коммерческие коммуникации, производство контента и участие в видео.",
         value:
-          "Коммуникация стала исходить из непосредственного понимания работы магазина, сближая управление и маркетинговое исполнение.",
+          "Работа связала непосредственное понимание операции с коммуникационными решениями, сближая управление и маркетинговое исполнение.",
       },
     },
   },
@@ -244,7 +243,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Atuo em consultoria de comunicação e marketing, tráfego pago, artes, vídeos, avaliação de bandas e análise de formatos de eventos.",
         value:
-          "A divulgação ganha coerência com a história da marca e com o que efetivamente acontece no palco e no espaço físico.",
+          "A atuação busca manter a divulgação coerente com a história da marca, a programação e a experiência presencial.",
       },
       en: {
         relationshipNote:
@@ -258,7 +257,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "I work across communication and marketing consulting, paid media, artwork, video, band assessment and the analysis of event formats.",
         value:
-          "Promotion becomes more coherent with both the venue's history and the experience that actually takes place on stage and in the physical space.",
+          "The work aims to keep promotion coherent with the venue's history, programming and in-person experience.",
       },
       ru: {
         relationshipNote:
@@ -272,7 +271,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Я работаю с консалтингом по коммуникациям и маркетингу, платным продвижением, графикой, видео, оценкой групп и анализом форматов событий.",
         value:
-          "Продвижение становится более согласованным с историей бренда и с тем опытом, который действительно происходит на сцене и в физическом пространстве.",
+          "Работа направлена на согласование продвижения с историей бренда, программой и офлайн-опытом.",
       },
     },
   },
@@ -338,7 +337,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Criei a identidade e o conceito visual e produzi vídeos alinhados à mesma direção.",
         value:
-          "A Divertida Geek ganhou uma base visual coerente para se apresentar em peças estáticas e conteúdo audiovisual.",
+          "A base visual foi criada para dar coerência à apresentação da Divertida Geek em peças estáticas e conteúdo audiovisual.",
       },
       en: {
         relationshipNote:
@@ -352,7 +351,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "I created the identity and visual concept and produced videos aligned with the same direction.",
         value:
-          "Divertida Geek gained a coherent visual foundation for both static materials and audiovisual content.",
+          "The visual foundation was created to give Divertida Geek consistency across static materials and audiovisual content.",
       },
       ru: {
         relationshipNote:
@@ -366,7 +365,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Я создал айдентику и визуальную концепцию, а затем разработал видео в рамках той же системы.",
         value:
-          "Divertida Geek получила целостную визуальную основу для статичных материалов и аудиовизуального контента.",
+          "Визуальная основа была создана для последовательной подачи Divertida Geek в статичных и аудиовизуальных материалах.",
       },
     },
   },
@@ -388,7 +387,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Prestei consultoria de processos, estrutura e marketing, criei materiais comerciais e desenvolvi o conceito de venda de celulares no boleto para pessoas com restrição de crédito, relacionando a oportunidade à PayJoy como solução a ser avaliada.",
         value:
-          "A empresa passou a contar com uma leitura mais integrada entre operação, comunicação e desenvolvimento de oportunidade comercial.",
+          "A proposta foi estruturada para aproximar operação, comunicação e desenvolvimento da oportunidade comercial.",
         summary:
           "Atuei em consultoria de processos, estrutura e marketing, desenvolvi materiais comerciais e formulei um conceito de venda de celulares no boleto para pessoas com restrição de crédito, relacionando a oportunidade à PayJoy para avaliação.",
         directActions: [
@@ -421,7 +420,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "I advised on processes, structure and marketing, created commercial materials and developed a mobile-phone payment concept for customers with credit restrictions, presenting PayJoy as a solution for the operation to assess.",
         value:
-          "The company gained a more integrated view of operations, communication and commercial-opportunity development.",
+          "The proposal was structured to connect operations, communication and commercial-opportunity development.",
         summary:
           "I advised on processes, structure and marketing, developed commercial materials and formulated a mobile-phone payment concept for customers with credit restrictions, presenting PayJoy as a solution to be assessed.",
         directActions: [
@@ -454,7 +453,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Я консультировал по процессам, структуре и маркетингу, создавал коммерческие материалы и разработал концепцию покупки телефона с оплатой по boleto для людей с ограничениями по кредитной истории, предложив PayJoy как решение для оценки компанией.",
         value:
-          "Компания получила более цельный взгляд на операционную работу, коммуникации и развитие коммерческой возможности.",
+          "Предложение было выстроено так, чтобы связать операционную работу, коммуникации и развитие коммерческой возможности.",
         summary:
           "Я консультировал по процессам, структуре и маркетингу, создавал коммерческие материалы и сформулировал концепцию покупки телефона с оплатой по boleto для людей с ограничениями по кредитной истории, предложив PayJoy для дальнейшей оценки.",
         directActions: [
@@ -482,45 +481,45 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
     copy: {
       pt: {
         relationshipNote:
-          "Criei e estruturei a Metro Case como uma marca própria, ligada ao mesmo grupo ou proprietário da Josucas Eletrônicos, mas com posicionamento e presença independentes.",
+          "Criei e estruturei a Metro Case como uma marca com identidade própria, ligada ao mesmo grupo ou proprietário da Josucas Eletrônicos.",
         context:
-          "A confiança construída com o grupo abria espaço para uma nova operação, que precisava nascer com personalidade própria sem perder a continuidade da relação comercial.",
+          "A nova marca precisava ter conceito, comunicação, posicionamento e presença digital próprios, mantendo o vínculo empresarial com a Josucas apenas como contexto.",
         disconnected:
           "O vínculo empresarial com a Josucas e a necessidade de diferenciação da nova marca pareciam objetivos opostos.",
         relation:
-          "A continuidade de confiança poderia sustentar o projeto, enquanto identidade, posicionamento e comunicação criariam autonomia para a Metro Case.",
+          "Identidade, posicionamento e comunicação poderiam diferenciar a Metro Case sem esconder a relação empresarial com a Josucas.",
         solution:
           "Criei marca, conceito, comunicação, posicionamento, presença digital e projeto de site, registrando o vínculo com a Josucas de forma secundária.",
         value:
-          "A Metro Case ganhou uma apresentação própria sem esconder a continuidade de confiança existente no grupo.",
+          "O sistema foi estruturado para apresentar a Metro Case com identidade própria e registrar o vínculo com a Josucas de forma secundária.",
       },
       en: {
         relationshipNote:
           "I created and structured Metro Case as a distinct brand connected to the same group or owner as Josucas Eletrônicos, while giving it independent positioning and presence.",
         context:
-          "The trust already established with the group created room for a new operation, which needed its own personality without losing the continuity of the commercial relationship.",
+          "The new brand needed its own concept, communication, positioning and digital presence while keeping its business link to Josucas as secondary context.",
         disconnected:
           "The corporate link to Josucas and the need to differentiate the new brand could appear to be opposing goals.",
         relation:
-          "Existing trust could support the project, while identity, positioning and communication would give Metro Case its own autonomy.",
+          "Identity, positioning and communication could differentiate Metro Case without hiding its business relationship with Josucas.",
         solution:
           "I created the brand, concept, communication, positioning, digital presence and website project, keeping the Josucas relationship as secondary context.",
         value:
-          "Metro Case gained a distinct presentation without hiding the continuity of trust within the group.",
+          "The system was structured to present Metro Case with its own identity while recording the Josucas link as secondary context.",
       },
       ru: {
         relationshipNote:
           "Я создал и структурировал Metro Case как самостоятельный бренд, связанный с той же группой или владельцем, что и Josucas Eletrônicos, но с собственным позиционированием и присутствием.",
         context:
-          "Доверие, уже сформированное в работе с группой, создавало возможность для новой операции, которой была нужна собственная индивидуальность без потери преемственности отношений.",
+          "Новому бренду были нужны собственные концепция, коммуникации, позиционирование и цифровое присутствие, а связь с Josucas оставалась вторичным контекстом.",
         disconnected:
           "Корпоративная связь с Josucas и необходимость отличать новый бренд могли казаться противоположными задачами.",
         relation:
-          "Существующее доверие могло поддержать проект, а айдентика, позиционирование и коммуникации — дать Metro Case самостоятельность.",
+          "Айдентика, позиционирование и коммуникации могли отличать Metro Case, не скрывая деловую связь с Josucas.",
         solution:
           "Я создал бренд, концепцию, коммуникации, позиционирование, цифровое присутствие и проект сайта, оставив связь с Josucas вторичным контекстом.",
         value:
-          "Metro Case получила собственную презентацию, сохранив при этом понятную преемственность доверия внутри группы.",
+          "Система была выстроена для самостоятельной подачи Metro Case с деликатным указанием связи с Josucas.",
       },
     },
   },
@@ -529,7 +528,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
     copy: {
       pt: {
         relationshipNote:
-          "Atuei em consultoria de comunicação e marketing para a Reserva Ibirapitanga e participei da produção editorial de edições da Revista Sauá.",
+          "Atuei em consultoria de comunicação e marketing para a Reserva Ibirapitanga e participei da produção editorial e da diagramação da Revista Sauá.",
         context:
           "O projeto reunia comunicação institucional, organização de conteúdo e apresentação editorial em uma publicação que precisava manter clareza e identidade entre diferentes materiais.",
         disconnected:
@@ -537,13 +536,13 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         relation:
           "A revista poderia funcionar como o ponto de encontro entre estratégia de comunicação, organização do conteúdo e experiência de leitura.",
         solution:
-          "Participei da produção da Revista Sauá, organizei conteúdos e trabalhei sua apresentação editorial, sem atribuir um número de edições ainda não confirmado.",
+          "Participei da produção editorial e da diagramação da Revista Sauá, organizei conteúdos e trabalhei sua apresentação visual.",
         value:
-          "A informação ganhou forma editorial, sequência e legibilidade, tornando a publicação uma prova concreta da atuação em comunicação e produção.",
+          "O trabalho foi estruturado para dar forma editorial, sequência e legibilidade aos conteúdos da publicação.",
       },
       en: {
         relationshipNote:
-          "I advised Reserva Ibirapitanga on communication and marketing and contributed to the editorial production of Revista Sauá editions.",
+          "I advised Reserva Ibirapitanga on communication and marketing and contributed to Revista Sauá's editorial production and layout.",
         context:
           "The project brought together institutional communication, content organization and editorial presentation in a publication that needed clarity and consistency across different materials.",
         disconnected:
@@ -551,13 +550,13 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         relation:
           "The magazine could become the meeting point between communication strategy, content organization and the reading experience.",
         solution:
-          "I contributed to Revista Sauá's production, organized content and worked on its editorial presentation, without assigning an unconfirmed number of editions.",
+          "I contributed to Revista Sauá's editorial production and layout, organized content and worked on its visual presentation.",
         value:
-          "Information gained editorial form, sequence and readability, making the publication tangible evidence of communication and production work.",
+          "The work was structured to give the publication's content editorial form, sequence and readability.",
       },
       ru: {
         relationshipNote:
-          "Я консультировал Reserva Ibirapitanga по коммуникациям и маркетингу и участвовал в редакционном производстве выпусков Revista Sauá.",
+          "Я консультировал Reserva Ibirapitanga по коммуникациям и маркетингу и участвовал в редакционном производстве и вёрстке Revista Sauá.",
         context:
           "Проект объединял институциональные коммуникации, организацию контента и редакционную подачу в издании, которому были нужны ясность и последовательность между разными материалами.",
         disconnected:
@@ -565,9 +564,9 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         relation:
           "Журнал мог стать точкой соединения стратегии коммуникации, организации содержания и читательского опыта.",
         solution:
-          "Я участвовал в производстве Revista Sauá, организовывал материалы и работал над редакционной подачей, не указывая неподтверждённое количество выпусков.",
+          "Я участвовал в редакционном производстве и вёрстке Revista Sauá, организовывал контент и работал над его визуальной подачей.",
         value:
-          "Информация получила редакционную форму, последовательность и удобство чтения, а публикация стала конкретным подтверждением работы в коммуникациях и производстве.",
+          "Работа была выстроена так, чтобы придать содержанию издания редакционную форму, последовательность и удобство чтения.",
       },
     },
   },
@@ -586,7 +585,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Transformei essa promessa em conceito de marca, identidade, comunicação e recomendações de processos e marketing.",
         value:
-          "A empresa ganhou uma apresentação mais coerente com a confiança que precisa transmitir antes mesmo do primeiro atendimento.",
+          "A solução foi estruturada para apresentar organização, cuidado e clareza antes mesmo do primeiro atendimento.",
       },
       en: {
         relationshipNote:
@@ -600,7 +599,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "I translated that promise into a brand concept, identity, communication and recommendations for processes and marketing.",
         value:
-          "The company gained a presentation that better reflects the trust it needs to establish before the first customer interaction.",
+          "The solution was structured to communicate organization, care and clarity before the first customer interaction.",
       },
       ru: {
         relationshipNote:
@@ -614,7 +613,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         solution:
           "Я превратил это обещание в концепцию бренда, айдентику, коммуникации и рекомендации по процессам и маркетингу.",
         value:
-          "Компания получила презентацию, которая лучше передаёт доверие, необходимое ещё до первого контакта с клиентом.",
+          "Решение было выстроено так, чтобы передавать организованность, внимание и ясность ещё до первого контакта с клиентом.",
       },
     },
   },
@@ -623,7 +622,7 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
     copy: {
       pt: {
         relationshipNote:
-          "Atuei em consultoria e projeto digital, com criação visual, desenvolvimento de conceito, apoio de marketing e participação na montagem do e-commerce da BSB Abrasivos.",
+          "Atuei em consultoria e projeto digital, com criação visual, desenvolvimento de conceito, marketing, projeto de e-commerce e organização comercial da comunicação da BSB Abrasivos.",
         context:
           "Produtos técnicos precisam preservar precisão e variedade sem obrigar o comprador a decifrar uma comunicação excessivamente especializada.",
         disconnected:
@@ -631,13 +630,13 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         relation:
           "A comunicação precisava traduzir informação técnica em entendimento comercial sem perder credibilidade.",
         solution:
-          "Criei artes e conceito, apoiei o marketing, prestei consultoria e participei da organização e montagem do e-commerce.",
+          "Criei artes e conceito, apoiei o marketing, prestei consultoria e atuei no projeto de e-commerce e na organização comercial da comunicação.",
         value:
-          "O portfólio técnico ganhou uma apresentação mais clara para comunicação, navegação e decisão de compra.",
+          "O trabalho foi estruturado para tornar comunicação, navegação e entendimento comercial do portfólio técnico mais claros.",
       },
       en: {
         relationshipNote:
-          "I worked on consulting and a digital project for BSB Abrasivos, covering visual creation, concept development, marketing support and participation in the e-commerce build.",
+          "I worked on consulting and a digital project for BSB Abrasivos, covering visual creation, concept development, marketing, the e-commerce project and the commercial organization of communication.",
         context:
           "Technical products need to preserve precision and variety without forcing buyers to decode overly specialized communication.",
         disconnected:
@@ -645,13 +644,13 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         relation:
           "Communication needed to translate technical information into commercial understanding without losing credibility.",
         solution:
-          "I created artwork and concept, supported marketing, provided consulting and contributed to the organization and construction of the e-commerce experience.",
+          "I created artwork and concept, supported marketing, provided consulting and worked on the e-commerce project and commercial organization of communication.",
         value:
-          "The technical portfolio gained a clearer presentation for communication, navigation and purchase decisions.",
+          "The work was structured to clarify communication, navigation and the commercial understanding of the technical portfolio.",
       },
       ru: {
         relationshipNote:
-          "Я работал над консалтингом и digital-проектом BSB Abrasivos: создавал визуальные материалы и концепцию, поддерживал маркетинг и участвовал в создании интернет-магазина.",
+          "Я работал над консалтингом и digital-проектом BSB Abrasivos: создавал визуальные материалы и концепцию, поддерживал маркетинг, проект интернет-магазина и коммерческую организацию коммуникаций.",
         context:
           "Технические продукты должны сохранять точность и разнообразие, не заставляя покупателя разбираться в чрезмерно специализированной коммуникации.",
         disconnected:
@@ -659,9 +658,9 @@ const careerEditorialEntries: Record<string, CareerEditorialRecord> = {
         relation:
           "Коммуникации должны были переводить техническую информацию в понятную коммерческую форму, не теряя доверия.",
         solution:
-          "Я создавал графические материалы и концепцию, поддерживал маркетинг, консультировал и участвовал в организации и создании интернет-магазина.",
+          "Я создавал графические материалы и концепцию, поддерживал маркетинг, консультировал и работал над проектом интернет-магазина и коммерческой организацией коммуникаций.",
         value:
-          "Технический ассортимент получил более ясную подачу для коммуникации, навигации и принятия решения о покупке.",
+          "Работа была выстроена для более ясной коммуникации, навигации и коммерческого понимания технического ассортимента.",
       },
     },
   },

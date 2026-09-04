@@ -7,8 +7,15 @@ export const metadata: Metadata = {
   title: "Trajetória — Lucas de Oliveira Andrade",
   description:
     "Conheça a trajetória profissional de Lucas de Oliveira Andrade em vendas, gestão, marketing, consultoria, conteúdo e direção criativa desde 2010.",
-  alternates: { canonical: "/career" },
-  openGraph: { url: "/career" },
+  alternates: { canonical: "/career/" },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "/career/",
+    title: "Trajetória — Lucas de Oliveira Andrade",
+    description: "Trajetória profissional em vendas, gestão, marketing, consultoria, conteúdo e direção criativa desde 2010.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Lucas de Oliveira Andrade — Portfólio pessoal" }],
+  },
 };
 
 export default function CareerPage() {
