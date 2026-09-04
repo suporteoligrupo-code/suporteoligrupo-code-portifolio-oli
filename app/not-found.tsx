@@ -6,7 +6,6 @@ import SiteHeader from "../components/site-header";
 
 export const metadata: Metadata = {
   title: "Página não encontrada — Lucas de Oliveira Andrade",
-  robots: { index: false, follow: false },
 };
 
 export default function NotFound() {
