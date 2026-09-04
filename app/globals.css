@@ -676,6 +676,7 @@ img { display: block; max-width: 100%; }
   padding: clamp(44px, 7vw, 110px);
   border: 1px solid var(--line-dark);
   background: var(--coal);
+  color: var(--white);
 }
 .contact-stage::before {
   display: none;
