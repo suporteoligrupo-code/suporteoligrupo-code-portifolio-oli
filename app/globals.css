@@ -1534,6 +1534,7 @@ footer p:last-child { justify-self: end; }
   .career-index-hero h1 { font-size: clamp(48px, 14vw, 74px); }
   .career-index-section { padding-bottom: 100px; }
   .career-index-section__heading { grid-template-columns: 1fr; }
+  .not-found-stage h1 { font-size: clamp(42px, 13vw, 60px); overflow-wrap: anywhere; hyphens: auto; }
   .career-hero { min-height: 0; grid-template-columns: 1fr; padding: 20px 18px 0; }
   .career-hero__topline { font-size: 9px; }
   .career-hero__content,
@@ -1596,13 +1597,17 @@ footer p:last-child { justify-self: end; }
 }
 
 .contact-stage h2,
+.career-index-hero h1,
+.career-hero__content h1,
 .career-media-section__heading h2,
 .career-contact h2,
 .career-next > a span,
+.case-hero h1,
 .case-work__heading h2,
 .case-system__header h2,
 .case-contact h2,
-.case-next > a span {
+.case-next > a span,
+.not-found-stage h1 {
   overflow-wrap: anywhere;
   hyphens: auto;
 }
