@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import SiteFooter from "../components/site-footer";
 import SiteHeader from "../components/site-header";
+
+export const metadata: Metadata = {
+  title: "Página não encontrada — Lucas de Oliveira Andrade",
+};
 
 export default function NotFound() {
   return (
