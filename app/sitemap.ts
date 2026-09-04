@@ -9,27 +9,27 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/cases`,
+      url: `${baseUrl}/cases/`,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/career`,
+      url: `${baseUrl}/career/`,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     ...publishedCareerEntries.map((item) => ({
-      url: `${baseUrl}/career/${item.slug}`,
+      url: `${baseUrl}/career/${item.slug}/`,
       changeFrequency: "monthly" as const,
       priority: 0.85,
     })),
     ...publicCases.map((item) => ({
-      url: `${baseUrl}/cases/${item.slug}`,
+      url: `${baseUrl}/cases/${item.slug}/`,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),

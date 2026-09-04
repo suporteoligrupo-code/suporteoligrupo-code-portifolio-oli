@@ -32,7 +32,7 @@ export async function generateMetadata({
   const title = `${localized.company} — Trajetória de Lucas de Oliveira Andrade`;
   const url = `${siteUrl}/career/${localized.slug}/`;
   const cover = localized.cover ?? localized.hero ?? localized.media[0];
-  const image = cover ? new URL(cover.src, siteUrl).toString() : undefined;
+  const image = new URL(cover?.src ?? "/og.jpg", siteUrl).toString();
 
   return {
     title,
@@ -43,13 +43,13 @@ export async function generateMetadata({
       url,
       title,
       description: localized.summary,
-      images: image ? [{ url: image, alt: cover?.alt ?? localized.company }] : undefined,
+      images: [{ url: image, alt: cover?.alt ?? "Lucas de Oliveira Andrade — Portfólio pessoal" }],
     },
     twitter: {
-      card: image ? "summary_large_image" : "summary",
+      card: "summary_large_image",
       title,
       description: localized.summary,
-      images: image ? [image] : undefined,
+      images: [image],
     },
   };
 }

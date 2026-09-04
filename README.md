@@ -4,13 +4,13 @@ Portfólio pessoal de carreira de Lucas de Oliveira Andrade. O site apresenta um
 
 ## Estrutura
 
-- home cinematográfica com apresentação pessoal, trajetória, experiências, parcerias, competências e impacto social;
+- home editorial com apresentação pessoal, trajetória, experiências, parcerias, competências e impacto social;
 - cards de carreira com dados centralizados em `app/data/career.ts`;
 - página dedicada para cada experiência em `/career/[slug]`;
 - galeria separada de trabalhos visuais em `/cases` e `/cases/[slug]`;
 - dados visuais centralizados em `app/data/cases.ts`;
 - galeria de materiais reais e links para projetos publicados;
-- layout responsivo em PT/EN/RU;
+- interface visível em português, com a arquitetura de tradução preservada internamente;
 - rotas exportadas estaticamente e compatíveis com Vercel e Sites.
 
 ## Experiências e trabalhos
@@ -31,6 +31,7 @@ npm run dev
 ## Verificação
 
 ```bash
+npm run typecheck
 npm run build
 ```
 

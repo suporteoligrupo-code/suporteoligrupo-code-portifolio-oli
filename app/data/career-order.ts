@@ -2,7 +2,6 @@ const careerPrioritySlugs = [
   "rico-games",
   "toy-show",
   "manifesto-bar",
-  "through-to-the-wolves",
   "urly-marketing",
   "josucas-eletronicos",
   "metro-case",

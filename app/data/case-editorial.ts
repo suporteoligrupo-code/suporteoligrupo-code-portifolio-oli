@@ -122,10 +122,10 @@ export function reviewPortfolioCase(
       ...item.cover,
       label:
         language === "pt"
-          ? "Conceito de experiência digital"
+          ? "Referência de atmosfera da casa"
           : language === "en"
-            ? "Digital experience concept"
-            : "Концепция цифрового опыта",
+            ? "Venue atmosphere reference"
+            : "Референс атмосферы площадки",
     },
   };
 }

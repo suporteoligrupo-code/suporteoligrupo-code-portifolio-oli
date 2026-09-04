@@ -20,11 +20,7 @@ export default function CareerCard({ item }: { item: CareerEntry }) {
   const cover = localized.cover ?? localized.media[0];
   const period = localized.period;
   const relationship = localized.relationshipDetail ?? localized.relationship;
-  const mediaSizes = item.slug === "rico-games"
-    ? "100vw"
-    : item.featured
-      ? "(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 58vw"
-      : "(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 34vw";
+  const mediaSizes = "(max-width: 760px) 100vw, 50vw";
 
   return (
     <article
@@ -49,7 +45,7 @@ export default function CareerCard({ item }: { item: CareerEntry }) {
 
           <div className="career-card__body">
             <h3>{localized.company}</h3>
-            <p className="career-card__roles">{localized.roles.join(" · ")}</p>
+            <p className="career-card__roles">{localized.roles.slice(0, 3).join(" · ")}</p>
             <p className="career-card__summary">{localized.summary}</p>
             <ul className="career-card__competencies" aria-label={copy.competenciesLabel}>
               {localized.competencies.slice(0, 3).map((competency) => (
