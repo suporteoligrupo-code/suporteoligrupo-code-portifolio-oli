@@ -11,6 +11,7 @@ import {
 } from "../app/data/cases";
 import { localizeCase, siteCopy, withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
+import { getProjectVisuals } from "../app/data/project-media";
 import MediaFrame, { getGalleryLayout, getGallerySizes, getGalleryStyle } from "./media-frame";
 import SiteFooter from "./site-footer";
 import SiteHeader, { linkedinUrl } from "./site-header";
@@ -119,6 +120,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
   const localized = reviewPortfolioCase(localizeCase(item, language), language);
   const localizedNext = reviewPortfolioCase(localizeCase(next, language), language);
   const heroMedia = localized.hero ?? localized.cover;
+  const visuals = getProjectVisuals(localized);
   const projectCopy = siteCopy[language].project;
   const titleSuffix = projectCopy.titleSuffix;
   const copy = personalCaseCopy[language];
@@ -143,7 +145,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
     <div className={`case-page case-page--${localized.cardTone} case-page--${localized.slug}`} style={style}>
       <SiteHeader inner />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="case-hero">
           <div className="case-hero__topline">
             <Link href={withLanguage("/#projetos", language)}>
@@ -161,13 +163,14 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
               <div className="case-hero__intro">
                 <strong>{localized.headline}</strong>
                 <p>{localized.summary}</p>
-                {localized.liveUrl ? (
-                  <div className="case-hero__actions">
+                <div className="case-hero__actions">
+                  <a href="#registros">Ver conteúdos e aplicações <ArrowUpRight aria-hidden="true" size={17} /></a>
+                  {localized.liveUrl ? (
                     <a href={localized.liveUrl} target="_blank" rel="noreferrer">
                       {workLinkLabel} <ArrowUpRight aria-hidden="true" size={17} />
                     </a>
-                  </div>
-                ) : null}
+                  ) : null}
+                </div>
               </div>
             </div>
 
@@ -222,28 +225,32 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
           </div>
         </section>
 
-        <section className="case-work">
+        <section className="case-work" id="registros">
           <div className="case-work__heading">
             <span>{copy.galleryIndex}</span>
             <h2>{copy.galleryTitle}<span>.</span></h2>
             <p>{copy.galleryText}</p>
           </div>
 
-          <div className={`case-gallery case-gallery--${localized.gallery.length}`}>
-            {localized.gallery.map((image, index) => (
+          <div className={`case-gallery case-gallery--${visuals.length}`}>
+            {visuals.map(({ image, description }, index) => (
               <figure
                 className={`case-gallery__item case-gallery__item--${getGalleryLayout(image)}`}
                 key={`${image.src}-${index}`}
                 style={getGalleryStyle(image)}
               >
-                <div className="case-gallery__canvas">
+                <a className="case-gallery__canvas" href={image.src} target="_blank" rel="noreferrer" aria-label={`Ampliar: ${image.label}`}>
                   <MediaFrame
                     image={image}
                     context="gallery"
                     sizes={getGallerySizes(image)}
                   />
-                </div>
-                <figcaption><span>{String(index + 1).padStart(2, "0")}</span>{image.label}</figcaption>
+                </a>
+                <figcaption>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div><strong>{image.label}</strong>{description ? <p>{description}</p> : null}</div>
+                  <span className="case-gallery__hint" aria-hidden="true"><ArrowUpRight size={16} /></span>
+                </figcaption>
               </figure>
             ))}
 

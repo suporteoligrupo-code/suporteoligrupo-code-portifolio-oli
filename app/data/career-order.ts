@@ -1,12 +1,12 @@
 const careerPrioritySlugs = [
   "rico-games",
   "toy-show",
-  "manifesto-bar",
-  "urly-marketing",
   "josucas-eletronicos",
   "metro-case",
-  "reserva-ibirapitanga-revista-saua",
   "divertida-geek",
+  "manifesto-bar",
+  "urly-marketing",
+  "reserva-ibirapitanga-revista-saua",
   "oliveira-transportes",
   "bsb-abrasivos",
 ] as const;

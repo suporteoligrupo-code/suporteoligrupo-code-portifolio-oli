@@ -10,6 +10,7 @@ import {
 } from "../app/data/cases";
 import { localizeCase, siteCopy, withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
+import { projectBrandCovers } from "../app/data/project-media";
 import MediaFrame from "./media-frame";
 
 type CaseStyle = CSSProperties & {
@@ -27,7 +28,8 @@ export default function CaseCard({ item }: { item: PortfolioCase }) {
     "--case-soft": localized.accentSoft,
     "--case-ink": localized.ink,
   };
-  const mediaSizes = "(max-width: 760px) 100vw, 50vw";
+  const brandCover = projectBrandCovers[localized.slug];
+  const mediaSizes = "(max-width: 760px) 70vw, 360px";
 
   return (
     <article
@@ -38,8 +40,8 @@ export default function CaseCard({ item }: { item: PortfolioCase }) {
         href={withLanguage(`/cases/${localized.slug}`, language)}
         aria-label={`${copy.openProject} ${localized.client}`}
       >
-        <figure className="case-card__visual">
-          <MediaFrame image={localized.cover} context="card" sizes={mediaSizes} />
+        <figure className={`case-card__visual${brandCover ? " case-card__visual--brand" : ""}`}>
+          <MediaFrame image={brandCover ?? localized.cover} context="card" sizes={mediaSizes} />
           <span className="case-card__open">
             <span>{copy.viewProject}</span>
             <ArrowUpRight aria-hidden="true" size={18} />

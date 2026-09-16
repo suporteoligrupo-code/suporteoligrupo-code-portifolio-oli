@@ -19,7 +19,7 @@ export default function CasesIndexContent({ items }: { items: PortfolioCase[] })
   return (
     <div className="site-page cases-index-page">
       <SiteHeader inner />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <header className="cases-index-hero section-shell">
           <span>
             {copy.eyebrow} · {String(items.length).padStart(2, "0")} {copy.countSuffix}

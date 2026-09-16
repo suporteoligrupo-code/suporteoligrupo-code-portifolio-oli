@@ -12,7 +12,7 @@ export default function NotFound() {
   return (
     <div className="site-page not-found-page">
       <SiteHeader inner />
-      <main className="not-found-stage section-shell">
+      <main id="main-content" tabIndex={-1} className="not-found-stage section-shell">
         <p>404 / Portfólio pessoal</p>
         <h1>Página não encontrada.</h1>
         <span>O endereço pode ter mudado ou o conteúdo ainda não está publicado.</span>
