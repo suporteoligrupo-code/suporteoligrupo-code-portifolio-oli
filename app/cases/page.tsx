@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import CasesIndexContent from "../../components/cases-index-content";
 import { reviewPortfolioCases } from "../data/case-editorial";
 import { publicCases } from "../data/cases";
+import { sortPositionedProjects } from "../data/positioning";
 
 export const metadata: Metadata = {
   title: "Trabalhos selecionados — Lucas de Oliveira Andrade",
@@ -18,5 +19,5 @@ export const metadata: Metadata = {
 };
 
 export default function CasesPage() {
-  return <CasesIndexContent items={reviewPortfolioCases(publicCases)} />;
+  return <CasesIndexContent items={sortPositionedProjects(reviewPortfolioCases(publicCases))} />;
 }

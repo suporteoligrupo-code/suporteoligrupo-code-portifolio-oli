@@ -1,22 +1,11 @@
 import HomeContent from "../components/home-content";
-import { featuredCareerEntries } from "./data/career";
-import { sortCareerEntries } from "./data/career-order";
+import { publishedCareerEntries } from "./data/career";
 import { sanitizeCareerEntries } from "./data/career-sanitizer";
-
-const homeCareerSlugs = [
-  "rico-games",
-  "toy-show",
-  "manifesto-bar",
-  "urly-marketing",
-  "josucas-eletronicos",
-  "metro-case",
-  "reserva-ibirapitanga-revista-saua",
-];
+import { homeCareerSlugs } from "./data/positioning";
 
 export default function Home() {
-  const entries = sortCareerEntries(sanitizeCareerEntries(featuredCareerEntries))
-    .filter((entry) => homeCareerSlugs.includes(entry.slug))
-    .slice(0, 7);
+  const published = sanitizeCareerEntries(publishedCareerEntries);
+  const entries = homeCareerSlugs.flatMap((slug) => published.filter((entry) => entry.slug === slug));
 
   return <HomeContent featuredCareerEntries={entries} />;
 }

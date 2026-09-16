@@ -367,7 +367,6 @@ img { display: block; max-width: 100%; }
 .partnerships,
 .capabilities,
 .method,
-.impact,
 .contact-shell { scroll-margin-top: 76px; }
 .positioning-copy .eyebrow { margin-bottom: 24px; }
 .positioning-copy h2 {
@@ -637,32 +636,6 @@ img { display: block; max-width: 100%; }
   text-transform: uppercase;
 }
 
-/* Social impact */
-.impact { display: block; padding: 0; background: var(--coal); color: var(--white); }
-.impact-copy { min-height: 430px; display: grid; grid-template-columns: minmax(150px, .28fr) minmax(0, 1fr); gap: 20px clamp(32px, 6vw, 96px); align-content: center; max-width: 1440px; margin-inline: auto; padding: clamp(70px, 8vw, 124px) clamp(20px, 4.6vw, 76px); }
-.impact-label { display: flex; align-items: center; gap: 10px; font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
-.impact-copy > strong {
-  display: block;
-  grid-row: 2 / span 2;
-  margin-top: 18px;
-  color: var(--orange);
-  font-family: var(--display);
-  font-size: clamp(92px, 12vw, 180px);
-  font-weight: 900;
-  letter-spacing: -0.1em;
-  line-height: 0.66;
-}
-.impact-copy h2 {
-  max-width: 760px;
-  margin: 18px 0 0;
-  font-family: var(--display);
-  font-size: clamp(36px, 4.3vw, 68px);
-  font-weight: 900;
-  letter-spacing: -0.065em;
-  line-height: 0.9;
-  text-transform: uppercase;
-}
-.impact-copy > p { max-width: 610px; margin: 0; color: rgba(255, 255, 255, 0.72); font-size: 14px; line-height: 1.65; }
 /* Contact */
 .contact-shell { padding: 12px; background: var(--black); }
 .contact-stage {
@@ -1517,9 +1490,6 @@ footer p:last-child { justify-self: end; }
   .service-title { grid-template-columns: 34px minmax(0, 1fr) auto; }
   .service-list article > p,
   .service-list article > div:last-child { margin-left: 50px; }
-  .impact-copy { min-height: auto; grid-template-columns: 1fr; gap: 18px; padding: 70px 20px 76px; }
-  .impact-copy > strong { grid-row: auto; margin-top: 24px; font-size: 31vw; }
-  .impact-copy h2 { margin-top: 8px; font-size: clamp(36px, 11vw, 54px); }
   .contact-shell { padding: 7px; }
   .contact-stage { min-height: 420px; padding: 48px 20px; }
   .contact-stage h2 { font-size: clamp(40px, 12vw, 62px); }

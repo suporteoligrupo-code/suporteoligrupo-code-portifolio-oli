@@ -1,3 +1,5 @@
+import { sortPositionedProjects } from "./positioning";
+
 export type MediaKind =
   | "photo"
   | "website"
@@ -1870,8 +1872,9 @@ export function getCase(slug: string) {
 export const publicCases = cases.filter((item) => item.visible);
 
 export function getNextCase(slug: string) {
-  const index = publicCases.findIndex((item) => item.slug === slug);
+  const orderedCases = sortPositionedProjects(publicCases);
+  const index = orderedCases.findIndex((item) => item.slug === slug);
   return index >= 0
-    ? publicCases[(index + 1) % publicCases.length]
-    : publicCases[0];
+    ? orderedCases[(index + 1) % orderedCases.length]
+    : orderedCases[0];
 }

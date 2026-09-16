@@ -16,7 +16,7 @@ export default function SiteHeader({ inner = false }: { inner?: boolean }) {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const navItems = [
     [copy.journey, "/#trajetoria"],
-    [copy.companies, "/#empresas"],
+    ["Lucas + OLI", "/#oli"],
     [copy.projects, "/#projetos"],
     [copy.contact, "/#contato"],
   ] as const;

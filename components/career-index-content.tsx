@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import type { CareerEntry } from "../app/data/career";
 import { careerUiCopy } from "../app/data/career";
 import { sortCareerEntries } from "../app/data/career-order";
+import { focusedCareerSlugs } from "../app/data/positioning";
 import CareerCard from "./career-card";
 import { useLanguage } from "./language-provider";
 import SiteFooter from "./site-footer";
@@ -13,8 +14,8 @@ export default function CareerIndexContent({ entries }: { entries: CareerEntry[]
   const { language } = useLanguage();
   const copy = careerUiCopy[language].index;
   const orderedEntries = sortCareerEntries(entries);
-  const featuredEntries = orderedEntries.filter((entry) => entry.featured);
-  const otherEntries = orderedEntries.filter((entry) => !entry.featured);
+  const featuredEntries = orderedEntries.filter((entry) => focusedCareerSlugs.includes(entry.slug));
+  const otherEntries = orderedEntries.filter((entry) => !focusedCareerSlugs.includes(entry.slug));
 
   useEffect(() => {
     document.title = copy.pageTitle;
