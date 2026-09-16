@@ -103,6 +103,7 @@ Solicitação de Lucas: substituir capas pouco representativas pelos logos das e
 - Conteúdos sociais existentes ganham prioridade nas galerias. Legendas explicam a função de peças da Rico, Eletrotech, GRU, Josucas, Metro e Oliveira.
 - Galerias agora permitem abrir o arquivo completo; a hero oferece atalho para os conteúdos e aplicações.
 - Na galeria da Josucas, duas cenas genéricas de assistência/atendimento e o logo repetido deixam de ser exibidos. Os arquivos e dados originais permanecem no repositório.
+- Na Eletrotech, o painel de feed repetia as peças agora mostradas individualmente. Ele deixa de ser exibido para evitar repetição e favorecer a leitura das duas artes completas; o original permanece preservado.
 - Os tratamentos de hero, enquadramentos individuais e páginas de carreira permanecem preservados. Novos materiais têm versões WebP responsivas.
 - O logo da Oliveira disponível no acervo tem 150 × 150 px; sua exibição fica limitada ao tamanho original, inclusive no mobile.
 
@@ -124,6 +125,7 @@ O Instagram da Rico redirecionou para login, impedindo a captura e a comparaçã
 
 - `npm run build`: aprovado, 27 rotas geradas pelo Next.
 - `npm run typecheck`: aprovado.
-- `node scripts/check-positioning.mjs`: aprovado; 24 páginas HTML, 352 links internos, imagens originais e responsivas, dez capas de marca, destinos das galerias e 23 URLs no sitemap.
+- `node scripts/check-positioning.mjs`: aprovado; 24 páginas HTML, 351 links internos, imagens originais e responsivas, dez capas de marca, destinos das galerias e 23 URLs no sitemap.
 - Lint continua sem configuração.
 - Deploy: preview automático pela mesma integração GitHub–Vercel; produção permanece em `a52db88fb56492be3312f933262c06167f992e6d`.
+- Preview v04: dez logos carregados, dez páginas internas de projetos abertas sem overflow horizontal no desktop, atalhos para as galerias funcionando e abertura da arte em nova aba confirmada. Inspeção visual das capas e dos conteúdos da Rico e Eletrotech realizada. Link temporário sem login aberto com sucesso, sem guardar o token neste arquivo.

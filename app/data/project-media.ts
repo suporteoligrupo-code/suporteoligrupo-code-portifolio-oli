@@ -104,11 +104,12 @@ const descriptions: Record<string, string> = {
 };
 
 export function getProjectVisuals(item: PortfolioCase): ProjectVisual[] {
-  // Product/assistance stock scenes and the repeated Josucas logo no longer
-  // compete with the approved communication work. Originals stay in the repo.
-  const omitted = item.slug === "josucas-eletronicos"
-    ? new Set(["/cases/josucas/assistencia.avif", "/cases/josucas/atendimento.avif", "/cases/josucas/logo-oficial.svg"])
-    : new Set<string>();
+  // Keep the original files while avoiding generic scenes and duplicated work.
+  const omittedByProject: Record<string, string[]> = {
+    "josucas-eletronicos": ["/cases/josucas/assistencia.avif", "/cases/josucas/atendimento.avif", "/cases/josucas/logo-oficial.svg"],
+    "eletrotech-isa": ["/cases/eletrotech-isa/feed.jpg"],
+  };
+  const omitted = new Set(omittedByProject[item.slug] ?? []);
   const gallery = item.gallery.filter((image) => !omitted.has(image.src));
   const ordered = [...gallery].sort((a, b) => Number(b.kind === "social") - Number(a.kind === "social"));
   return [
