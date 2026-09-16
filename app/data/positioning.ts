@@ -3,19 +3,19 @@ export const homeCareerSlugs = [
   "rico-games",
   "toy-show",
   "josucas-eletronicos",
-  "metro-case",
+  "divertida-geek",
 ] as const;
 
-export const focusedCareerSlugs: readonly string[] = [...homeCareerSlugs, "divertida-geek"];
+export const focusedCareerSlugs: readonly string[] = [...homeCareerSlugs, "metro-case"];
 
 export const homeProjectSlugs = [
   "rico-games",
+  "gru-kpop-anime",
   "josucas-eletronicos",
   "metro-case",
-  "eletrotech-isa",
 ] as const;
 
-const projectPriority: readonly string[] = [...homeProjectSlugs, "gru-kpop-anime"];
+const projectPriority: readonly string[] = [...homeProjectSlugs, "eletrotech-isa"];
 
 export function sortPositionedProjects<T extends { slug: string }>(items: readonly T[]): T[] {
   const priority = (slug: string) => {
@@ -31,12 +31,12 @@ export const oliPositioning = {
   index: "02 / Lucas + OLI",
   eyebrow: "Uma atuação, duas dimensões",
   title: "Experiência pessoal. Direção para o seu negócio.",
-  text: "Eu trago a vivência de quem vende, atende, cria e participa das decisões. A OLI é a marca pela qual organizo essa atuação em estratégia, marketing e direção criativa para negócios de games e tecnologia.",
+  text: "Eu trago a vivência de quem vende, atende, cria e participa das decisões. A OLI é a marca pela qual organizo essa atuação em estratégia, marketing e direção criativa para negócios de games, tecnologia e cultura geek e pop.",
   scope: "Meu foco é conectar produto, público, operação e comunicação — da leitura do negócio à execução de campanhas, conteúdos, marcas e experiências digitais.",
   audienceTitle: "Para quem faz sentido",
   audiences: [
-    { title: "Games e cultura geek", text: "Lojas, marcas e negócios ligados a consoles, jogos, acessórios e cultura geek." },
-    { title: "Tecnologia e eletrônicos", text: "Varejo e e-commerce de celulares, informática, periféricos e produtos de tecnologia." },
-    { title: "Serviços especializados", text: "Assistências técnicas e negócios que precisam comunicar com clareza o valor do que fazem." },
+    { title: "Games", text: "Lojas, marcas e negócios ligados a consoles, jogos, acessórios e ao público gamer." },
+    { title: "Tecnologia e eletrônicos", text: "Varejo, e-commerce e assistências técnicas de celulares, informática, periféricos e consoles." },
+    { title: "Cultura geek e pop", text: "Lojas, marcas e projetos de colecionáveis, anime, mangá, quadrinhos, K-pop e entretenimento." },
   ],
 };

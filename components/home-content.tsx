@@ -53,7 +53,7 @@ export default function HomeContent({ featuredCareerEntries }: { featuredCareerE
           <ol className="journey-stages" aria-label="Evolução profissional desde 2010">
             <li><span>2010</span><strong>Rico Games</strong><p>Vendas e atendimento: a base para compreender público, objeções e operação.</p></li>
             <li><span>Evolução</span><strong>Comercial, marketing e gestão</strong><p>A experiência da linha de frente passou a orientar ofertas, campanhas, conteúdo e decisões do negócio.</p></li>
-            <li><span>Hoje</span><strong>Games e tecnologia como foco</strong><p>Continuo na Rico Games e conecto esse repertório à consultoria, à comunicação e à direção criativa.</p></li>
+            <li><span>Hoje</span><strong>Games, tecnologia e cultura pop</strong><p>Continuo na Rico Games e conecto esse repertório à consultoria, à comunicação e à direção criativa para esses mercados.</p></li>
           </ol>
         </section>
 

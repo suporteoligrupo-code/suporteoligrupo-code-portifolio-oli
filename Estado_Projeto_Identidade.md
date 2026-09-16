@@ -1,4 +1,4 @@
-# Lucas + OLI — rascunho de posicionamento v01
+# Lucas + OLI — rascunho de posicionamento v02
 
 ## Estado e autorização
 
@@ -13,21 +13,21 @@
 
 ## Direção do rascunho
 
-“Estratégia, marketing e negócios para games e tecnologia.”
+“Estratégia e marketing para games, tecnologia e cultura geek e pop.”
 
 Lucas permanece o sujeito da narrativa e a origem da experiência. A OLI é apresentada como a marca que organiza sua atuação. A proposta não atribui à OLI a fundação em 2010, equipe, contratos, resultados ou clientes próprios.
 
-Tecnologia aparece ao lado de games, especialmente em varejo, eletrônicos, celulares, acessórios, presença digital e comunicação de serviços especializados. Não há alegação de especialização universal em engenharia, programação, hardware ou desenvolvimento de jogos.
+Tecnologia aparece ao lado de games, especialmente em varejo, eletrônicos, celulares, acessórios, presença digital e comunicação de serviços especializados. A pedido de Lucas, cultura geek e pop passa a ser um terceiro público explícito, incluindo negócios de colecionáveis, anime, mangá, quadrinhos, K-pop e entretenimento. São públicos de interesse, não alegações de projetos já realizados em cada categoria. Não há alegação de especialização universal em engenharia, programação, hardware ou desenvolvimento de jogos.
 
 ## Apontamentos: o que muda e por quê
 
 | Área | Mudança | Motivo |
 |---|---|---|
-| Hero | Posicionamento games + tecnologia, experiência na Rico e ligação com OLI | Explicar rapidamente foco, base profissional e forma de atuação |
+| Hero | Posicionamento games + tecnologia + cultura geek e pop, experiência na Rico e ligação com OLI | Explicar rapidamente foco, base profissional e forma de atuação |
 | Trajetória | “Antes da campanha, o balcão.” e progressão desde 2010 | Diferenciar vivência operacional de uma oferta apenas visual |
 | Lucas + OLI | Nova seção, com três públicos prioritários | Integrar as duas identidades sem aparência de agência genérica |
-| Experiências da home | Rico, Toy Show, Josucas, Metro | Quatro provas com relação direta ou adjacente ao foco |
-| Projetos da home | Rico, Josucas, Metro, Eletrotech ISA | Mostrar games, eletrônicos e serviços especializados com material existente |
+| Experiências da home | Rico, Toy Show, Josucas, Divertida Geek | Quatro provas com relação direta ou adjacente ao foco; Metro continua no índice e nos projetos |
+| Projetos da home | Rico, GRU KPOP Anime, Josucas, Metro | Mostrar os três mercados com material existente; Eletrotech ISA continua no arquivo |
 | Índices | Novo foco primeiro; outros setores preservados | Mudar a hierarquia, não apagar a trajetória |
 | Parcerias | Relações contextualizadas na Rico; não clientes da OLI | Evitar transferência indevida de credenciais |
 | Como contribuo | Oferta, operação, conteúdo e presença digital | Conectar competências a necessidades concretas |
@@ -38,7 +38,7 @@ Tecnologia aparece ao lado de games, especialmente em varejo, eletrônicos, celu
 
 - Base editorial grafite/off-white/laranja, fontes e enquadramentos aprovados.
 - Nenhum arquivo de imagem removido, substituído ou criado artificialmente.
-- Capa do Manifesto sai somente da home; capa existente da Eletrotech entra com seu tratamento individual original.
+- Capa do Manifesto sai somente da home. Na v02, GRU KPOP Anime substitui Eletrotech na seleção principal, com o enquadramento individual original. Ambas continuam no arquivo.
 - Retrato preservado, com tamanho menor no mobile; focal point intacto.
 - Sistema `MediaFrame`: fit, position, scale, inset, limites, frame, overlay, motion e configuração mobile intactos.
 - Dez experiências e dez projetos continuam disponíveis. Status de conceito, consultoria e desenvolvimento não foram promovidos.
@@ -50,12 +50,12 @@ Tecnologia aparece ao lado de games, especialmente em varejo, eletrônicos, celu
 
 ## Verificações e limites
 
-- TypeScript e build local: aprovados na primeira validação; repetir no fechamento.
+- TypeScript e build local: aprovados na v01; repetidos na v02 antes do deploy.
 - Lint: não configurado no projeto. Não declarar como aprovado.
 - Regressão automatizada: `node scripts/check-positioning.mjs`, após o build.
 - Produção existente: home, índices e vinte rotas internas acessados antes da publicação do rascunho.
 - Mobile: regras de 320–430 px revisadas no código; o navegador disponível não oferece alteração de viewport. Validação visual nesses tamanhos e em tablet permanece pendente, sem alegação de teste real.
-- Preview Vercel e revisão visual desktop: a confirmar após deploy da branch.
+- Preview Vercel v01: READY (`4dddc0a`). O acesso sem login foi autorizado por Lucas e testado por link temporário. A v02 será publicada na mesma branch e terá novo link temporário, sem guardar tokens no repositório.
 - Produção: não alterar nesta etapa.
 
 ## Pendências reais
@@ -68,4 +68,11 @@ Tecnologia aparece ao lado de games, especialmente em varejo, eletrônicos, celu
 
 ## Próxima ação autorizada
 
-Publicar e verificar apenas o preview da branch. Não integrar à main nem promover o deploy sem aprovação do rascunho.
+Publicar e verificar apenas o preview da branch, com acesso temporário sem login já solicitado por Lucas. Não integrar à main nem promover o deploy sem aprovação do rascunho.
+
+## Alterações solicitadas nesta revisão
+
+- 16/09/2026: incluir mercado geek e cultura pop no posicionamento.
+- Atualizar hero, públicos da OLI, trajetória, textos de seleção, contato, rodapé e metadados.
+- Dar destaque a GRU KPOP Anime nos projetos e Divertida Geek nas experiências, mantendo quatro cards em cada seleção da home.
+- Preservar os fatos profissionais, os status de cada trabalho e os tratamentos individuais de mídia.

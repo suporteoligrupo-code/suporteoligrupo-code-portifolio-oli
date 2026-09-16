@@ -14,13 +14,13 @@ const caseSlugs = readdirSync(path.join(output, "cases"), { withFileTypes: true 
 
 assert.equal(careerSlugs.length, 10, "Preserve all ten confirmed experiences");
 assert.equal(caseSlugs.length, 10, "Preserve all ten public projects");
-assert.match(home, /Estratégia, marketing e negócios para games e tecnologia/);
+assert.match(home, /Estratégia e marketing para games, tecnologia e cultura geek e pop/);
 assert.match(home, /id="oli"/);
 assert.match(home, /10% da renda bruta/);
 assert.match(home, /2010–atual/);
 assert.equal((home.match(/class="career-card[\s"]/g) ?? []).length, 4);
 assert.equal((home.match(/class="case-card[\s"]/g) ?? []).length, 4);
-for (const slug of ["rico-games", "josucas-eletronicos", "metro-case", "eletrotech-isa"]) {
+for (const slug of ["rico-games", "gru-kpop-anime", "josucas-eletronicos", "metro-case"]) {
   assert.ok(home.includes(`/cases/${slug}/`), `Home should feature ${slug}`);
 }
 assert.ok(!home.includes('/cases/manifesto-bar/'), "Manifesto stays in the archive");
