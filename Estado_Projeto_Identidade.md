@@ -1,4 +1,4 @@
-# Lucas + OLI — rascunho de posicionamento v03
+# Lucas + OLI — rascunho de posicionamento v04
 
 ## Estado e autorização
 
@@ -37,7 +37,7 @@ Tecnologia aparece ao lado de games, especialmente em varejo, eletrônicos, celu
 ## Ativos bloqueados e preservados
 
 - Base grafite/off-white/laranja e enquadramentos preservados. Na v03, Lucas autorizou aproximar a interface de um app gamer/tecnológico discreto, tomando a Rico Games Experience como referência de navegação e organização.
-- Nenhum arquivo de imagem removido, substituído ou criado artificialmente.
+- Nenhum arquivo de imagem original removido ou criado artificialmente. Na v04, logos e peças reais adicionais passam a compor as capas e galerias.
 - Capa do Manifesto sai somente da home. Na v02, GRU KPOP Anime substitui Eletrotech na seleção principal, com o enquadramento individual original. Ambas continuam no arquivo.
 - Retrato preservado, com tamanho menor no mobile; focal point intacto.
 - Sistema `MediaFrame`: fit, position, scale, inset, limites, frame, overlay, motion e configuração mobile intactos.
@@ -89,3 +89,41 @@ Publicar e verificar apenas o preview da branch, com acesso temporário sem logi
 - Superfícies claras de leitura nas páginas internas preservadas, com cards e navegação atualizados.
 - Verificação automatizada ampliada para destino do atalho de acessibilidade, quatro links da navegação e rota selecionada nos HTML exportados.
 - Limite de QA: navegador disponível sem configuração de viewport. Revisão estrutural de mobile realizada; captura real nas larguras 320/360/390/430 px continua pendente.
+
+## v04 — capas com marcas e seleção de conteúdo
+
+Solicitação de Lucas: substituir capas pouco representativas pelos logos das empresas e mostrar conteúdos com mais interesse dentro dos projetos. A execução continua na mesma branch e no mesmo PR de rascunho.
+
+- Dez capas de projetos passam a usar logos completos, centralizados, com `contain`, fundo de contraste adequado, sem zoom e com proporção compacta de 2:1. Home, arquivo e cards relacionados usam o mesmo componente.
+- Marcas preservadas do acervo: GRU KPOP Anime, Studio E, Josucas Eletrônicos, Metro Case, Oliveira Transportes e Score Business School.
+- Rico Games: logo exato v05 aprovado, recebido do Drive. A versão anterior de distribuidora não foi reutilizada.
+- Eletrotech ISA: vetor original do pacote de logo v01 aprovado, recebido do Drive.
+- Manifesto Bar e Dona Girafa: marcas verificadas nos respectivos sites oficiais. As capas identificam as empresas; os trabalhos de site continuam identificados como conceitos.
+- Duas peças adicionais da Rico: Dia do Cliente e convite ao grupo de promoções. Duas da Eletrotech: controle molhado e transporte de console. São arquivos originais do acervo de Lucas; não são prints recriados nem métricas de resultado.
+- Conteúdos sociais existentes ganham prioridade nas galerias. Legendas explicam a função de peças da Rico, Eletrotech, GRU, Josucas, Metro e Oliveira.
+- Galerias agora permitem abrir o arquivo completo; a hero oferece atalho para os conteúdos e aplicações.
+- Na galeria da Josucas, duas cenas genéricas de assistência/atendimento e o logo repetido deixam de ser exibidos. Os arquivos e dados originais permanecem no repositório.
+- Os tratamentos de hero, enquadramentos individuais e páginas de carreira permanecem preservados. Novos materiais têm versões WebP responsivas.
+- O logo da Oliveira disponível no acervo tem 150 × 150 px; sua exibição fica limitada ao tamanho original, inclusive no mobile.
+
+### Fontes dos materiais adicionais
+
+- Rico, logo v05: https://drive.google.com/file/d/1tm3aRdGbRhzRAdb7rtOOr6JQ0GlnUy2b/view
+- Rico, Dia do Cliente: https://drive.google.com/file/d/14Egy328hBsDyVx4WrCoqrLLZTTi2WEpd/view
+- Rico, grupo de promoções: https://drive.google.com/file/d/1HbA2NxJSbFt6_FhvTUBAFNgxV1Q1KuDG/view
+- Eletrotech, pacote aprovado: https://drive.google.com/file/d/1eOEQBbRVMT-l3pPQFQuny_j8r6Cn8-LS/view
+- Eletrotech, conteúdos originais: “Controle molhado, ação imediata.png” e “Dicas para transportar seu console.png”, acervo Isaiastec de Lucas.
+- Manifesto: https://manifestobar.com.br/bar/ — arquivo original https://manifestobar.com.br/bar/wp-content/uploads/2016/11/logo-icone.png
+- Dona Girafa: https://donagirafaaventais.com.br/ — arquivo original https://imageswscdn.wslojas.com.br/files/23106/PROD_736964528395.jpg
+
+### Limites da seleção
+
+O Instagram da Rico redirecionou para login, impedindo a captura e a comparação confiável dos posts. A seleção usa materiais próprios e relevantes; não é apresentada como ranking de engajamento. Nenhuma curtida, alcance, comentário ou autoria de terceiros foi atribuída a Lucas. A verificação visual em celular real continua pendente porque o navegador desta sessão não permite alterar o viewport.
+
+### Verificação local v04
+
+- `npm run build`: aprovado, 27 rotas geradas pelo Next.
+- `npm run typecheck`: aprovado.
+- `node scripts/check-positioning.mjs`: aprovado; 24 páginas HTML, 352 links internos, imagens originais e responsivas, dez capas de marca, destinos das galerias e 23 URLs no sitemap.
+- Lint continua sem configuração.
+- Deploy: preview automático pela mesma integração GitHub–Vercel; produção permanece em `a52db88fb56492be3312f933262c06167f992e6d`.

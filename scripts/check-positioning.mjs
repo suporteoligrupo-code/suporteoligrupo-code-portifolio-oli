@@ -57,6 +57,18 @@ for (const file of files) {
   for (const [, src] of page.matchAll(/<img[^>]*\ssrc="([^"]+)"/g)) {
     if (src.startsWith("/")) assert.ok(existsSync(path.join(output, src)), `Missing image: ${src}`);
   }
+  for (const [, sources] of page.matchAll(/\bsrcSet="([^"]+)"/gi)) {
+    for (const candidate of sources.split(",")) {
+      const src = candidate.trim().split(/\s+/)[0];
+      if (src.startsWith("/")) assert.ok(existsSync(path.join(output, src)), `Missing responsive image: ${src}`);
+    }
+  }
+}
+const projectIndex = html("cases/index.html");
+assert.equal((projectIndex.match(/case-card__visual--brand/g) ?? []).length, 10, "All project covers identify the company");
+for (const slug of caseSlugs) {
+  const page = html(`cases/${slug}/index.html`);
+  assert.match(page, /id="registros"/, `Gallery shortcut destination: ${slug}`);
 }
 const sitemap = readFileSync(path.join(output, "sitemap.xml"), "utf8");
 assert.equal((sitemap.match(/<loc>/g) ?? []).length, 23);

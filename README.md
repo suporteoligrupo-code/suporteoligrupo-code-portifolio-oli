@@ -9,6 +9,7 @@ Portfólio pessoal de carreira de Lucas de Oliveira Andrade. O site apresenta um
 - página dedicada para cada experiência em `/career/[slug]`;
 - galeria separada de trabalhos visuais em `/cases` e `/cases/[slug]`;
 - dados visuais centralizados em `app/data/cases.ts`;
+- capas com marcas e seleção de conteúdos em `app/data/project-media.ts`, sem alterar as mídias de carreira;
 - galeria de materiais reais e links para projetos publicados;
 - interface visível em português, com a arquitetura de tradução preservada internamente;
 - rotas exportadas estaticamente e compatíveis com Vercel e Sites.

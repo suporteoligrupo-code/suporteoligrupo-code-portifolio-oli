@@ -381,6 +381,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outlin
   background: var(--case-soft);
 }
 .case-card__visual .editorial-media::after { display: none; }
+.case-card__visual--brand { aspect-ratio: 2 / 1; border-bottom: 1px solid var(--line-light); }
 .case-card__open {
   display: none;
 }
@@ -754,6 +755,7 @@ footer p:last-child { justify-self: end; }
 }
 .case-gallery__item:only-child { grid-column: 3 / span 8; }
 .case-gallery__canvas {
+  display: block;
   position: relative;
   width: 100%;
   aspect-ratio: var(--gallery-aspect, 4 / 3);
@@ -763,16 +765,20 @@ footer p:last-child { justify-self: end; }
 }
 .case-gallery__item figcaption {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 12px;
   padding: 13px 2px 0;
   color: rgba(255, 255, 255, 0.62);
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 1.5;
 }
 .case-gallery__item figcaption span { color: rgba(255, 255, 255, 0.78); }
+.case-gallery__item figcaption > div { flex: 1; min-width: 0; }
+.case-gallery__item figcaption strong { color: #efede7; font-size: 13px; font-weight: 650; }
+.case-gallery__item figcaption p { max-width: 56ch; margin: 7px 0 0; color: #a6aaa9; font-size: 13px; font-weight: 400; line-height: 1.65; }
+.case-gallery__hint { margin-left: auto; }
 .case-system {
   display: grid;
   grid-template-columns: minmax(0, 0.62fr) minmax(0, 1fr);
@@ -1292,6 +1298,7 @@ footer p:last-child { justify-self: end; }
   .case-card--standard > a,
   .case-card--compact > a { min-height: 0; }
   .case-card__visual { aspect-ratio: 4 / 3; }
+  .case-card__visual--brand { aspect-ratio: 2 / 1; }
   .case-card__copy { gap: 18px; padding: 20px; }
   .case-card__meta { padding-right: 0; font-size: 9px; line-height: 1.45; }
   .case-card__bottom h3,
