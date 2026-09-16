@@ -37,6 +37,14 @@ for (const file of files) {
   const page = html(file);
   assert.equal((page.match(/<h1[\s>]/g) ?? []).length, 1, `One h1: ${file}`);
   assert.match(page, /lang="pt-BR"/);
+  assert.match(page, /id="main-content"/, `Skip-link target: ${file}`);
+  const dock = page.match(/<nav class="app-dock"[\s\S]*?<\/nav>/)?.[0];
+  assert.ok(dock, `App navigation: ${file}`);
+  assert.equal((dock.match(/<a /g) ?? []).length, 4, `Four route links: ${file}`);
+  for (const destination of ["/", "/career/", "/cases/", "/#contato"]) {
+    assert.ok(dock.includes(`href="${destination}"`), `Missing dock link ${destination}: ${file}`);
+  }
+  if (file !== "404.html") assert.equal((dock.match(/aria-current="page"/g) ?? []).length, 1, `One selected route: ${file}`);
   assert.doesNotMatch(page, /Magazine Torra|Through to the Wolves|Rigel|Rygel|Podpah/);
   for (const [, href] of page.matchAll(/href="([^"?]+)"/g)) {
     if (!href.startsWith("/") || href.startsWith("//")) continue;

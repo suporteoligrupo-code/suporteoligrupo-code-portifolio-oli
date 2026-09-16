@@ -80,7 +80,7 @@ export default function CareerEntryContent({
   return (
     <div className={`career-page career-page--${item.slug}`}>
       <SiteHeader inner />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className={`career-hero${heroMedia ? "" : " career-hero--text"}`}>
           {heroMedia ? (
             <figure className="career-hero__media">

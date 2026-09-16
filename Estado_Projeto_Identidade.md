@@ -1,4 +1,4 @@
-# Lucas + OLI — rascunho de posicionamento v02
+# Lucas + OLI — rascunho de posicionamento v03
 
 ## Estado e autorização
 
@@ -36,7 +36,7 @@ Tecnologia aparece ao lado de games, especialmente em varejo, eletrônicos, celu
 
 ## Ativos bloqueados e preservados
 
-- Base editorial grafite/off-white/laranja, fontes e enquadramentos aprovados.
+- Base grafite/off-white/laranja e enquadramentos preservados. Na v03, Lucas autorizou aproximar a interface de um app gamer/tecnológico discreto, tomando a Rico Games Experience como referência de navegação e organização.
 - Nenhum arquivo de imagem removido, substituído ou criado artificialmente.
 - Capa do Manifesto sai somente da home. Na v02, GRU KPOP Anime substitui Eletrotech na seleção principal, com o enquadramento individual original. Ambas continuam no arquivo.
 - Retrato preservado, com tamanho menor no mobile; focal point intacto.
@@ -46,16 +46,16 @@ Tecnologia aparece ao lado de games, especialmente em varejo, eletrônicos, celu
 - Urly: marca distinta, com compromisso de 10% da renda bruta para proteção animal.
 - Experiências sem confirmação, incluindo música, continuam ocultas.
 - Seleção editorial isolada em `app/data/positioning.ts`; carreira não foi convertida em `PortfolioCase`.
-- CSS da home mantido em `editorial-cleanup.css`; CSS antigo da grande seção de impacto removido de `globals.css`, sem empilhar overrides.
+- CSS da home consolidado em `editorial-cleanup.css`; header, controles e cards compartilhados em `globals.css`. Regras antigas da hero e do menu suspenso removidas, sem acrescentar mais uma folha de overrides.
 
 ## Verificações e limites
 
-- TypeScript e build local: aprovados na v01; repetidos na v02 antes do deploy.
+- TypeScript e build local: aprovados nas v01/v02; repetidos na v03 antes do deploy.
 - Lint: não configurado no projeto. Não declarar como aprovado.
 - Regressão automatizada: `node scripts/check-positioning.mjs`, após o build.
 - Produção existente: home, índices e vinte rotas internas acessados antes da publicação do rascunho.
 - Mobile: regras de 320–430 px revisadas no código; o navegador disponível não oferece alteração de viewport. Validação visual nesses tamanhos e em tablet permanece pendente, sem alegação de teste real.
-- Preview Vercel v01: READY (`4dddc0a`). O acesso sem login foi autorizado por Lucas e testado por link temporário. A v02 será publicada na mesma branch e terá novo link temporário, sem guardar tokens no repositório.
+- Previews anteriores: v01 (`4dddc0a`) e v02 (`b0e78ee`) READY. O acesso sem login foi autorizado por Lucas e testado por link temporário. A v03 usa a mesma branch e terá novo link temporário, sem guardar tokens no repositório.
 - Produção: não alterar nesta etapa.
 
 ## Pendências reais
@@ -76,3 +76,16 @@ Publicar e verificar apenas o preview da branch, com acesso temporário sem logi
 - Atualizar hero, públicos da OLI, trajetória, textos de seleção, contato, rodapé e metadados.
 - Dar destaque a GRU KPOP Anime nos projetos e Divertida Geek nas experiências, mantendo quatro cards em cada seleção da home.
 - Preservar os fatos profissionais, os status de cada trabalho e os tratamentos individuais de mídia.
+
+## v03 — interface de app, autorizada por Lucas
+
+- Referência observada: Rico Games Experience, especialmente barra de navegação, hierarquia dos cards e contraste controlado. Nenhum código ou ativo do outro projeto foi alterado.
+- Home em grafite, cards de superfície elevada e acento laranja OLI. Brilho estático discreto em seleção, foco e hover, sem neon espalhado ou loops.
+- Header reduzido e navegação inferior persistente com quatro destinos reais: início, trajetória, projetos e contato. Seleção acompanha a rota; contato acompanha a visibilidade da seção na home.
+- Navegação compartilhada entre home, índices, vinte páginas internas e 404. Sem menu suspenso ou estado de instalação fictício.
+- Áreas de toque confortáveis, safe area do iPhone e espaço no rodapé para a barra não encobrir o fim das páginas. Viewport e theme color definidos sem bloquear zoom.
+- Títulos menores e mais legíveis, cards em duas colunas no desktop e uma no celular. Retrato em um bloco compacto no mobile, mantendo seu focal point.
+- Ícones pequenos identificam games, tecnologia e cultura pop; não há fotografias novas, carrossel, cursor customizado ou parallax.
+- Superfícies claras de leitura nas páginas internas preservadas, com cards e navegação atualizados.
+- Verificação automatizada ampliada para destino do atalho de acessibilidade, quatro links da navegação e rota selecionada nos HTML exportados.
+- Limite de QA: navegador disponível sem configuração de viewport. Revisão estrutural de mobile realizada; captura real nas larguras 320/360/390/430 px continua pendente.

@@ -24,7 +24,7 @@ export default function CareerIndexContent({ entries }: { entries: CareerEntry[]
   return (
     <div className="site-page career-index-page">
       <SiteHeader inner />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <header className="career-index-hero section-shell">
           <p>{copy.eyebrow}</p>
           <h1>{copy.title}<span>.</span></h1>

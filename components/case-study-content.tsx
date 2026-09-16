@@ -143,7 +143,7 @@ export default function CaseStudyContent({ item, next }: { item: PortfolioCase; 
     <div className={`case-page case-page--${localized.cardTone} case-page--${localized.slug}`} style={style}>
       <SiteHeader inner />
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="case-hero">
           <div className="case-hero__topline">
             <Link href={withLanguage("/#projetos", language)}>

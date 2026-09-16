@@ -1,59 +1,64 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Menu, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { ArrowUpRight, BriefcaseBusiness, House, Layers3, MessageCircle } from "lucide-react";
+import { useEffect, useState } from "react";
 import { siteCopy, withLanguage } from "../app/data/i18n";
 import { useLanguage } from "./language-provider";
 
 export const linkedinUrl = "https://br.linkedin.com/in/lucas-oliveira-790508310";
 
+const destinations = [
+  { label: "Início", href: "/", key: "home", icon: House },
+  { label: "Trajetória", href: "/career", key: "career", icon: BriefcaseBusiness },
+  { label: "Projetos", href: "/cases", key: "cases", icon: Layers3 },
+  { label: "Contato", href: "/#contato", key: "contact", icon: MessageCircle },
+] as const;
+
 export default function SiteHeader({ inner = false }: { inner?: boolean }) {
   const { language } = useLanguage();
   const copy = siteCopy[language].header;
-  const [menuOpen, setMenuOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
-  const toggleRef = useRef<HTMLButtonElement>(null);
-  const navItems = [
-    [copy.journey, "/#trajetoria"],
-    ["Lucas + OLI", "/#oli"],
-    [copy.projects, "/#projetos"],
-    [copy.contact, "/#contato"],
-  ] as const;
+  const pathname = usePathname() ?? "/";
+  const [contactVisible, setContactVisible] = useState(false);
 
   useEffect(() => {
-    if (!menuOpen) return;
-    navRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      setMenuOpen(false);
-      toggleRef.current?.focus();
-    };
-    document.addEventListener("keydown", closeOnEscape);
-    return () => document.removeEventListener("keydown", closeOnEscape);
-  }, [menuOpen]);
+    if (pathname !== "/") return;
+    const contact = document.getElementById("contato");
+    if (!contact) return;
+    const observer = new IntersectionObserver(([entry]) => setContactVisible(entry.isIntersecting), {
+      rootMargin: "-10% 0px -20% 0px",
+    });
+    observer.observe(contact);
+    return () => observer.disconnect();
+  }, [pathname]);
+
+  const active = pathname.startsWith("/career") ? "career"
+    : pathname.startsWith("/cases") ? "cases"
+    : pathname === "/" ? (contactVisible ? "contact" : "home") : null;
 
   return (
-    <header className={`site-header${inner ? " site-header--inner" : ""}`}>
-      <Link className="brand" href={withLanguage("/", language)} aria-label={copy.homeLabel}>
-        <span className="brand-name">Lucas de Oliveira Andrade</span>
-      </Link>
-
-      <nav ref={navRef} className={`site-header__nav${menuOpen ? " is-open" : ""}`} id="site-navigation" aria-label={copy.navLabel}>
-        {navItems.map(([label, href]) => (
-          <Link href={withLanguage(href, language)} key={href} onClick={() => setMenuOpen(false)}>{label}</Link>
+    <>
+      <a className="skip-link" href="#main-content">Ir para o conteúdo</a>
+      <header className={`site-header${inner ? " site-header--inner" : ""}`}>
+        <Link className="brand" href={withLanguage("/", language)} aria-label={copy.homeLabel}>
+          <span className="brand-name">Lucas de Oliveira Andrade</span>
+        </Link>
+        <div className="header-actions">
+          <Link className="header-about" href={withLanguage("/#oli", language)}>Lucas + OLI</Link>
+          <a className="header-cta" href={linkedinUrl} target="_blank" rel="noreferrer" aria-label={copy.profileCta}>
+            <span className="header-cta-label">LinkedIn</span><ArrowUpRight aria-hidden="true" size={16} />
+          </a>
+        </div>
+      </header>
+      <nav className="app-dock" aria-label={copy.navLabel}>
+        {destinations.map(({ label, href, key, icon: Icon }) => (
+          <Link key={key} href={withLanguage(href, language)} className={active === key ? "is-active" : undefined}
+            aria-current={active === key ? (key === "contact" ? "location" : "page") : undefined}>
+            <Icon aria-hidden="true" size={19} strokeWidth={1.7} /><span>{label}</span>
+          </Link>
         ))}
       </nav>
-
-      <div className="header-actions">
-        <a className="header-cta" href={linkedinUrl} target="_blank" rel="noreferrer" aria-label={copy.profileCta}>
-          <span className="header-cta-label">LinkedIn</span>
-          <ArrowUpRight aria-hidden="true" size={14} />
-        </a>
-        <button ref={toggleRef} className="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded={menuOpen} aria-label={menuOpen ? copy.closeMenu : copy.openMenu} onClick={() => setMenuOpen((current) => !current)}>
-          {menuOpen ? <X aria-hidden="true" size={18} /> : <Menu aria-hidden="true" size={18} />}
-        </button>
-      </div>
-    </header>
+    </>
   );
 }

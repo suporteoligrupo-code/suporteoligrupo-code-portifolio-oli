@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Cpu, Gamepad2, Orbit } from "lucide-react";
 import { useEffect } from "react";
 import type { CareerEntry } from "../app/data/career";
 import { publicCases } from "../app/data/cases";
@@ -17,6 +17,8 @@ const selectedProjects = homeProjectSlugs
   .map((slug) => publicCases.find((item) => item.slug === slug))
   .filter((item): item is (typeof publicCases)[number] => Boolean(item));
 
+const audienceIcons = [Gamepad2, Cpu, Orbit] as const;
+
 export default function HomeContent({ featuredCareerEntries }: { featuredCareerEntries: CareerEntry[] }) {
   const { language } = useLanguage();
   const copy = siteCopy[language].home;
@@ -24,9 +26,9 @@ export default function HomeContent({ featuredCareerEntries }: { featuredCareerE
   useEffect(() => { document.title = copy.pageTitle; }, [copy.pageTitle]);
 
   return (
-    <div className="site-page site-page--editorial">
+    <div className="site-page site-page--app">
       <SiteHeader />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="hero-shell hero-shell--clean" id="inicio">
           <div className="hero-stage hero-stage--clean section-shell">
             <div className="hero-content hero-content--clean">
@@ -41,7 +43,7 @@ export default function HomeContent({ featuredCareerEntries }: { featuredCareerE
             </div>
             <aside className="hero-portrait" aria-label="Lucas de Oliveira Andrade">
               <img src="/lucas-linkedin.jpg" alt="Lucas de Oliveira Andrade" width={200} height={200} />
-              <span>Na operação da Rico Games desde 2010</span>
+              <div className="hero-portrait__caption"><strong>Lucas Oliveira</strong><span>Na operação da Rico Games desde 2010</span></div>
             </aside>
           </div>
         </section>
@@ -66,7 +68,10 @@ export default function HomeContent({ featuredCareerEntries }: { featuredCareerE
           <div className="oli-positioning__body"><p>{oliPositioning.text}</p><p>{oliPositioning.scope}</p></div>
           <div className="oli-audiences">
             <h3>{oliPositioning.audienceTitle}</h3>
-            <dl>{oliPositioning.audiences.map((audience) => <div key={audience.title}><dt>{audience.title}</dt><dd>{audience.text}</dd></div>)}</dl>
+            <dl>{oliPositioning.audiences.map((audience, index) => {
+              const Icon = audienceIcons[index];
+              return <div key={audience.title}><dt>{Icon ? <Icon aria-hidden="true" size={22} strokeWidth={1.6} /> : null}{audience.title}</dt><dd>{audience.text}</dd></div>;
+            })}</dl>
           </div>
         </section>
 

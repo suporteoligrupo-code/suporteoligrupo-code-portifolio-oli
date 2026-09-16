@@ -1,9 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { LanguageProvider } from "../components/language-provider";
 import "./globals.css";
 import "./editorial-cleanup.css";
 
 const siteUrl = "https://portfolio-oli-taupe.vercel.app";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#0e1116",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
